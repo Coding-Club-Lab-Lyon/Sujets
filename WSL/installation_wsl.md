@@ -16,3 +16,8 @@ wsl --set-default-version 2
 
 ### Download Windows Terminal
 <a href = "https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab">Download Windows Terminal</a>
+
+#### Convert WSL 1 to WSL 2
+```POWERSHELL
+wsl.exe --set-version Ubuntu 2
+```
