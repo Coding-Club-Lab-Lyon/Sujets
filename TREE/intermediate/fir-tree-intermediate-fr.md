@@ -4,7 +4,7 @@ level: "Intermediate"
 language: "Python"
 ---
 
-Le but du projet est de réaliser un arbre avec différents niveaux donnéees en paramètres.
+Le but du projet est de réaliser un arbre avec différents niveaux données en paramètres.
 
 ![](assets/one.png)
 ![](assets/two.png)
