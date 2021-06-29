@@ -1,0 +1,192 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{/template/configs/base}
+
+\begin{document}
+
+\Init{Pydiluve}{Juste avant la piscine}{290621}{1.0}
+\InitInfo{pydiluve}{Bash, Python3}{turtle}
+
+\Hypersetup
+
+\Cover
+\Intro{
+    
+    {\comfortaa
+        Il faisait chaud, les vacances approchaient, les bars et restaurants rouvraient
+        la période la plus dure de l'année est maintenant derrière nous.
+        Tu l'as trouvé, tu as patienté en faisant la queue tu as même dû lacher
+        un gros billet pour rentrer mais il reste une dernière chose à faire avant
+        d'entrer en Piscine,
+        \newline
+        \underline{passer par la Pédiluve}.
+
+        \ImageCenter{pediluve_obligatoire.jpg}{200}
+
+        La municipalité d'Epitech vous a construit une piscine de qualité dans laquelle
+        vous allez pouvoir faire du sale. Mais remettons les choses à plats. Avant de
+        se jeter en bombe, il faut s'assurer que l'on a bien les pieds propres.
+        Ce serait bête d'attirer microbes et moustiques.
+
+    }
+}
+
+\section{Pied Droit : Bash}
+
+{\comfortaa
+    \ImageCenter{bash_logo.jpg}{100}
+
+    Bash pour Bourne-Again Shell est un interpreteur de commandes très connu et très utilisé sur Linux. Même si aujourd'hui
+    certains de ces petits frères tels que ZSH ou encore Fish tendent à le remplacer, il reste important tant
+    son arrivée a standardisé la façon de communiquer avec son environnement Linux.
+    \newline \newline
+    On tape une commande et Bash va exécuter pour nous le logiciel correspondant
+    (Tu comprendras tout ça une fois dans le grand bain)
+
+    \Terminal{
+        \$ echo "Hello World" \\
+        Hello World
+    }
+    \vspace{0.6cm}
+
+    Tu seras invité à chercher par toi même les outils et commandes
+    qui te serviront à bien laver ton pied droit. Ceci dit nous allons
+    quand même
+    \newline
+    exceptionellement t'en indiquer quelques uns et encore
+    on ne sera pas complet.
+
+    \Hint{Google est ton ami !}
+    
+    \begin{tabular}{|p{2cm}|p{14cm}|} 
+        \hline
+        ls & lister les fichiers présents à ton emplacement \\
+        \hline
+        cd & se déplacer jusqu'à un dossier \\
+        \hline
+        pwd & savoir où te situe \\
+        \hline
+        chmod & gérer les permissions d'un fichier \\
+        \hline
+        clear & remettre l'affichage à 0 \\
+        \hline
+        sudo & qui s'accompagne d'une commande, l'exécute avec les droits administrateurs \\
+        \hline
+        touch & créer un fichier \\
+        \hline
+        mkdir & créer un dossier \\
+        \hline
+        rm & supprimer un fichier \\
+        \hline
+        rmdir & supprimer un dossier \\
+        \hline
+        mv & déplacer un fichier ou un dossier \\
+        \hline
+    \end{tabular}
+
+    Il faut savoir que lorsque qu'une commande est exécutée, elle peut être amenée à nous afficher
+    des informations. Mais avant tout, à la fin de son exécution elle nous renvoie un statut
+    sous la forme d'un nombre entier positif. C'est ce nombre qui nous permet directement de
+    vérifier qu'une commande à été exécutée avec succès (si son statut est égal à 0).
+
+    \subsection{getStatus}
+
+    Lors de ton passage par la pédiluve, on va devoir vérifier l'état des pieds de tous les
+    aventuriers. On va donc créer de quoi effectuer ces verifications.
+    \newline \newline
+    On va procéder de la manière suivante :
+    \newline \newline
+    On récupère le statut de la dernière commande. Si la commande
+    s'est exécutée avec succès alors on affiche "Les pieds sont propres !"
+    S'il y a eu un problème on affiche "T'as de ces ieps chacal..."
+    \newline \newline
+
+    Exemple :
+
+    \Terminal{
+        ls                          \\
+        ticket                      \\
+        \$> ./getStatus                   \\
+        Les pieds sont propres !    \\
+    }
+
+    Ou encore :
+
+    \Terminal{
+        ls dossier-qui-nexiste-pas                                              \\
+        ls: cannot access 'dossier-qui-nexiste-pas': No such file or directory  \\
+        \$> ./getStatus                                                               \\
+        T'as de ces ieps chacal...                                              \\
+    }
+
+    \Warning{N'oublie pas de régulièrement pousser ton travail sur Git ! De mauvaises surprises peuvent t'attendre et causer ta noyade}
+
+    \subsection{countCharo}
+
+    Les pieds des aventuries semblent aussi propres que le crâne de Mr Propre.
+    On dirait que ton outil fonctionne bien. Alors on va l'améliorer en règlant
+    un autre problème !
+    \newline \newline
+    Dans notre piscine se rendent aussi certaines jolies demoiselles qui viennent pricipalement
+    d'ISEG City. Et nous avons pensé à elles en prenant soin de leur mettre à disposition d'autres vestiaires
+    afin de respecter leur intimité. Or on peut régulièrement apercevoir des aventuriers d'Epitech
+    entrer et sortir dans les mauvais vestiaires.
+    \newline \newline
+    On les appelle les \underline{Charos}
+    \newline \newline
+    Afin de les arrêter, il va falloir scanner les vestiaires "Epitech" et "ISEG" et vérifier qui s'y trouve.
+    \newline
+    \begin{itemize}
+        \item Toutes les personnes dont le prénom se termine par la lettre 'a' sont des aventuriers d'Epitech
+        \item Ceux dont le prénom se termine par la lettre 'z' sont des jolies demoiselles d'ISEG City
+        \item Ceux ne correspondant à aucun des 2 critères sont des instrus et il faut appeler le videur pour les chasser.
+    \end{itemize}
+
+    \vspace{0.6cm}
+
+    Il faut que tu compte le nombre d'aventuriers d'Epitech présents dans le mauvais vestiaire et que
+    tu renvoie ce nombre en tant que statut.
+    \newline \newline
+    Dans ce premier exemple, le statut doit être égal à 0
+
+    \Terminal{
+        ls                                              \\
+        Epitech/ ISEG/                                  \\
+        \$> ls Epitech/                                 \\
+        Grisha Koba Luca                                \\
+        \$> ls ISEG/                                    \\
+        Mariz Fatimaz Zazouz                            \\
+        \$> ./countCharo                                \\
+    }
+    
+    \vspace{4cm}
+    Dans ce deuxième exemple, le statut doit être égal à 2 (les pauvres demoiselles)
+    
+    \Terminal{
+        ls Epitech/ ISEG/                               \\
+        Epitech/: Grisha                                \\
+        ISEG/: Mariz Fatimaz Zazouz Koba Luca           \\
+        \$> ./countCharo                                \\
+    }
+
+    Dans ce troisième exemple, le statut doit être égal à 1 et certains participants doivent être
+    renvoyés
+    
+    \Terminal{
+        ls -R                                           \\
+        Epitech: Grisha Luca Mehdi                      \\
+        ISEG: Mariz Fatimaz Zazouz Koba Jose            \\
+        \$> ./countCharo                                \\
+        \$> ls -R                                       \\
+        Epitech: Grisha Luca                            \\
+        ISEG: Mariz Fatimaz Zazouz Koba                 \\
+    }
+}
+
+\section{Pied Gauche : Python}
+
+{\comfortaa
+
+}
+
+\end{document}
