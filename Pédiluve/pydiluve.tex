@@ -24,10 +24,17 @@
         \ImageCenter{pediluve_obligatoire.jpg}{200}
 
         La municipalité d'Epitech vous a construit une piscine de qualité dans laquelle
-        vous allez pouvoir faire du sale. Mais remettons les choses à plats. Avant de
-        se jeter en bombe, il faut s'assurer que l'on a bien les pieds propres.
+        vous allez pouvoir faire du sale, mais remettons les choses à plats:
+        \newline
+        Avant de se jeter en bombe, il faut s'assurer que l'on a bien les pieds propres.
         Ce serait bête d'attirer microbes et moustiques.
-
+        \newline \newline
+        Aujourd'hui nous allons apprendre à utiliser un shell Linux et à développer des
+        algorithmes complexes en Python car il est très important de savoir les 2
+        pour bien gérer une Piscine.
+        \newline \newline
+        Tu ne vois pas de rapport ? 
+        Et bien crois moi tu vas le voir arriver de très loin.
     }
 }
 
@@ -44,7 +51,7 @@
     (Tu comprendras tout ça une fois dans le grand bain)
 
     \Terminal{
-        \$ echo "Hello World" \\
+        echo "Hello World" \\
         Hello World
     }
     \vspace{0.6cm}
@@ -80,14 +87,71 @@
         \hline
         rmdir & supprimer un dossier \\
         \hline
-        mv & déplacer un fichier ou un dossier \\
+        mv & déplacer ou rennomer un fichier ou un dossier \\
         \hline
     \end{tabular}
 
-    Il faut savoir que lorsque qu'une commande est exécutée, elle peut être amenée à nous afficher
-    des informations. Mais avant tout, à la fin de son exécution elle nous renvoie un statut
-    sous la forme d'un nombre entier positif. C'est ce nombre qui nous permet directement de
-    vérifier qu'une commande à été exécutée avec succès (si son statut est égal à 0).
+    Ces commandes sont en réalité des programmes eux aussi. Donc faire ça:
+
+    \Terminal{
+        ls                          \\
+        fichier-lol dossier-omg/
+    }
+    Revient à faire ça :
+    \Terminal{
+        /bin/./ls                   \\
+        fichier-lol dossier-omg/
+    }
+    \vspace{0.6cm}
+
+    Sans vraiment rentrer dans les détails (afin que tu le fasse par toi-même),
+    il faut comprendre que toutes les commandes basiques sont des programmes placés dans des
+    dossiers spécifiques où Bash ira chercher en priorité ce que tu lui demande de faire.
+    \newline \newline
+    Les scripts que tu t'apprête à coder ne seront pas (encore) dans ces dossiers spécifiques.
+    Par conséquent tu devra mettre "./" (un point et un slash) devant le chemin vers ton programme :
+
+    \Terminal{
+        ls                          \\
+        discord fortnite valorant   \\
+        \$> ./discord
+    }
+
+    Normalement tout programme (fichier ayant les droits d'exécution) trouvé via "ls" est censé s'afficher en vert
+    \newline \newline
+    
+    \Hint{
+        Si tu es dépourvu de couleur, tu peux te repérer en faisant "ls -l".
+        Il faut alors que tu vérifies le 4e caractère au début de la ligne de ton fichier
+        soit bien 'x' et non pas '-'.
+    }
+    \vspace{3cm}
+    
+    \Terminal{
+        ls -l                                               \\
+        total 3                                             \\
+        -rwxr-xr-x 1 toi toi  33156 Jun 29 00:38 fortnite   \\
+        -rwxr-xr-x 1 toi toi    137 Jun 29 00:38 discord    \\
+        -rw-r--r-- 1 toi toi   7158 Jun 28 21:54 valorant
+    }
+
+    Du coup, on peut constater que "valorant" risque de ne pas s'exécuter.
+    \newline
+    Pour régler ce problème on doit lui donner les droits d'exécution !
+    
+    \vspace{0.6cm}
+    \Hint{Et si on demandait à Google comment faire ça ?}
+    
+    \vspace{0.6cm}
+
+    \ImageCenter{google_research.jpg}{150}
+
+    \vspace{2cm}
+    Il y a une dernière chose à savoir : lorsque qu'un programme est exécuté, il peut être amené à nous afficher
+    des informations directement sur le terminal mais à la fin de son exécution il nous renvoie systématiquement un statut
+    sous la forme d'un nombre entier positif. C'est ce nombre qui nous permet de
+    vérifier qu'un programme à été exécutée avec succès (si son statut est égal à 0).
+    \vspace{4cm}
 
     \subsection{getStatus}
 
@@ -118,8 +182,12 @@
         \$> ./getStatus                                                               \\
         T'as de ces ieps chacal...                                              \\
     }
+    
+    \Hint{T'as déjà entendu parler des Shebangs}
 
     \Warning{N'oublie pas de régulièrement pousser ton travail sur Git ! De mauvaises surprises peuvent t'attendre et causer ta noyade}
+
+    \vspace{3cm}
 
     \subsection{countCharo}
 
@@ -156,7 +224,7 @@
         Grisha Koba Luca                                \\
         \$> ls ISEG/                                    \\
         Mariz Fatimaz Zazouz                            \\
-        \$> ./countCharo                                \\
+        \$> ./countCharo
     }
     
     \vspace{4cm}
@@ -166,7 +234,7 @@
         ls Epitech/ ISEG/                               \\
         Epitech/: Grisha                                \\
         ISEG/: Mariz Fatimaz Zazouz Koba Luca           \\
-        \$> ./countCharo                                \\
+        \$> ./countCharo
     }
 
     Dans ce troisième exemple, le statut doit être égal à 1 et certains participants doivent être
@@ -179,14 +247,156 @@
         \$> ./countCharo                                \\
         \$> ls -R                                       \\
         Epitech: Grisha Luca                            \\
-        ISEG: Mariz Fatimaz Zazouz Koba                 \\
+        ISEG: Mariz Fatimaz Zazouz Koba
     }
+
+    \subsection{cloackroomCleaner}
+
+    \subsubsection{Chacun dans ces propres vestiaires}
+
+    Ce problème n'a pas été simple à régler mais tu y es partiellement parvenu bravo !
+    Il est temps de finir le travail en beauté en redirigeant tous nos clients
+    dans les bons vestiaires, toujours en renvoyant les intrus.
+    \newline \newline
+    Le staut devra être 0 dorénavant.
+    \newline \newline
+    
+    Exemple :
+    \Terminal{
+        ls -R                                           \\
+        Epitech: Grisha Luca                            \\
+        ISEG: Mariz Fatimaz Zazouz Koba                 \\
+        \$> ./cloackroomCleaner                         \\
+        \$> ls -R                                       \\
+        Epitech: Grisha Luca Koba                       \\
+        ISEG: Mariz Fatimaz Zazouz
+    }
+    \vspace{1cm}
+    
+    Ou encore, avec un intru en supplément :
+    \Terminal{
+        ls -R                                           \\
+        Epitech: Mariz Fatimaz Zazouz Giroud            \\
+        ISEG: Grisha Luca Koba                          \\
+        \$> ./cloackroomCleaner                         \\
+        \$> ls -R                                       \\
+        Epitech: Grisha Luca Koba                       \\
+        ISEG: Mariz Fatimaz Zazouz
+    }
+    
+    \vspace{2cm}
+    
+    \subsubsection{Chasser les Méga-Charos}
+
+    Nous n'avons jusque là rencontré que des petits Charos. Il est maintenant
+    temps de se confronter aux VRAIS. Ceux-là sont des professionels
+    et "n'ont pas le temps de niaiser" comme ils disent. Ils représentent
+    une menace importante pour notre Piscine et doivent être chassés au même titre
+    que les intrus.
+    \newline \newline
+    Ouvre bien les yeux car ils ont tendances à se cacher dans les vestiaires.
+
+    \Hint{"ls" n'a pas encore dit son dernier mot}
+
+    \vspace{6cm}
+
+    \ImageCenter{bravo.png}{150}
+
+    Félicitations !
+    Tu as réussi à faire régner l'ordre dans notre Piscine le tout en nettoyant ton pied droit.
+    Il nous reste encore du chemin à faire mais cette fois-ci avec le 2e pied.
+
+    \vspace{2cm}
+    
+    \subsection{Bonus}
+    Juste avant de passer à la suite je te propose de faire de tes programmes des commandes
+    Si tu te rappelle encore de ce que je te disais au début par rapport aux programmes
+    tu dois sûrement te rappeler que les commandes sont trouvées car présentes dans des dossiers
+    spécifiques. Nous allons donc rajouter parmis les dossier spécifiques le dossier actuel dans lequel tu
+    te situe. Ainsi tes commandes pourront être lancées depuis n'importe où.
+    \newline \newline
+    On va ajouter ton dossier dans les dossiers prioritaires puis redémarrer ton shell
+
+    \Terminal{
+        echo "export PATH=\$(pwd):\$PATH" >> ~/.bashrc    \\
+        source ~/.bashrc
+    }
+    \vspace{4cm}
 }
+
 
 \section{Pied Gauche : Python}
 
 {\comfortaa
+    Je vois que tu es un dûr qui n'a pas peur d'affronter les problèmes.
+    La complexité va monter d'un cran mais je te rassure tes moyens aussi.
+    \newline \newline
+    Maintenant que tu maîtrise Bash je te propose de passer à Python.
 
+    Avant même de commencer à coder je dois te parler des paquets :
+    \newline \newline
+    Il s'agit de logiciels que tu peux installer depuis des répertoires distants à l'aide
+    de Gestionnaires de Paquets. La distribution Linux sur laquelle tu te situe en est
+    forcément pourvoue d'une. Nous partons du principe que tu es sur Ubuntu et dans ce
+    cas le package manager est "apt". Tu dois te demander pourquoi je te parle de ça ?
+    \newline
+    C'est parce que sur Linux (du moins certaines de ces distributions) tu commences avec rien
+    et tu dois par conséquent tout installer, y compris Python par exemple.
+
+    Si tu es sur Ubuntu Python est normalement déjà installé et ça peut se vérifier :
+
+    \Terminal{
+        python3 -\--version
+    }
+
+    Si tu ne possède pas Python alors tu peut l'installer via ton Gestionnaire de Paquets
+    Commence à mettre à jour tes paquets et installe python3
+
+    \Terminal{
+        sudo apt update                 \\
+        \$> sudo apt upgrade            \\
+        \$> sudo apt install python3
+    }
+
+    \subsection{octogon}
+
+    \ImageCenter{assets/one.png}{100}
+    \ImageCenter{assets/two.png}{300}
+
+    Il sera important de tester le binaire fournis afin de comprendre la logique.
+
+    \Warning{La fonction suivante vous sera demandée !}
+    \Terminal{def printcircle(radius):}
+    Cette fonction devra calculer et afficher chaques parties du cercle.
+    \Warning{N'oubliez surtout pas d'inclure la librairie de math !}
+
+    \subsection{fractal}
+
+    
+    La \textbf{turtle} est une librarie Python pré-installée qui permet aux utilisateur de dessiner différente forme sur une toile blanche.
+
+    \Terminal{
+    \\
+    import turtle\\
+
+    pen = turtle.Turtle()\\
+    screen = turtle.Screen()\\
+    \\
+    t.forward(50)\\
+    t.up()\\
+    t.forward(50)\\
+    t.down()\\
+    t.forward(50)
+    }
+
+    \Warning{
+    Ce code est un exemple tres simpliste, il vous montre seulement quelque fonction de \textbf{turtle}. 
+    En plus on a même pas le temps de voir le résultat...
+    }
+
+    \Hint{Déjà entendu parler d'une mainloop ?}
+
+    \ImageCenter{assets/tree.png}{200}
 }
 
 \end{document}
