@@ -24,13 +24,13 @@
         \ImageCenter{pediluve_obligatoire.jpg}{200}
 
         La municipalité d'Epitech vous a construit une piscine de qualité dans laquelle
-        vous allez pouvoir faire du sale, mais remettons les choses à plats:
+        tu vas pouvoir faire du sale, mais remettons les choses à plats:
         \newline
         Avant de se jeter en bombe, il faut s'assurer que l'on a bien les pieds propres.
         Ce serait bête d'attirer microbes et moustiques.
         \newline \newline
         Aujourd'hui nous allons apprendre à utiliser un shell Linux et à développer des
-        algorithmes complexes en Python car il est très important de savoir les 2
+        algorithmes complexes en Python car il est très important de savoir faire les 2
         pour bien gérer une Piscine.
         \newline \newline
         Tu ne vois pas de rapport ? 
@@ -87,7 +87,7 @@
         \hline
         rmdir & supprimer un dossier \\
         \hline
-        mv & déplacer ou rennomer un fichier ou un dossier \\
+        mv & déplacer ou renomer un fichier ou un dossier \\
         \hline
     \end{tabular}
 
@@ -150,7 +150,7 @@
     Il y a une dernière chose à savoir : lorsque qu'un programme est exécuté, il peut être amené à nous afficher
     des informations directement sur le terminal mais à la fin de son exécution il nous renvoie systématiquement un statut
     sous la forme d'un nombre entier positif. C'est ce nombre qui nous permet de
-    vérifier qu'un programme à été exécutée avec succès (si son statut est égal à 0).
+    vérifier qu'un programme a été exécuté avec succès (si son statut est égal à 0).
     \vspace{4cm}
 
     \subsection{getStatus}
@@ -183,9 +183,12 @@
         T'as de ces ieps chacal...                                              \\
     }
     
-    \Hint{T'as déjà entendu parler des Shebangs}
+    \Hint{T'as déjà entendu parler des Shebangs ?}
 
-    \Warning{N'oublie pas de régulièrement pousser ton travail sur Git ! De mauvaises surprises peuvent t'attendre et causer ta noyade}
+    \Warning{
+        N'oublie pas de régulièrement pousser ton travail sur Git !
+        De mauvaises surprises peuvent t'attendre et causer ta noyade sinon
+    }
 
     \vspace{3cm}
 
@@ -250,6 +253,9 @@
         ISEG: Mariz Fatimaz Zazouz Koba
     }
 
+    
+    \vspace{10cm}
+
     \subsection{cloackroomCleaner}
 
     \subsubsection{Chacun dans ces propres vestiaires}
@@ -298,7 +304,7 @@
 
     \Hint{"ls" n'a pas encore dit son dernier mot}
 
-    \vspace{6cm}
+    \vspace{15cm}
 
     \ImageCenter{bravo.png}{150}
 
@@ -309,18 +315,17 @@
     \vspace{2cm}
     
     \subsection{Bonus}
-    Juste avant de passer à la suite je te propose de faire de tes programmes des commandes
+    Juste avant de passer à la suite je te propose de faire de tes programmes de vraies commandes.
     Si tu te rappelle encore de ce que je te disais au début par rapport aux programmes
-    tu dois sûrement te rappeler que les commandes sont trouvées car présentes dans des dossiers
-    spécifiques. Nous allons donc rajouter parmis les dossier spécifiques le dossier actuel dans lequel tu
-    te situe. Ainsi tes commandes pourront être lancées depuis n'importe où.
+    tu dois sûrement te rappeler que les commandes sont trouvées si elles sont présentes dans des dossiers
+    spécifiques. Nous allons donc rajouter parmis les dossiers spécifiques le dossier dans lequel se
+    situe tes scripts. Ainsi tes commandes pourront être lancées depuis n'importe où.
     \newline \newline
     On va ajouter ton dossier dans les dossiers prioritaires puis redémarrer ton shell
 
-    \Terminal{
-        echo "export PATH=\$(pwd):\$PATH" >> ~/.bashrc    \\
-        source ~/.bashrc
-    }
+    \ImageCenter{bashcommand.jpg}{30}
+    \Terminal{cd \&\& source .bashrc}
+
     \vspace{4cm}
 }
 
@@ -338,18 +343,20 @@
     Il s'agit de logiciels que tu peux installer depuis des répertoires distants à l'aide
     de Gestionnaires de Paquets. La distribution Linux sur laquelle tu te situe en est
     forcément pourvoue d'une. Nous partons du principe que tu es sur Ubuntu et dans ce
-    cas le package manager est "apt". Tu dois te demander pourquoi je te parle de ça ?
+    cas le gestionnaire de paquets est "apt". 
+    \newline\newline
+    Tu dois te demander pourquoi je te parle de ça ?
     \newline
-    C'est parce que sur Linux (du moins certaines de ces distributions) tu commences avec rien
-    et tu dois par conséquent tout installer, y compris Python par exemple.
-
-    Si tu es sur Ubuntu Python est normalement déjà installé et ça peut se vérifier :
+    C'est parce que sur Linux (du moins certaines de ces distributions) tu commences avec très
+    peu de paquets et tu dois tout installer toi même, y compris Python par exemple.
+    \newline \newline
+    Si tu es sur Ubuntu, alors Python est normalement déjà installé et ça peut se vérifier :
 
     \Terminal{
         python3 -\--version
     }
 
-    Si tu ne possède pas Python alors tu peut l'installer via ton Gestionnaire de Paquets
+    Si tu ne possède pas Python alors tu peut l'installer via ton gestionnaire de paquets. \\
     Commence à mettre à jour tes paquets et installe python3
 
     \Terminal{
@@ -358,22 +365,76 @@
         \$> sudo apt install python3
     }
 
-    \subsection{octogon}
+    \vspace{3cm}
 
-    \ImageCenter{assets/one.png}{100}
+    \subsection{Pédiluve Circulaire}
+
+    Les pédiluves telles qu'ont les connait ont généralement une forme carrée. Mais
+    nous, on va casser les codes !
+    L'idéal serait d'avoir une forme plutôt circulaire comme celle-ci.
+    
+    \ImageCenter{cercle.png}{100}
+
+    Mais évidemment, maintenant qu'on sait que l'informatique est dans tes veines, on va attendre
+    une chose supplémentaire de toi, et pas des moindres :
+    \newline \newline
+    \begin{center}
+        {\huge La rigueur !}
+    \end{center}
+    \vspace{1cm}
+    
+    C'est à dire qu'on va attendre de toi que le produit fonctionne exactement comme on le souhaite.
+    Au caractère près, aucun détail ne doit t'échapper !
+    \newline \newline
+    Mais nous ne sommes par barbares pour autant, nous te fournissons un exécutable exemple dont tu dois
+    méticuleusement copier le comportement
+
+    \ImageCenter{assets/one.png}{170}
+
     \ImageCenter{assets/two.png}{300}
 
     Il sera important de tester le binaire fournis afin de comprendre la logique.
 
-    \Warning{La fonction suivante vous sera demandée !}
+    \Warning{La fonction suivante te sera demandée !}
     \Terminal{def printcircle(radius):}
     Cette fonction devra calculer et afficher chaques parties du cercle.
     \Warning{N'oubliez surtout pas d'inclure la librairie de math !}
-
-    \subsection{fractal}
-
     
-    La \textbf{turtle} est une librarie Python pré-installée qui permet aux utilisateur de dessiner différente forme sur une toile blanche.
+    \vspace{2cm}
+
+    \subsection{La pousse des algues}
+
+    Comme on l'a vu plutôt, tous les pieds sont propres en sortant de la pédiluve, mais cela signifie en contre-partie
+    que tous leurs microbes sont restés dans la pédiluve. Or tu n'es peut-être pas sans savoir que dans la nature
+    il existe des micro-organismes qui se délectent de ces microbes : Il s'agit des Zooplanctons.
+    \newline \newline
+
+    \ImageCenter{zooplacton.png}{120}
+
+    Dans la mer leur existence est primordiale pour la chaîne alimentaire marine. Mais dans notre piscine, ils présentent une gêne
+    car ils peuvent favoriser l'apparition d'algues, et c'est pas ce que l'on souhaite (bien que les poiscailles soient nos amis).
+    Le but ne va pas être de les éliminer mais de prévoir leurs croissances qui est assez particulière.
+    \newline\newline
+
+    \ImageCenter{fractals_algues.jpg}{170}
+    
+    Comme on peut le voir ci-dessus leur forme est fait d'un motif qui est imbriqué dans ce même motif qui est
+    lui même imbriqué dans ce même motif et ce à l'infini.
+    
+    \vspace{3cm}
+
+    On appelle ça :
+    \begin{center}
+        {\huge Une fractale !}
+    \end{center}
+    \vspace{0.5cm}
+
+    \ImageCenter{fractale_exemple.jpg}{170}
+
+    Le but va être de reproduire graphiquement cette forme fractale et d'observer l'évolution de nos algues.
+    Là aussi tes moyens vont être améliorés car tu vas pouvoir utiliser \href{https://docs.python.org/fr/3/library/turtle.html}{Turtle}
+    \newline \newline
+    \textbf{Turtle} est une librarie Python pré-installée qui permet aux utilisateurs de dessiner différentes formes sur une toile blanche.
 
     \Terminal{
     \\
@@ -390,13 +451,33 @@
     }
 
     \Warning{
-    Ce code est un exemple tres simpliste, il vous montre seulement quelque fonction de \textbf{turtle}. 
-    En plus on a même pas le temps de voir le résultat...
+    Ce code est un exemple tres simpliste, il te montre seulement quelques fonctions de \textbf{turtle}. 
+    En plus, on a même pas le temps de voir le résultat...
     }
+
+    \Warning{La fonction suivante te sera demandée !}
+    \Terminal{def fractal(time):}
+    Cette fonction devra calculer et afficher chaque branche de l'algue.
+    \newline \newline
+    Par exemple :
+
+    \Terminal{./fractal 8}
+    Va donner ça :
+    \ImageCenter{assets/tree.png}{200}
 
     \Hint{Déjà entendu parler d'une mainloop ?}
 
-    \ImageCenter{assets/tree.png}{200}
+}
+
+\vspace{5cm}
+
+\section{Félicitations}
+
+{\comfortaa
+    Tu viens de passer cette pédiluve avec succès. Prépare le tuba, les brassards et le bonnet de bain
+    , la piscine t'attends désormais !
+
+    \ImageCenter{piscine.jpg}{200}
 }
 
 \end{document}

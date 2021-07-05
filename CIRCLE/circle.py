@@ -11,5 +11,9 @@ def print_circle(rad):
             else:
                 print(" ",end="")
         print()
-rad = int(sys.argv[1])
-print_circle(rad)
+
+if len(sys.argv) == 1:
+    print("Usage : ./circle [rayon]")
+else:
+    rad = int(sys.argv[1])
+    print_circle(rad)
