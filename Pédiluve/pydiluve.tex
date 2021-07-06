@@ -170,7 +170,7 @@
     \Terminal{
         ls                          \\
         ticket                      \\
-        \$> ./getStatus                   \\
+        \$> ./getStatus \$?          \\
         Les pieds sont propres !    \\
     }
 
@@ -179,7 +179,7 @@
     \Terminal{
         ls dossier-qui-nexiste-pas                                              \\
         ls: cannot access 'dossier-qui-nexiste-pas': No such file or directory  \\
-        \$> ./getStatus                                                               \\
+        \$> ./getStatus \$?                                                     \\
         T'as de ces ieps chacal...                                              \\
     }
     
