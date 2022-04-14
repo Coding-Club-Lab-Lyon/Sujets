@@ -38,7 +38,7 @@ _Les cellules mortes sont des 0 et les cellules vivantes sont des 1._
 
 Maintenant nous pouvons recréer le **Game Of Life**.
 
-Dans une boucle infinie, comptez les voisins de chaque cellule dans `map.grid` et, selon les règles du Game Of Life, ajoutez une cellule ou non dans `map.new_grid`.
+Dans une boucle infinie, comptez les voisins de chaque cellule dans `game.grid` et, selon les règles du **Game Of Life**, ajoutez une cellule ou non dans `game.new_grid`.
 
 À la fin du tour appelez `game.show_grid()` pour afficher la grille.
 

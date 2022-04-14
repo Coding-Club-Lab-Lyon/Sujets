@@ -2,7 +2,7 @@ from cc_gameoflife.core import *
 import time
 
 game = GameOfLife()
-game.load_map("maps/planer.txt")
+game.load_map("maps/glider_gun.txt")
 
 def count_neighbours(x, y):
     neighbors = 0
