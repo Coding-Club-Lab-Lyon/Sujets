@@ -17,7 +17,7 @@ Le jeu se déroule dans une grille à deux dimensions. Les cellules évoluent au
 
 ## III. Application
 
-Votre objectif est de recréer le Game Of Life de Conway en Python.
+Votre objectif est de recréer le **Game Of Life** de Conway en Python.
 
 Pour commencer, instanciez une nouvelle partie et chargez une map :
 
@@ -31,14 +31,14 @@ game.load_map("maps/map.txt")
 
 `game` contient deux tableaux :
 
-- `game.grid` la grille actuelle sur laquelle on compte le nombre de voisins
-- `game.next_grid` la grille qui sera affichée à l'étape suivante, sur laquelle on affiche les cellules après le dernier cycle.
+- `game.grid` : la grille actuelle, sur laquelle on compte le nombre de voisins
+- `game.next_grid` : la grille qui sera affichée à l'étape suivante, sur laquelle on place les cellules restantes après le dernier cycle.
 
-Les cellules mortes sont des 0 et les cellules vivantes sont des 1.
+_Les cellules mortes sont des 0 et les cellules vivantes sont des 1._
 
-Maintenant nous pouvons recréer le Game Of Life.
+Maintenant nous pouvons recréer le **Game Of Life**.
 
-Dans une boucle infinie comptez les voisins de chaque cellule dans `map.grid` et, selon les règles du Game Of Life, ajouter une cellule ou non dans `map.new_grid`.
+Dans une boucle infinie, comptez les voisins de chaque cellule dans `map.grid` et, selon les règles du Game Of Life, ajoutez une cellule ou non dans `map.new_grid`.
 
 À la fin du tour appelez `game.show_grid()` pour afficher la grille.
 
