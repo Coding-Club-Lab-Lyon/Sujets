@@ -215,19 +215,8 @@ def aretes_jaunes(ru)
 
     if aretes_bien_placees(r)
 		# Code 1
-		placement_formule ru
-		ru.transform_right
-
-		unless coin_bien_place(r)
-			ru.transform_left
-			placement_formule ru
-			ru.transform_right
-		end
-  		ru.transform_left
 	else
 		# Code 2
-		placement_formule ru
-		return placement_coins ru 
 	end
 end
 ```
