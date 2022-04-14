@@ -1,0 +1,48 @@
+name: Parser
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  parse_files:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name : "Install Python dependencies"
+        run : pip install Markdown reportlab selenium weasyprint PyPDF2
+      - name: "Parse markdown subjects"
+        run: |
+          for file in $(ls -d */)
+          do
+              if [ ! -d "$file/subject" ]; then
+                  echo "::error file=$file,title="No subject folder."::$file"
+                  continue
+              fi
+              if [ ! -f "$file/subject/data.txt" ]; then
+                  echo "::error file=$file/subject,title="No subject data.txt."::$file/subject"
+                  continue
+              fi
+              data=$(cat $file/subject/data.txt)
+              title=$(echo "$data" | cut -d$'\n' -f1)
+              if [ -z "$title" ]; then
+                  echo "::error file=$file/subject/data.txt,title="No title."::$file/subject/data.txt"
+                  continue
+              fi
+              version=$(echo "$data" | cut -d$'\n' -f2)
+              if [ -z "$version" ]; then
+                  echo "::error file=$file/subject/data.txt,title="No version."::$file/subject/data.txt"
+                  continue
+              fi
+              md=$(ls $file/subject/*.md | head -n1)
+              if [ -z "$md" ]; then
+                  echo "::error file=$file/subject,title="No markdown file."::$file/subject"
+                  continue
+              fi
+              cd .github/workflows/parser && python3 cc_subjects.py "../../../$md" "$title" "$version" && cd ../../..
+          done
+      - uses: EndBug/add-and-commit@v9
+        with:
+          default_author: github_actions
