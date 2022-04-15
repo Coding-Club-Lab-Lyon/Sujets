@@ -6,7 +6,7 @@ En 1989, Viki est une jeune hongroise passionné de Rubik’s cube. Depuis quelq
 
 ## II. Récupère le cube !
 
-Commence par regarder les fichiers « .txt ». C’est comme cela que serons stockés les faces des Rubik’s Cubes. 
+Commence par regarder les fichiers « .txt ». C’est comme cela que seront stockés les faces des Rubik’s Cubes. 
 
 Pour récupérer le Rubik's Cube, tu vas devoir créer une Classe qui va l'accueillir. Ta classe contiendra ton cube et des fonctions qui te permettront d'en faire tourner les faces.
 
@@ -75,6 +75,24 @@ Tu as deux manières de le faire, soit tu fais l’inverse de ce que tu as fait 
 
 A partir d’ici, on va travailler dans le fichier `algo.rb`.
 
+### V. Monte la face blanche
+
+Pour résoudre un Rubik's Cube, on doit le prendre en main correctement. Pour se faire, on va devoir le tourner dans tous les sens jusqu'à ce que la face blanche soit en haut.
+
+Crées une fonction `def monter_face_blanche` qui ramènera la face blanche du cube au dessus, peu importe la configuration de départ.
+
+Pour ceci, tu peux utiliser les méthodes `ru.transform_left`, `ru.transform_right`, `ru.transform_up` et `ru.transform_down` qui permettent de tourner le cube dans toutes les directions.
+
+On peut commencer la résolution de notre cube en appelant cette fonction et en affichant notre cube dans la fonction "algo".
+
+```rb
+def algo(ru)
+	monter_face_blanche ru
+	print " ----  Monter Face Blanche ----\n", ru
+end
+```
+
+
 ### Croix blanche
 
 La première étape de la résolution d'un Rubik's Cube, est de former une croix sur la face blanche. La croix est bonne à condition que l’arête soit de la couleur de sa face.
@@ -97,12 +115,12 @@ La fonction `def aretes_opp(ru)` quant à elle sera appelée si les 2 arêtes so
 
 **Merci pour ces deux fonctions**, elles vont êtres utilisées dans la fonction "croix_sup" qui se trouve dans le fichier `resol.rb`.
 
-On peut commencer la résolution de notre cube en appelant cette fonction et en affichant notre cube dans la fonction "algo".
+On peut à nouveau appeler cette fonction dans notre fonction algo, comme pour "monter_face_blanche".
 
 ```rb
 def algo(ru)
-	ru.transform_up
-
+	monter_face_blanche ru
+	print " ----  Monter Face Blanche ----\n", ru
 	croix_sup ru
 	print " ----  Croix Blanche ----\n", ru
 end
