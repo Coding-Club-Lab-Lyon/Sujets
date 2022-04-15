@@ -1,295 +1,164 @@
 require_relative "rubic.rb"
+require_relative "resol.rb"
+
+#ru = Rubic.new("chemin/vers/rubikscube.txt")
+ru = Rubic.new("arrete_simple.txt")
+
+ru.colorize true
+ru.numberize true
+
+############ Préparation du cube ############
+
+def monter_face_blanche(ru)
+  r = ru.get_rubic
+
+  if r[4][1][1] == "1"
+    return
+  end
+  if r[5][1][1] == "1"
+    ru.transform_up
+    ru.transform_up
+    return
+  end
+  until r[1][1][1] == "1"
+    ru.transform_left
+  end
+  ru.transform_up
+end
 
 ############ Arrete blanche ############
 
-def arrete_blanche_formule_cote(ru)
+def aretes_adj(ru)
   ru.r
   ru.u
-  ru.rp
+  ru.ri
   ru.u
   ru.r
   ru.u
   ru.u
-  ru.rp
+  ru.ri
   ru.u
 end
 
-
-def arrete_blanche_formule_face(ru)
+def aretes_opp(ru)
   ru.r
   ru.u
-  ru.rp
+  ru.ri
   ru.u
   ru.r
   ru.u
   ru.u
-  ru.rp
-end
-
-
-
-def arrete_blanche(ru)
-  r = ru.check
-
-  for i in 1..4
-    if r[0][0][1] == r[0][1][1] and r[1][0][1] == r[1][1][1] and r[2][0][1] == r[2][1][1] and r[3][0][1] == r[3][1][1]
-      break
-    end
-    ru.u
-  end
-
-  for j in 1..4
-    for i in 1..2
-      if r[1][0][1] == r[1][1][1] and r[3][0][1] == r[3][1][1]
-        arrete_blanche_formule_face ru
-      end
-      ru.u
-    end
-    for i in 1..4
-      if r[2][0][1] == r[2][1][1] and r[3][0][1] == r[3][1][1]
-        arrete_blanche_formule_cote ru
-        return
-      end
-      ru.u
-    end
-    ru.transform_left
-  end
+  ru.ri
+  ru.transform_right
 end
 
 ########### Coins Blancs ###############
 
-def is_cible_correct?(r)
-  r[4][2][2] == r[4][1][1] and r[1][0][2] == r[1][1][1] and r[2][0][0] == r[2][1][1]
-end
-
-def get_coin_cible(r)
-  [r[4][1][1], r[1][1][1], r[2][1][1]]
-end
-
-def get_coin_haut(r)
-  [r[4][2][2], r[1][0][2], r[2][0][0]]
-end
-
-def get_coin_bas(r)
-  [r[1][2][2], r[5][0][2], r[2][2][0]]
-end
-
-def coins_blanc_formule(ru)
-  ru.rp
-  ru.dp
+def serie_coins(ru)
+  ru.ri
+  ru.di
   ru.r
   ru.d
 end
 
-def coins_blanc(ru)
-  r = ru.check
-
-  for i in 0..3
-    if (get_coin_haut(r).include?(r[4][1][1]))
-      while get_coin_bas(r).include?(r[4][1][1])
-        ru.d
-      end
-      coins_blanc_formule ru
-    end
-    ru.transform_right
-  end
-
-  for i in 0..3
-    until is_cible_correct? r
-      if (get_coin_cible(r) & get_coin_bas(r)).length == 3 or (get_coin_cible(r) & get_coin_haut(r)).length == 3
-        until is_cible_correct? r
-          coins_blanc_formule ru
-        end
-      end
-      ru.d
-    end
-    ru.transform_right
-  end
-end
-
 ########### 2e Couronne ###########
 
-def is_2couronne_correct?(r)
-  for i in 0..3
-    unless (r[i][1][0] == r[i][1][1]) and (r[i][1][1] == r[i][1][2])
-      return false
-    end
-  end
-  return true
-end
-
 def deuxieme_couronne(ru)
-  r = ru.check
+  r = ru.get_rubic
 
   until is_2couronne_correct? r
     for i in 0..3
-      if (r[1][0][1] == r[1][1][1] and r[4][2][1] == r[0][1][1]) or (r[1][1][0] == r[0][1][1] and r[1][1][0] == r[1][1][1])
-        #####
-        ru.up
-        ru.lp
+    if (r[1][0][1] == r[1][1][1] and r[4][2][1] == r[2][1][1]) or (r[1][1][2] == r[2][1][1] and r[2][1][0] == r[1][1][1])
+        ru.u
+        ru.r
+        ru.ui
+        ru.ri
+        ru.ui
+        ru.fi
+        ru.u
+        ru.f
+     elsif (r[1][0][1] == r[1][1][1] and r[4][2][1] == r[0][1][1]) or (r[1][1][0] == r[0][1][1] and r[1][1][0] == r[1][1][1])
+        ru.ui
+        ru.li
         ru.u
         ru.l
         ru.u
         ru.f
-        ru.up
-        ru.fp
-      elsif (r[1][0][1] == r[1][1][1] and r[4][2][1] == r[2][1][1]) or (r[1][1][2] == r[2][1][1] and r[2][1][0] == r[1][1][1])
-        #####
-        ru.u
-        ru.r
-        ru.up
-        ru.rp
-        ru.up
-        ru.fp
-        ru.u
-        ru.f
+        ru.ui
+        ru.fi
       end
-      ru.up
+      ru.ui
     end
     ru.transform_right
-    r = ru.check
   end
 end
 
 ########### croix jaune ###########
 
-def croix_jaune_seq(ru)
-  ##############
-  ru.rp
-  ru.up
-  ru.fp
+def serie_croix_jaune(ru)
+  ru.ri
+  ru.ui
+  ru.fi
   ru.u
   ru.f
   ru.r
 end
 
-def croix_jaune(ru)
-  r = ru.check
-
-  if r[4][0][1] == r[4][1][1] and r[4][1][0] == r[4][1][1] and r[4][2][1] == r[4][1][1] and r[4][1][2] == r[4][1][1]
-    return
-  end
-
-  for i in 0..4
-    if r[4][0][1] == r[4][1][1] and r[4][1][0] == r[4][1][1]
-      croix_jaune_seq ru
-      break
-    elsif r[4][0][1] == r[4][1][1] and r[4][1][1] == r[4][2][1]
-      croix_jaune_seq ru
-      croix_jaune_seq ru
-      break
-    end
-    ru.u
-  end
-  
-  unless r[4][0][1] == r[4][1][1] and r[4][1][0] == r[4][1][1] and r[4][2][1] == r[4][1][1] and r[4][1][2] == r[4][1][1]
-    croix_jaune_seq ru
-    ru.u
-    croix_jaune_seq ru
-  end
-end
-
 ######## Placement coins ##########
 
 def placement_formule(ru)
-  #########
-  ru.lp
   ru.u
   ru.r
-  ru.up
-  ru.l
+  ru.ui
+  ru.li
   ru.u
-  ru.rp
-  ru.up
+  ru.ri
+  ru.ui
+  ru.l
 end
 
-def coin_bien_place(r)
-  ([r[1][0][2], r[4][2][2], r[2][0][0]] & [r[1][1][1], r[4][1][1], r[2][1][1]]).length == 3
-end
-
-def placement_coins(ru)
-  r = ru.check
+def coins_jaunes(ru)
+  r = ru.get_rubic
 
   for i in 0..3
-    unless coin_bien_place(r)
-      ru.transform_right
+    if premiers_coin_bien_place(r)
+      break
     end
-  end
-
-  if coin_bien_place(r)
-    placement_formule ru
     ru.transform_right
-
-    unless coin_bien_place(r)
-      ru.transform_left
+  end
+  if premiers_coin_bien_place(r)
+    placement_formule ru
+    unless coins_bien_places(r)
       placement_formule ru
-      ru.transform_right
     end
-    ru.transform_left
   else
     placement_formule ru
-    return placement_coins ru 
-  end
-end
-
-######## Coins Jaune #########
-
-def is_jaune_correct?(r)
-  r[4][2][2] == r[4][1][1]
-end
-
-def coins_jaune(ru)
-  r = ru.check
-
-  until is_jaune_correct?(r) == false
-    ru.transform_right
-  end
-
-  for i in 0..3
-    r = ru.check
-    until is_jaune_correct? r
-      #######
-      coins_blanc_formule ru
-    end
-    ru.u
+    return coins_jaunes ru
   end
 end
 
 #############################
 
 def algo(ru)
-  ru.transform_up # On tourne tout le rubik vers le haut 
-
-  print ru
-
-  arrete_blanche ru
-  print " ----  Arrete ----\n", ru
-
+  monter_face_blanche ru
+  print " ----  Monter Face Blanche ----\n", ru
+  croix_blanche ru
+  print " ----  Croix Blanche ----\n", ru
   coins_blanc ru
   print " ----  Face Blanche ----\n", ru
-
-  # On retourn horizontalement le rubik 
-  ru.transform_down 
+  # On retourn horizontalement le rubik
   ru.transform_down
-
+  ru.transform_down
   deuxieme_couronne ru
   print " ----  2e Couronne ----\n", ru
-  
   croix_jaune ru
   print " ----  Croix Jaune ----\n", ru
-  
-  arrete_blanche ru
+  croix_sup ru
   print " ----  Arrete Jaunes ----\n", ru
-  
-  placement_coins ru
+  coins_jaunes ru
   print " ----  Placements coins Jaunes ----\n", ru
-  
-  coins_jaune ru
+  tourner_coins_jaunes ru
   print " ----  Fin ----\n", ru
 end
-
-ru = Rubic.new("arrete_simple2.txt")
-# ru.numberize false
-ru.colorize true
 
 algo ru

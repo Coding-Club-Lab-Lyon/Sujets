@@ -20,14 +20,16 @@ end
 
 Tu peux maintenant charger un premier Rubik's Cube dans `algo.rb` en écrivant :
 ```rb
-ru = Rubic.new("/chemin/vers/rubikscube.txt")
+ru = Rubic.new("chemin/vers/rubikscube.txt")
 ```
+
+!pagebreak
 
 Ton cube est stocké dans tableau, ses faces sont numérotées comme ceci :
 
 ![](assets/patron.png)
 
-Chaque face est elle même un tableau de lignes et chaque ligne est aussi un tableau.
+Le Rubik's Cube sera stocké comme une liste de face.
 
 Une face est stockée comme ceci :
 
@@ -39,13 +41,13 @@ Une face est stockée comme ceci :
 ]
 ```
 
->:info !icon:circle-info `ru.check` permet d'accéder à une copie de cette liste pour vérifier la position des cases par exemple.
+>:info !icon:circle-info `ru.get_rubic` permet d'accéder à une copie de cette liste pour vérifier la position des cases par exemple.
 
 ## III. Crée le mouvement U et Ui.
 
-### a. Crée le mouvement U
+### 1. Crée le mouvement U
 
-Le mouvement U consiste à déplacer la ligne supérieure du cube sur la droite.
+Le mouvement U consiste à déplacer la ligne supérieure du cube dans le sens horaire.
 
 Dans le code, la ligne 0 de la face 0 prendra la valeur de la ligne 0 de la face 1.
 La ligne 0 de la face 1 prendra la valeur de la ligne 0 de la face 2 etc.
@@ -59,7 +61,9 @@ class Rubic < Cube
 end
 ```
 
-### b. Crée le mouvement Ui
+>:warning !icon:triangle-exclamation **Attention** à ne pas dupliquer des lignes !
+
+### 2. Crée le mouvement Ui
 
 Maintenant que tu as réussi la rotation U, tu peux faire le mouvement inverse, le mouvement Ui.
 
@@ -73,17 +77,19 @@ Tu as deux manières de le faire, soit tu fais l’inverse de ce que tu as fait 
 
 >:info !icon:circle-info Les autres méthodes de rotation du Rubik's Cube sont déjà implémentées.
 
-A partir d’ici, on va travailler dans le fichier `algo.rb`.
+**A partir d’ici, on va travailler dans le fichier `algo.rb`.**
 
-### V. Monte la face blanche
+### 1. Monter la face blanche
 
 Pour résoudre un Rubik's Cube, on doit le prendre en main correctement. Pour se faire, on va devoir le tourner dans tous les sens jusqu'à ce que la face blanche soit en haut.
 
-Crées une fonction `def monter_face_blanche` qui ramènera la face blanche du cube au dessus, peu importe la configuration de départ.
+Crées une fonction `def monter_face_blanche(ru)` qui ramènera la face blanche du cube au dessus, peu importe la configuration de départ.
 
 Pour ceci, tu peux utiliser les méthodes `ru.transform_left`, `ru.transform_right`, `ru.transform_up` et `ru.transform_down` qui permettent de tourner le cube dans toutes les directions.
 
-On peut commencer la résolution de notre cube en appelant cette fonction et en affichant notre cube dans la fonction "algo".
+Avec cette première fonction, on peut commencer la résolution de notre cube.
+
+On va l'appeler puis afficher notre cube après transformation dans la fonction "algo".
 
 ```rb
 def algo(ru)
@@ -93,9 +99,9 @@ end
 ```
 
 
-### Croix blanche
+### 2. Croix blanche
 
-La première étape de la résolution d'un Rubik's Cube, est de former une croix sur la face blanche. La croix est bonne à condition que l’arête soit de la couleur de sa face.
+La première étape de la résolution d'un Rubik's Cube, est de former une croix sur la face blanche. La croix est bonne à condition que les arêtes soient de la couleur de leur face.
 
 Exemple :
 
@@ -113,29 +119,33 @@ La fonction `def aretes_opp(ru)` quant à elle sera appelée si les 2 arêtes so
 
 ![](assets/arr_opp.png)
 
-**Merci pour ces deux fonctions**, elles vont êtres utilisées dans la fonction "croix_sup" qui se trouve dans le fichier `resol.rb`.
+**À toi de créer ces fonctions !**
 
-On peut à nouveau appeler cette fonction dans notre fonction algo, comme pour "monter_face_blanche".
+Elles vont êtres utilisées dans la fonction **"croix_blanche"** qui se trouve dans le fichier `resol.rb`.
+
+On peut à nouveau appeler cette fonction dans notre fonction algo, comme pour **"monter_face_blanche"**.
 
 ```rb
 def algo(ru)
 	monter_face_blanche ru
 	print " ----  Monter Face Blanche ----\n", ru
-	croix_sup ru
+	croix_blanche ru
 	print " ----  Croix Blanche ----\n", ru
 end
 ```
 
->:warning !icon:triangle-exclamation **Attention** Si tu n’obtiens pas la croix blanche, reprend l’étape précédente ou demande l’aide d’un cobra.
+>:warning !icon:triangle-exclamation **Attention** Si tu n’obtiens pas la croix blanche, reprend l’étape précédente ou demande l’aide d’un Cobra.
 
-### Coins blanc
+### 3. Coins blanc
 Maintenant on va placer correctement les coins blancs.
 
-La formule pour placer un coin, on utiliser la série :
+La formule pour placer un coin est la suivante :
 
 ![](assets/coins.png)
 
-Crée la fonction `def serie_coins(ru)` qui exécute cette série. Cette fonction sera appelée par la fonction "coins_blancs" qu'on exécutera de la même manière que "croix_sup" dans notre fonction "algo".
+Crée la fonction `def serie_coins(ru)` qui exécute cette série.
+
+Cette fonction sera appelée par la fonction **"coins_blancs"** qu'on exécutera de la même manière que **"croix_sup"** dans notre fonction **"algo"**.
 
 ## V. La deuxième couronne.
 
@@ -174,7 +184,7 @@ La **situation 2** peut se traduire par :
 On va créer cette fonction ensemble en complétant le code ci dessous:
 ```rb
 def deuxieme_couronne(ru)
-	r = ru.check
+	r = ru.get_rubic
 
 	until is_2couronne_correct? r
 		for i in 0..3
@@ -186,7 +196,6 @@ def deuxieme_couronne(ru)
 		ru.up
 	end
 	ru.transform_right
-	r = ru.check
 	end
 end
 ```
@@ -195,7 +204,7 @@ Il ne reste plus qu'à créer les conditions et effectuer les bonnes actions !
 
 >:warning !icon:triangle-exclamation Cette partie est un peu complexe, n'hésite pas à solliciter l'aide d'un Cobra.
 
-On va maintenant retourner horizontalement notre Rubik's Cube et appeller notre fonction dans la fonction "algo" :
+On va maintenant retourner horizontalement notre Rubik's Cube pour que la face jaune se retrouve en haut et appeler notre fonction **"deuxieme_couronne"** dans la fonction **"algo"** :
 
 ```rb
 ru.transform_down 
@@ -210,7 +219,7 @@ L’étape suivante consiste à reformer la croix jaune.
 
 La fonction "croix_jaune" du fichier `resol.rb` va avoir besoin d'une série d'actions.
 
-On va  l'écrire dans la fonction `def serie_croix_jaune(ru)`
+On va l'écrire dans la fonction `def serie_croix_jaune(ru)`
 
 Cette série d'action consiste à :
 
@@ -219,19 +228,19 @@ Cette série d'action consiste à :
 - Tourner la face avant dans le sens anti-horaire
 - Faire les mêmes mouvements à dans l'autre direction et dans l'ordre 2-3-1
 
-## VII. Les arrêtes jaunes.
+## VII. Les coins jaunes.
 
 Dans cette étape, il va falloir placer correctement les arrêtes jaunes sur notre Rubik’s Cube.
 
 On va compléter la fonction ci dessous :
 
 ```rb
-def aretes_jaunes(ru)
-	r = ru.check
+def coins_jaunes(ru)
+	r = ru.get_rubic
 
 	# Verification 1
 
-    if aretes_bien_placees(r)
+    if coins_bien_places(r)
 		# Code 1
 	else
 		# Code 2
@@ -239,44 +248,37 @@ def aretes_jaunes(ru)
 end
 ```
 
-Dans un premier temps, il va falloir vérifier 4 fois que les arêtes soient bien placés s'ils ne le sont pas, on effectue une `transform_right`.
-
->:info !icon:circle-info La fonction `aretes_bien_placees(r)` indique si les arêtes sont bien placés.
-
-On va maintenant créer une fonction `def placement_formule(ru)` qui va exécuter une série d'action qui nous sera utile pour la suite de notre fonction "aretes_jaunes".
+On va commencer par créer une fonction `def placement_formule(ru)` qui va exécuter une série d'action qui nous sera utile pour la suite de notre fonction **"coins_jaunes"**.
 
 La série d'action est juste ici :
 
 ```
-!icon:arrow-left 3 (!icon:arrow-right 23)	ol x u xl o x us xs
+!icon:arrow-left 3 (!icon:arrow-right 23)	x u xl ol x ul xl o
 ```
 
-À vous de la déchiffrer...
+_À vous de la déchiffrer..._
 
-### Revenons à notre fonction "aretes_jaunes"
+### Revenons à notre fonction "coins_jaunes"
 
-On va vérifier si après nos 4 itérations, les arêtes sont maintenant bien placés.
+Dans un premier temps, il va falloir tourner le cube jusqu'à avoir le coin d'en haut à droite bien placé.
 
-**Si les coins sont bien placés :**
+Si après 4 tours, on ne trouve toujours pas de coin bien placé, on applique notre fonction **"placement_formule"** et on rappelle notre fonction **"coins_jaunes"**.
 
-- Appeler "placement_formule"
-- Effectuer une `transform_right`
-- Si les arêtes ne sont toujours pas bien placées
-	- Effectuer une `transform_left`
-	- Appeler "placement_formule"
-	- Effectuer une `transform_right`
-- Effectuer une `transform_left`
+>:info !icon:circle-info La fonction **"coins_bien_places"** indique si TOUS les coins sont bien placés (Ça peut sembler fou mais je vous jure que c'est vrai).<br>À l'inverse, la fonction **"premier_coin_bien_place"** va vérifier seulement le coin en haut à droite de la face.
 
-**Sinon**
+**Si on a trouvé un coin bien placé :**
 
-- Appeler "placement_formule"
-- Relancer la fonction "aretes_jaunes"
+- Appeler **"placement_formule"**
+- Si il reste des coins mal placés
+	- Rappeler **"placement_formule"**
 
+>:info !icon:circle-info Pensez à appeler votre nouvelle fonction dans **"algo"**.
 
+## VIII. Tourner les coins jaunes.
 
-## VIII. Les coins jaunes.
+Vous avez bien travaillé, cette fonction là elle est cadeau ! 
 
-Pour cette fonction qui va s’appeler `def coins_jaunes(ru)` nous allons dire que jusqu’à ce que `is_jaunes_correct?(r)` est faux alors on fait une transform_right après cela on vérifie quatre fois que `is_jaunes_correct?(r)` et s’il l’est alors on va faire `coin_blanc_formule(ru)` et on finit par un `ru.u`.
+Vous allez juste devoir retrouver son nom dans le fichier `resol.rb` et l'appeler à la suite des autres !
 
 ## IX. Conclusion.
 
