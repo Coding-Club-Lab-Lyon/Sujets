@@ -23,23 +23,31 @@ Pour commencer, instanciez une nouvelle partie et chargez une map :
 
 ```py
 from cc_gameoflife.core import *
-import time
 
 game = GameOfLife()
 game.load_map("maps/map.txt")
 ```
 
-`game` contient deux tableaux :
+- `game.grid` est une liste de toutes les cellules
 
-- `game.grid` : la grille actuelle, sur laquelle on compte le nombre de voisins
-- `game.next_grid` : la grille qui sera affichée à l'étape suivante, sur laquelle on place les cellules restantes après le dernier cycle.
+Chaque cellule à des propriétés :
 
-_Les cellules mortes sont des 0 et les cellules vivantes sont des 1._
+- `cellule.is_alive` indique si la cellule est en vie au tour actuel.
+- `cellule.has_neighbor(x, y)` indique si elle a un voisin aux coordonnées relatives renseignées.
+- `alive` est **à définir**, elle indique si la cellule sera en vie au prochain tour ou non.
+
+Exemple
+```py
+>>> cellule.has_neighbor(0, 1)
+True
+```
+
+Cela signifie que la cellule a un voisin au dessus d'elle.
 
 Maintenant nous pouvons recréer le **Game Of Life**.
 
-Dans une boucle infinie, comptez les voisins de chaque cellule dans `game.grid` et, selon les règles du **Game Of Life**, ajoutez une cellule ou non dans `game.new_grid`.
+Dans une boucle infinie, comptez les voisins de chaque cellule de `game.grid` et, selon les règles du **Game Of Life**, renseignez le champs `alive` de la cellule pour qu'elle soit en vie (ou non) au prochain tour.
 
-À la fin du tour appelez `game.show_grid()` pour afficher la grille.
+À la fin du tour, appelez `game.show_grid()` pour afficher la grille.
 
->:warning !icon:triangle-exclamation Pensez à rajouter un délai de 0.5s entre chaque itération.
+>:warning !icon:triangle-exclamation Pensez à rajouter un délai de 0.5s entre chaque itération pour pouvoir admirer le résultat.
