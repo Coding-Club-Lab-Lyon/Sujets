@@ -44,7 +44,7 @@ True
 
 Cela signifie que la cellule a un voisin au dessus d'elle.
 
-Maintenant nous pouvons recréer le **Game Of Life**.
+### Maintenant nous pouvons recréer le Game Of Life.
 
 Dans une boucle infinie, comptez les voisins de chaque cellule de `game.grid` et, selon les règles du **Game Of Life**, renseignez le champs `alive` de la cellule pour qu'elle soit en vie (ou non) au prochain tour.
 
