@@ -29,7 +29,7 @@ ru = Rubic.new("chemin/vers/rubikscube.txt")
 
 ![](assets/patron.png)
 
-Le Rubik's Cube sera stocké comme une liste de face.
+Le Rubik's Cube sera stocké comme une liste de faces.
 
 Une face est stockée comme ceci :
 
@@ -50,6 +50,7 @@ Une face est stockée comme ceci :
 Le mouvement U consiste à déplacer la ligne supérieure du cube dans le sens horaire.
 
 Dans le code, la ligne 0 de la face 0 prendra la valeur de la ligne 0 de la face 1.
+
 La ligne 0 de la face 1 prendra la valeur de la ligne 0 de la face 2 etc.
 
 Ajoute une méthode "u" à ta classe comme ceci :
@@ -61,7 +62,7 @@ class Rubic < Cube
 end
 ```
 
->:warning !icon:triangle-exclamation **Attention** à ne pas dupliquer des lignes !
+>:warning !icon:triangle-exclamation **Attention** à ne pas dupliquer des lignes de ton Rubik's Cube !
 
 ### 2. Crée le mouvement Ui
 
