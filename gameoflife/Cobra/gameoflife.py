@@ -25,7 +25,7 @@ while(True):
             neighbors += 1
         if cell.has_neighbor(-1, 1):
             neighbors += 1
-        if (cell.last_alive):
+        if (cell.is_alive):
             if (neighbors < 2):
                 cell.alive = False
             elif (neighbors > 3):

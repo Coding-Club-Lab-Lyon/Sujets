@@ -230,7 +230,7 @@ On va maintenant créer une fonction `def placement_formule(ru)` qui va exécute
 La série d'action est juste ici :
 
 ```
-🠜3 (🠞23)	ol x u xl o x us xs
+!icon:arrow-left 3 (!icon:arrow-right 23)	ol x u xl o x us xs
 ```
 
 À vous de la déchiffrer...
