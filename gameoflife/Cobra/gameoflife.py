@@ -4,7 +4,7 @@ import time
 game = GameOfLife()
 game.load_map("maps/glider_gun.txt")
 game.show_grid()
-time.sleep(0.5)
+time.sleep(0.1)
 
 while(True):
     for cell in game.grid:
@@ -36,4 +36,4 @@ while(True):
             if (neighbors == 3):
                 cell.alive = True
     game.show_grid()
-    time.sleep(0.5)
+    time.sleep(0.1)

@@ -34,7 +34,7 @@ Chaque cellule à des propriétés :
 
 - `cellule.is_alive` indique si la cellule est en vie au tour actuel.
 - `cellule.has_neighbor(x, y)` indique si elle a un voisin aux coordonnées relatives renseignées.
-- `alive` est **à définir**, elle indique si la cellule sera en vie au prochain tour ou non.
+- `cellule.alive` est **à définir** (True/False), elle indique si la cellule sera en vie au prochain tour ou non.
 
 Exemple
 ```py
@@ -46,8 +46,8 @@ Cela signifie que la cellule a un voisin au dessus d'elle.
 
 ### Maintenant nous pouvons recréer le Game Of Life.
 
-Dans une boucle infinie, comptez les voisins de chaque cellule de `game.grid` et, selon les règles du **Game Of Life**, renseignez le champs `alive` de la cellule pour qu'elle soit en vie (ou non) au prochain tour.
+Dans une boucle infinie, comptez les voisins de chaque cellule de `game.grid` et, selon les règles du **Game Of Life**, renseignez le champs `cellule.alive` de la cellule pour qu'elle soit en vie (ou non) au prochain tour.
 
 À la fin du tour, appelez `game.show_grid()` pour afficher la grille.
 
->:warning !icon:triangle-exclamation Pensez à rajouter un délai de 0.5s entre chaque itération pour pouvoir admirer le résultat.
+>:warning !icon:triangle-exclamation Pensez à rajouter un délai de 0.1s entre chaque itération pour pouvoir admirer le résultat.

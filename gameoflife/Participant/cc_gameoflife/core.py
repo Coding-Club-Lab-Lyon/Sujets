@@ -1,4 +1,15 @@
-from ast import Raise
+import curses
+import atexit
+
+stdscr = None
+
+
+def exit_handler():
+    if stdscr:
+        curses.endwin()
+
+
+atexit.register(exit_handler)
 
 
 class Cell:
@@ -8,6 +19,7 @@ class Cell:
         self.is_alive = False
         self.alive = False
         self.neighbors = []
+
     def add_neighbor(self, coords):
         self.neighbors.append(coords)
 
@@ -28,7 +40,8 @@ class GameOfLife:
         raise Exception("Cell not found at %d %d" % (x, y))
 
     def add_neighbors(self, cell):
-        neighbors = [(1, 0), (1, 1), (0, 1), (-1, 1), (-1, 0), (-1, -1), (0, -1), (1, -1)]
+        neighbors = [(1, 0), (1, 1), (0, 1), (-1, 1),
+                     (-1, 0), (-1, -1), (0, -1), (1, -1)]
         for neighbor in neighbors:
             x = cell.x + neighbor[0]
             y = cell.y + neighbor[1]
@@ -40,7 +53,8 @@ class GameOfLife:
             f = f.readlines()
             self.height = len(f)
             self.width = len(f[0])
-            self.grid = [Cell(x, y) for y in range(self.height) for x in range(self.width)]
+            self.grid = [Cell(x, y) for y in range(self.height)
+                         for x in range(self.width)]
             for y, line in enumerate(f):
                 for x, char in enumerate(line):
                     if char == "#":
@@ -52,20 +66,30 @@ class GameOfLife:
         for cell in self.grid:
             if cell.is_alive:
                 self.add_neighbors(cell)
+
     def show_grid(self):
+        global stdscr, gamewin
+        if stdscr:
+            too_small_term = stdscr.getmaxyx()[0] < self.height or stdscr.getmaxyx()[1] < self.width * 2
+            if too_small_term:
+                return
         if (len(self.grid) == 0):
             raise Exception("No grid loaded")
-        print("\033c")
-        table = [["  " for x in range(self.width)] for y in range(self.height)]
+
+        if not stdscr:
+            stdscr = curses.initscr()
+            curses.curs_set(0)
+            if stdscr.getmaxyx()[0] < self.height or stdscr.getmaxyx()[1] < self.width * 2:
+                stdscr.addstr("Your terminal is too small for this map")
+                stdscr.refresh()
+                return
+        stdscr.clear()
+
         for cell in self.grid:
             cell.is_alive = cell.alive
             cell.alive = False
             cell.neighbors = []
             if cell.is_alive:
-                table[cell.y][cell.x] = "██"
+                stdscr.addstr(cell.y, cell.x * 2, "██")
+        stdscr.refresh()
         self.calculate_neighbors()
-        frame = "__" * (self.width + 1) + "\n|"
-        frame += "|\n|".join(["".join(row) for row in table])
-        frame += "|"
-        frame += "\n|" + "__" * self.width + "|"
-        print(frame)
