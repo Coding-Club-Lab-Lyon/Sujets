@@ -2,7 +2,7 @@ require_relative "rubic.rb"
 require_relative "resol.rb"
 
 #ru = Rubic.new("chemin/vers/rubikscube.txt")
-ru = Rubic.new("arrete_simple.txt")
+ru = Rubic.new("cubes/correct.txt")
 
 ru.colorize true
 ru.numberize true
@@ -77,7 +77,7 @@ def deuxieme_couronne(ru)
         ru.fi
         ru.u
         ru.f
-     elsif (r[1][0][1] == r[1][1][1] and r[4][2][1] == r[0][1][1]) or (r[1][1][0] == r[0][1][1] and r[1][1][0] == r[1][1][1])
+     elsif (r[1][0][1] == r[1][1][1] and r[4][2][1] == r[0][1][1])
         ru.ui
         ru.li
         ru.u

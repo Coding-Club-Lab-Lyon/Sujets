@@ -4,9 +4,25 @@ En 1989, Viki est une jeune hongroise passionnée de Rubik’s cube. Depuis quel
 
 ![](https://www.variantes.com/1399-thickbox_default/rubik-s-cube-3-x-3-x-3.jpg)
 
-## II. Récupère le cube !
+## II. Le programme
 
-Commence par regarder les fichiers « .txt ». C’est comme cela que seront stockées les faces des Rubik’s Cubes. 
+Ce sujet est à réaliser en **ruby**, un langage orienté objet open-source. Avec lui, on va pouvoir comprendre comment créer une **classe** et lui ajouter des **méthodes**.
+
+_L'architecture des fichiers est déjà donnée._
+
+On lancera notre programme grâce à la commande :
+
+```sh
+ruby algo.rb
+```
+
+>:warning !icon:triangle-exclamation Le programme fonctionne grâce à la librairie Colorize, si elle n'est pas installée sur l'ordinateur, vous pouvez le faire avec la commande `gem install colorize`
+
+![](assets/ruby.png)
+
+## III. Récupère le cube !
+
+Commence par regarder les fichiers « .txt » dans le dossier **"cubes"**. C’est comme cela que seront stockées les faces des Rubik’s Cubes. 
 
 Pour récupérer le Rubik's Cube, tu vas devoir créer une Classe qui va l'accueillir. Ta classe contiendra ton cube et des fonctions qui te permettront d'en faire tourner les faces.
 
@@ -43,15 +59,19 @@ Une face est stockée comme ceci :
 
 >:info !icon:circle-info `ru.get_rubic` permet d'accéder à une copie de cette liste pour vérifier la position des cases par exemple.
 
-## III. Crée le mouvement U et Ui.
+## IV. Crée le mouvement U et Ui.
 
 ### 1. Crée le mouvement U
 
 Le mouvement U consiste à déplacer la ligne supérieure du cube dans le sens horaire.
 
-Dans le code, la ligne 0 de la face 0 prendra la valeur de la ligne 0 de la face 1.
+La fonction `rotate_inface`, déjà existante, pourra t'être utile, elle permet de tourner une face dans le sens horaire mais ne tourne pas ses arêtes...
 
-La ligne 0 de la face 1 prendra la valeur de la ligne 0 de la face 2 etc.
+Pour tourner les arêtes :
+
+La **ligne 0** de la **face 0** prendra la valeur de la **ligne 0** de la **face 1**.
+
+La **ligne 0** de la **face 1** prendra la valeur de la **ligne 0** de la **face 2** etc.
 
 Ajoute une méthode "u" à ta classe comme ceci :
 ```rb
@@ -74,7 +94,7 @@ Tu as deux manières de le faire, soit tu fais l’inverse de ce que tu as fait 
 
 ![](assets/u.png)
 
-## IV. Résous la face blanche du Rubik’s Cube.
+## V. Résous la face blanche du Rubik’s Cube.
 
 >:info !icon:circle-info Les autres méthodes de rotation du Rubik's Cube sont déjà implémentées.
 
@@ -151,7 +171,7 @@ Crée la fonction `def serie_coins(ru)` qui exécute cette série.
 
 Cette fonction sera appelée par la fonction **"coins_blancs"** qu'on exécutera de la même manière que **"croix_sup"** dans notre fonction **"algo"**.
 
-## V. La deuxième couronne.
+## VI. La deuxième couronne.
 
 Maintenant que tu as réussi à résoudre une face, il faut résoudre les autres !
 
@@ -163,7 +183,7 @@ Il faut, une nouvelle fois, appliquer une suite de mouvements dans la fonction `
 
 La **situation 1** peut se traduire par :
 
-- Le milieu de la première ligne de la face 1 est de la même couleur que le milieu de la face 2<br>**et**<br>Le milieu de la dernière ligne de la face 4 est de la même couleur que le milieu de la face 2
+- Le milieu de la première ligne de la face 1 est de la même couleur que le milieu de la face 1<br>**et**<br>Le milieu de la dernière ligne de la face 4 est de la même couleur que le milieu de la face 2
 
 **ou**
 
@@ -176,10 +196,6 @@ La **situation 1** peut se traduire par :
 La **situation 2** peut se traduire par :
 
 - Le milieu de la première ligne de la face 1 est de la même couleur que le milieu de la face 1<br>**et**</br>Le milieu de la dernière ligne de la face 4 est de la même couleur que le milieu de la face 0
-
-**ou**
-
-- La case de gauche de la ligne centrale de la face 1 est de la même couleur que le milieu de la face 0<br>**et**<br>La case de gauche de la ligne centrale de la face 1 est de la même couleur que le centre de la face 1
 
 **Dans ce cas-là,** on réalise la série suivante :
 
@@ -220,7 +236,7 @@ deuxieme_couronne ru
 print " ----  2e Couronne ----\n", ru
 ```
 
-## VI. La croix jaune.
+## VII. La croix jaune.
 
 L’étape suivante consiste à reformer la croix jaune.
 
@@ -233,13 +249,13 @@ Cette série d'actions consiste à :
 - Abaisser la face de droite
 - Tourner la face du haut dans le sens anti-horaire
 - Tourner la face avant dans le sens anti-horaire
-- Faire les mêmes mouvements à dans l'autre direction et dans l'ordre 2-3-1
+- Faire les mêmes mouvements dans l'autre direction et dans l'ordre 2-3-1
 
 ![](assets/yellow_cross.png)
 
-## VII. Les coins jaunes.
+## VIII. Les coins jaunes.
 
-Dans cette étape, il va falloir placer correctement les arêtes jaunes sur notre Rubik’s Cube.
+Dans cette étape, il va falloir placer correctement les coins jaunes sur notre Rubik’s Cube.
 
 On va compléter la fonction ci-dessous :
 
@@ -275,7 +291,7 @@ Dans un premier temps, il va falloir tourner le cube jusqu'à avoir le coin d'en
 
 Si après 4 tours, on ne trouve toujours pas de coin bien placé, on applique notre fonction **"placement_formule"** et on rappelle notre fonction **"coins_jaunes"**.
 
->:info !icon:circle-info La fonction **"coins_bien_places"** indique si TOUS les coins sont bien placés (Ça peut sembler fou mais je vous jure que c'est vrai).<br>À l'inverse, la fonction **"premier_coin_bien_place"** va vérifier seulement le coin en haut à droite de la face.
+>:info !icon:circle-info La fonction **"coins_bien_places"** indique si TOUS les coins sont bien placés (Ça peut sembler fou mais je vous jure que c'est vrai).<br><br>À l'inverse, la fonction **"premier_coin_bien_place"** va vérifier seulement le coin en haut à droite de la face.
 
 **Si on a trouvé un coin bien placé :**
 
@@ -283,9 +299,9 @@ Si après 4 tours, on ne trouve toujours pas de coin bien placé, on applique no
 - S'il reste des coins mal placés
 	- Rappeler **"placement_formule"**
 
->:info !icon:circle-info Pensez à appeler votre nouvelle fonction dans **"algo"**.
+>:success !icon:check Pensez à appeler votre nouvelle fonction dans **"algo"**.
 
-## VIII. Tourner les coins jaunes.
+## IX. Tourner les coins jaunes.
 
 Vous avez bien travaillé, cette fonction-là elle est **cadeau** ! 
 
@@ -293,7 +309,7 @@ Vous allez juste devoir retrouver son nom dans le fichier `resol.rb` et l'appele
 
 ![](assets/gift.png)
 
-## IX. Conclusion.
+## X. Conclusion.
 
 Bravo, grâce à toi Viki à trouver un adversaire à sa hauteur. 
 
