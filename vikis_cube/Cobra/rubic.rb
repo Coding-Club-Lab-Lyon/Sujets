@@ -1,3 +1,4 @@
+
 require_relative "cube.rb"
 
 class Rubic < Cube

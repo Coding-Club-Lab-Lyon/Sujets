@@ -107,7 +107,7 @@ def get_coin_bas(r)
   [r[1][2][2], r[5][0][2], r[2][2][0]]
 end
 
-def coins_blanc(ru)
+def coins_blancs(ru)
   r = ru.get_rubic
 
   for i in 0..3

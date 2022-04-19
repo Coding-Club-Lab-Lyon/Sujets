@@ -169,7 +169,7 @@ La formule pour placer un coin est la suivante :
 
 Crée la fonction `def serie_coins(ru)` qui exécute cette série.
 
-Cette fonction sera appelée par la fonction **"coins_blancs"** qu'on exécutera de la même manière que **"croix_sup"** dans notre fonction **"algo"**.
+Cette fonction sera appelée par la fonction **"coins_blancs"** qu'on exécutera de la même manière que **"croix_blanche"** dans notre fonction **"algo"**.
 
 ## VI. La deuxième couronne.
 
