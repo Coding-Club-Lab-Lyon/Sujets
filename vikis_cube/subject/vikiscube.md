@@ -251,6 +251,8 @@ Cette série d'actions consiste à :
 - Tourner la face avant dans le sens anti-horaire
 - Faire les mêmes mouvements dans l'autre direction et dans l'ordre 2-3-1
 
+En appelant **"croix_jaune"**, on place correctement la croix mais pas les arêtes, il vous faudra aussi appeler **"croix_sup"** pour que tout soit bon.
+
 ![](assets/yellow_cross.png)
 
 ## VIII. Les coins jaunes.
