@@ -216,7 +216,7 @@ def deuxieme_couronne(ru)
 			elsif (situation2)
   				# actions situation 2
 		end
-		ru.up
+		ru.ui
 	end
 	ru.transform_right
 	end
