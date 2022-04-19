@@ -155,7 +155,7 @@ $> EPITECH
 
 ---
 
- ```C
+```C
 alandroit("BEEP BOOP");
 ```
 ```
@@ -187,7 +187,7 @@ $> HCETIPE
 
 ---
 
- ```C
+```C
 alanver("BEEP BOOP");
 ```
 ```
@@ -221,7 +221,7 @@ void mY_sTr(char *str);
 ### Exemple : 
 Un appel de votre fonction avec les arguments suivants devra afficher ces résultats : 
 ```C
-mY_sTr(“Vive le Coding Club 2022”);
+mY_sTr(“Vive le Coding Club 2022");
 ```
 ```
 $> vIVE LE cODING cLUB 2022
@@ -230,14 +230,14 @@ $> vIVE LE cODING cLUB 2022
 ---
 
 ```C
-mY_sTr("1998”);
+mY_sTr("1998");
 ```
 ```
 $> 1998
 ```
 ---
 ```C
-mY_sTr("POURQUOI JE CRIE ?”);
+mY_sTr("POURQUOI JE CRIE ?");
 ```
 ```
 $> pourquoi je crie ?
@@ -270,7 +270,7 @@ $> 2
 ---
 
 ```C
-printf("%d\n",suspension(“##3..##.###....###4#”, ‘.’));
+printf("%d\n",suspension(“##3..##.###....###4#", ‘.’));
 ```
 ```
 $> 5
@@ -396,7 +396,7 @@ $> 1
 ---
 
 ```C
-printf("%d",hidentf("“azbc”", "btarc"));
+printf("%d",hidentf("“azbc"", "btarc"));
 ```
 ```
 $> 0
@@ -438,7 +438,7 @@ $> 0
 
 ---
 ```C
-printf("%d",hidentf_order("“azbc”", "btarc"));
+printf("%d",hidentf_order("“azbc"", "btarc"));
 ```
 ```
 $> 0
@@ -459,6 +459,7 @@ void rot_42(char *str);
 
 ### Exemple : 
 Un appel de votre fonction avec les arguments suivants devra afficher ces résultats : 
+
 ```C
 rot_42("abc");
 ```
