@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-void hello(void);
+void my_name(void);
 
 void my_putstr_FORTESTING(char *s)
 {
@@ -14,6 +14,6 @@ void my_putstr_FORTESTING(char *s)
 int main(int argc, char *argv[])
 {
     my_putstr_FORTESTING("$[Basic]%");
-    hello();
+    my_name();
     return 0;
 }

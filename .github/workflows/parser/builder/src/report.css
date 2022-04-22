@@ -400,5 +400,6 @@ pagebreak {
 }
 
 hr {
-    border: 1px solid #d8d8d8;
+    border: 1px solid #c5c5c5;
+    border-width: 1px 0 0 0;
 }

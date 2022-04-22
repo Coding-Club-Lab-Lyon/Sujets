@@ -6,8 +6,8 @@ good = ""
 txt_trace = ""
 test_names = []
 stud = ""
-exos = ["hello", "digits", "revalpha", "alandroit", "alanver", "mY_sTr", "suspension", "search_n_replace",
-        "repeat_alpha", "hidentf", "hidentf_order", "rot_42", "inter", "union", "last_word", "r_capitalize", "pgcd", "fprime"]
+exos = ["my_name", "digits", "revalpha", "alandroit", "alanver", "countoc",
+        "repeat_alpha", "hidentf", "rot_42", "last_word", "r_capitalize", "pgcd", "fprime"]
 
 
 def print_green(text):
@@ -24,6 +24,12 @@ def print_blue(text):
 
 def print_orange(text):
     print("\033[93m" + text + "\033[0m")
+
+
+def hard_check_name(elem):
+    if len(elem) > 1:
+        return 1
+    return 0
 
 
 def check_cheat(name):
@@ -82,9 +88,16 @@ def get_trace(name):
     return good, stud
 
 
-def check_tests(good, stud, test_names):
-
+def check_tests(good, stud, test_names, elem):
     i = 0
+    if elem == "my_name":
+        if len(stud[i]) <= 1:
+            print("\033[91m" + test_names[i] + " =/> FAILED\n" + "\033[0m", end="")
+            print_orange("Expected a name with a length > 1")
+        else:
+            print_green(test_names[i] + " => PASSED")
+        test_names = []
+        return
     while i < len(good):
         if good[i] != stud[i]:
             print("\033[91m" + test_names[i] + " =/> FAILED\n" + "\033[0m", end="")
@@ -108,7 +121,7 @@ def mouli():
             print_red("CHEAT detected banned function :(\n")
             continue
         good, stud = get_trace(elem)
-        check_tests(good, stud, test_names)
+        check_tests(good, stud, test_names, elem)
         print()
 
 

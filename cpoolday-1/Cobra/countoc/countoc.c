@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-int suspension(char *str, char to_find)
+int countoc(char *str, char to_find)
 {
     int i = -1;
     int count = 0;

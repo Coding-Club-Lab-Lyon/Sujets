@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int suspension(char *str, char to_find);
+int countoc(char *str, char to_find);
 
 void my_putchar(char c)
 {
@@ -38,12 +38,12 @@ int main(int argc, char *argv[])
     int ret = 0;
 
     my_putstr_FORTESTING("$[Basic]%");
-    ret = suspension("EPITECH", 'E');
+    ret = countoc("EPITECH", 'E');
     my_putnbr(ret);
     newline();
 
     my_putstr_FORTESTING("$[Advanced]%");
-    ret = suspension(
+    ret = countoc(
     "SALUT LE CODDING CLUB MOI AUJOURDHUI CA VA PLUTOT BIEN JAI CODE LA MOULI "
     "TOUTE LAPRES MIDI ET JECRIS EN MAAAAJJJUSS C U L E S",
     ' ');
@@ -51,18 +51,18 @@ int main(int argc, char *argv[])
     newline();
 
     my_putstr_FORTESTING("$[Count everything]%");
-    ret = suspension("..............", '.');
+    ret = countoc("..............", '.');
     my_putnbr(ret);
     newline();
 
     my_putstr_FORTESTING("$[Nothing to count]%");
-    ret = suspension("EPITECH", '7');
+    ret = countoc("EPITECH", '7');
     my_putnbr(ret);
     newline();
 
     my_putstr_FORTESTING("$[Only one in a sea of bullshit]%");
-    ret = suspension("asdewfqwefqwefqewf155wef5ew56fwef4ew5f1we5f1wefu9bfqwpyf"
-                     "gbhryqw&ubfoywebfoqewybfqywfqwefqewf78515fw0",
+    ret = countoc("asdewfqwefqwefqewf155wef5ew56fwef4ew5f1we5f1wefu9bfqwpyf"
+                  "gbhryqw&ubfoywebfoqewybfqywfqwefqewf78515fw0",
     '&');
     my_putnbr(ret);
     newline();
