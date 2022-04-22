@@ -43,7 +43,7 @@ Ce script, que nous appellerons moulinette, est un programme qui va venir corrig
 
 Il a été réalisé avec soin et ne peut pas avoir tort. Si un exercice fonctionne chez vous mais que la moulinette dit le contraire essayez d'imaginer tous les cas possibles en suivant les noms de tests pour deviner. (On fait même des devinettes dans le Coding club trop cool !)
 
-Si vraiment vous avez l’impression que la moulinette se trompe. *(nb: Hautement improbable)*
+Si vraiment vous avez l'impression que la moulinette se trompe. *(nb: Hautement improbable)*
 
 Ou bien que malgré **toute votre réflexion** un test reste un mystère absolue pour vous n'hésitez pas à appeler un Cobra ils sont là pour ça :)
 
@@ -110,7 +110,7 @@ $> 0123456789
 > **Fichier de rendu:**  `revalpha/revalpha.c`
 
 ###  Sujet :
-Écrivez une fonction qui affiche dans le terminal l’alphabet à l’envers une lettre sur deux en majuscule suivit d’un retour à la ligne
+Écrivez une fonction qui affiche dans le terminal l'alphabet à l'envers une lettre sur deux en majuscule suivit d'un retour à la ligne
 
 La fonction devra être prototypée de la façon suivante :
 
@@ -210,7 +210,7 @@ $> bob
 > **Fichier de rendu:**  `countoc/countoc.c`
 
 ###  Sujet :
-Écrivez une fonction qui renvoie le nombre d’occurrences du caractère **‘to_find’** trouvées dans la chaîne de caractères **‘str’**.
+Écrivez une fonction qui renvoie le nombre d'occurrences du caractère **'to_find'** trouvées dans la chaîne de caractères **'str'**.
 
 La fonction devra être prototypée de la façon suivante :
 
@@ -232,7 +232,7 @@ $> 2
 ---
 
 ```C
-printf("%d\n",countoc("##3..##.##....###4#", ‘.’));
+printf("%d\n",countoc("##3..##.##....###4#", '.'));
 ```
 ```
 $> 7
