@@ -10,7 +10,7 @@ static int my_strlen(char *str)
 
 void alanver(char *str)
 {
-    int i = my_strlen(str) - 1;
+    int i = my_strlen(str);
 
     while (str[--i])
         write(1, &str[i], 1);

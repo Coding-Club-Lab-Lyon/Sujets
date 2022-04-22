@@ -1,5 +1,5 @@
-import re
-import sys
+#!/usr/bin/python3
+
 import os
 
 good = ""
@@ -40,6 +40,8 @@ def check_cheat(name):
 
         if " printf(" in stdc or " puts(" in stdc or " sprintf(" in stdc or " dprintf(" in stdc or " atoi(" in stdc:
             return 1
+        if " main(" in stdc:
+            return 2
         return 0
     except:
         return 0
@@ -72,20 +74,28 @@ def parse_output(data):
     return data
 
 
-def get_trace(name):
+def get_trace(name, compile):
+    ret = 0
+    good = ""
+    stud = ""
     try:
         correc = "correcs/" + name + "/" + name + ".c"
         main = "mains/" + name + ".c"
         studt = name + "/" + name + ".c"
-        os.system("gcc " + main + " " + correc + " > /dev/null")
+        ret = os.system("gcc " + main + " " + correc + " > /dev/null")
+        if ret != 0:
+            raise Exception
         good = get_trace_f()
         good = parse_output(good)
-        os.system("gcc " + main + " " + studt + " > /dev/null")
+        ret = os.system("gcc " + main + " " + studt + " > /dev/null")
+        if ret != 0:
+            raise Exception
         stud = get_trace_f()
         stud = parse_output(stud)
     except:
+        print_red("Erreur de compilation")
         compile = 1
-    return good, stud
+    return good, stud, compile
 
 
 def check_tests(good, stud, test_names, elem):
@@ -110,6 +120,7 @@ def check_tests(good, stud, test_names, elem):
 
 def mouli():
     for elem in exos:
+        compile = 0
         test_names.clear()
         good = ""
         stud = ""
@@ -117,12 +128,16 @@ def mouli():
         if not os.path.isdir(elem) or not os.path.isfile(elem + "/" + elem + ".c"):
             print_red("Missing directory or file for " + elem + " !\n")
             continue
-        if check_cheat(elem):
+        if check_cheat(elem) == 1:
             print_red("CHEAT detected banned function :(\n")
             continue
-        good, stud = get_trace(elem)
+        if check_cheat(elem) == 2:
+            print_red("Main function detected. Can't compile :(\n")
+            continue
+        good, stud, compile = get_trace(elem, compile)
+        if compile == 1:
+            continue
         check_tests(good, stud, test_names, elem)
         print()
-
 
 mouli()
