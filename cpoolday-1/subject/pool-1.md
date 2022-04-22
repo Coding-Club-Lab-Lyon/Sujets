@@ -238,10 +238,7 @@ printf("%d\n",countoc("##3..##.##....###4#", ‘.’));
 $> 7
 ```
 
->:info Nous utilisons la fonction `printf` dans notre exemple afin d'illustrer une façon d'afficher la valeur de retour d'une fonction. Vous êtes bien évidemment invités à l'utiliser dans vos tests
-
-
->:danger !icon:diamond-exclamation Bien que printf soit utilisable à tout moment pour tester vos fonctions, printf reste bien évidemment interdit et sera flag par la moulinette.
+>:danger !icon:diamond-exclamation Bien que `printf` soit utilisable à tout moment pour tester vos fonctions, cette fonction reste bien évidemment interdite et sera flag par la moulinette.
 
 
 ## Repeat_alpha
