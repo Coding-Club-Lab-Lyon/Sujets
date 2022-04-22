@@ -12,11 +12,11 @@ Et pour que votre périple à travers la journée -1 de votre piscine de C se pa
 	Exemple d'arborescence:
 
 ```
-Coding_Club/ |
- 		     + Hello/
-             |   |- hello.c
-             + Digits/
-             .   |- digits.c
+    .
+    ├── my_name
+    │   └── my_name.c
+    └── digits
+        └── digits.c
 ```
 
 - Si vous avez une question, demandez à votre voisin de droite. Si malgré tous les efforts de votre cher voisin le problème persiste, rabattez vous par défaut sur votre voisin de gauche. Si vous êtes en bout de table et donc dans l'impossibilité d'avoir un voisin de droite ou de gauche il vous reste toujours celui de devant !
@@ -458,7 +458,7 @@ $> epitecH c'esT plutoT cooL quanD memE !
 
 Toutes mes félicitations pour être arrivé jusqu'ici !
 
-Que vous ayez tout réussi, skip un exercice sur 2 ou bien qu'il soit 9h et que tu sois entrain de lire tout le pdf par simple curiosité tu es le ou la bienvenue ici !
+Que vous ayez tout réussi, skip un exercice sur 2 ou bien qu'il soit 10h10 et que tu sois entrain de lire tout le pdf par simple curiosité tu es le ou la bienvenue ici !
 
 Il ne reste plus que 2 exercices, Au bout !
 
