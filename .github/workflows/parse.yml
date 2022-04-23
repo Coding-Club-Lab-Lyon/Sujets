@@ -15,7 +15,7 @@ jobs:
         run : pip install Markdown reportlab selenium weasyprint PyPDF2
       - name: "Parse markdown subjects"
         run: |
-          for file in $(ls -d */)
+          for file in $(ls -d */ | sed 's#/##')
           do
               if [ ! -d "$file/subject" ]; then
                   echo "::error file=$file,title="No subject folder."::$file"
@@ -50,7 +50,7 @@ jobs:
           done
       - name: "Building mouli"
         run: |
-          for file in $(ls -d */)
+          for file in $(ls -d */ | sed 's#/##')
           do
               if [ ! -d "$file/mouli" ]; then
                   continue
