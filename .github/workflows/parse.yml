@@ -18,32 +18,32 @@ jobs:
           for file in $(ls -d */ | sed 's#/##')
           do
               if [ ! -d "$file/subject" ]; then
-                  echo "::error file=$file,title="No subject folder."::$file"
+                  echo "::error file=$file,title="No subject folder"::$file"
                   continue
               fi
               if [ ! -f "$file/subject/data.txt" ]; then
-                  echo "::error file=$file/subject,title="No subject data.txt."::$file/subject"
+                  echo "::error file=$file/subject,title="No subject data.txt"::$file/subject"
                   continue
               fi
               data=$(cat $file/subject/data.txt)
               stable=$(echo "$data" | cut -d$'\n' -f3)
               if [ "$stable" = "stable" ]; then
-                  echo "::notice file=$file/subject/data.txt,title="Marked as stable."::$file/subject/data.txt"
+                  echo "::notice file=$file/subject/data.txt,title="Marked as stable"::$file/subject/data.txt"
                   continue
               fi  
               title=$(echo "$data" | cut -d$'\n' -f1)
               if [ -z "$title" ]; then
-                  echo "::error file=$file/subject/data.txt,title="No title."::$file/subject/data.txt"
+                  echo "::error file=$file/subject/data.txt,title="No title"::$file/subject/data.txt"
                   continue
               fi
               version=$(echo "$data" | cut -d$'\n' -f2)
               if [ -z "$version" ]; then
-                  echo "::error file=$file/subject/data.txt,title="No version."::$file/subject/data.txt"
+                  echo "::error file=$file/subject/data.txt,title="No version"::$file/subject/data.txt"
                   continue
               fi
               md=$(ls $file/subject/*.md | head -n1)
               if [ -z "$md" ]; then
-                  echo "::error file=$file/subject,title="No markdown file."::$file/subject"
+                  echo "::error file=$file/subject,title="No markdown file"::$file/subject"
                   continue
               fi
               cd .github/workflows/parser && python3 cc_subjects.py "../../../$md" "$title" "$version" && cd ../../..
@@ -56,29 +56,29 @@ jobs:
                   continue
               fi
               if [ ! -d "$file/mouli/source" ]; then
-                  echo "::error file=$file/mouli,title="No source directory."::$file/mouli"
+                  echo "::error file=$file/mouli,title="No source directory"::$file/mouli"
                   continue
               fi
               if [ ! -f "$file/mouli/data.txt" ]; then
-                  echo "::error file=$file/mouli,title="No mouli data.txt."::$file/mouli"
+                  echo "::error file=$file/mouli,title="No mouli data.txt"::$file/mouli"
                   continue
               fi
               data=$(cat $file/mouli/data.txt)
               stable=$(echo "$data" | cut -d$'\n' -f2)
               if [ "$stable" = "stable" ]; then
-                  echo "::notice file=$file/mouli/data.txt,title="Marked as stable."::$file/mouli/data.txt"
+                  echo "::notice file=$file/mouli/data.txt,title="Marked as stable"::$file/mouli/data.txt"
                   continue
               fi
               executable=$(echo "$data" | cut -d$'\n' -f1)
               if [ -z "$executable" ]; then
-                  echo "::error file=$file/mouli/data.txt,title="No executable in data file."::$file/mouli/data.txt"
+                  echo "::error file=$file/mouli/data.txt,title="No executable in data file"::$file/mouli/data.txt"
                   continue
               fi
               if [ -x "$file/mouli/source/$executable" ]; then
-                  echo "::error file=$file/mouli/source,title="Executable was not found in source directory."::$file/mouli/source"
+                  echo "::error file=$file/mouli/source,title="Executable was not found in source directory"::$file/mouli/source"
                   continue
               fi
-              cd .github/workflows/mouli && python3 cc_subjects.py "$executable" "../../../$file/mouli/" && cd ../../..
+              cd .github/workflows/mouli && ./gen "$executable" "../../../$file/mouli/" && cd ../../..
           done
       - uses: EndBug/add-and-commit@v9
         with:
