@@ -1,2 +1,3 @@
 Pendu
 1.2.0
+stable

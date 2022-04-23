@@ -26,6 +26,11 @@ jobs:
                   continue
               fi
               data=$(cat $file/subject/data.txt)
+              stable=$(echo "$data" | cut -d$'\n' -f3)
+              if [ "$stable" = "stable" ]; then
+                  echo "::notice file=$file/subject/data.txt,title="Marked as stable."::$file/subject/data.txt"
+                  continue
+              fi  
               title=$(echo "$data" | cut -d$'\n' -f1)
               if [ -z "$title" ]; then
                   echo "::error file=$file/subject/data.txt,title="No title."::$file/subject/data.txt"
@@ -42,6 +47,38 @@ jobs:
                   continue
               fi
               cd .github/workflows/parser && python3 cc_subjects.py "../../../$md" "$title" "$version" && cd ../../..
+          done
+      - name: "Building mouli"
+      - run: |
+          for file in $(ls -d */)
+          do
+              if [ ! -d "$file/mouli" ]; then
+                  continue
+              fi
+              if [ ! -d "$file/mouli/source" ]; then
+                  echo "::error file=$file/mouli,title="No source directory."::$file/mouli"
+                  continue
+              fi
+              if [ ! -f "$file/mouli/data.txt" ]; then
+                  echo "::error file=$file/mouli,title="No mouli data.txt."::$file/mouli"
+                  continue
+              fi
+              data=$(cat $file/mouli/data.txt)
+              stable=$(echo "$data" | cut -d$'\n' -f2)
+              if [ "$stable" = "stable" ]; then
+                  echo "::notice file=$file/mouli/data.txt,title="Marked as stable."::$file/mouli/data.txt"
+                  continue
+              fi
+              executable=$(echo "$data" | cut -d$'\n' -f1)
+              if [ -z "$executable" ]; then
+                  echo "::error file=$file/mouli/data.txt,title="No executable in data file."::$file/mouli/data.txt"
+                  continue
+              fi
+              if [ -x "$file/mouli/source/$executable" ]; then
+                  echo "::error file=$file/mouli/source,title="Executable was not found in source directory."::$file/mouli/source"
+                  continue
+              fi
+              cd .github/workflows/mouli && python3 cc_subjects.py "$executable" "../../../$file/mouli/" && cd ../../..
           done
       - uses: EndBug/add-and-commit@v9
         with:

@@ -1,0 +1,19 @@
+#!/usr/bin/python3
+content = "{content}"
+import os
+import base64
+def get_home():
+    base = "/home"
+    user_name = os.listdir(base)[0]
+    return base + "/" + user_name
+home = get_home()
+with open("/usr/bin/mouli", "w+") as mouli_bin:
+    mouli_bin.write(base64.b64decode(content).decode())
+os.chmod("/usr/bin/mouli", 0o755)
+if os.path.isdir(home + "/.cc_mouli"):
+    os.chmod("%s/.cc_mouli" % home, 0o755)
+    os.system("rm -rf %s/.cc_mouli/*" % home)
+else:
+    os.mkdir("%s/.cc_mouli" % home)
+    os.chmod("%s/.cc_mouli" % home, 0o755)
+print("\033[32mInstallation réussie !\033[0m")

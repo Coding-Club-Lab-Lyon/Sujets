@@ -1,0 +1,69 @@
+#!/usr/bin/python3
+
+import base64
+import json
+import os
+import tempfile
+import subprocess
+
+files = "{base64}"
+
+executable = "{exec}"
+home = os.path.expanduser('~')
+temp = tempfile.gettempdir()
+
+codes = {codes}
+ultimate = "{ultimate}"
+
+user_code = input("====== CODE PIN =======\n")[:6]
+
+
+def show_trace(code):
+    with open(home + "/.cc_mouli" + "/" + code) as result_file:
+        result = result_file.read()
+        print("======== TRACE ========")
+        print(result)
+        print("=======================")
+
+
+
+used_codes = []
+if os.path.isdir(home+"/.cc_mouli"):
+    used_codes = os.listdir(home+"/.cc_mouli")
+else:
+    os.mkdir(home+"/.cc_mouli")
+
+print("\033[A                             \033[A")
+print("•" * len(user_code))
+print("=======================")
+
+if user_code in used_codes:
+    print("Cette moulinette a déjà été utilisée.")
+    show_trace(user_code)
+    exit(0)
+
+if user_code not in codes and user_code != ultimate:
+    print("\033[31mMauvais code...")
+    exit(1)
+
+print("Moulinette en cours...")
+mouli_dir = tempfile.mkdtemp(dir=temp)
+
+files = json.loads(base64.b64decode(files).decode())
+
+for path in files:
+    folders = path.split("/")[:-1]
+    fullpath = mouli_dir
+    for folder in folders:
+        fullpath += ("/" if fullpath != "" else "") + folder
+        if not os.path.isdir(fullpath):
+            os.mkdir(fullpath)
+    with open(mouli_dir + '/' + path, "w+") as f:
+        f.write(base64.b64decode(files[path]).decode())
+
+os.system("cp -r . " + mouli_dir)
+os.system("chmod -R +x " + mouli_dir)
+subprocess.run("cd " + mouli_dir + " && ./" + executable + " > " + home + "/.cc_mouli" + "/" + user_code + " 2> /dev/null", shell=True)
+show_trace(user_code)
+if user_code == ultimate:
+    os.remove(home + "/.cc_mouli" + "/" + user_code)
