@@ -49,7 +49,7 @@ jobs:
               cd .github/workflows/parser && python3 cc_subjects.py "../../../$md" "$title" "$version" && cd ../../..
           done
       - name: "Building mouli"
-      - run: |
+        run: |
           for file in $(ls -d */)
           do
               if [ ! -d "$file/mouli" ]; then
