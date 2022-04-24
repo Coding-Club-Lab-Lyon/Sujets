@@ -49,7 +49,7 @@ Ou bien que malgré **toute votre réflexion** un test reste un mystère absolu 
 
 ### Prêt ?
 
-Si tout ceci est clair comme de l'eau de roche et bien je crois qu'il est grand tout pour vous de commencer votre avant premier jour de piscine !
+Si tout ceci est clair comme de l'eau de roche et bien je crois qu'il est grand temps pour vous de commencer votre avant premier jour de piscine !
 
 À vos marques... prêts... **Codez !**
 

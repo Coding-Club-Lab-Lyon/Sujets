@@ -1,3 +1,2 @@
 Le Fil d’Ariane
 3.0.0
-stable
