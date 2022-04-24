@@ -29,9 +29,9 @@ Si par hasard vous laissez votre fonction main() il se peut que cela ne marche p
 >:info !icon:circle-info Vous ne savez pas ce qu'est une fonction main ? Google it ;)
 
 ### Moulinette
-Tout au long de cette journée vous aurez accès à un script python de correction vous permettant de savoir si votre exercice est correct ou non.
+Tout au long de cette journée les cobras se chargeront de lancer des scripts de correction vous permettant de savoir si votre exercice est correct ou non.
 
-Le script affichera alors une batterie de tests pour l'exercice sur le terminal sous la forme suivante :
+Vous pourrez alors consulter votre résultat sous la forme suivante:
 
 ```
 [Nom du test]:  PASSED ou FAILED
@@ -39,17 +39,13 @@ Le script affichera alors une batterie de tests pour l'exercice sur le terminal 
 
 >:info !icon:info-circle PASSED signifie que vous avez validé le test.<br>FAILED signifie tout logiquement l'inverse.
 
-Ce script, que nous appellerons moulinette, est un programme qui va venir corriger votre programme.
+Ce script, que nous appellerons moulinette, est un programme qui va venir corriger votre travail.
 
 Il a été réalisé avec soin et ne peut pas avoir tort. Si un exercice fonctionne chez vous mais que la moulinette dit le contraire essayez d'imaginer tous les cas possibles en suivant les noms de tests pour deviner. (On fait même des devinettes dans le Coding club trop cool !)
 
 Si vraiment vous avez l'impression que la moulinette se trompe. *(nb: Hautement improbable)*
 
-Ou bien que malgré **toute votre réflexion** un test reste un mystère absolue pour vous n'hésitez pas à appeler un Cobra ils sont là pour ça :)
-
-Pour utiliser cette fameuse moulinette il vous suffit de taper "mouli" dans votre terminal.
-
->:warning !icon:triangle-exclamation **Attention:** un code vous sera demandé pour la lancer, ces codes seront distribués à intervalle régulier par les cobras pour éviter tout abus.
+Ou bien que malgré **toute votre réflexion** un test reste un mystère absolu pour vous, n'hésitez pas à appeler un Cobra : ils sont là pour ça :)
 
 ### Prêt ?
 
