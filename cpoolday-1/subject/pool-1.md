@@ -1,12 +1,12 @@
 ## Prémices
 L'objectif de ce Coding club est de vous familiariser avec le langage C et de vous offrir
-un avant goût de la forme mais aussi de la rigueur de programmation qui vous sera demandé en octobre prochain
+un avant-goût de la forme mais aussi de la rigueur de programmation qui vous sera demandée en octobre prochain
 
-Et pour que votre périple à travers la journée -1 de votre piscine de C se passe à merveilles il y a quelques règles à respecter !
+Et pour que votre périple à travers la journée -1 de votre piscine de C se passe à merveille il y a quelques règles à respecter !
 
 ### Règles :
 
- -  Chaque exercice a été pensé afin d'être réalisable avec pour **seul syscall la fonction write()** de la libraire **unistd** . Toute fonction externe utilisée dans votre exercice  [*exemple printf(), puts()*] déclenchera une erreur dans notre moulinette et refusera catégoriquement la validation de votre exercice aussi juste soit-il.
+-  Chaque exercice a été pensé afin d'être réalisable avec pour **seul syscall la fonction write()** (sauf exceptions mentionnées) de la libraire **unistd**. Toute fonction externe utilisée dans votre exercice  [*exemple printf(), puts()*] déclenchera une erreur dans notre moulinette et refusera catégoriquement la validation de votre exercice (aussi juste soit-il).
 
 - Vous devez organiser votre travail dans une arborescence de dossiers cohérente afin de faciliter le fonctionnement de la moulinette. Au début de chaque exercice le nom du fichier à rendre ainsi que le dossier de rendu vous seront communiqués.
 
@@ -20,14 +20,15 @@ Exemple d'arborescence:
         └── digits.c
 ```
 
-- Si vous avez une question, demandez à votre voisin de droite. Si malgré tous les efforts de votre cher voisin le problème persiste, rabattez vous par défaut sur votre voisin de gauche. Si vous êtes en bout de table et donc dans l'impossibilité d'avoir un voisin de droite ou de gauche il vous reste toujours celui de devant !
+- Si vous avez une question, demandez à votre voisin de droite. Si malgré tous les efforts de votre cher voisin le problème persiste, rabattez-vous par défaut sur votre voisin de gauche. Si vous êtes en bout de table et donc dans l'impossibilité d'avoir un voisin de droite ou de gauche il vous reste toujours celui de devant !
 
 - Si malgré cela une question reste en suspens ou un problème vous ennuie un peu trop, n'hésitez pas à appeler un cobra ils sont là pour ça !
 
-- Tout au long de ces exercices nous vous demanderons de réaliser des **fonctions**. Cela signifie que notre moulinette amènera son propre main pour tester votre travail.
+- Tout au long de ces exercices, nous vous demanderons de réaliser des **fonctions**. Cela signifie que notre moulinette amènera son propre main() pour tester votre travail.
+
 Si par hasard vous laissez votre fonction main() il se peut que cela ne marche pas et il se peut que cela soit de votre faute !
 
->:info !icon:circle-info Vous ne savez pas ce qu'est une fonction main ? Google it ;)
+>:info !icon:circle-info Vous ne savez pas ce qu'est une fonction main() ? Google it ;)
 
 ### Moulinette
 Tout au long de cette journée les cobras se chargeront de lancer des scripts de correction vous permettant de savoir si votre exercice est correct ou non.
@@ -42,9 +43,9 @@ Vous pourrez alors consulter votre résultat sous la forme suivante:
 
 Ce script, que nous appellerons moulinette, est un programme qui va venir corriger votre travail.
 
-Il a été réalisé avec soin et ne peut pas avoir tort. Si un exercice fonctionne chez vous mais que la moulinette dit le contraire essayez d'imaginer tous les cas possibles en suivant les noms de tests pour deviner. (On fait même des devinettes dans le Coding club trop cool !)
+Il a été réalisé avec soin et ne peut pas avoir tort. Si un exercice fonctionne chez vous mais que la moulinette dit le contraire, essayez d'imaginer tous les cas possibles en suivant les noms de tests pour deviner. (On fait même des devinettes dans le Coding club trop cool !)
 
-Si vraiment vous avez l'impression que la moulinette se trompe. *(nb: Hautement improbable)*
+Si vraiment vous avez l'impression que la moulinette se trompe. *(NB: Hautement improbable)*
 
 Ou bien que malgré **toute votre réflexion** un test reste un mystère absolu pour vous, n'hésitez pas à appeler un Cobra : ils sont là pour ça :)
 
@@ -59,7 +60,7 @@ Si tout ceci est clair comme de l'eau de roche et bien je crois qu'il est grand 
 > **Fichier de rendu:**  `my_name/my_name.c`
 
 ###  Sujet :
-L'objectif de cet exercice est d'écrire une fonction qui affichera votre prénom (suivi d'un retour à la ligne) dans le terminal.
+L'objectif de cet exercice est d'écrire une fonction qui affichera votre prénom (**suivi d'un retour à la ligne**) dans le terminal.
 
 La fonction devra être prototypée de la façon suivante :
 
@@ -84,8 +85,7 @@ $> Timothée
 > **Fichier de rendu:**  `digits/digits.c`
 
 ###  Sujet :
-Écrivez une fonction qui affiche dans le terminal
-tous les chiffres dans l'ordre croissant suivit d'un retour à la ligne.
+Écrivez une fonction qui affiche dans le terminal tous les chiffres dans l'ordre croissant **suivi d'un retour à la ligne**.
 
 La fonction devra être prototypée de la façon suivante :
 ```C
@@ -107,7 +107,7 @@ $> 0123456789
 > **Fichier de rendu:**  `revalpha/revalpha.c`
 
 ###  Sujet :
-Écrivez une fonction qui affiche dans le terminal l'alphabet à l'envers une lettre sur deux en majuscule suivit d'un retour à la ligne
+Écrivez une fonction qui affiche dans le terminal l'alphabet à l'envers, une lettre sur deux en majuscules, **suivi d'un retour à la ligne**
 
 La fonction devra être prototypée de la façon suivante :
 
@@ -157,7 +157,7 @@ alandroit("BEEP BOOP");
 $> BEEP BOOP
 ```
 
->:info !icon:circle-info Vous avez le doit à la fonction `strlen` !
+>:info !icon:circle-info Vous avez le droit à la fonction `strlen` !
 
 ## Alanver
 
@@ -243,9 +243,9 @@ $> 7
 > **Fichier de rendu:**  `repeat_alpha/repeat_alpha.c`
 
 ###  Sujet :
-Pour cet exercice je vous laisse deviner le sujet par vous même !
+Pour cet exercice je vous laisse deviner le sujet par vous-même !
 
-Vous verrez c'est pas sorcier !
+Vous verrez, c'est pas sorcier !
 
 La fonction devra être prototypée de la façon suivante :
 
@@ -281,7 +281,7 @@ repeat_alpha("abacadaba 42!");
 $> abbacccaddddabba 42!
 ```
 
->:info Si vous n'arrivez vraiment pas à trouver une corrélation entre les exemples et après avoir bien réfléchi, vous pouvez appeler un cobra (On oublie pas aussi la règle avec les voisins ;p )
+>:info Si vous n'arrivez vraiment pas à trouver une corrélation entre les exemples et après avoir bien réfléchi, vous pouvez appeler un cobra (On n'oublie pas aussi la règle avec les voisins ;p )
 
 ## HidenTF
 
@@ -329,7 +329,7 @@ $> 0
 > **Fichier de rendu:**  `rot_42/rot_42.c`
 
 ###  Sujet :
-Écrivez une fonction qui prend une chaîne de caractères alphabétiques en paramètre et va incrémenter chacune de ses lettres par 42 puis l'afficher dans le terminal suivit d'un retour à la ligne. Si le caractère sort de l'alphabet, on repart au début.
+Écrivez une fonction qui prend une chaîne de caractères alphabétiques en paramètre et va incrémenter chacune de ses lettres de 42 puis l'afficher dans le terminal **suivi d'un retour à la ligne**. Si le caractère dépasse l'alphabet, on repart au début.
 
 
 La fonction devra être prototypée de la façon suivante :
@@ -373,7 +373,7 @@ $> Lylu bu setydw sbkr 2022
 
 ###  Sujet :
 Écrirez une fonction qui prend une chaîne de caractères en paramètre, et qui
-affiche le dernier mot de cette chaîne, suivi d'un '\n'.
+affiche le dernier mot de cette chaîne, **suivi d'un '\n'**.
 
 On appelle "mot" une portion de chaîne de caractères délimitée soit par des
 espaces et/ou des tabulations, soit par le début / la fin de la chaîne.
@@ -417,11 +417,11 @@ $> lorem,ipsum
 > **Fichier de rendu:**  `r_capitalize/r_capitalize.c`
 
 ###  Sujet :
-Écrivez une fonction reproduisant le comportement de la fonction capitalize en JavaScript, puis imprimez la chaîne modifiée dans le terminal.
+Écrivez une fonction reproduisant le comportement de la fonction **"capitalize" du JavaScript**, puis imprimez la chaîne modifiée dans le terminal.
 
 La fonction prendra 2 paramètres, la chaîne à modifier et un entier définissant le type de transformation.
 
-- Si order vaut 0 vous devez mettre en majuscule les premières lettres de chaque mot et passer en minuscule les autres.
+- Si order vaut 0 vous devez mettre en majuscules les premières lettres de chaque mot et passer en minuscule les autres.
 
 - Si order vaut 1 vous devez procéder de la même manière mais en appliquant la majuscule à la dernière lettre.
 
@@ -457,7 +457,7 @@ $> epitecH c'esT plutoT cooL quanD memE !
 
 Toutes mes félicitations pour être arrivé jusqu'ici !
 
-Que vous ayez tout réussi, skip un exercice sur 2 ou bien qu'il soit 10h10 et que tu sois entrain de lire tout le pdf par simple curiosité tu es le ou la bienvenue ici !
+Que vous ayez tout réussi, skip un exercice sur 2 ou bien qu'il soit 10h10 et que tu sois en train de lire tout le pdf par simple curiosité tu es le ou la bienvenue ici !
 
 Il ne reste plus que 2 exercices, Au bout !
 
