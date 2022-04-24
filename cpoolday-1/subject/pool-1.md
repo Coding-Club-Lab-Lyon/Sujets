@@ -1,6 +1,6 @@
 ## Prémices
 L'objectif de ce Coding club est de vous familiariser avec le langage C et de vous offrir
-	un avant goût de la forme mais aussi de la rigueur de programmation qui vous sera demandé en octobre prochain
+un avant goût de la forme mais aussi de la rigueur de programmation qui vous sera demandé en octobre prochain
 
 Et pour que votre périple à travers la journée -1 de votre piscine de C se passe à merveilles il y a quelques règles à respecter !
 
@@ -9,7 +9,8 @@ Et pour que votre périple à travers la journée -1 de votre piscine de C se pa
  -  Chaque exercice a été pensé afin d'être réalisable avec pour **seul syscall la fonction write()** de la libraire **unistd** . Toute fonction externe utilisée dans votre exercice  [*exemple printf(), puts()*] déclenchera une erreur dans notre moulinette et refusera catégoriquement la validation de votre exercice aussi juste soit-il.
 
 - Vous devez organiser votre travail dans une arborescence de dossiers cohérente afin de faciliter le fonctionnement de la moulinette. Au début de chaque exercice le nom du fichier à rendre ainsi que le dossier de rendu vous seront communiqués.
-	Exemple d'arborescence:
+
+Exemple d'arborescence:
 
 ```
     .
@@ -364,22 +365,24 @@ rot_42("Vive le coding club 2022");
 $> Lylu bu setydw sbkr 2022
 ```
 
->:info 	N.b: Une lettre revient à 'a' lorsqu'elle dépasse 'z' et à 'A' lorsqu'elle dépasse 'Z'
+>:info N.b: Une lettre revient à 'a' lorsqu'elle dépasse 'z' et à 'A' lorsqu'elle dépasse 'Z'
 
 ## Last_word
 
 ### fichier de rendu : `last_word/last_word.c`
 
 ###  Sujet :
-	Écrirez une fonction qui prend une chaîne de caractères en paramètre, et qui
-	affiche le dernier mot de cette chaîne, suivi d'un '\n'.
+Écrirez une fonction qui prend une chaîne de caractères en paramètre, et qui
+affiche le dernier mot de cette chaîne, suivi d'un '\n'.
 
-	On appelle "mot" une portion de chaîne de caractères délimitée soit par des
-	espaces et/ou des tabulations, soit par le début / la fin de la chaîne.
+On appelle "mot" une portion de chaîne de caractères délimitée soit par des
+espaces et/ou des tabulations, soit par le début / la fin de la chaîne.
 
 La fonction devra être prototypée de la façon suivante :
 
-    void last_word(char *str);
+```C
+void last_word(char *str);
+```
 
 ### Exemple :
 Un appel de votre fonction avec les arguments suivants devra afficher ces résultats :
@@ -465,8 +468,8 @@ Bon courage pour la suite jeune Tek 0 !
 > **Fichier de rendu:**  `pgcd/pgcd.c`
 
 ###  Sujet :
-	Écrivez une fonction qui renvoie le plus grand dénominateur
-	commun entre 2 nombres.
+Écrivez une fonction qui renvoie le plus grand dénominateur
+commun entre 2 nombres.
 
 La fonction devra être prototypée de la façon suivante :
 
