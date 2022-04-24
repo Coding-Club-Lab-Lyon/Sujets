@@ -31,4 +31,72 @@ Et pour finir, une variable `mot` qui contient la solution avec des **"_"** à l
 
 > À chaque fois que nous afficherons une nouvelle étape de notre pendu, nous effacerons le contenu de l'invite de commandes grâce à `os.system("clear")`
 
+L'affichage de votre jeu en cours de partie doit ressembler à ça :
 
+```
+_________________
+   ||   //      |
+   ||  //       |
+   || //
+   ||//
+   ||
+   ||
+   ||
+   ||
+===========
+_ _ _ _ _ _ _ _
+
+<message>
+Proposez une lettre :
+```
+
+- Si la lettre était incorrecte, on affiche le message : "Lettre incorrecte" et on ajoute une erreur
+- Si la lettre précédente était correcte, on affiche le message ! "Lettre correcte" et on affiche sa (ou ses) occurences dans le mot
+- Si la lettre est déjà dans le mot, on affiche le message : "Lettre déjà proposée" et on ne compte pas de faute
+- Si le joueur a déjà proposé la lettre mais qu'elle était fausse, il peut la reproposer et ça lui comptera une erreur de plus
+- En début de partie, on n'affiche aucun message
+
+Si le joueur trouve toutes les lettres du mot, on affiche ">>> Gagné! <<<" et on quitte le jeu.
+
+Sinon on affiche ">>> Perdu! <<<" et ">>> Le mot était : .... <<<"
+
+Quoi qu'il arrive, avant de quitter le jeu, on affiche toujours "* Fin de la partie *"
+
+Exemples:
+
+```
+_________________
+   ||   //      |
+   ||  //       |
+   || //        _
+   ||//        (_)
+   ||
+   ||
+   ||
+   ||
+===========
+S O I F
+
+>>> Gagné! <<<
+* Fin de la partie *
+```
+
+---
+
+```
+_________________
+   ||   //      |
+   ||  //       |
+   || //        _
+   ||//        (_)
+   ||          \|/
+   ||           |
+   ||          / \
+   ||
+===========
+_ _ _ _ _
+
+>>> Perdu! <<<
+>>> Le mot était : guepe <<<
+* Fin de la partie *
+```
