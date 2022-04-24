@@ -62,7 +62,7 @@ Sinon on affiche ">>> Perdu! <<<" et ">>> Le mot était : .... <<<"
 
 Quoi qu'il arrive, avant de quitter le jeu, on affiche toujours "* Fin de la partie *"
 
-Exemples:
+## Exemples:
 
 ```
 _________________
