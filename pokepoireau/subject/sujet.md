@@ -1,7 +1,6 @@
-<div style="text-align:justify">
-
 ## I. Introduction
 
+<div style="text-align:justify">
 Bienvenue dans l’univers de Poképoireau.
 
 Bravo à vous jeunes dresseurs, vous avez été appelé par le professeur Chêne pour choisir votre tout
@@ -9,6 +8,7 @@ premier poireau. Il a décidé que vous êtes désormais prêts à entamer votre
 affronter tous les autres dresseurs, dans le but d’obtenir le titre de « Maître Poireau » tant convoité.
 Avant d’arriver à cela, vous allez devoir entrainer votre petit protégé, lui apprendre les meilleures
 techniques de combat et l’encourager pour l’aider à devenir de plus en plus fort.
+</div>
 
 ![](assets/pr_chene.png)
 <center>*Choisissez bien, il va vous accompagner toute votre vie !*</center>
