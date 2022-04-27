@@ -18,12 +18,7 @@ techniques de combat et l’encourager pour l’aider à devenir de plus en plus
 * Vous avez tout à fait le droit d’utiliser internet pour trouver des réponses ou pour vous
 renseigner.
 
-* Pour ce projet-là, il vous est demandé de choisir comme nom du repository : PokePoireau_cc.
-Si vous ne savez pas utiliser git allez lire le tutoriel « Le coffre a jouet du petit git ».
-
 * En cas de soucis ou questions demandez de l’aide à votre voisin de droite. Puis de gauche. Ou inversement. Puis demandez enfin à un cobra si vous êtes bloqué(e).
-
-!pagebreak
 
 ## III. Un jour je serai le meilleur dresseur
 
@@ -45,8 +40,6 @@ En 1, vous avez les objets équipés, vous pouvez voir que dans la case armes se
 En 2, ce sont les caractéristiques, il s’agit de vos capacités telles que votre vie, votre force, la fréquence à laquelle vous aurez la chance de débuter le combat, vos points d’actions (TP), etc.
 N’oubliez pas d’attribuer des points à ces différentes stats lorsque vous passez un niveau, afin de
 rendre votre poireau plus performant.
-
-!pagebreak
 
 En 3 se situe votre Menu qui contient plusieurs possibilités :
 
@@ -277,7 +270,7 @@ setWeapon(WEAPON_MACHINE_GUN);
 
 Vous pouvez maintenant ajouter une condition afin de choisir quand sortir l’arme et ne pas dépenser 1 TP à chaque nouveau tour.
 
-!pagebrak
+!pagebreak
 
 ## VI. Découvrez le manuel du savoir ultime
 
