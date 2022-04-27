@@ -1,6 +1,5 @@
 ## I. Introduction
 
-<div style="text-align:justify">
 Bienvenue dans l’univers de Poképoireau.
 
 Bravo à vous jeunes dresseurs, vous avez été appelé par le professeur Chêne pour choisir votre tout
@@ -8,7 +7,6 @@ premier poireau. Il a décidé que vous êtes désormais prêts à entamer votre
 affronter tous les autres dresseurs, dans le but d’obtenir le titre de « Maître Poireau » tant convoité.
 Avant d’arriver à cela, vous allez devoir entrainer votre petit protégé, lui apprendre les meilleures
 techniques de combat et l’encourager pour l’aider à devenir de plus en plus fort.
-</div>
 
 ![](assets/pr_chene.png)
 <center>*Choisissez bien, il va vous accompagner toute votre vie !*</center>
@@ -31,18 +29,15 @@ Si vous ne savez pas utiliser git allez lire le tutoriel « Le coffre a jouet du
 
 ### 1. Il n'y a pas de champion sans entrainement
 
-<div style="text-align:justify">
 En effet, Il va falloir travailler dur pour arriver tout en haut et devenir le plus fort ! Pour cela le professeur Chêne a créé un site internet en ligne pour que vous puissiez entrainer à distance votre petit poireau.
 
-Commencez par créer un compte à cette adresse : https://leekwars.com/ . Si besoin est, vous pouvez passer le site en français ou en anglais. Connectez-vous avec votre compte Github ou votre adresse mail. Si vous choisissez cette dernière solution, vérifiez bien votre boite pour valider votre compte.
+Commencez par créer un compte à cette adresse : [leekwars.com](https://leekwars.com/). Si besoin est, vous pouvez passer le site en français ou en anglais. Connectez-vous avec votre compte Github ou votre adresse mail. Si vous choisissez cette dernière solution, vérifiez bien votre boite pour valider votre compte.
 
 LeekWars est un site dont le but est de créer votre Intelligence Artificielle pour qu'elle combatte contre les IA des autres joueurs. Votre but est ainsi de créer l'IA la plus adaptive. Pour ce faire, différentes armes, compétences et sorts sont disponibles.
-</div>
 
 <center>![](assets/screen1.png)</center>
 <center>*Voici le profil de votre poireau, ici vous pouvez y observer la moindre de ses caractéristiques*</center>
 
-<div style="text-align:justify">
 Dans l’image ci-dessus vous pouvez voir différents blocs de couleur accompagnés d’un numéro dans le but de vous expliquer un peu l’interface.
 
 En 1, vous avez les objets équipés, vous pouvez voir que dans la case armes se trouve le pistolet de base.
@@ -50,11 +45,9 @@ En 1, vous avez les objets équipés, vous pouvez voir que dans la case armes se
 En 2, ce sont les caractéristiques, il s’agit de vos capacités telles que votre vie, votre force, la fréquence à laquelle vous aurez la chance de débuter le combat, vos points d’actions (TP), etc.
 N’oubliez pas d’attribuer des points à ces différentes stats lorsque vous passez un niveau, afin de
 rendre votre poireau plus performant.
-</div>
 
 !pagebreak
 
-<div style="text-align:justify">
 En 3 se situe votre Menu qui contient plusieurs possibilités :
 
 - Éditeur, permet de modifier l’IA de votre poireau.
@@ -69,7 +62,6 @@ En 3 se situe votre Menu qui contient plusieurs possibilités :
 En 4 vous pouvez consulter directement l’IA active sur votre poireau. Comme vous le savez, un jeune poireau débutant ne sait pas trop quoi faire pour gagner contre ses adversaires, il compte sur vous pour l’aider et le guider dans ses actions lors d’un match. C’est ici que L’IA va intervenir ! Une IA (Intelligence Artificielle) est un programme qui s’adapte et répond de façon différente en fonction d’un cas donné. L’exemple le plus concret est l’assistant artificiel que l’on retrouve dans tous les téléphones comme Google assistant, Siri, Microsoft AI...
 
 En 5 lorsque que vous en aurez, vous pourrez acheter des sorts !
-</div>
 
 <center>![](assets/angry_leek.png)</center>
 <center>*Petit poireau deviendra grand !*</center>
@@ -78,7 +70,6 @@ En 5 lorsque que vous en aurez, vous pourrez acheter des sorts !
 
 ### 2. Partez du bon pied
 
-<div style="text-align:justify">
 Commençons par voir certaines notions de base en programmation.
 La première ? Les variables !
 
@@ -107,7 +98,6 @@ function moveforward() {
 ```
 
 Cela sert à plusieurs choses : premièrement, à éviter de copier du code qui fait la même chose, mais également à rendre le code plus lisible ou plus générique.
-</div>
 
 <center>![](assets/cute_leek.png)</center>
 <center>*On peut dire que votre poireau est un sacré rigolo !*</center>
@@ -118,7 +108,6 @@ Cela sert à plusieurs choses : premièrement, à éviter de copier du code qui 
 
 ### 1. Il est important de bien connaître son élève
 
-<div style="text-align:justify">
 Votre nouvel ami poireau possède déjà quelques bases en matière de combat, mais elles sont très simples et sans votre aide il n’arriva malheureusement pas à progresser.
 
 Allez dans l’éditeur. Vous trouverez un code généré par défaut. Pour le comprendre, vous devez l’observer. Chaque tour, votre poireau va exécuter le code ligne par ligne, dans le sens de lecture. Voici à quoi ressemble la première ligne : 
@@ -154,13 +143,11 @@ if (getTurn() == 1) {
 ```
 
 Pour tester votre programme, soit vous pouvez utiliser le bouton tester et créer un scenario contre Domingo qui est un poireau de votre niveau, soit vous pouvez affronter des inconnus dans potager. 
-</div>
 
 !pagebreak
 
 ### 2. Hop, hop, hop faut que ça bouge !
 
-<div style="text-align:justify">
 Que diriez-vous d’améliorer les déplacements de votre ami ? Histoire qu’il puisse réagir lorsque se passe un évènement précis. Commencez par changer la façon dont se déplace le poireau afin de diversifier ses mouvements. Vous pouvez le faire reculer, aller à gauche ou à droite lorsqu’il est touché par l’adversaire. Ainsi, ajoutez une action qui va vous permettre d’avancer de 2 et de reculer de 1 : 
 
 ```js
@@ -173,11 +160,9 @@ moveAwayFrom(enemy, 1);
 ```
 
 Vous pouvez par exemple, pour approfondir, déplacer votre poireau derrière un obstacle afin de vous protéger, ou encore amener l’ennemi dans un endroit fermé pour le bloquer.
-</div>
 
 ### 3. Bang bang !!
 
-<div style="text-align:justify">
 Vous avez vu au tout début que votre poireau ne tirait qu’une fois par tour et dépense trois TP. Maintenant tentez d’asséner plusieurs coups à l’ennemi avec votre arme. Pour cela, vous allez avoir besoin de connaître vos TP, c’est là que la fonction « getTP() » entre en jeu. Comme son nom l’indique, elle récupère les TP d’un poireau ; ce qui permet d’analyser la situation et de réagir en conséquence.
 
 ```js
@@ -198,13 +183,11 @@ while(my_tp >= 3 and shoot != USE_INVALID_POSITION) {
 	my_tp = getTP();
 }
 ```
-</div>
 
 !pagebreak
 
 ### 4. La distanciation sociale est la clé !
 
-<div style="text-align:justify">
 Pour améliorer vos déplacements, il faut pourvoir prendre en compte la distance entre votre champion et votre adversaire. Tout d’abord, récupérez votre position et la position de l’ennemi. Pour cela utilisez la fonction «getCell». Entrez le code suivant :
 
 ```js
@@ -221,7 +204,6 @@ var dist = getCellDistance(pos_player, pos_enemy);
 ```
 
 Maintenant que c’est fait, vous pouvez utiliser cette nouvelle donnée pour vous mettre à couvert, aller à portée de tir, planifier vos déplacements afin de prendre l’avantage !
-</div>
 
 <center>![](assets/dueling_leek.png)</center>
 <center>*C’est l’heure du dudududuel !*</center>
@@ -230,9 +212,7 @@ Maintenant que c’est fait, vous pouvez utiliser cette nouvelle donnée pour vo
 
 ## V. Les pouvoirs incroyables du poireau :
 
-<div style="text-align:justify">
 Super, bien joué ! Votre progression est fulgurante, et votre poireau plus efficace ! Vous avez eu l'occasion de voir l’utilisation des armes, les mouvements... Mais avez-vous pensé à vous soigner ? À utiliser de la magie pour attaquer votre adversaire de plus loin ? C’est possible grâce aux puces que vous pourrez acheter en magasin : 
-</div>
 
 <center>![](assets/leek_powers.png)</center>
 <center>*Les possibilités sont infinies, choisissez bien vos pouvoirs !*</center>
@@ -241,14 +221,11 @@ Super, bien joué ! Votre progression est fulgurante, et votre poireau plus effi
 
 ### 1. Rafistolez le poireau
 
-<div style="text-align:justify">
 Votre valeureux compagnon peut subir des dégâts, vous allez devoir anticiper tout ça, pour optimiser vos combats. Pour pouvoir effectuer cela, il est nécessaire d’avoir atteint le niveau 3, donc n’hésitez pas à affronter vos voisins, ou des inconnus pour augmenter votre expérience. Après cela, vous pourrez acheter la puce CHIP_BANDAGE : 
-</div>
 
 <center>![](assets/heal_leek.png)</center>
 <center>En effet, c’est un pansement !</center>
 
-<div style="text-align:justify">
 Vous pouvez désormais la mettre sur votre poireau. Pour cela allez sur l’onglet principal de votre poireau et équipez-la. Une fois que c’est fait, codez la partie permettant de l’utiliser. Essayez de suivre la logique suivante pour la rajouter à votre IA : s’il vous manque de la vie, alors utilisez la puce de soin.
 
 ```js
@@ -263,20 +240,16 @@ if(life_now < Life) {
 ```
 
 Votre légume peut maintenant se soigner ! Vous pourrez résister plus longtemps sous le feu ennemi. Vous pouvez aussi utiliser les puces de protection, qui serviront à prévenir les blessures. 
-</div>
 
 !pagebreak
 
 ### 2. Déterrez le poireau adverse
 
-<div style="text-align:justify">
 Parfait ! Vous commencez à devenir un véritable professionnel. Maintenant améliorez vos attaques en utilisant des sortilèges pour donner une bonne raclée aux ennemies ! Pour commencer à utiliser les sorts d’attaques à distance, vous devez commencer par acheter l'une des puces offensives, qui sont représentées par la couleur rouge.
-</div>
 
 <center>![](assets/leek_attack.png)</center>
 <center>*Voilà votre sort !*</center>
 
-<div style="text-align:justify">
 Comme vous pouvez le voir à côté de la puce, vous avez ici plusieurs infos à propos de celle-ci tel que sa portée, les TP nécessaires pour l’utiliser ou encore les dégâts qu'elle inflige. Pour cette dernière la portée est de 0 à 6 blocs, 2TP sont nécessaires pour l'utiliser et elle fait de 5 à 7 dégâts par utilisation.
 
 L'une des premières utilisations que vous en aurez sera : 
@@ -287,18 +260,14 @@ useChip(CHIP_SHOCK, enemy);
 ```
 
 Ici, vous ne faites qu’utiliser le sort Shock sur l’adversaire. Maintenant améliorez votre algorithme pour activer la puce si la portée de votre arme est inférieure à votre distance à l'ennemi ET que la portée de votre puce est supérieure ou égale à votre distance à l'ennemi.
-</div>
 
 ### 3. Petit tour à l’armurerie
 
-<div style="text-align:justify">
 Que diriez-vous de passer à la vitesse supérieure ? Après tous vos combats, vous devriez pouvoir acheter une nouvelle arme. Le MACHINE_GUN est une arme de départ de choix pour cette nouvelle expérience. Pour l’équiper faites comme pour les chips. Voyons maintenant comment l’utiliser.
-</div>
 
 <center>![](assets/machine_gun.png)</center>
 <center>Voici l’incroyable MACHINE_GUN</center>
 
-<div style="text-align:justify">
 Vous avez déjà des fonctions utilisant l’arme. Mais comment en changer ? Utilisez le même principe que pour le tout premier pistolet que vous aviez :
 
 ```js
@@ -307,17 +276,14 @@ setWeapon(WEAPON_MACHINE_GUN);
 ```
 
 Vous pouvez maintenant ajouter une condition afin de choisir quand sortir l’arme et ne pas dépenser 1 TP à chaque nouveau tour.
-</div>
 
 !pagebrak
 
 ## VI. Découvrez le manuel du savoir ultime
 
-<div style="text-align:justify">
 Vous commencez à devenir un expert, le professeur Chêne n’a plus rien à vous apprendre. L’élève a dépassé le maître ! Désormais, vous allez devoir faire vos propres recherches et expériences pour augmenter votre niveau.
 
 Mais vous avez de la chance ! Une documentation est fournie par le site. Vous y trouverez toutes les fonctions que vous n’avez pas vu pour l’instant. Il y aura aussi des informations sur comment réaliser les IA si vous voulez d’autres idées pour votre poireau. Cette partie se trouve dans la partie aide du site. Vous y trouverez les informations sur les différentes fonctions qui existent et que vous pouvez utiliser. Pour cela, vous devez sélectionner la fonction que vous désirez : vous saurez alors quels sont ses paramètres et ses retours. Have fun !
-</div>
 
 <center>![](assets/wise_leek.png)</center>
 <center>*Il va falloir lire tout ça à votre poireau, tout le monde sait qu’ils ne savent pas lire.*</center>
@@ -326,7 +292,6 @@ Mais vous avez de la chance ! Une documentation est fournie par le site. Vous y 
 
 ## VII. Toujours plus loin, toujours plus haut, toujours plus fort !
 
-<div style="text-align:justify">
 Votre entrainement prend fin, vous avez beaucoup évolué depuis que vous avez récupéré votre poireau. On sent bien à quel point vous êtes liés désormais, vous êtes devenus inséparables ! Le professeur tient à vous féliciter une dernière fois avant que vous partiez dans de folles aventures.
 
 Si vous souhaitez aller plus loin, il vous a concocter une petite liste de choses à réaliser :
@@ -336,7 +301,6 @@ Si vous souhaitez aller plus loin, il vous a concocter une petite liste de chose
 - Créer une équipe avec vos amis en cliquant sur votre profil pour s’entrainer tous ensemble !
 
 Bon courage à toi jeune poireau !
-</div>
 
 <center>![](assets/leek_league.png)</center>
 <center>*Constitue une équipe avec tes amis et soyez les meilleurs !*</center>
