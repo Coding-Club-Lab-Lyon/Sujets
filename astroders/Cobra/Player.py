@@ -26,6 +26,9 @@ class Player(PlayerClass):
             screen.blit(self.bullet, (bullet[0], bullet[1]))
             if bullet[1] < -100:
                 self.bullets.remove(bullet)
+        font = pygame.font.SysFont("Arial", 30)
+        hp_text = font.render("HP: %d" % self.hp, True, (255, 255, 255))
+        screen.blit(hp_text, (10, 10))
         screen.blit(self.costumes[self.costume // 5], (self.x, self.y + self.idle_relative[1]))
         self.costume = (self.costume + 1) % (len(self.costumes) * 5)
 

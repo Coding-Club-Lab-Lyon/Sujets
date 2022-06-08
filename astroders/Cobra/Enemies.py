@@ -15,6 +15,8 @@ class Enemies:
         self.lines_pos = [0, 0, 0]
         self.enemies_top = 0
         self.attacks = []
+        self.attack_image = pygame.image.load("assets/meteorite.png")
+        self.attack_image = pygame.transform.scale(self.attack_image, (50, 50)) 
 
     def move_lines(self, width):
         self.enemies_top += 0.3
@@ -26,7 +28,7 @@ class Enemies:
         width, _ = screen.get_size()
         self.move_lines(width)
         for i, attack in enumerate(self.attacks):
-            self.attacks[i][0] += 2
+            self.attacks[i][1] += 5
             screen.blit(self.attack_image, (attack[0], attack[1]))
         for i, line in enumerate(self.enemies):
             for base in [-width, 0, width]:
@@ -34,6 +36,13 @@ class Enemies:
                     if not enemy.alive:
                         continue
                     screen.blit(enemy.img, (self.lines_pos[i] + base + j * 80, self.enemies_top + i * 80))
+    def check_attacks(self, player):
+        for attack in self.attacks:
+            if attack[1] > 850:
+                self.attacks.remove(attack)
+            if attack[0] > player.x and attack[0] < player.x + 100 and attack[1] > player.y and attack[1] < player.y + 100:
+                self.attacks.remove(attack)
+                player.hp -= 1
 
     def check_bullets(self, width, bullets):
         for i, line in enumerate(self.enemies):
@@ -57,3 +66,11 @@ class Enemies:
         width, _ = screen.get_size()
         line = random.randint(0, 2)
         self.attacks.append([random.randint(0, width), self.enemies_top + line * 80])
+
+    def count_enemies(self):
+        count = 0
+        for line in self.enemies:
+            for enemy in line:
+                if enemy.alive:
+                    count += 1
+        return count

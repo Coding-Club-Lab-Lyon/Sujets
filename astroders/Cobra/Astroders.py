@@ -1,3 +1,5 @@
+import os
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame
 from pygame.locals import *
 from Player import Player
@@ -29,22 +31,35 @@ def key_inputs():
     if keys[K_SPACE]:
         player.shoot()
 
+frame = 0
+win = False
 while running:
     clock.tick(60)
-    dt = clock.get_time() / 1000
-    if dt % 10:
-        enemies.attack()
+    frame += 1
+    if frame > 50:
+        frame = 0
+        enemies.attack(screen)
     for event in pygame.event.get():
         if pygame.key.get_pressed()[K_ESCAPE]:
             running = False
         if event.type == pygame.QUIT:
             running = False
-
     key_inputs()
     screen.blit(background, (0, 0))
     if player.bullet_cooldown > 0:
         player.bullet_cooldown -= 1
     player.display(screen)
     enemies.display(screen)
+    enemies.check_attacks(player)
     enemies.check_bullets(window_width, player.bullets)
     pygame.display.update()
+    if player.hp <= 0 or enemies.enemies_top > window_height - 150:
+        running = False
+    if enemies.count_enemies() == 0:
+        win = True
+        running = False
+
+if win:
+    print("Bravo mais t'es un gros con")
+else:
+    print("Tu as perdu sale chien...")
