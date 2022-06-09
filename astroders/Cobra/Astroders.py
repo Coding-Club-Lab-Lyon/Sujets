@@ -2,24 +2,22 @@ import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame
 from pygame.locals import *
+from Classes import Game
 from Player import Player
 from Enemies import Enemies
 
-pygame.init()
-window_width = 1200
-window_height = 900
-running = True
-screen = pygame.display.set_mode((window_width, window_height))
+def attack_on_tick(game):
+    game.frame += 1
+    if game.frame > 50:
+        game.frame = 0
+        game.enemies.attack(game.screen)
 
-background = pygame.image.load("assets/space.jpg")
-background = pygame.transform.scale(background, (window_width, window_height))
-clock = pygame.time.Clock()
-
-player = Player()
-enemies = Enemies()
-
-def key_inputs():
+def key_inputs(player):
     keys = pygame.key.get_pressed()
+    if keys[K_ESCAPE]:
+        exit()
+    if keys[K_SPACE]:
+        player.shoot()
     if keys[K_RIGHT]:
         player.move_right()
     if keys[K_LEFT]:
@@ -28,38 +26,51 @@ def key_inputs():
         player.move_up()
     if keys[K_DOWN]:
         player.move_down()
-    if keys[K_SPACE]:
-        player.shoot()
 
-frame = 0
-win = False
-while running:
-    clock.tick(60)
-    frame += 1
-    if frame > 50:
-        frame = 0
-        enemies.attack(screen)
+def check_events(game):
     for event in pygame.event.get():
-        if pygame.key.get_pressed()[K_ESCAPE]:
-            running = False
         if event.type == pygame.QUIT:
-            running = False
-    key_inputs()
-    screen.blit(background, (0, 0))
-    if player.bullet_cooldown > 0:
-        player.bullet_cooldown -= 1
-    player.display(screen)
-    enemies.display(screen)
-    enemies.check_attacks(player)
-    enemies.check_bullets(window_width, player.bullets)
-    pygame.display.update()
-    if player.hp <= 0 or enemies.enemies_top > window_height - 150:
-        running = False
-    if enemies.count_enemies() == 0:
-        win = True
-        running = False
+            exit()
+    key_inputs(game.player)
 
-if win:
-    print("Bravo mais t'es un gros con")
-else:
-    print("Tu as perdu sale chien...")
+def update_game_elements(game):
+    game.clock.tick(60)
+    game.player.update()
+    game.enemies.update(game)
+
+def check_hit_boxes(game):
+    game.enemies.check_attacks(game.player)
+    game.enemies.check_bullets(game.window_width, game.player.bullets)
+
+def display_game_elements(game):
+    game.screen.blit(game.background, (0, 0))
+    game.player.display(game)
+    game.enemies.display(game)
+    pygame.display.update()
+
+def check_end_conditions(game):
+    if game.player.hp <= 0 or game.enemies.enemies_top > game.window_height - 150:
+        game.running = False
+    if game.enemies.count_enemies() == 0:
+        game.win = True
+        game.running = False
+
+def main():
+    pygame.init()
+    game = Game()
+    game.player = Player()
+    game.enemies = Enemies()
+    while game.running:
+        check_events(game)
+        attack_on_tick(game)
+        update_game_elements(game)
+        check_hit_boxes(game)
+        display_game_elements(game)
+        check_end_conditions(game)
+    if game.win:
+        print("Bravo mais t'es un gros con")
+    else:
+        print("Tu as perdu sale chien...")
+
+if __name__== "__main__":
+    main()
