@@ -33,6 +33,7 @@ class Player(PlayerClass):
         super().__init__()
         self.bullets = []
         self.bullet_cooldown = 0
+        # code here
 ...
 ```
 
@@ -93,12 +94,13 @@ Maintenant que nous avons fait les méthodes associées à chacun des mouvements
 
 ```python
 ...
-def key_inputs():
+def key_inputs(player):
 	keys = pygame.key.get_pressed()
 	if keys[K_ESCAPE]:
-        exit
+        exit()
     if keys[K_SPACE]:
         player.shoot()
+    # code here
 ...
 ```
 
@@ -165,6 +167,7 @@ Mais vous arez remarqué que tes projectiles, comme ceux de tes ennemis n'atteig
 ...
 def check_attacks(self, player):
     for attack in self.attacks:
+        # code here
 ...
 ```
 
@@ -209,7 +212,7 @@ En effet, nous ne vérifions pas que les projectiles du joueur atteignent leur c
             right = (self.lines_pos[line_index] + enemie_index * 80 + 50) % width
             bottom = self.enemies_top + line_index * 80 + 50
             for bullet in bullets:
-            # code here
+                # code here
 ...
 ```
 Vous devrez ajouter les conditions suivantes :
