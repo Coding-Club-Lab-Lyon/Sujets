@@ -22,7 +22,7 @@ Il a d’abord besoin que tu l’aides à rejoindre l’espace !
 
 Pour le moment, le contenu du programme permet de créer une fenêtre, de créer le joueur, de pouvoir arrêter le programme avec la touche « Echap », et enfin d’afficher cette fenêtre avec une image en fond.
 
-Pour tester cela, effectue la commande « python3 ./Astroders.py » pour démarrer le programme.
+Pour tester cela, effectue la commande `python3 Astroders.py` pour démarrer le programme.
 
 On va commencer par aller dans le fichier « Player.py » afin de compléter la classe « Player » :
 
@@ -177,12 +177,13 @@ def check_attacks(self, player):
 ```
 
 Maintenant à vous de compléter la boucle pour qu'à chaque _attack_, ces conditions soient vérifiées :
+
 - ssi la coordonnée y de l'_attack_ est strictement supérieur à 850, alors on la supprime de la liste des attack (c'est-à-dire de _attacks_). Et on passe au tour de boucle suivant.
 - ssi la condition suivante est vrai, alors un supprime l'_attack_ de la liste _attacks_. Et on passe au tour de boucle suivant.
 
 ```python
-    if attack.x <= player.x + 100 and player.x <= attack.x + 50 and attack.y + 50 >= player.y and player.y + 100 >= attack.y:
-
+if attack.x <= player.x + 100 and player.x <= attack.x + 50
+and attack.y + 50 >= player.y and player.y + 100 >= attack.y:
 ```
 
 Il vous suffit maintenant d'appeler la méthode que vous venez de créer dans le fichier « Astroders.py » :
@@ -285,8 +286,10 @@ Il vous suffit alors d'appeler la fonction _print()_ qui permet d'afficher un me
 
 ```python
 print("Hello you !")
+```
 
-output :
+Output :
+```
 Hello you !
 ```
 
