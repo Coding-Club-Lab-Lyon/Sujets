@@ -1,4 +1,3 @@
-# from hashlib import new
 import pygame
 from pygame.locals import *
 from Classes import Bullet, PlayerClass

@@ -1,9 +1,6 @@
 from ctypes.wintypes import WORD
 import random
-from re import X
-from turtle import left
 import pygame
-import time
 from Classes import Enemy
 
 class Attack:
