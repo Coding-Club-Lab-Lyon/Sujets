@@ -247,7 +247,7 @@ def check_end_conditions(game):
 
 À vous maintenant d'y implémenter les conditions suivantes :
 
-- si le nombre de points de vie du joueur (_game.player.hp_) est inférieur ou  égale à 0 __OU__ si la valeur de _game.enemies.top_ est strictement supérieur à _game.window_height_ - 150, alors on met la variable _game.running_ à False.
+- si le nombre de points de vie du joueur (_game.player.hp_) est inférieur ou  égale à 0 __OU__ si la valeur de _game.enemies.enemies_top_ est strictement supérieur à _game.window_height_ - 150, alors on met la variable _game.running_ à False.
 - si la valeur de _game.enemies.count_enemies()_ est strictement égale à 0, alors met la variable _game.running_ à False et la variable _game.win_ à True.
 
 Bien évidemment, on n'oubliera pas d'appeler notre nouvelle fonction dans la boucle su jeu :
