@@ -19,7 +19,7 @@ class Player(PlayerClass):
     def display(self, game):
         self.costume = (self.costume + 1) % (len(self.costumes) * 5)
         hp_text = game.font.render("HP: %d" % self.hp, True, (255, 255, 255))
-        game.screen.blit(self.costumes[self.costume // 5], (self.x, self.y + self.idle_relative[1]))
+        game.screen.blit(self.costumes[self.costume // 5], (self.x, self.y))
 
     def shoot(self):
         if self.bullet_cooldown == 0:
