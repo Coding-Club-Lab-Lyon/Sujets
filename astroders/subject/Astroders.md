@@ -39,6 +39,9 @@ class Player(PlayerClass):
 
 Ces lignes de codes permettent de créer une classe « Player » qui hérite de la classe « PlayerClass » déjà présente dans le fichier « Classes.py ». Hérité d'une classe signifie que tous les attributs et les méthodes de la classe parent appartiennent aussi à la classe enfant. Il nous montre aussi comment créer les attributs __bullets__ et __bullet_cooldown__. Maintenant à vous de créer les attributs _hp_, _x_ et _y_ qui auront respectivement pour valeur 3, 0 et 800.
 
+
+!pagebreak
+
 Maintenant que cela est fait, nous allons devoir créer la méthode permettant l'affichage du joueur, de ses points de vie ainsi que ses projectiles (pour lancer un projectile il faut appuyer sur la touche espace). Pour cela il va falloir compléter le code suivant dans le fichier  « Player.py » :
 
 ```python
@@ -127,11 +130,13 @@ def display_game_elements(game):
 Une fois cela fait, il va falloir permettre aux ennemis de se déplacer en rejoutant la ligne suivante :
 
 ```python
-def update_game_elements(game):À
+def update_game_elements(game):
     game.clock.tick(60)
     game.player.update()
     game.enemies.update(game) # this one
 ```
+
+!pagebreak
 
 Maintenant, il va falloir permettre aux ennemis d'attaquer. Pour cela on va créer une fonction dans le fichier « Astroders.py » :
 
@@ -159,7 +164,7 @@ while game.running:
 
 !pagebreak
 
-## III. Attention au choque
+## III. Attention aux choques
 
 Mais vous arez remarqué que tes projectiles, comme ceux de tes ennemis n'atteignent leur cible. Pour qu'ils soient pris en compte, il va falloir créer une méthode __check_attacks__ dans le fichier « Enemies.py »
 
@@ -255,6 +260,8 @@ while game.running:
     display_game_elements(game)
     check_end_conditions(game) # don't forget me
 ```
+
+!pagebreak
 
 Maintenant que tu peux gagner ou perdre, à toi de mettre en place des messages de victoire ou de défaite :
 
