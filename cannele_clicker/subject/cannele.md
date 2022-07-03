@@ -71,9 +71,9 @@ Notre page finale devrait ressembler à ce qui suit:
 ![](cannele_clicker.png)
 (Je rappelle que les fichiers concernant le style de la page sont déjà fournis, nous nous contenterons de placer les éléments...)
 
-L'élément de base en HTML est la **"division"** (ou "\<div>"). C'est simplement une boite vide qui peut contenir d'autres éléments ou juste exister seule.
+L'élément de base en HTML est la **"division"** (ou `<div>`). C'est simplement une boite vide qui peut contenir d'autres éléments ou juste exister seule.
 
-Il existe aussi d'autres éléments plus spécifiques comme le **"paragraphe"** ("\<p>") qui sert a contenir du texte.
+Il existe aussi d'autres éléments plus spécifiques comme le **"paragraphe"** (`<p>`) qui sert a contenir du texte.
 
 #### Reprenons notre page depuis le début...
 
@@ -101,11 +101,11 @@ Pour finir, on peut ajouter du texte dans notre paragraphe:
 
 ### Pour les prochains éléments, on va aller plus vite !
 
-Sous notre score on doit créer une "\<div>" ayant pour identifiant "cannele". Cette div ne contient rien pour l'instant.
+Sous notre score on doit créer une `<div>` ayant pour identifiant "cannele". Cette div ne contient rien pour l'instant.
 
 Après avoir fermé la balise précédente, on crée une nouvelle div, ayant pour id "shop", qui contient une div pour chaque amélioration à acheter. Pour l'instant on va créer les divs "four" et "cuistot". 
 
-Chacune des div concernant une amélioration doit contenir une balise "\<button>" avec un texte incitant à l'achat de l'amélioration.
+Chacune des div concernant une amélioration doit contenir une balise `<button>` avec un texte incitant à l'achat de l'amélioration.
 
 C'est bon c'est fini ! Vous pouvez double-cliquer sur le fichier "index.html" pour afficher le résultat dans votre navigateur.
 
