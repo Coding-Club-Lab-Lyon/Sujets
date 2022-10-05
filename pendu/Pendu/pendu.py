@@ -1,40 +1,52 @@
 #!/usr/bin/env python3
+import random
+import os
+from cc_pendu.ascii import Pendu
 
-#import random
-#mots = ["casserole", "cuillere", "patate", "souris"]
-#solution = random.choice(mots)
+pendu = Pendu()
 
-solution = "hello"
-tours = 10
-affichage = ""
+with open("mots.txt") as word_file:
+    liste_de_mots = word_file.readlines()
+    solution = random.choice(liste_de_mots).replace("\n", "")
+
+erreurs = 0
 lettres_trouvees = ""
 
+mot = ""
 for l in solution:
-    affichage = affichage + "_ "
+    mot = mot + "_ "
 
-print(">> Bienvenue dans le pendu <<\n")
+message = ""
 
-while tours > 0:
-    print("Mot à deviner : ", affichage)
-    proposition = input("proposez une lettre : ")[0:1].lower()
+while erreurs < 11:
+    os.system("clear")
+    print(pendu)
+    print(mot)
+    print("")
 
-    if proposition in solution:
-        lettres_trouvees = lettres_trouvees + proposition
-        print("-> Bien vu!")
-    else:
-        tours = tours - 1
-        print("-> Nope\n")
-        print("Il te reste ", tours, " tentative(s)\n")
+    # écrit ton code dans cette partie :
+    # entre cette ligne 
 
-    affichage = ""
+
+
+
+
+
+    # et celle-ci
+
+    mot = ""
     for lettre in solution:
         if lettre in lettres_trouvees:
-            affichage += lettre + " "
+            mot += lettre.upper() + " "
         else:
-            affichage += "_ "
+            mot += "_ "
 
-    if "_" not in affichage:
-        print(">>> Gagné! <<<\n")
-        break
+if (erreurs == 11):
+    os.system("clear")
+    print(pendu)
+    print(mot)
+    print("")
+    
+    # écrit le message de défaite ici
 
 print("* Fin de la partie *")
