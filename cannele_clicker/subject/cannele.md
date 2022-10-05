@@ -161,7 +161,7 @@ script.js:
 // Ici l'argent et le nombre de fours sont utiles à plusieurs
 // endroits, donc on en fait des variables globales
 var argent = 0;
-var four = 1;
+var fours = 1;
 
 // Déclaration de la fonction "cuisiner"
 function cuisiner() {
