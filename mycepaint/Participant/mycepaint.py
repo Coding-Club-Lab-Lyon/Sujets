@@ -20,7 +20,7 @@ pygame.init()
 
 
 
-# Attention ne dépace pas !
+# Attention ne dépasse pas !
 
 pygame.quit()
 quit
