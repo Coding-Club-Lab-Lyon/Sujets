@@ -1,2 +1,2 @@
-Mycépaint 
-1.0.0
+Mycépaint
+1.1.0

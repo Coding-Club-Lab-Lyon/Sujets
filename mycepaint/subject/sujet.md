@@ -22,7 +22,7 @@ renseigner.
 * En cas de soucis ou questions demandez de l’aide à votre voisin de droite. Puis de gauche. Ou inversement. Puis demandez enfin à un cobra si vous êtes bloqué(e), un
 cobra se fera une joie de vous aider.
 
-Seulement si vous n'êtes pas sur un PC du Coding Club:
+>:info !icon:circle-info Faite la prochaine étape seulement si vous n'êtes pas sur un PC du Coding Club.
 
 * Veuillez suivre le tutoriel « Installation Python et ses outils ». Vous
 aurez besoin d’installer la bibliothèque Pygame pour ce sujet.
@@ -57,6 +57,7 @@ alors d’utiliser la touche « Echap » du clavier pour la fermer. Pour cela, v
 système d’événement de clavier de Pygame.
 
 A vous de réaliser cette magnifique fenêtre !
+
 ![Et ça mon ami.e est une page blanche](assets/white_screen.png)<center>*Voici une fenêtre que vous êtes censé avoir à la fin de cette étape*</center>
 
 !pagebreak
@@ -135,7 +136,8 @@ du blanc.
 Regius vous informe que toutes les demandes du roi ont été complétées, il vous propose
 d’aller le lui montrer directement. En arrivant vers la salle du trône vous sentez des parfums
 fruités. Lorsque vous franchissez la porte de la grande salle, vous découvrez un magnifique
-gâteau décoré de fraises et de framboises. Le roi Weegee vous interpelle et vous informe qu’il
+gâteau décoré de fraises et de framboises.
+Le roi Weegee vous interpelle et vous informe qu’il
 a suivi de loin votre projet et qu’il est satisfait de votre travail. Pour vous remercier, il vous
 récompense avec un trésor inestimable : une place permanente dans sa cour et le poste de
 conseiller technique royal.
@@ -148,4 +150,4 @@ idées, ou vous pouvez en prendre une dans cette liste :
 * Un aperçu de la couleur actuelle et/ou de l’outil en cours d’utilisation.
 * Optimiser la sélection des couleurs.
 * La possibilité de sauvegarder vos œuvres d’art.
-* Et beaucou plus encore...
+* *Et beaucou plus encore...*
