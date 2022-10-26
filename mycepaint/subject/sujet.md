@@ -19,8 +19,7 @@ va vous aider à mener votre projet à bien.
 * Vous avez tout à fait le droit d’utiliser internet pour trouver des réponses ou pour vous
 renseigner.
 
-* En cas de soucis ou questions demandez de l’aide à votre voisin de droite. Puis de gauche. Ou inversement. Puis demandez enfin à un cobra si vous êtes bloqué(e), un
-cobra se fera une joie de vous aider.
+* En cas de soucis ou questions demandez de l’aide à votre voisin de droite. Puis de gauche. Ou inversement. Puis demandez enfin à un cobra si vous êtes bloqué(e), un cobra se fera une joie de vous aider.
 
 >:info !icon:circle-info Faite la prochaine étape seulement si vous n'êtes pas sur un PC du Coding Club.
 
