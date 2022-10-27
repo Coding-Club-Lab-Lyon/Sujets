@@ -149,4 +149,4 @@ idées, ou vous pouvez en prendre une dans cette liste :
 * Un aperçu de la couleur actuelle et/ou de l’outil en cours d’utilisation.
 * Optimiser la sélection des couleurs.
 * La possibilité de sauvegarder vos œuvres d’art.
-* *Et beaucou plus encore...*
+* *Et beaucoup plus encore...*
