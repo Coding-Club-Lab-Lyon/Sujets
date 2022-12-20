@@ -13,6 +13,7 @@ Le Père Noël part comme tous les ans faire sa tournée, quand soudain un grapi
 ## INSTALLATION
 ---
 Pour pouvoir faire ce projet nous avons deux solutions possibles:
+
 * Installer python et pygame sur votre machine
 * Utiliser un environnement de développement en ligne
 
@@ -126,6 +127,7 @@ Et bien modifiez le code pour qu’il ressemble à ça:
     # pygame.draw.rect(screen, (255, 0, 0), end_rect)
     player.draw(screen)
 ```
+!pagebreak
 ### III. Creation de notre personnage
 ---
 
