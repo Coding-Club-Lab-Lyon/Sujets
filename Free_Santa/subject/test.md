@@ -1,21 +1,25 @@
-﻿# **Free Santa**
+﻿**Free Santa**
 ---
 ![](Aspose.Words.96d1b9de-23bb-4387-a86a-8a11835b326e.002.png)
 
-### **INTRODUCTION**
+!pagebreak
+
+## INTRODUCTION
 ---
 Le Père Noël part comme tous les ans faire sa tournée, quand soudain un grapin s’accroche à son précieux traîneau alors qu’il survole une île nordique.  Trainé au sol, il se retrouve rapidement en tête à tête avec le parrain de la pègre locale tandis que son véhicule est confisqué. Il n’a plus qu’une solution pour pouvoir reprendre sa tournée : aider ses ravisseurs à résoudre des énigmes et sortir de ce labyrinthe infernal afin d’avoir  eux  aussi  un  Noël agréable !  Pour cela nous allons créer grâce à python et pygame un jeu  de labyrinthe qui va permettre au père noël d'être libéré.  pygame  est  une  librairie  assez  basique  mais qui  est  très  simple  à  prendre  en main. De plus elle est très bien documentée et il y a beaucoup de tutoriels  sur  internet.  [Vous  avez  ici  le  lien  vers  la  documentation  de  la  librairie  :  https:// www.pygame.org/docs/.](https://www.pygame.org/docs/)
 
-### **INSTALLATION**
+!pagebreak
+
+## INSTALLATION
 ---
 Pour pouvoir faire ce projet nous avons deux solutions possibles:
-- Installer python et pygame sur votre machine
-- Utiliser un environnement de développement en ligne
+* Installer python et pygame sur votre machine
+* Utiliser un environnement de développement en ligne
 
 Si vous voulez faire le premier  choix, libre à vous et on vous aidera à l’installer mais pour des raisons de simplicité nous allons utiliser un environnement de développement en ligne. Pour cela il vous suffit de vous rendre sur [https://repl.it/languages/pygame](https://repl.it/languages/pygame) et de vous créer un compte. Une fois que vous avez créé votre compte  vous pouvez  créer un nouveau  projet et vous aurez un environnement de développement python en ligne. Vous pouvez maintenant commencer à coder.
 
-## **LE CODE**
-### **Explication du code**
+##  LE CODE
+### **I. Explication du code**
 ---
 Une fois que vous avez créé votre projet, vous devez être sur une interface avec un fichier main.py contenant du code ressemblant à ceci:
 ```python
@@ -58,7 +62,7 @@ Servent à détecter un évenement, dans ce cas on détecte si on quitte la fen�
 Nous avons au final une ligne permettant de mettre à jour l’affichage de notre fenêtre:
 `pygame.display.update()`
 
-### **Afficher notre labyrinthe**
+### II. Afficher notre labyrinthe
 ---
 
 Nous voulons créer un labyrinthe, la première étape est donc de le créer. Pour ceci on va créer un nouveau fichier du nom de **map.txt** et on va définir la map qu'on veut.
@@ -122,7 +126,7 @@ Et bien modifiez le code pour qu’il ressemble à ça:
     # pygame.draw.rect(screen, (255, 0, 0), end_rect)
     player.draw(screen)
 ```
-### **Creation de notre personnage**
+### III. Creation de notre personnage
 ---
 
 Comme nous avons fait pour nos murs, créons une classe représentant notre Player:
@@ -148,7 +152,7 @@ Une fois que notre Player est créé, on peux simplement  l’afficher grâce à
     player.draw(screen)
     pygame.display.update()
 ```
-### **Faire bouger notre personnage**
+### IV. Faire bouger notre personnage
 ---
 
 On a besoin que notre personnage bouge,pour ce faire nous allons lui créer une fonction move,il faut savoir que draw est aussi une fonction de notre player, il faut donc rajouter le code suivant dans la classe Player
@@ -185,7 +189,7 @@ Après avoir créé notre fonction  move il faut l’appeler, pour ceci on a jus
 >:info !icon:brackets_curly **CODE:** Compléter les mouvements du joueur
 A l'aide de [la doc pygame](https://www.pygame.org/docs/ref/key.html#pygame.key.get_pressed), faites déplacer le joueur en appuyant sur les touches directionnelles
 
-### **Animer notre personnage**
+### V. Animer notre personnage
 ---
 
 Nous voulons animer notre personnage pour qu’il change de sprite en fonction de la direction dans laquelle il se déplace, pour ce faire nous allons créer une fonction  `change_animation`  qui va prendre  comme  paramètre la direction dans laquelle le joueur se déplace.
@@ -207,7 +211,7 @@ Cette fonction nous allons l’appeler dans la fonction move_single_axis grâce 
     new_sprite = "top"                 
     self.change_animation(new_sprite)
 ```
-### **Fin du jeu**
+### VI. Fin du jeu
 ---
 
 Maintenant que nous avons tout ce qu’il faut pour faire bouger notre personnage, il nous faut créer la fin du jeu, pour ce faire nous allons ajouter du code dans la boucle de jeu pour vérifier que le joueur est sur la case de fin.
@@ -216,7 +220,8 @@ Maintenant que nous avons tout ce qu’il faut pour faire bouger notre personnag
         pygame.quit()
         sys.exit()
 ```
-### **Fin ?**
+!pagebreak
+### Fin ?
 ---
 
 Et voila, vous avez fini le tutoriel, vous pouvez maintenant vous amuser à créer des niveaux et à les partager avec vos amis. Voici une liste de bonus que vous pouvez faire si vous avez le temps:
