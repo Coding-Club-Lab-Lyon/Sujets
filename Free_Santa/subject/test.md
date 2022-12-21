@@ -27,7 +27,8 @@ Une fois que vous avez créé votre projet, vous devez être sur une interface a
 import pygame, sys
     
 pygame.init() # Initialise pygame
-screen = pygame.display.set_mode((400, 300)) # Définir les dimensions de la fenètre (largeur, hauteur)
+screen = pygame.display.set_mode((400, 300))
+# Définir les dimensions de la fenètre (largeur, hauteur)
 pygame.display.set_caption('Hello World!') # Définir le titre de la fenètre 
 while True:
     for event in pygame.event.get():
@@ -101,8 +102,10 @@ Nos murs seront des classes, une classe est une façon de représenter un objet 
 Il est important de définir notre classe au début de notre programme
 Ensuite il faut récupérer la map contenue dans le fichier `map.txt` et la stocker, pour cela:
 ```python
-    map = open("map.txt", "r") # ouvre le fichier 'map.txt' en permettant seulement de lire son contenu
-    level = map.readlines() # permet de copier chaque ligne du fichier et les stocker dans une liste
+    map = open("map.txt", "r") 
+    # ouvre le fichier 'map.txt' en permettant seulement de lire son contenu
+    level = map.readlines()
+    # permet de copier chaque ligne du fichier et les stocker dans une liste
 ```
  Une fois que nous avons notre level ainsi que le stockage de notre map contenant les murs, nous pouvons tous les créer lors de l’initialisation du programme
 ```python
@@ -113,7 +116,8 @@ Ensuite il faut récupérer la map contenue dans le fichier `map.txt` et la stoc
             if col == "W": # Si la lettre est un W
                 Wall((x, y)) # Alors on creer un mur aux coordonnees (x, y)
             if col == "E" : # Si la lettre est un E
-                end_rect = pygame.Rect(x, y, 32, 32) # Alors on creer le rectange definissant la fin de notre level
+                # Alors on creer le rectange definissant la fin de notre level
+                end_rect = pygame.Rect(x, y, 32, 32)
             x += 32 # On ajoute 32 a x (la largeur d  un rectangle)
         y += 32 # On ajoute 32 a y (la hauteur)
         x = 0 # On remet x a 0 pour recommencer au debut de notre ligne
@@ -135,9 +139,12 @@ Comme nous avons fait pour nos murs, créons une classe représentant notre Play
 ```python
     class Player:
     def __init__(self):
-    self.rect = pygame.Rect(64, 64, 32, 32) # On creer le rectangle de collision 
-    self.sprite = pygame.image.load( "res/santa\_top.png" ) # On creer un sprite 
-    self.sprite = pygame.transform.scale(self.sprite, (32, 32)) # On change ses dimensions
+    # On creer le rectangle de collision 
+    self.rect = pygame.Rect(64, 64, 32, 32) 
+    # On creer un sprite 
+    self.sprite = pygame.image.load( "res/santa\_top.png" ) 
+    # On change ses dimensions
+    self.sprite = pygame.transform.scale(self.sprite, (32, 32)) 
     
     def draw(self, screen):
     screen.blit(self.sprite, self.rect) # On affiche le sprite
