@@ -466,14 +466,13 @@ Force and courage for the end young Tek 0 :
 Write a function, who return the biggest commun
 denominator between 2 numbers.
 
-La fonction devra être prototypée de la façon suivante :
-
+The function has to be prototyped in the following way :
 ```C
 int pgcd(int nb1, int nb2);
 ```
 
-### Exemple :
-Un appel de votre fonction avec les arguments suivants devra afficher ces résultats :
+### Example :
+A call to your function with those arguments should display those results :
 
 ```C
 printf("%d",pgcd(42, 10))
@@ -502,21 +501,21 @@ $>1
 
 ## Fprime
 
-> **Fichier de rendu:**  `fprime/fprime.c`
+> **File to submit:**  `fprime/fprime.c`
 
-###  Sujet :
-Écrirez une fonction qui prend en paramètre un entier strictement positif, et qui affiche sa décomposition en facteurs premiers dans le terminal, suivie d'un **'\n'**.
+###  Subject :
+Write a function, who take an strict positiv inteneger, and who will display the factorization in prime numbers in the terminal, followed by a **'\n'**
 
-Les facteurs doivent être affichés dans l'ordre croissant et séparés par des '*', de telle sorte que l'expression affichée donne le bon résultat.
+Factors hve to be displayed in a increasing order and separated by a '*', in a way tha the displayed expression give the good result.
 
-La fonction devra être prototypée de la façon suivante :
+The function has to be prototyped in the following way :
 
 ```C
 void fprime(int nb);
 ```
 
-### Exemple :
-Un appel de votre fonction avec les arguments suivants devra afficher ces résultats :
+### Example :
+A call to your function with those arguments should display those results :
 
 ```C
 fprime(6)
