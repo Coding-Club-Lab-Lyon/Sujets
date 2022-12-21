@@ -32,7 +32,7 @@ screen = pygame.display.set_mode((400, 300))
 pygame.display.set_caption('Hello World!') # Définir le titre de la fenètre 
 while True:
     for event in pygame.event.get():
-        if event.type == QUIT: 
+        if event.type == pygame.QUIT: 
             pygame.quit()
             sys.exit()
     pygame.display.update()
@@ -46,16 +46,17 @@ Vous avez ensuite la boucle de jeu:
 while True:
     clock.tick(60) # Ajoutez cette ligne 
     for event in pygame.event.get():
-        if event. type == QUIT:
+        if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit() 
         pygame.display.update()
 ```
+>:info !icon:brackets_curly **Initialisation:** la clock n'est pas initialiser ici. Il faut donc l'initialiser avant la boucle 
 
-La boucle while True permet d’éxécuter notre code sans s’arrêter. les 3 lignes suivantes:
+La boucle while True permet d’éxécuter notre code sans s’arrêter. Les 4 lignes suivantes:
 ```python
 for event in pygame.event.get():
-    if event.type == QUIT:
+    if event.type == pygame.QUIT:
         pygame.quit()
         sys.exit()
 ```
@@ -96,8 +97,8 @@ Nos murs seront des classes, une classe est une façon de représenter un objet 
 ```python
     class Wall:
         def __init__(self, pos):
-        walls.append(self)
-        self.rect = pygame.Rect(pos[0], pos[1], 32, 32)
+            walls.append(self) #ajoute à notre liste 'walls' le mur créer à l'instant
+            self.rect = pygame.Rect(pos[0], pos[1], 32, 32)
 ```
 Il est important de définir notre classe au début de notre programme
 Ensuite il faut récupérer la map contenue dans le fichier `map.txt` et la stocker, pour cela:
@@ -139,15 +140,15 @@ Comme nous avons fait pour nos murs, créons une classe représentant notre Play
 ```python
     class Player:
     def __init__(self):
-    # On creer le rectangle de collision 
-    self.rect = pygame.Rect(64, 64, 32, 32) 
-    # On creer un sprite 
-    self.sprite = pygame.image.load( "res/santa\_top.png" ) 
-    # On change ses dimensions
-    self.sprite = pygame.transform.scale(self.sprite, (32, 32)) 
+        # On creer le rectangle de collision 
+        self.rect = pygame.Rect(64, 64, 32, 32) 
+        # On creer un sprite 
+        self.sprite = pygame.image.load( "res/santa\_top.png" ) 
+        # On change ses dimensions
+        self.sprite = pygame.transform.scale(self.sprite, (32, 32)) 
     
     def draw(self, screen):
-    screen.blit(self.sprite, self.rect) # On affiche le sprite
+        screen.blit(self.sprite, self.rect) # On affiche le sprite
 ```
 Notre classe Player  va se charger de toute la création du joueur ainsi que de son affichage.
 Maintenant  que nous avons la définition de notre  classe il nous reste  plus qu’à créer notre  player lors de l’initialisation.
@@ -211,13 +212,13 @@ Cette fonction nous allons l’appeler dans la fonction move_single_axis grâce 
 ```python
     new_sprite = "left"
     if dx > 0:
-    new_sprite = "right"
+        new_sprite = "right"
     elif dx < 0:
-    new_sprite = "left"
+        new_sprite = "left"
     elif dy > 0:
-    new_sprite = "bottom"
+        new_sprite = "bottom"
     elif dy < 0:
-    new_sprite = "top"                 
+        new_sprite = "top"                 
     self.change_animation(new_sprite)
 ```
 ### VI. Fin du jeu
