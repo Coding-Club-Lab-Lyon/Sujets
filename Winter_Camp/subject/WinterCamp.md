@@ -123,8 +123,6 @@ function _update()
 end
 ```
 
-!pagebreak
-
 - **_draw():** Met à jour les images à l’écran
 
 ``` lua
