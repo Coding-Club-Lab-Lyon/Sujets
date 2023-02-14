@@ -27,7 +27,7 @@ Une fois vos repère pris, appuyez sur echap et écrivez sur la console `reboot`
 
 > :info Pensez à régulièrement sauvegarder votre travail à l’aide de save (ctrl + s)
 
-> :info Pour créer votre jeu pico: `save <nom_jeu>` puis `load <nom_jeu>.p8`
+> Pour créer votre jeu pico: `save <nom_jeu>` puis `load <nom_jeu>.p8`
 
 !pagebreak
 
