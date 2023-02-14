@@ -16,7 +16,7 @@ from selenium.webdriver.firefox.options import Options
 from selenium import webdriver
 from time import sleep
 from weasyprint import HTML
-from PyPDF2 import PdfFileWriter, PdfReader, PdfFileMerger
+from PyPDF2 import PdfWriter, PdfReader, PdfFileMerger
 
 if len(sys.argv) < 4:
     print("Usage: python3 cc_subjects.py <file> <title> <version>")
@@ -95,7 +95,7 @@ packet.seek(0)
 
 new_pdf = PdfReader(packet)
 existing_pdf = PdfReader(open("builder/src/cover.pdf", "rb"))
-output = PdfFileWriter()
+output = PdfWriter()
 page = existing_pdf.getPage(0)
 page.mergePage(new_pdf.getPage(0))
 output.addPage(page)
