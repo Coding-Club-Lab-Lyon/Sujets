@@ -171,4 +171,4 @@ Maintenant, libre à toi de modifier le jeu selon tes désirs ! Tu as normalemen
 - Créer des niveaux
 - De nouveaux ennemis ou personnages jouables.
 
-N’hésite surtout pas à demander de l’aide à un Cobra (ceux qui mordent pas **groumph** miom) si tu as du mal à appliquer certaines de tes idées !
+N’hésite surtout pas à demander de l’aide à un Cobra (ceux qui ne mordent pas) si tu as du mal à appliquer certaines de tes idées !
