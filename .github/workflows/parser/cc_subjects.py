@@ -16,7 +16,7 @@ from selenium.webdriver.firefox.options import Options
 from selenium import webdriver
 from time import sleep
 from weasyprint import HTML
-from PyPDF2 import PdfWriter, PdfReader, PdfFileMerger
+from PyPDF2 import PdfWriter, PdfReader, PdfMerger
 
 if len(sys.argv) < 4:
     print("Usage: python3 cc_subjects.py <file> <title> <version>")
@@ -152,7 +152,7 @@ f.write(pdf)
 f.close()
 # Merge 2 pdfs cover and output (output has multiple pages)
 print("Merging PDFs...")
-merger = PdfFileMerger()
+merger = PdfMerger()
 merger.append(PdfReader(open("builder/cover.pdf", 'rb')))
 merger.append(PdfReader(open("builder/output.pdf", 'rb')))
 merger.write(export_dir + "/../" + str_to_snake_case(project_title) + ".pdf")
