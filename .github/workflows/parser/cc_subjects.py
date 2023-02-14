@@ -97,7 +97,7 @@ new_pdf = PdfReader(packet)
 existing_pdf = PdfReader(open("builder/src/cover.pdf", "rb"))
 output = PdfWriter()
 page = existing_pdf.pages[0]
-page.mergePage(new_pdf.pages[0])
+page.merge_page(new_pdf.pages[0])
 output.addPage(page)
 outputStream = open("builder/cover.pdf", "wb")
 output.write(outputStream)
