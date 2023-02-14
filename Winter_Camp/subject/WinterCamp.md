@@ -1,5 +1,3 @@
-## Winter Camp
-
 ### I - Découverte
 
 #### INTRODUCTION
@@ -12,6 +10,8 @@ L’ objectif de cet atelier est la réalisation d’un plateformer en Lua en ut
 
 - Créer votre environnement de jeux
 - Ajouter des features annexes
+
+!pagebreak
 
 #### Installation
 
@@ -29,7 +29,7 @@ Une fois vos repère pris, appuyez sur echap et écrivez sur la console `reboot`
 
 > :info Pour créer votre jeu pico: `save <nom_jeu>` puis `load <nom_jeu>.p8`
 
-!linebreak
+!pagebreak
 
 ### II - Passez à l'action
 
@@ -58,6 +58,8 @@ Durant le processus de création, vous aurez besoin des collisions. Pour cela, v
 Un flag est représenté par un point de couleur.
 
 Par exemple, on peut dire qu’un mur aura le flag 0 (rouge) pour activer la collision avec ce mur.
+
+!pagebreak
 
 #### LES FONCTIONS INDISPENSABLES
 
@@ -100,6 +102,8 @@ function _init()
 end
 ```
 
+!pagebreak
+
 - **_update():** Met à jour les infos de l’utilisateur
 
 ```lua
@@ -119,6 +123,8 @@ function _update()
 end
 ```
 
+!pagebreak
+
 - **_draw():** Met à jour les images à l’écran
 
 ``` lua
@@ -128,6 +134,8 @@ function _draw()
   spr(player.sp,player.x,player.y,1,1,player.flp)
 end
 ```
+
+!pagebreak
 
 #### LES DÉPLACEMENTS
 
@@ -151,7 +159,7 @@ else
 end
 ```
 
-!linebreak
+!pagebreak
 
 #### III - Pour aller plus loin
 
@@ -166,5 +174,3 @@ Maintenant, libre à toi de modifier le jeu selon tes désirs ! Tu as normalemen
 - De nouveaux ennemis ou personnages jouables.
 
 N’hésite surtout pas à demander de l’aide à un Cobra (ceux qui mordent pas **groumph** miom) si tu as du mal à appliquer certaines de tes idées !
-
-![pico_monster](/home/bandana/Documents/pico_monster.png)
