@@ -48,7 +48,7 @@ Vous pouvez aussi ajouter une petite icône avec votre boîte d'info :
 ![](/.github/codingclub/assets/info.png)
 
 - **Sauts de page :**
-Si vous avez besoin de forcer un saut de page vous pouvez utiliser !linebreak.
+Si vous avez besoin de forcer un saut de page vous pouvez utiliser !pagebreak.
 
 
 - **Formules Mathématiques :**
