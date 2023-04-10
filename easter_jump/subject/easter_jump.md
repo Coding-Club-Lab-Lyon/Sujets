@@ -74,7 +74,7 @@ if (Utils.isKeyDown(events, 'r')) {
 
     Un sprite se déclare comme il suit, avec le chemin vers l'image et la taille qu'il doit avoir à l'écran.
 
- ```js
+```js
 const bunny = new Sprite("assets/lapinou.png", 100, 100);
 ```
 
