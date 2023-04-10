@@ -61,28 +61,30 @@ Pour intéragir avec le rendu du jeu, différentes fonctions sont appellables.
 - **renderer.pollEvents()** permet de récuperer tous les événements qui se sont produits depuis le dernier tour de boucle.
 
     _Vous pouvez pouvez l'utiliser comme il suit._
-    ```js
-    const events = renderer.pollEvents();
 
-    if (Utils.isKeyDown(events, 'r')) {
-        // Touche R pressée
-    }
-    ```
+```js
+const events = renderer.pollEvents();
+
+if (Utils.isKeyDown(events, 'r')) {
+    // Touche R pressée
+}
+```
 
 - **renderer.drawSprite(sprite, x, y)** affiche un element à l'écran aux coordonnées données.
 
     Un sprite se déclare comme il suit, avec le chemin vers l'image et la taille qu'il doit avoir à l'écran.
 
-    ```js
-    const bunny = new Sprite("assets/lapinou.png", 100, 100);
-    ```
+ ```js
+const bunny = new Sprite("assets/lapinou.png", 100, 100);
+```
 
 - **renderer.drawText(text, size, x, y)** affiche du texte aux coordonnées indiquées.
 
     On l'utilise comme il suit:
-    ```js
-    renderer.drawText("Hello", 13, 0, 0);
-    ```
+
+```js
+renderer.drawText("Hello", 13, 0, 0);
+```
 
 ## Déplacer Bunny
 
@@ -160,15 +162,15 @@ Bunny ne pourra pas atteindre les oeufs sans plateformes volantes.
 
 On souahite générer aléatoirement les plateformes que Bunny va utiliser.
 
->:warning !icon:diamond-exclamation Le nombre de plateformes doit être infini, il faudra surement en génerer de nouvelles régulièrement.
+![](assets/doodle.jpg)
+
+>:warning Le nombre de plateformes doit être infini, il faudra surement en génerer de nouvelles régulièrement.
 >
 > À vous de trouver le bon moment pour le faire.
 
 Il est important de s'assurer que les sauts soient toujours réalisables, il est donc peut-être pertinent de determiner la position d'une nouvelle plateforme en fonction de l'ancienne.
 
 Pour conserver les plateformes que l'on a généré, on peut utiliser une liste.
-
-![](assets/doodle.jpg)
 
 ```js
 const plateforms = [];
@@ -179,13 +181,15 @@ function addNewPlatform() {
 }
 ```
 
->:info !icon:circle-info Cette partie peut s'avérer être une tâche complexe sans plus d'explications. N'hésitez pas à soliciter un Cobra pour discuter de l'implémentation que vous pourriez mettre en place pour résoudre cette étape.
+>:info Cette partie peut s'avérer être une tâche complexe sans plus d'explications. N'hésitez pas à soliciter un Cobra pour discuter de l'implémentation que vous pourriez mettre en place pour résoudre cette étape.
 
 ## Le score et la défaite
 
 Si notre cher Bunny était amené à tomber d'une plateforme il aura malheureusement échoué sa mission. On pourra alors afficher son score.
 
 À vous de déterminer la façon dont vous voulez calculer le score de de Bunny et déterminer sa défaite.
+
+![](assets/gameover.png)
 
 ## On va plus loin ?
 
