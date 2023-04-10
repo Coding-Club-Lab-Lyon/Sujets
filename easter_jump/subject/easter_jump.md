@@ -24,6 +24,8 @@ Sont mis à votre disposition, differents fichiers.
 
 - **scripts/graphic.js** contient des bases d'implémentation vous permettant de créer votre jeu. Vous n'avez rien à toucher dans ce fichier, vous pourrez utiliser ce code depuis celui de votre jeu.
 
+- **assets/** vous propose quelques éléments de base pour votre jeu.
+
 - **scripts/game.js** est le fichier qui contiendra votre implémentation du jeu.
 
 Un jeu c'est une boucle principale, qui tourne à l'infini.
@@ -141,7 +143,8 @@ renderer.mainLoop(() => {
     bunnyY += ySpeed;
 
     if (...) {
-        // Du temps que Bunny ne touche pas le sol, il perd de la vitesse verticale.
+        // Du temps que Bunny ne touche pas le sol,
+        // il perd de la vitesse verticale.
     } else {
         // Lorsqu'il attérit, on lui redonne une impulsion verticale.
     }
@@ -157,8 +160,41 @@ Bunny ne pourra pas atteindre les oeufs sans plateformes volantes.
 
 On souahite générer aléatoirement les plateformes que Bunny va utiliser.
 
-> Le nombre de plateformes doit être infini, il faudra surement en génerer de nouvelles régulièrement.
+>:warning !icon:diamond-exclamation Le nombre de plateformes doit être infini, il faudra surement en génerer de nouvelles régulièrement.
 >
 > À vous de trouver le bon moment pour le faire.
 
-Il est important de s'assurer que les sauts soient toujours réalisables, il est donc peut-être pertinent de determiner 
+Il est important de s'assurer que les sauts soient toujours réalisables, il est donc peut-être pertinent de determiner la position d'une nouvelle plateforme en fonction de l'ancienne.
+
+Pour conserver les plateformes que l'on a généré, on peut utiliser une liste.
+
+![](assets/doodle.jpg)
+
+```js
+const plateforms = [];
+
+function addNewPlatform() {
+    const simplePlatform = {x: 0, y: 0};
+    plateforms.push(simplePlatform);
+}
+```
+
+>:info !icon:circle-info Cette partie peut s'avérer être une tâche complexe sans plus d'explications. N'hésitez pas à soliciter un Cobra pour discuter de l'implémentation que vous pourriez mettre en place pour résoudre cette étape.
+
+## Le score et la défaite
+
+Si notre cher Bunny était amené à tomber d'une plateforme il aura malheureusement échoué sa mission. On pourra alors afficher son score.
+
+À vous de déterminer la façon dont vous voulez calculer le score de de Bunny et déterminer sa défaite.
+
+## On va plus loin ?
+
+Bravo d'être arrivé jusqu'ici.
+
+On va plus loin ?
+
+Pourquoi ne pas proposer une fin heureurse à l'aventure de Bunny ? Ajouter des ennemis sur son chemin où des bonus à récupérer ?
+
+Sentez vous libres d'experimenter de nouvelles choses !
+
+![](assets/happy_easter.jpg)
