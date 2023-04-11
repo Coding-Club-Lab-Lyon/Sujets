@@ -20,7 +20,7 @@ jobs:
 
       - name: Install geckodriver
         run: |
-          GECKODRIVER_VERSION=`curl https://github.com/mozilla/geckodriver/releases/latest | grep -oP '(?<=v)[\d.]+(?=")'`
+          GECKODRIVER_VERSION=`curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c 2-`
           wget https://github.com/mozilla/geckodriver/releases/download/v$GECKODRIVER_VERSION/geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz
           tar -xzf geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz
           sudo mv geckodriver /usr/local/bin/
