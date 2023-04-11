@@ -10,9 +10,25 @@ jobs:
   parse_files:
     runs-on: ubuntu-latest
     steps:
-      - uses: browser-actions/setup-geckodriver@latest
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Firefox
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y firefox
+
+      - name: Install geckodriver
+        run: |
+          GECKODRIVER_VERSION=`curl https://github.com/mozilla/geckodriver/releases/latest | grep -oP '(?<=v)[\d.]+(?=")'`
+          wget https://github.com/mozilla/geckodriver/releases/download/v$GECKODRIVER_VERSION/geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz
+          tar -xzf geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz
+          sudo mv geckodriver /usr/local/bin/
+
+      - uses: actions/checkout@v2
       - name : "Install Python dependencies"
         run : pip install Markdown reportlab selenium weasyprint PyPDF2
+
       - name: "Parse markdown subjects"
         run: |
           for file in $(ls -d */ | sed 's#/##')
