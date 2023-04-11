@@ -45,7 +45,7 @@ with open("builder/src/font_awesome.json", "r") as font_awesome_file:
 def generate_font_awesome(name):
     if not name in font_awesome:
         return ""
-    return '[<i class="fa">Icon%s</i>]' % chr(int(font_awesome[name], 16))
+    return '(Icon %s)<i class="fa">%s</i>' % (name, chr(int(font_awesome[name], 16)))
 
 
 def replace_font_awesome(matches):
