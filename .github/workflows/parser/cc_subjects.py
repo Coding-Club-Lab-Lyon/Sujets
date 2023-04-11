@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-from compileall import compile_path
 import io
 import os
 import markdown
@@ -45,7 +44,7 @@ with open("builder/src/font_awesome.json", "r") as font_awesome_file:
 def generate_font_awesome(name):
     if not name in font_awesome:
         return ""
-    return '(Icon %s)<i class="fa">%s</i>' % (str(int(font_awesome[name], 16)), chr(int(font_awesome[name], 16)))
+    return '<i class="fa">%s</i>' % chr(int(font_awesome[name], 16))
 
 
 def replace_font_awesome(matches):
@@ -158,10 +157,10 @@ merger.append(PdfReader(open("builder/output.pdf", 'rb')))
 merger.write(export_dir + "/../" + str_to_snake_case(project_title) + ".pdf")
 
 print("Removing temporary files...")
-os.remove("builder/output.html")
-os.remove("builder/output.pdf")
-os.remove("builder/cover.pdf")
-os.remove("geckodriver.log")
+# os.remove("builder/output.html")
+# os.remove("builder/output.pdf")
+# os.remove("builder/cover.pdf")
+# os.remove("geckodriver.log")
 for file in files:
     os.system("rm -r builder/%s" % file)
 print("Done.")
