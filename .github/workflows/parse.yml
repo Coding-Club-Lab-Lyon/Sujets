@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name : "Install Python dependencies"
-        run : pip install Markdown reportlab selenium pyhtml2pdf PyPDF2
+        run : pip install Markdown reportlab selenium weasyprint==53.0 PyPDF2
       - name: "Parse markdown subjects"
         run: |
           for file in $(ls -d */)

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from compileall import compile_path
 import io
 import os
 import markdown
@@ -14,8 +15,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 from selenium import webdriver
 from time import sleep
-from pyhtml2pdf import converter
-from PyPDF2 import PdfWriter, PdfReader, PdfMerger
+from weasyprint import HTML
+from PyPDF2 import PdfFileWriter, PdfFileReader, PdfFileMerger
 
 if len(sys.argv) < 4:
     print("Usage: python3 cc_subjects.py <file> <title> <version>")
@@ -92,12 +93,12 @@ can.drawString(535 - width, 335, text)
 can.save()
 packet.seek(0)
 
-new_pdf = PdfReader(packet)
-existing_pdf = PdfReader(open("builder/src/cover.pdf", "rb"))
-output = PdfWriter()
-page = existing_pdf.pages[0]
-page.merge_page(new_pdf.pages[0])
-output.add_page(page)
+new_pdf = PdfFileReader(packet)
+existing_pdf = PdfFileReader(open("builder/src/cover.pdf", "rb"))
+output = PdfFileWriter()
+page = existing_pdf.getPage(0)
+page.mergePage(new_pdf.getPage(0))
+output.addPage(page)
 outputStream = open("builder/cover.pdf", "wb")
 output.write(outputStream)
 outputStream.close()
@@ -145,15 +146,15 @@ with open(html_file_name, "w") as html_out_file:
 
 # Create final PDF file
 print("Exporting PDF...")
-
-path = os.path.abspath(html_file_name)
-converter.convert(f'file:///{path}', "builder/output.pdf")
-
+pdf = HTML(html_file_name).write_pdf()
+f = open("builder/output.pdf", 'wb')
+f.write(pdf)
+f.close()
 # Merge 2 pdfs cover and output (output has multiple pages)
 print("Merging PDFs...")
-merger = PdfMerger()
-merger.append(PdfReader(open("builder/cover.pdf", 'rb')))
-merger.append(PdfReader(open("builder/output.pdf", 'rb')))
+merger = PdfFileMerger()
+merger.append(PdfFileReader(open("builder/cover.pdf", 'rb')))
+merger.append(PdfFileReader(open("builder/output.pdf", 'rb')))
 merger.write(export_dir + "/../" + str_to_snake_case(project_title) + ".pdf")
 
 print("Removing temporary files...")
@@ -164,5 +165,6 @@ os.remove("geckodriver.log")
 for file in files:
     os.system("rm -r builder/%s" % file)
 print("Done.")
+
 
 driver.quit()
