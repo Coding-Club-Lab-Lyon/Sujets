@@ -14,7 +14,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 from selenium import webdriver
 from time import sleep
-from weasyprint import HTML
+from pyhtml2pdf import converter
 from PyPDF2 import PdfWriter, PdfReader, PdfMerger
 
 if len(sys.argv) < 4:
@@ -145,10 +145,10 @@ with open(html_file_name, "w") as html_out_file:
 
 # Create final PDF file
 print("Exporting PDF...")
-pdf = HTML(html_file_name).write_pdf()
-f = open("builder/output.pdf", 'wb')
-f.write(pdf)
-f.close()
+
+path = os.path.abspath(html_file_name)
+converter.convert(f'file:///{path}', "builder/output.pdf")
+
 # Merge 2 pdfs cover and output (output has multiple pages)
 print("Merging PDFs...")
 merger = PdfMerger()
@@ -157,7 +157,6 @@ merger.append(PdfReader(open("builder/output.pdf", 'rb')))
 merger.write(export_dir + "/../" + str_to_snake_case(project_title) + ".pdf")
 
 print("Removing temporary files...")
-os.system("cp builder/output.html %s/../" % export_dir)
 os.remove("builder/output.html")
 os.remove("builder/output.pdf")
 os.remove("builder/cover.pdf")
@@ -165,6 +164,5 @@ os.remove("geckodriver.log")
 for file in files:
     os.system("rm -r builder/%s" % file)
 print("Done.")
-
 
 driver.quit()
