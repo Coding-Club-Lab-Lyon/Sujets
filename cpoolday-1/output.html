@@ -1,0 +1,530 @@
+<html><head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="src/report.css">
+    <link rel="stylesheet" href="src/code.css">
+    <style>
+        @page {
+            margin-top: 2.5cm;
+
+            @top-left {
+                background: #4c5270;
+                color: white;
+                content: counter(page);
+                height: 1cm;
+                text-align: center;
+                width: 1cm;
+                margin-bottom: 0.6cm;
+            }
+
+            @top-center {
+                background: #4c5270;
+                content: '';
+                display: block;
+                height: .05cm;
+                opacity: .5;
+                width: 100%;
+                margin-bottom: 0.6cm;
+            }
+
+            @top-right {
+                content: string(heading);
+                font-size: 9pt;
+                height: 1cm;
+                vertical-align: middle;
+                width: 100%;
+                margin-bottom: 0.6cm;
+            }
+        }
+    </style>
+<style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -5px 0 0 0; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><script type="text/javascript" src="file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/extensions/MathZoom.js"></script><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style></head>
+
+<body><div id="MathJax_Message" style="display: none;"></div>
+    <h2>Prémices</h2>
+<p>L'objectif de ce Coding club est de vous familiariser avec le langage C et de vous offrir
+un avant-goût de la forme mais aussi de la rigueur de programmation qui vous sera demandée en octobre prochain</p>
+<p>Et pour que votre périple à travers la journée -1 de votre piscine de C se passe à merveille il y a quelques règles à respecter !</p>
+<h3>Règles :</h3>
+<ul>
+<li>
+<p>Chaque exercice a été pensé afin d'être réalisable avec pour <strong>seul syscall la fonction write()</strong> (sauf exceptions mentionnées) de la libraire <strong>unistd</strong>. Toute fonction externe utilisée dans votre exercice  [<em>exemple printf(), puts()</em>] déclenchera une erreur dans notre moulinette et refusera catégoriquement la validation de votre exercice (aussi juste soit-il).</p>
+</li>
+<li>
+<p>Vous devez organiser votre travail dans une arborescence de dossiers cohérente afin de faciliter le fonctionnement de la moulinette. Au début de chaque exercice le nom du fichier à rendre ainsi que le dossier de rendu vous seront communiqués.</p>
+</li>
+</ul>
+<p>Exemple d'arborescence:</p>
+<div class="codehilite"><pre><span></span><code>    .
+    ├── my_name
+    │   └── my_name.c
+    └── digits
+        └── digits.c
+</code></pre></div>
+
+<ul>
+<li>
+<p>Si vous avez une question, demandez à votre voisin de droite. Si malgré tous les efforts de votre cher voisin le problème persiste, rabattez-vous par défaut sur votre voisin de gauche. Si vous êtes en bout de table et donc dans l'impossibilité d'avoir un voisin de droite ou de gauche il vous reste toujours celui de devant !</p>
+</li>
+<li>
+<p>Si malgré cela une question reste en suspens ou un problème vous ennuie un peu trop, n'hésitez pas à appeler un cobra ils sont là pour ça !</p>
+</li>
+<li>
+<p>Tout au long de ces exercices, nous vous demanderons de réaliser des <strong>fonctions</strong>. Cela signifie que notre moulinette amènera son propre main() pour tester votre travail.</p>
+</li>
+</ul>
+<p>Si par hasard vous laissez votre fonction main() il se peut que cela ne marche pas et il se peut que cela soit de votre faute !</p>
+<blockquote class="info">
+<p> <i class="fa"></i> Vous ne savez pas ce qu'est une fonction main() ? Google it ;)</p>
+</blockquote>
+<h3>Moulinette</h3>
+<p>Tout au long de cette journée les cobras se chargeront de lancer des scripts de correction vous permettant de savoir si votre exercice est correct ou non.</p>
+<p>Vous pourrez alors consulter votre résultat sous la forme suivante:</p>
+<div class="codehilite"><pre><span></span><code>[Nom du test]:  PASSED ou FAILED
+</code></pre></div>
+
+<blockquote class="info">
+<p> <i class="fa"></i> PASSED signifie que vous avez validé le test.<br>FAILED signifie tout logiquement l'inverse.</p>
+</blockquote>
+<p>Ce script, que nous appellerons moulinette, est un programme qui va venir corriger votre travail.</p>
+<p>Il a été réalisé avec soin et ne peut pas avoir tort. Si un exercice fonctionne chez vous mais que la moulinette dit le contraire, essayez d'imaginer tous les cas possibles en suivant les noms de tests pour deviner. (On fait même des devinettes dans le Coding club trop cool !)</p>
+<p>Si vraiment vous avez l'impression que la moulinette se trompe. <em>(NB: Hautement improbable)</em></p>
+<p>Ou bien que malgré <strong>toute votre réflexion</strong> un test reste un mystère absolu pour vous, n'hésitez pas à appeler un Cobra : ils sont là pour ça :)</p>
+<h3>Prêt ?</h3>
+<p>Si tout ceci est clair comme de l'eau de roche et bien je crois qu'il est grand temps pour vous de commencer votre avant premier jour de piscine !</p>
+<p>À vos marques... prêts... <strong>Codez !</strong></p>
+<h2>My_Name</h2>
+<blockquote>
+<p><strong>Fichier de rendu:</strong>  <code>my_name/my_name.c</code></p>
+</blockquote>
+<h3>Sujet :</h3>
+<p>L'objectif de cet exercice est d'écrire une fonction qui affichera votre prénom (<strong>suivi d'un retour à la ligne</strong>) dans le terminal.</p>
+<p>La fonction devra être prototypée de la façon suivante :</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">my_name</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<h3>Exemple :</h3>
+<p>Un appel de votre fonction devra afficher ces résultats :</p>
+<div class="codehilite"><pre><span></span><code><span class="n">my_name</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; Timothée
+</code></pre></div>
+
+<blockquote class="info">
+<p> Comment faire pour afficher un retour à la ligne déjà ?</p>
+</blockquote>
+<h2>Digits</h2>
+<blockquote>
+<p><strong>Fichier de rendu:</strong>  <code>digits/digits.c</code></p>
+</blockquote>
+<h3>Sujet :</h3>
+<p>Écrivez une fonction qui affiche dans le terminal tous les chiffres dans l'ordre croissant <strong>suivi d'un retour à la ligne</strong>.</p>
+<p>La fonction devra être prototypée de la façon suivante :</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">digits</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<h3>Exemple :</h3>
+<p>Un appel de votre fonction avec les arguments suivants devra afficher ces résultats :</p>
+<div class="codehilite"><pre><span></span><code><span class="n">digits</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; 0123456789
+</code></pre></div>
+
+<h2>Revalpha</h2>
+<blockquote>
+<p><strong>Fichier de rendu:</strong>  <code>revalpha/revalpha.c</code></p>
+</blockquote>
+<h3>Sujet :</h3>
+<p>Écrivez une fonction qui affiche dans le terminal l'alphabet à l'envers, une lettre sur deux en majuscules, <strong>suivi d'un retour à la ligne</strong></p>
+<p>La fonction devra être prototypée de la façon suivante :</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">revalpha</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<h3>Exemple :</h3>
+<p>Un appel de votre fonction avec les arguments suivants devra afficher ces résultats :</p>
+<div class="codehilite"><pre><span></span><code><span class="n">revalpha</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; zYxWvUtSrQpOnMlKjIhGfEdCbA
+</code></pre></div>
+
+<h2>Alandroit</h2>
+<blockquote>
+<p><strong>Fichier de rendu:</strong>  <code>alandroit/alandroit.c</code></p>
+</blockquote>
+<h3>Sujet :</h3>
+<p>Écrivez une fonction qui affiche dans le terminal la chaîne de caractères passée en paramètre de la fonction.</p>
+<p>La fonction devra être prototypée de la façon suivante :</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">alandroit</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<h3>Exemple :</h3>
+<p>Un appel de votre fonction avec les arguments suivants devra afficher ces résultats :</p>
+<div class="codehilite"><pre><span></span><code><span class="n">alandroit</span><span class="p">(</span><span class="s">"EPITECH"</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; EPITECH
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code><span class="n">alandroit</span><span class="p">(</span><span class="s">"BEEP BOOP"</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$<span class="o">&gt;</span> <span class="k">BEEP</span> <span class="nv">BOOP</span>
+</code></pre></div>
+
+<blockquote class="info">
+<p> <i class="fa"></i> Vous avez le droit à la fonction <code>strlen</code> !</p>
+</blockquote>
+<h2>Alanver</h2>
+<blockquote>
+<p><strong>Fichier de rendu:</strong>  <code>alanver/alanver.c</code></p>
+</blockquote>
+<h3>Sujet :</h3>
+<p>Écrivez une fonction qui affiche à l'envers dans le terminal la chaîne de caractères passée en paramètre de la fonction.</p>
+<p>La fonction devra être prototypée de la façon suivante :</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">alanver</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<h3>Exemple :</h3>
+<p>Un appel de votre fonction avec les arguments suivants devra afficher ces résultats :</p>
+<div class="codehilite"><pre><span></span><code><span class="n">alanver</span><span class="p">(</span><span class="s">"EPITECH"</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; HCETIPE
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code><span class="n">alanver</span><span class="p">(</span><span class="s">"BEEP BOOP"</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; POOB PEEB
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code><span class="n">alanver</span><span class="p">(</span><span class="s">"bob"</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; bob
+</code></pre></div>
+
+<blockquote class="info">
+<p> Humm... Il faudrait sûrement écrire la chaîne de caractères en partant de la fin, mais comment savoir où est la fin ?</p>
+</blockquote>
+<h2>Countoc</h2>
+<blockquote>
+<p><strong>Fichier de rendu:</strong>  <code>countoc/countoc.c</code></p>
+</blockquote>
+<h3>Sujet :</h3>
+<p>Écrivez une fonction qui renvoie le nombre d'occurrences du caractère <strong>'to_find'</strong> trouvées dans la chaîne de caractères <strong>'str'</strong>.</p>
+<p>La fonction devra être prototypée de la façon suivante :</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">countoc</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">to_find</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<h3>Exemple :</h3>
+<p>Un appel de votre fonction avec les arguments suivants devra afficher ces résultats :</p>
+<div class="codehilite"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">countoc</span><span class="p">(</span><span class="s">"EPITECH"</span><span class="p">,</span><span class="w"> </span><span class="sc">'E'</span><span class="p">));</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; 2
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">countoc</span><span class="p">(</span><span class="s">"##3..##.##....###4#"</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">));</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; 7
+</code></pre></div>
+
+<blockquote class="danger">
+<p> <i class="fa"></i> Bien que <code>printf</code> soit utilisable à tout moment pour tester vos fonctions, cette fonction reste bien évidemment interdite et sera flag par la moulinette.</p>
+</blockquote>
+<h2>Repeat_alpha</h2>
+<blockquote>
+<p><strong>Fichier de rendu:</strong>  <code>repeat_alpha/repeat_alpha.c</code></p>
+</blockquote>
+<h3>Sujet :</h3>
+<p>Pour cet exercice je vous laisse deviner le sujet par vous-même !</p>
+<p>Vous verrez, c'est pas sorcier !</p>
+<p>La fonction devra être prototypée de la façon suivante :</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">repeat_alpha</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<h3>Exemple :</h3>
+<p>Un appel de votre fonction avec les arguments suivants devra afficher ces résultats :</p>
+<div class="codehilite"><pre><span></span><code><span class="n">repeat_alpha</span><span class="p">(</span><span class="s">"abc"</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; abbccc
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code><span class="n">repeat_alpha</span><span class="p">(</span><span class="s">"Alex"</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; Alllllllllllleeeeexxxxxxxxxxxxxxxxxxxxxxxx
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code><span class="n">repeat_alpha</span><span class="p">(</span><span class="s">"abacadaba 42!"</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; abbacccaddddabba 42!
+</code></pre></div>
+
+<blockquote class="info">
+<p> Si vous n'arrivez vraiment pas à trouver une corrélation entre les exemples et après avoir bien réfléchi, vous pouvez appeler un cobra (On n'oublie pas aussi la règle avec les voisins ;p )</p>
+</blockquote>
+<h2>HidenTF</h2>
+<blockquote>
+<p><strong>Fichier de rendu:</strong>  <code>hidentf/hidentf.c</code></p>
+</blockquote>
+<h3>Sujet :</h3>
+<p>Écrivez une fonction qui renvoie 1 si toutes les lettres de s1 se cachent dans s2 et 0 dans le cas inverse.</p>
+<p>La fonction devra être prototypée de la façon suivante :</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">hidentf</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s2</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<h3>Exemple :</h3>
+<p>Un appel de votre fonction avec les arguments suivants devra afficher ces résultats :</p>
+<div class="codehilite"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="n">hidentf</span><span class="p">(</span><span class="s">"abc"</span><span class="p">,</span><span class="w"> </span><span class="s">"abcdefghjikqsdblablabla"</span><span class="p">));</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt;  1
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="n">hidentf</span><span class="p">(</span><span class="s">"fgex"</span><span class="p">,</span><span class="w"> </span><span class="s">"tyf34gdgf;'ektufjhgdgex.;.;rtjynur6"</span><span class="p">));</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; 1
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="n">hidentf</span><span class="p">(</span><span class="s">"azbc"</span><span class="p">,</span><span class="w"> </span><span class="s">"btarc"</span><span class="p">));</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; 0
+</code></pre></div>
+
+<h2>Rot_42</h2>
+<blockquote>
+<p><strong>Fichier de rendu:</strong>  <code>rot_42/rot_42.c</code></p>
+</blockquote>
+<h3>Sujet :</h3>
+<p>Écrivez une fonction qui prend une chaîne de caractères alphabétiques en paramètre et va incrémenter chacune de ses lettres de 42 puis l'afficher dans le terminal <strong>suivi d'un retour à la ligne</strong>. Si le caractère dépasse l'alphabet, on repart au début.</p>
+<p>La fonction devra être prototypée de la façon suivante :</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">rot_42</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<h3>Exemple :</h3>
+<p>Un appel de votre fonction avec les arguments suivants devra afficher ces résultats :</p>
+<div class="codehilite"><pre><span></span><code><span class="n">rot_42</span><span class="p">(</span><span class="s">"abc"</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; qrs
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code><span class="n">rot_42</span><span class="p">(</span><span class="s">"abcdefghijklmnopqrstuvwxyz"</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; qrstuvwxyzabcdefghijklmnop
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code><span class="n">rot_42</span><span class="p">(</span><span class="s">"Vive le coding club 2022"</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; Lylu bu setydw sbkr 2022
+</code></pre></div>
+
+<blockquote class="info">
+<p> N.b: Une lettre revient à 'a' lorsqu'elle dépasse 'z' et à 'A' lorsqu'elle dépasse 'Z'</p>
+</blockquote>
+<h2>Last_word</h2>
+<h3>fichier de rendu : <code>last_word/last_word.c</code></h3>
+<h3>Sujet :</h3>
+<p>Écrirez une fonction qui prend une chaîne de caractères en paramètre, et qui
+affiche le dernier mot de cette chaîne, <strong>suivi d'un '\n'</strong>.</p>
+<p>On appelle "mot" une portion de chaîne de caractères délimitée soit par des
+espaces et/ou des tabulations, soit par le début / la fin de la chaîne.</p>
+<p>La fonction devra être prototypée de la façon suivante :</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">last_word</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<h3>Exemple :</h3>
+<p>Un appel de votre fonction avec les arguments suivants devra afficher ces résultats :</p>
+<div class="codehilite"><pre><span></span><code><span class="n">last_word</span><span class="p">(</span><span class="s">"EPITECH C'EST PLUTOT COOL QUAND MEME"</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; MEME
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code><span class="n">last_word</span><span class="p">(</span><span class="s">"Bientot      vous            serez     des     tek    1     "</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; 1
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code><span class="n">last_word</span><span class="p">(</span><span class="s">"       lorem,ipsum      "</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; lorem,ipsum
+</code></pre></div>
+
+<h2>R_capitalize</h2>
+<blockquote>
+<p><strong>Fichier de rendu:</strong>  <code>r_capitalize/r_capitalize.c</code></p>
+</blockquote>
+<h3>Sujet :</h3>
+<p>Écrivez une fonction reproduisant le comportement de la fonction <strong>"capitalize" du JavaScript</strong>, puis imprimez la chaîne modifiée dans le terminal.</p>
+<p>La fonction prendra 2 paramètres, la chaîne à modifier et un entier définissant le type de transformation.</p>
+<ul>
+<li>
+<p>Si order vaut 0 vous devez mettre en majuscules les premières lettres de chaque mot et passer en minuscule les autres.</p>
+</li>
+<li>
+<p>Si order vaut 1 vous devez procéder de la même manière mais en appliquant la majuscule à la dernière lettre.</p>
+</li>
+</ul>
+<p>Si order ne vaut ni 0 ni 1 vous devez simplement afficher un <strong>'\n'</strong></p>
+<p>Elle sera prototypée de la façon suivante :</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">r_capitalize</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">order</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<h3>Exemple :</h3>
+<p>Un appel de votre fonction avec les arguments suivants devra afficher ces résultats :</p>
+<div class="codehilite"><pre><span></span><code><span class="n">r_capitalize</span><span class="p">(</span><span class="s">"EPITECH C'EST PLUTOT COOL QUAND MEME !"</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; Epitech C'est Plutot Cool Quand Meme !
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code><span class="n">r_capitalize</span><span class="p">(</span><span class="s">"Epitech C'est Plutot Cool Quand Meme !"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; epitecH c'esT plutoT cooL quanD memE !
+</code></pre></div>
+
+<h2>Vous y êtes presque !</h2>
+<p>Toutes mes félicitations pour être arrivé jusqu'ici !</p>
+<p>Que vous ayez tout réussi, skip un exercice sur 2 ou bien qu'il soit 10h10 et que tu sois en train de lire tout le pdf par simple curiosité tu es le ou la bienvenue ici !</p>
+<p>Il ne reste plus que 2 exercices, Au bout !</p>
+<p>Bon courage pour la suite jeune Tek 0 !</p>
+<h2>Pgcd</h2>
+<blockquote>
+<p><strong>Fichier de rendu:</strong>  <code>pgcd/pgcd.c</code></p>
+</blockquote>
+<h3>Sujet :</h3>
+<p>Écrivez une fonction qui renvoie le plus grand dénominateur
+commun entre 2 nombres.</p>
+<p>La fonction devra être prototypée de la façon suivante :</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">pgcd</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nb1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nb2</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<h3>Exemple :</h3>
+<p>Un appel de votre fonction avec les arguments suivants devra afficher ces résultats :</p>
+<div class="codehilite"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="n">pgcd</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">))</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; 2
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code>printf("%d",pgcd(14, 77))
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; 7
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="n">pgcd</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt;1
+</code></pre></div>
+
+<h2>Fprime</h2>
+<blockquote>
+<p><strong>Fichier de rendu:</strong>  <code>fprime/fprime.c</code></p>
+</blockquote>
+<h3>Sujet :</h3>
+<p>Écrirez une fonction qui prend en paramètre un entier strictement positif, et qui affiche sa décomposition en facteurs premiers dans le terminal, suivie d'un <strong>'\n'</strong>.</p>
+<p>Les facteurs doivent être affichés dans l'ordre croissant et séparés par des '*', de telle sorte que l'expression affichée donne le bon résultat.</p>
+<p>La fonction devra être prototypée de la façon suivante :</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">fprime</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nb</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<h3>Exemple :</h3>
+<p>Un appel de votre fonction avec les arguments suivants devra afficher ces résultats :</p>
+<div class="codehilite"><pre><span></span><code><span class="n">fprime</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt;2*3
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code><span class="n">fprime</span><span class="p">(</span><span class="mi">225225</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; 3*3*5*5*7*11*13
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code><span class="n">fprime</span><span class="p">(</span><span class="mi">8333325</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; 3*3*5*5*7*11*13*37
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code><span class="n">fprime</span><span class="p">(</span><span class="mi">-1</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>$&gt; -1
+</code></pre></div>
+
+    <script type="text/x-mathjax-config;executed=true">
+        MathJax.Hub.Config({
+      messageStyle: "none",
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": {
+        fonts: ["TeX"],
+        scale: 85,
+      }
+    });
+  </script>
+    <script src="src/MathJax.js"></script>
+
+
+</body></html>

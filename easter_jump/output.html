@@ -1,0 +1,258 @@
+<html><head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="src/report.css">
+    <link rel="stylesheet" href="src/code.css">
+    <style>
+        @page {
+            margin-top: 2.5cm;
+
+            @top-left {
+                background: #4c5270;
+                color: white;
+                content: counter(page);
+                height: 1cm;
+                text-align: center;
+                width: 1cm;
+                margin-bottom: 0.6cm;
+            }
+
+            @top-center {
+                background: #4c5270;
+                content: '';
+                display: block;
+                height: .05cm;
+                opacity: .5;
+                width: 100%;
+                margin-bottom: 0.6cm;
+            }
+
+            @top-right {
+                content: string(heading);
+                font-size: 9pt;
+                height: 1cm;
+                vertical-align: middle;
+                width: 100%;
+                margin-bottom: 0.6cm;
+            }
+        }
+    </style>
+<style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -5px 0 0 0; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style></head>
+
+<body><div id="MathJax_Message" style="display: none;"></div>
+    <h2>I. Histoire</h2>
+<p>Dans un paisible village, les festivités de Pâques étaient menacées par une équipe de poules malicieuses qui, par jalousie, avaient volé tous les œufs et les avaient cachés haut dans le ciel sur des plateformes flottantes.</p>
+<p>Bunny, un courageux petit lapin, était déterminé à sauver la fête en récupérant les précieux œufs. Chaque saut de Bunny était crucial pour surmonter les obstacles et récupérer les œufs avant qu'il ne soit trop tard.</p>
+<p>Rejoignez Bunny dans son aventure palpitante et aidez-le à sauver la tradition de Pâques pour le bonheur des villageois !</p>
+<p><img alt="" src="assets/lapinou.jpg"></p>
+<h2>II. Créer un jeu</h2>
+<p>Les lapins codent très mal, mais ils savent sauter ! Aidez les lapins à sauter en codant un jeu de plateforme en Javascript, HTML, CSS tel un grand lapi-développeur web.</p>
+<p>Pour vous épauler dans la création du jeu, on met à votre disposition quelques bases de JavaScript qui vous permettront de gagner un peu de temps.</p>
+<h3>Comprendre les fichiers fournis</h3>
+<p>Sont mis à votre disposition, differents fichiers.</p>
+<ul>
+<li>
+<p>Le fichier <strong>index.html</strong> permet d'accéder à votre jeu depuis le navigateur. Double-cliquer dessus l'ouvrira.</p>
+</li>
+<li>
+<p><strong>estethique.css</strong> contrôle quelques aspects du style de votre jeu.</p>
+</li>
+<li>
+<p><strong>scripts/graphic.js</strong> contient des bases d'implémentation vous permettant de créer votre jeu. Vous n'avez rien à toucher dans ce fichier, vous pourrez utiliser ce code depuis celui de votre jeu.</p>
+</li>
+<li>
+<p><strong>assets/</strong> vous propose quelques éléments de base pour votre jeu.</p>
+</li>
+<li>
+<p><strong>scripts/game.js</strong> est le fichier qui contiendra votre implémentation du jeu.</p>
+</li>
+</ul>
+<p>Un jeu c'est une boucle principale, qui tourne à l'infini.</p>
+<blockquote>
+<p>Alors le jeu ne s'arrête jamais ? Je répondrais que ça dépend de votre notion de "jamais".</p>
+<p>- Davdglzn</p>
+</blockquote>
+<p><strong>Dans cette boucle on retrouve 4 points clés.</strong></p>
+<ul>
+<li>
+<p>Nettoyer la fenêtre pour retirer les éléments précedemment affichés.</p>
+</li>
+<li>
+<p>Récuperer et traiter les évenements liés aux intéractions de l'utilisateur.</p>
+</li>
+<li>
+<p>Calculer les déplacements des différents personnages.</p>
+</li>
+<li>
+<p>Rendre à l'écran les éléments à afficher.</p>
+</li>
+</ul>
+<p>Ces différentes étapes sont à implémenter dans la fonction <strong>mainLoop</strong> donnée dans le fichier <strong>game.js</strong>.</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">renderer</span><span class="p">.</span><span class="nx">mainLoop</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Game mainloop</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<h3>Différentes méthodes utilisables</h3>
+<p>Pour intéragir avec le rendu du jeu, différentes fonctions sont appellables.</p>
+<ul>
+<li>
+<p><strong>renderer.clear()</strong> permet de nettoyer le contenu précedemment affiché à l'écran.</p>
+</li>
+<li>
+<p><strong>renderer.pollEvents()</strong> permet de récuperer tous les événements qui se sont produits depuis le dernier tour de boucle.</p>
+<p><em>Vous pouvez pouvez l'utiliser comme il suit.</em></p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span> <span class="nx">events</span> <span class="o">=</span> <span class="nx">renderer</span><span class="p">.</span><span class="nx">pollEvents</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">Utils</span><span class="p">.</span><span class="nx">isKeyDown</span><span class="p">(</span><span class="nx">events</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">// Touche R pressée</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<ul>
+<li>
+<p><strong>renderer.drawSprite(sprite, x, y)</strong> affiche un element à l'écran aux coordonnées données.</p>
+<p>Un sprite se déclare comme il suit, avec le chemin vers l'image et la taille qu'il doit avoir à l'écran.</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span> <span class="nx">bunny</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="s2">"assets/lapinou.png"</span><span class="p">,</span> <span class="mf">100</span><span class="p">,</span> <span class="mf">100</span><span class="p">);</span>
+</code></pre></div>
+
+<ul>
+<li>
+<p><strong>renderer.drawText(text, size, x, y)</strong> affiche du texte aux coordonnées indiquées.</p>
+<p>On l'utilise comme il suit:</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="nx">renderer</span><span class="p">.</span><span class="nx">drawText</span><span class="p">(</span><span class="s2">"Hello"</span><span class="p">,</span> <span class="mf">13</span><span class="p">,</span> <span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">);</span>
+</code></pre></div>
+
+<h2>Déplacer Bunny</h2>
+<p>La première étape est de faire bouger Bunny.</p>
+<p>Pour ce faire, on peut garder une variable de sa position sur l'axe des abscisses.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">bunnyX</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+</code></pre></div>
+
+<p>On peut maintenant agir sur cette variable dans la boucle principale et s'en servir lors du rendu.</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">renderer</span><span class="p">.</span><span class="nx">mainLoop</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">Utils</span><span class="p">.</span><span class="nx">isKeyDown</span><span class="p">(</span><span class="nx">events</span><span class="p">,</span> <span class="s1">'ArrowRight'</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">bunnyX</span> <span class="o">+=</span> <span class="mf">2</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">renderer</span><span class="p">.</span><span class="nx">drawSprite</span><span class="p">(</span><span class="nx">bunny</span><span class="p">,</span> <span class="nx">bunnyX</span><span class="p">,</span> <span class="mf">0</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<blockquote class="info">
+<p> On procédera de la même manière pour le reste des mouvements.</p>
+</blockquote>
+<h2>Bunny boing boing ^^</h2>
+<p>Pour se rapprocher des précieux oeufs, Bunny doit apprendre à sauter.</p>
+<blockquote>
+<p>Si tu n'as pas fait spé physique, va falloir s'accrocher... lol</p>
+</blockquote>
+<p>Un saut, c'est une accélération vers le haut.</p>
+<p>Cette acceleration donne un élan à la vitesse de l'objet, puis au fur et à mesure que l'objet gagne de la hauteur, cette vitesse diminue pour finalement s'équilibrer au sommet du saut.</p>
+<p>S'enchaîne alors la chute qui est une acceleration orientée vers le bas cette fois-ci, jusqu'à l'impact avec le sol.</p>
+<p><img alt="" src="assets/saut.jpg"></p>
+<p>Ça va ?</p>
+<p>On peut implementer ça de façon assez simple en gardant une variable de la vitesse verticale de Bunny.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">ySpeed</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">bunnyY</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+</code></pre></div>
+
+<p>On doit maintenant interagir sur la vitesse de Bunny lorsqu'on lui demande de sauter.</p>
+<blockquote>
+<p>Le saut de Bunny doit se déclencher automatiquement lorsqu'il ré-attéri au sol.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="nx">renderer</span><span class="p">.</span><span class="nx">mainLoop</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+
+    <span class="c1">// [...]</span>
+
+    <span class="c1">// On augmente ou diminiue l'altitude de bunny selon sa vitesse verticale</span>
+    <span class="nx">bunnyY</span> <span class="o">+=</span> <span class="nx">ySpeed</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(...)</span> <span class="p">{</span>
+        <span class="c1">// Du temps que Bunny ne touche pas le sol,</span>
+        <span class="c1">// il perd de la vitesse verticale.</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// Lorsqu'il attérit, on lui redonne une impulsion verticale.</span>
+    <span class="p">}</span>
+
+    <span class="c1">// On affiche Bunny selon ses coordonnées.</span>
+    <span class="nx">renderer</span><span class="p">.</span><span class="nx">drawSprite</span><span class="p">(</span><span class="nx">bunny</span><span class="p">,</span> <span class="nx">bunnyX</span><span class="p">,</span> <span class="nx">bunnyY</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<h2>Les plateformes</h2>
+<p>Bunny ne pourra pas atteindre les oeufs sans plateformes volantes.</p>
+<p>On souahite générer aléatoirement les plateformes que Bunny va utiliser.</p>
+<p><img alt="" src="assets/doodle.jpg"></p>
+<blockquote class="warning">
+<p> Le nombre de plateformes doit être infini, il faudra surement en génerer de nouvelles régulièrement.</p>
+<p>À vous de trouver le bon moment pour le faire.</p>
+</blockquote>
+<p>Il est important de s'assurer que les sauts soient toujours réalisables, il est donc peut-être pertinent de determiner la position d'une nouvelle plateforme en fonction de l'ancienne.</p>
+<p>Pour conserver les plateformes que l'on a généré, on peut utiliser une liste.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span> <span class="nx">plateforms</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="kd">function</span> <span class="nx">addNewPlatform</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">simplePlatform</span> <span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mf">0</span><span class="p">};</span>
+    <span class="nx">plateforms</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">simplePlatform</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<blockquote class="info">
+<p> Cette partie peut s'avérer être une tâche complexe sans plus d'explications. N'hésitez pas à soliciter un Cobra pour discuter de l'implémentation que vous pourriez mettre en place pour résoudre cette étape.</p>
+</blockquote>
+<h2>Le score et la défaite</h2>
+<p>Si notre cher Bunny était amené à tomber d'une plateforme il aura malheureusement échoué sa mission. On pourra alors afficher son score.</p>
+<p>À vous de déterminer la façon dont vous voulez calculer le score de de Bunny et déterminer sa défaite.</p>
+<p><img alt="" src="assets/gameover.png"></p>
+<h2>On va plus loin ?</h2>
+<p>Bravo d'être arrivé jusqu'ici.</p>
+<p>On va plus loin ?</p>
+<p>Pourquoi ne pas proposer une fin heureurse à l'aventure de Bunny ? Ajouter des ennemis sur son chemin où des bonus à récupérer ?</p>
+<p>Sentez vous libres d'experimenter de nouvelles choses !</p>
+<p><img alt="" src="assets/happy_easter.jpg"></p>
+
+    <script type="text/x-mathjax-config;executed=true">
+        MathJax.Hub.Config({
+      messageStyle: "none",
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": {
+        fonts: ["TeX"],
+        scale: 85,
+      }
+    });
+  </script>
+    <script src="src/MathJax.js"></script>
+
+
+</body></html>
