@@ -157,7 +157,7 @@ merger.append(PdfReader(open("builder/output.pdf", 'rb')))
 merger.write(export_dir + "/../" + str_to_snake_case(project_title) + ".pdf")
 
 print("Removing temporary files...")
-os.system("cp builder/output.pdf %s/../" % export_dir)
+os.system("cp builder/output.html %s/../" % export_dir)
 os.remove("builder/output.html")
 os.remove("builder/output.pdf")
 os.remove("builder/cover.pdf")
