@@ -1,0 +1,224 @@
+<html><head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="src/report.css">
+    <link rel="stylesheet" href="src/code.css">
+    <style>
+        @page {
+            margin-top: 2.5cm;
+
+            @top-left {
+                background: #4c5270;
+                color: white;
+                content: counter(page);
+                height: 1cm;
+                text-align: center;
+                width: 1cm;
+                margin-bottom: 0.6cm;
+            }
+
+            @top-center {
+                background: #4c5270;
+                content: '';
+                display: block;
+                height: .05cm;
+                opacity: .5;
+                width: 100%;
+                margin-bottom: 0.6cm;
+            }
+
+            @top-right {
+                content: string(heading);
+                font-size: 9pt;
+                height: 1cm;
+                vertical-align: middle;
+                width: 100%;
+                margin-bottom: 0.6cm;
+            }
+        }
+    </style>
+<style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -5px 0 0 0; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style></head>
+
+<body><div id="MathJax_Message" style="display: none;"></div>
+    <h3>I - Découverte</h3>
+<h4>INTRODUCTION</h4>
+<p>Du haut d'un royaume enneigé, un jeune garçon rêveur et curieux, Tony, adorait passer ses journées à explorer les forêts et les montagnes environnantes. Un jour, il entendit un bruit étrange provenant des arbres et découvrit une petite fée en train de pleurer. La fée lui expliqua qu’elle avait perdu sa baguette magique et qu’elle ne pouvait plus rentrer chez elle. Tony décida de l’aider. Après un long périple, il se retrouva devant une grotte et aperçu la baguette magique. Il ne lui resta plus qu’une chose à faire, traverser la grotte gelée...</p>
+<p>L’ objectif de cet atelier est la réalisation d’un plateformer en Lua en utilisant le logiciel Pico8. Pour cela, vous allez devoir vous familiariser avec tous les outils disponibles sur le logiciel et ainsi réaliser :</p>
+<ul>
+<li>
+<p>Vos propres sprites et assets </p>
+</li>
+<li>
+<p>Créer votre environnement de jeux</p>
+</li>
+<li>Ajouter des features annexes</li>
+</ul>
+<p><pagebreak></pagebreak></p>
+<h4>Installation</h4>
+<p>Dézippez le fichier source, Pico8 devrait être fonctionnel immédiatement !</p>
+<h4>Découverte Pico-8</h4>
+<p>Ouvrez Pico-8 et écrivez la commande <code>install_games</code> , ensuite rendez vous dans le dossier fraîchement crée avec la commande <code>cd games</code> , puis <code>load celeste p8 plus</code>, ensuite libre à vous d’explorer ! Vous pouvez appuyer sur echap afin d’avoir un aperçu du code et <code>run</code> pour lancer le jeux.</p>
+<p>Pour aller plus loin, vous pouvez reprendre les commandes précédentes en remplaçant game par demo.</p>
+<p>Une fois vos repère pris, appuyez sur echap et écrivez sur la console <code>reboot</code> pour commencer à créer votre propre jeu.</p>
+<blockquote class="info">
+<p> Pensez à régulièrement sauvegarder votre travail à l’aide de save (ctrl + s)</p>
+<p>Pour créer votre jeu pico: <code>save &lt;nom_jeu&gt;</code> puis <code>load &lt;nom_jeu&gt;.p8</code></p>
+</blockquote>
+<p><pagebreak></pagebreak></p>
+<h3>II - Passez à l'action</h3>
+<h4>DESIGN DE VOTRE PERSONNAGE</h4>
+<p>Pour dessiner votre personnage, vous devez vous rendre sur le deuxième onglet de la console.</p>
+<p>Ensuite, laissez libre cours à votre imagination ! Pour animer votre sprite vous aurez besoin de :</p>
+<ul>
+<li>2 sprites où votre personnage est statique</li>
+<li>4 sprites où votre personnage se déplace</li>
+<li>1 sprite de glissement</li>
+<li>1 sprite où le personnage chute</li>
+<li>1 sprite de saut</li>
+</ul>
+<p>Si le dessin n’est pas votre truc, vous pouvez importer des sprites avec la commande<code>import filename.png</code></p>
+<h4>CREATION DE LA MAP</h4>
+<p>Pour créer votre map, dessiner des sprites sur l’onglet deux, puis appuyez sur le troisième onglet de la console et commencer à créer !</p>
+<p>Durant le processus de création, vous aurez besoin des collisions. Pour cela, vous utiliserez les flags.</p>
+<p><img alt="pico8 flags" src="img_pico.png"></p>
+<p>Un flag est représenté par un point de couleur.</p>
+<p>Par exemple, on peut dire qu’un mur aura le flag 0 (rouge) pour activer la collision avec ce mur.</p>
+<p><pagebreak></pagebreak></p>
+<h4>LES FONCTIONS INDISPENSABLES</h4>
+<ul>
+<li><strong>_init():</strong> Permet de déclarer des variables globales dès le début du programme</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="c1">--variables</span>
+
+<span class="kr">function</span> <span class="nf">_init</span><span class="p">()</span>
+  <span class="n">player</span><span class="o">=</span><span class="p">{</span>
+    <span class="n">sp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">w</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">h</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">flp</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span>
+    <span class="n">dx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">dy</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">max_dx</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">max_dy</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">acc</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">boost</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">anim</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">running</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span>
+    <span class="n">jumping</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span>
+    <span class="n">falling</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span>
+    <span class="n">sliding</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span>
+    <span class="n">landed</span><span class="o">=</span><span class="kc">false</span>
+  <span class="p">}</span>
+
+  <span class="n">gravity</span><span class="o">=</span><span class="mf">0.3</span>
+  <span class="n">friction</span><span class="o">=</span><span class="mf">0.85</span>
+
+  <span class="c1">--simple camera</span>
+  <span class="n">cam_x</span><span class="o">=</span><span class="mi">0</span>
+
+  <span class="c1">--map limits</span>
+  <span class="n">map_start</span><span class="o">=</span><span class="mi">0</span>
+  <span class="n">map_end</span><span class="o">=</span><span class="mi">1024</span>
+<span class="kr">end</span>
+</code></pre></div>
+
+<p><pagebreak></pagebreak></p>
+<ul>
+<li><strong>_update():</strong> Met à jour les infos de l’utilisateur</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kr">function</span> <span class="nf">_update</span><span class="p">()</span>
+  <span class="n">player_update</span><span class="p">()</span>
+  <span class="n">player_animate</span><span class="p">()</span>
+
+  <span class="c1">--simple camera</span>
+  <span class="n">cam_x</span><span class="o">=</span><span class="n">player</span><span class="p">.</span><span class="n">x</span><span class="o">-</span><span class="mi">64</span><span class="o">+</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="n">w</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="n">cam_x</span><span class="o">&lt;</span><span class="n">map_start</span> <span class="kr">then</span>
+     <span class="n">cam_x</span><span class="o">=</span><span class="n">map_start</span>
+  <span class="kr">end</span>
+  <span class="kr">if</span> <span class="n">cam_x</span><span class="o">&gt;</span><span class="n">map_end</span><span class="o">-</span><span class="mi">128</span> <span class="kr">then</span>
+     <span class="n">cam_x</span><span class="o">=</span><span class="n">map_end</span><span class="o">-</span><span class="mi">128</span>
+  <span class="kr">end</span>
+  <span class="n">camera</span><span class="p">(</span><span class="n">cam_x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div>
+
+<ul>
+<li><strong>_draw():</strong> Met à jour les images à l’écran</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kr">function</span> <span class="nf">_draw</span><span class="p">()</span>
+  <span class="n">cls</span><span class="p">()</span>
+  <span class="n">map</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+  <span class="n">spr</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="n">sp</span><span class="p">,</span><span class="n">player</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">player</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">player</span><span class="p">.</span><span class="n">flp</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div>
+
+<p><pagebreak></pagebreak></p>
+<h4>LES DÉPLACEMENTS</h4>
+<p>Pour déplacer votre personnage, vous aurez besoin de capturer les saisies du clavier. Pour cela, vous utiliserez la fonction <code>BTN</code> et la direction souhaitée. Les directions sont représentée par les chiffres 1, 2, 3 et 4, mais également par →(shift + R) pour la droite (<strong>R</strong> pour right, <strong>L</strong> pour left, <strong>U</strong> pour up, <strong>D</strong> pour down).</p>
+<h4>LES COLLISIONS</h4>
+<p>Pour vérifier une collision, nous utiliserons les fonctions <code>fget</code> &amp; <code>mget</code>.</p>
+<ul>
+<li><strong>fget()</strong>: fonction qui prend un numéro de sprite et un flag, puis compare les flags sur ce sprite, avec le flag que nous cherchons (ie: 0)</li>
+<li><strong>mget()</strong>: fonction qui prend les coordonnées de la carte (x, y) et trouve l’index du sprite qui se trouve à cet emplacement sur la carte.</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kr">if</span> <span class="n">fget</span><span class="p">(</span><span class="n">mget</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">),</span> <span class="n">flag</span><span class="p">)</span>
+<span class="ow">or</span> <span class="n">fget</span><span class="p">(</span><span class="n">mget</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y2</span><span class="p">),</span> <span class="n">flag</span><span class="p">)</span>
+<span class="ow">or</span> <span class="n">fget</span><span class="p">(</span><span class="n">mget</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y1</span><span class="p">),</span> <span class="n">flag</span><span class="p">)</span>
+<span class="ow">or</span> <span class="n">fget</span><span class="p">(</span><span class="n">mget</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">),</span> <span class="n">flag</span><span class="p">)</span> <span class="kr">then</span>
+    <span class="kr">return</span> <span class="kc">true</span>
+<span class="kr">else</span>
+    <span class="kr">return</span> <span class="kc">false</span>
+<span class="kr">end</span>
+</code></pre></div>
+
+<p><pagebreak></pagebreak></p>
+<h4>III - Pour aller plus loin</h4>
+<p>Tout d’abord : bravo !</p>
+<p>Maintenant, libre à toi de modifier le jeu selon tes désirs ! Tu as normalement dû apprendre certaines choses, et tu peux modifier à ta guise des parties du programme ou ajouter de nouvelles choses facilement comme du texte, de nouveaux projectiles, etc… Voici quelques exemples d’ajouts sympathiques ! :</p>
+<ul>
+<li>Faire un menu</li>
+<li>De la musique et des sons.</li>
+<li>Un score et un écran de Game Over.</li>
+<li>Créer des niveaux</li>
+<li>De nouveaux ennemis ou personnages jouables.</li>
+</ul>
+<p>N’hésite surtout pas à demander de l’aide à un Cobra (ceux qui ne mordent pas) si tu as du mal à appliquer certaines de tes idées !</p>
+
+    <script type="text/x-mathjax-config;executed=true">
+        MathJax.Hub.Config({
+      messageStyle: "none",
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": {
+        fonts: ["TeX"],
+        scale: 85,
+      }
+    });
+  </script>
+    <script src="src/MathJax.js"></script>
+
+
+</body></html>

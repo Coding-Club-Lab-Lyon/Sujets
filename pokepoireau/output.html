@@ -1,0 +1,286 @@
+<html><head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="src/report.css">
+    <link rel="stylesheet" href="src/code.css">
+    <style>
+        @page {
+            margin-top: 2.5cm;
+
+            @top-left {
+                background: #4c5270;
+                color: white;
+                content: counter(page);
+                height: 1cm;
+                text-align: center;
+                width: 1cm;
+                margin-bottom: 0.6cm;
+            }
+
+            @top-center {
+                background: #4c5270;
+                content: '';
+                display: block;
+                height: .05cm;
+                opacity: .5;
+                width: 100%;
+                margin-bottom: 0.6cm;
+            }
+
+            @top-right {
+                content: string(heading);
+                font-size: 9pt;
+                height: 1cm;
+                vertical-align: middle;
+                width: 100%;
+                margin-bottom: 0.6cm;
+            }
+        }
+    </style>
+<style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -5px 0 0 0; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style></head>
+
+<body><div id="MathJax_Message" style="display: none;"></div>
+    <h2>I. Introduction</h2>
+<p>Bienvenue dans l’univers de Poképoireau.</p>
+<p>Bravo à vous jeunes dresseurs, vous avez été appelé par le professeur Chêne pour choisir votre tout
+premier poireau. Il a décidé que vous êtes désormais prêts à entamer votre quête à travers le pays, et
+affronter tous les autres dresseurs, dans le but d’obtenir le titre de « Maître Poireau » tant convoité.
+Avant d’arriver à cela, vous allez devoir entrainer votre petit protégé, lui apprendre les meilleures
+techniques de combat et l’encourager pour l’aider à devenir de plus en plus fort.</p>
+<p><img alt="" src="assets/pr_chene.png">
+</p><center><em>Choisissez bien, il va vous accompagner toute votre vie !</em></center><p></p>
+<p><pagebreak></pagebreak></p>
+<h2>II. Consignes</h2>
+<ul>
+<li>
+<p>Vous avez tout à fait le droit d’utiliser internet pour trouver des réponses ou pour vous
+renseigner.</p>
+</li>
+<li>
+<p>En cas de soucis ou questions demandez de l’aide à votre voisin de droite. Puis de gauche. Ou inversement. Puis demandez enfin à un cobra si vous êtes bloqué(e).</p>
+</li>
+</ul>
+<h2>III. Un jour je serai le meilleur dresseur</h2>
+<h3>1. Il n'y a pas de champion sans entrainement</h3>
+<p>En effet, Il va falloir travailler dur pour arriver tout en haut et devenir le plus fort ! Pour cela le professeur Chêne a créé un site internet en ligne pour que vous puissiez entrainer à distance votre petit poireau.</p>
+<p>Commencez par créer un compte à cette adresse : <a href="https://leekwars.com/">leekwars.com</a>. Si besoin est, vous pouvez passer le site en français ou en anglais. Connectez-vous avec votre compte Github ou votre adresse mail. Si vous choisissez cette dernière solution, vérifiez bien votre boite pour valider votre compte.</p>
+<p>LeekWars est un site dont le but est de créer votre Intelligence Artificielle pour qu'elle combatte contre les IA des autres joueurs. Votre but est ainsi de créer l'IA la plus adaptive. Pour ce faire, différentes armes, compétences et sorts sont disponibles.</p>
+<p></p><center><img alt="" src="assets/screen1.png"></center>
+<center><em>Voici le profil de votre poireau, ici vous pouvez y observer la moindre de ses caractéristiques</em></center><p></p>
+<p>Dans l’image ci-dessus vous pouvez voir différents blocs de couleur accompagnés d’un numéro dans le but de vous expliquer un peu l’interface.</p>
+<p>En 1, vous avez les objets équipés, vous pouvez voir que dans la case armes se trouve le pistolet de base.</p>
+<p>En 2, ce sont les caractéristiques, il s’agit de vos capacités telles que votre vie, votre force, la fréquence à laquelle vous aurez la chance de débuter le combat, vos points d’actions (TP), etc.
+N’oubliez pas d’attribuer des points à ces différentes stats lorsque vous passez un niveau, afin de
+rendre votre poireau plus performant.</p>
+<p>En 3 se situe votre Menu qui contient plusieurs possibilités :</p>
+<ul>
+<li>Éditeur, permet de modifier l’IA de votre poireau.</li>
+<li>Potager, pour combattre d’autres poireaux.</li>
+<li>Marché, afin d’acheter des armes ou des sorts.</li>
+<li>Équipe, pour y accéder quand vous en aurez une.</li>
+<li>Trophée, c’est ici que vous pourrez consulter vos différents objectifs atteints.</li>
+<li>Classement, comparez-vous aux autres joueurs du monde !</li>
+<li>Aide, pour accéder à des tutoriels et la documentation.</li>
+<li>Le forum pour parler et échanger avec la communauté.</li>
+</ul>
+<p>En 4 vous pouvez consulter directement l’IA active sur votre poireau. Comme vous le savez, un jeune poireau débutant ne sait pas trop quoi faire pour gagner contre ses adversaires, il compte sur vous pour l’aider et le guider dans ses actions lors d’un match. C’est ici que L’IA va intervenir ! Une IA (Intelligence Artificielle) est un programme qui s’adapte et répond de façon différente en fonction d’un cas donné. L’exemple le plus concret est l’assistant artificiel que l’on retrouve dans tous les téléphones comme Google assistant, Siri, Microsoft AI...</p>
+<p>En 5 lorsque que vous en aurez, vous pourrez acheter des sorts !</p>
+<p></p><center><img alt="" src="assets/angry_leek.png"></center>
+<center><em>Petit poireau deviendra grand !</em></center><p></p>
+<p><pagebreak></pagebreak></p>
+<h3>2. Partez du bon pied</h3>
+<p>Commençons par voir certaines notions de base en programmation.
+La première ? Les variables !</p>
+<p>Qu’est-ce qu’une variable ?</p>
+<p>Une variable sert à stocker une donnée, un nombre, une chaîne de caractère ou plein d’autres types comme des nombres à virgules, etc... Vous pouvez simplement stocker des informations afin de les modifier et les réutiliser plus tard ! Si le joueur se déplace de 4 cases par exemple, cela permet dans un premier temps de garder l’emplacement de votre personnage dans une variable, puis par la suite, de modifier sa valeur. Pour créer une variable en LeekWars, il suffit de l’écrire comme ceci :</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">position</span> <span class="o">=</span> <span class="mf">1</span><span class="p">;</span> 
+</code></pre></div>
+
+<p>Ensuite vous ajoutez 4 à cette variable :</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">poition</span> <span class="o">=</span> <span class="nx">position</span> <span class="o">+</span> <span class="mf">4</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Ensuite, pour afficher du texte ou une variable, il faut appeler une fonction. Une fonction est un
+bout de code qui est entouré d’accolades « {} » et tout ce qui se trouve à l’intérieur sera exécuté
+lorsque vous l’appellerez. Dans Leek Wars, cela ressemble à ceci :</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">moveforward</span><span class="p">()</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Cela sert à plusieurs choses : premièrement, à éviter de copier du code qui fait la même chose, mais également à rendre le code plus lisible ou plus générique.</p>
+<p></p><center><img alt="" src="assets/cute_leek.png"></center>
+<center><em>On peut dire que votre poireau est un sacré rigolo !</em></center><p></p>
+<p><pagebreak></pagebreak></p>
+<h2>IV. L’IA est votre plus grande force</h2>
+<h3>1. Il est important de bien connaître son élève</h3>
+<p>Votre nouvel ami poireau possède déjà quelques bases en matière de combat, mais elles sont très simples et sans votre aide il n’arriva malheureusement pas à progresser.</p>
+<p>Allez dans l’éditeur. Vous trouverez un code généré par défaut. Pour le comprendre, vous devez l’observer. Chaque tour, votre poireau va exécuter le code ligne par ligne, dans le sens de lecture. Voici à quoi ressemble la première ligne : </p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Take the pistol</span>
+<span class="nx">setWeapon</span><span class="p">(</span><span class="nx">WEAPON_PISTOL</span><span class="p">);</span> <span class="c1">// Warning: cost 1 TP</span>
+</code></pre></div>
+
+<p>Comme écrit dans les commentaires, qui est la ligne commençant par «//», ce code définit l’arme en main, ici WEAPON_PISTOL. Chaque action coûte des TP (points de tir), dont le nombre varie selon les statistiques de votre poireau. Il est donc inutile d’équiper votre arme à chaque tour, vous le verrez par la suite.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Get the nearest enemy</span>
+<span class="kd">var</span> <span class="nx">enemy</span> <span class="o">=</span> <span class="nx">getNearestEnemy</span><span class="p">();</span>
+</code></pre></div>
+
+<p>Cette ligne définit une variable appelée «enemy» qui prend la valeur que «getNearestEnemy» lui envoie. Cette valeur correspond à l'identifiant du poireau le plus proche du nôtre. Qui dans le cas en 1v1, est un ennemi. Par la suite, vous pourrez attaquer l’adversaire en utilisant son ID.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Move towards him</span>
+<span class="nx">moveToward</span><span class="p">(</span><span class="nx">enemy</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Ici, votre programme fait avancer votre poireau avec « move » vers l’ennemi désigné précédemment.</p>
+<p>Vous allez ajouter vos premières modifications à ce code ! Créez une condition signifiée par «if» afin de récupérer le nombre de tours passés et sortir votre arme uniquement si ce dernier est égal à 1: </p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Take the pistol</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">getTurn</span><span class="p">()</span> <span class="o">==</span> <span class="mf">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">setWeapon</span><span class="p">(</span><span class="nx">WEAPON_PISTOL</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Pour tester votre programme, soit vous pouvez utiliser le bouton tester et créer un scenario contre Domingo qui est un poireau de votre niveau, soit vous pouvez affronter des inconnus dans potager. </p>
+<p><pagebreak></pagebreak></p>
+<h3>2. Hop, hop, hop faut que ça bouge !</h3>
+<p>Que diriez-vous d’améliorer les déplacements de votre ami ? Histoire qu’il puisse réagir lorsque se passe un évènement précis. Commencez par changer la façon dont se déplace le poireau afin de diversifier ses mouvements. Vous pouvez le faire reculer, aller à gauche ou à droite lorsqu’il est touché par l’adversaire. Ainsi, ajoutez une action qui va vous permettre d’avancer de 2 et de reculer de 1 : </p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Move towards him</span>
+<span class="nx">moveToward</span><span class="p">(</span><span class="nx">enemy</span><span class="p">,</span><span class="mf">2</span><span class="p">);</span>
+<span class="c1">// Try to soot him</span>
+<span class="nx">useWeapon</span><span class="p">(</span><span class="nx">enemy</span><span class="p">);</span>
+<span class="c1">// Move away</span>
+<span class="nx">moveAwayFrom</span><span class="p">(</span><span class="nx">enemy</span><span class="p">,</span> <span class="mf">1</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Vous pouvez par exemple, pour approfondir, déplacer votre poireau derrière un obstacle afin de vous protéger, ou encore amener l’ennemi dans un endroit fermé pour le bloquer.</p>
+<h3>3. Bang bang !!</h3>
+<p>Vous avez vu au tout début que votre poireau ne tirait qu’une fois par tour et dépense trois TP. Maintenant tentez d’asséner plusieurs coups à l’ennemi avec votre arme. Pour cela, vous allez avoir besoin de connaître vos TP, c’est là que la fonction « getTP() » entre en jeu. Comme son nom l’indique, elle récupère les TP d’un poireau ; ce qui permet d’analyser la situation et de réagir en conséquence.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Try to shoot him!</span>
+<span class="kd">var</span> <span class="nx">my_tp</span> <span class="o">=</span> <span class="nx">getTP</span><span class="p">();</span>
+</code></pre></div>
+
+<p>Désormais votre poireau aura un petit plus comparé à l’IA de base. Et votre ennemi n’aura plus qu’à déguster vos tirs à chaque tour. Cependant, faites attention à vos TP: votre arme en utilise un certain nombre, de l’ordre de 3 pour l’arme de base, ainsi si vous essayez de tirer mais qu’elle n’en a pas assez, votre IA va tourner en boucle sur cette partie du code et donc finir par timeout, c’est à dire que la lecture du code ne s'arrêtera pas et que les actions prévues à la suite ne seront pas réalisées.</p>
+<p>C’est pourquoi il est conseillé de mettre dans votre condition, qui est la boucle «while», «my_tp &gt; [ nombre de TP utilisé par votre arme ]» au lieu de «my_tp &gt; 0». Ci-dessous vous avez l’exemple d’un code qui fonctionnera sans soucis !</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Try to shoot him!</span>
+<span class="kd">var</span> <span class="nx">my_tp</span> <span class="o">=</span> <span class="nx">getTP</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">shoot</span> <span class="o">=</span> <span class="nx">USE_SUCCESS</span><span class="p">;</span>
+<span class="k">while</span><span class="p">(</span><span class="nx">my_tp</span> <span class="o">&gt;=</span> <span class="mf">3</span> <span class="nx">and</span> <span class="nx">shoot</span> <span class="o">!=</span> <span class="nx">USE_INVALID_POSITION</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">shoot</span> <span class="o">=</span> <span class="nx">useWeapon</span><span class="p">(</span><span class="nx">enemy</span><span class="p">);</span>
+    <span class="nx">my_tp</span> <span class="o">=</span> <span class="nx">getTP</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><pagebreak></pagebreak></p>
+<h3>4. La distanciation sociale est la clé !</h3>
+<p>Pour améliorer vos déplacements, il faut pourvoir prendre en compte la distance entre votre champion et votre adversaire. Tout d’abord, récupérez votre position et la position de l’ennemi. Pour cela utilisez la fonction «getCell». Entrez le code suivant :</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">pos_enemy</span> <span class="o">=</span> <span class="nx">getCell</span><span class="p">(</span><span class="nx">enemy</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">pos_player</span> <span class="o">=</span> <span class="nx">getCell</span><span class="p">();</span>
+</code></pre></div>
+
+<blockquote class="warning">
+<p> <i class="fa"></i> Votre position (Cell) ne correspond pas à votre ID !</p>
+</blockquote>
+<p>Afin de vous développer, vous pouvez également prendre en compte la distance entre vous et votre ennemi. Pour ce faire, utilisez la fonction «getCellDistance» : celle-ci prend en paramètres deux positions, la vôtre et celle de votre adversaire. </p>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">dist</span> <span class="o">=</span> <span class="nx">getCellDistance</span><span class="p">(</span><span class="nx">pos_player</span><span class="p">,</span> <span class="nx">pos_enemy</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Maintenant que c’est fait, vous pouvez utiliser cette nouvelle donnée pour vous mettre à couvert, aller à portée de tir, planifier vos déplacements afin de prendre l’avantage !</p>
+<p></p><center><img alt="" src="assets/dueling_leek.png"></center>
+<center><em>C’est l’heure du dudududuel !</em></center><p></p>
+<p><pagebreak></pagebreak></p>
+<h2>V. Les pouvoirs incroyables du poireau :</h2>
+<p>Super, bien joué ! Votre progression est fulgurante, et votre poireau plus efficace ! Vous avez eu l'occasion de voir l’utilisation des armes, les mouvements... Mais avez-vous pensé à vous soigner ? À utiliser de la magie pour attaquer votre adversaire de plus loin ? C’est possible grâce aux puces que vous pourrez acheter en magasin : </p>
+<p></p><center><img alt="" src="assets/leek_powers.png"></center>
+<center><em>Les possibilités sont infinies, choisissez bien vos pouvoirs !</em></center><p></p>
+<p><pagebreak></pagebreak></p>
+<h3>1. Rafistolez le poireau</h3>
+<p>Votre valeureux compagnon peut subir des dégâts, vous allez devoir anticiper tout ça, pour optimiser vos combats. Pour pouvoir effectuer cela, il est nécessaire d’avoir atteint le niveau 3, donc n’hésitez pas à affronter vos voisins, ou des inconnus pour augmenter votre expérience. Après cela, vous pourrez acheter la puce CHIP_BANDAGE : </p>
+<p></p><center><img alt="" src="assets/heal_leek.png"></center>
+<center>En effet, c’est un pansement !</center><p></p>
+<p>Vous pouvez désormais la mettre sur votre poireau. Pour cela allez sur l’onglet principal de votre poireau et équipez-la. Une fois que c’est fait, codez la partie permettant de l’utiliser. Essayez de suivre la logique suivante pour la rajouter à votre IA : s’il vous manque de la vie, alors utilisez la puce de soin.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// health</span>
+<span class="kd">var</span> <span class="nx">Life</span> <span class="o">=</span> <span class="nx">getTotalLife</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">life_now</span> <span class="o">=</span> <span class="nx">getLife</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">my_leek</span> <span class="o">=</span> <span class="nx">getEntity</span><span class="p">();</span>
+
+<span class="k">if</span><span class="p">(</span><span class="nx">life_now</span> <span class="o">&lt;</span> <span class="nx">Life</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">useChip</span><span class="p">(</span><span class="nx">CHIP_BANDAGE</span><span class="p">,</span> <span class="nx">my_leek</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Votre légume peut maintenant se soigner ! Vous pourrez résister plus longtemps sous le feu ennemi. Vous pouvez aussi utiliser les puces de protection, qui serviront à prévenir les blessures. </p>
+<p><pagebreak></pagebreak></p>
+<h3>2. Déterrez le poireau adverse</h3>
+<p>Parfait ! Vous commencez à devenir un véritable professionnel. Maintenant améliorez vos attaques en utilisant des sortilèges pour donner une bonne raclée aux ennemies ! Pour commencer à utiliser les sorts d’attaques à distance, vous devez commencer par acheter l'une des puces offensives, qui sont représentées par la couleur rouge.</p>
+<p></p><center><img alt="" src="assets/leek_attack.png"></center>
+<center><em>Voilà votre sort !</em></center><p></p>
+<p>Comme vous pouvez le voir à côté de la puce, vous avez ici plusieurs infos à propos de celle-ci tel que sa portée, les TP nécessaires pour l’utiliser ou encore les dégâts qu'elle inflige. Pour cette dernière la portée est de 0 à 6 blocs, 2TP sont nécessaires pour l'utiliser et elle fait de 5 à 7 dégâts par utilisation.</p>
+<p>L'une des premières utilisations que vous en aurez sera : </p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Use Chip_Shock</span>
+<span class="nx">useChip</span><span class="p">(</span><span class="nx">CHIP_SHOCK</span><span class="p">,</span> <span class="nx">enemy</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Ici, vous ne faites qu’utiliser le sort Shock sur l’adversaire. Maintenant améliorez votre algorithme pour activer la puce si la portée de votre arme est inférieure à votre distance à l'ennemi ET que la portée de votre puce est supérieure ou égale à votre distance à l'ennemi.</p>
+<h3>3. Petit tour à l’armurerie</h3>
+<p>Que diriez-vous de passer à la vitesse supérieure ? Après tous vos combats, vous devriez pouvoir acheter une nouvelle arme. Le MACHINE_GUN est une arme de départ de choix pour cette nouvelle expérience. Pour l’équiper faites comme pour les chips. Voyons maintenant comment l’utiliser.</p>
+<p></p><center><img alt="" src="assets/machine_gun.png"></center>
+<center>Voici l’incroyable MACHINE_GUN</center><p></p>
+<p>Vous avez déjà des fonctions utilisant l’arme. Mais comment en changer ? Utilisez le même principe que pour le tout premier pistolet que vous aviez :</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Change our weapon</span>
+<span class="nx">setWeapon</span><span class="p">(</span><span class="nx">WEAPON_MACHINE_GUN</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Vous pouvez maintenant ajouter une condition afin de choisir quand sortir l’arme et ne pas dépenser 1 TP à chaque nouveau tour.</p>
+<p><pagebreak></pagebreak></p>
+<h2>VI. Découvrez le manuel du savoir ultime</h2>
+<p>Vous commencez à devenir un expert, le professeur Chêne n’a plus rien à vous apprendre. L’élève a dépassé le maître ! Désormais, vous allez devoir faire vos propres recherches et expériences pour augmenter votre niveau.</p>
+<p>Mais vous avez de la chance ! Une documentation est fournie par le site. Vous y trouverez toutes les fonctions que vous n’avez pas vu pour l’instant. Il y aura aussi des informations sur comment réaliser les IA si vous voulez d’autres idées pour votre poireau. Cette partie se trouve dans la partie aide du site. Vous y trouverez les informations sur les différentes fonctions qui existent et que vous pouvez utiliser. Pour cela, vous devez sélectionner la fonction que vous désirez : vous saurez alors quels sont ses paramètres et ses retours. Have fun !</p>
+<p></p><center><img alt="" src="assets/wise_leek.png"></center>
+<center><em>Il va falloir lire tout ça à votre poireau, tout le monde sait qu’ils ne savent pas lire.</em></center><p></p>
+<p><pagebreak></pagebreak></p>
+<h2>VII. Toujours plus loin, toujours plus haut, toujours plus fort !</h2>
+<p>Votre entrainement prend fin, vous avez beaucoup évolué depuis que vous avez récupéré votre poireau. On sent bien à quel point vous êtes liés désormais, vous êtes devenus inséparables ! Le professeur tient à vous féliciter une dernière fois avant que vous partiez dans de folles aventures.</p>
+<p>Si vous souhaitez aller plus loin, il vous a concocter une petite liste de choses à réaliser :</p>
+<ul>
+<li>Personnaliser votre poireau !</li>
+<li>Augmenter votre niveau et améliorer vos pouvoirs.</li>
+<li>Créer une équipe avec vos amis en cliquant sur votre profil pour s’entrainer tous ensemble !</li>
+</ul>
+<p>Bon courage à toi jeune poireau !</p>
+<p></p><center><img alt="" src="assets/leek_league.png"></center>
+<center><em>Constitue une équipe avec tes amis et soyez les meilleurs !</em></center><p></p>
+
+    <script type="text/x-mathjax-config;executed=true">
+        MathJax.Hub.Config({
+      messageStyle: "none",
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": {
+        fonts: ["TeX"],
+        scale: 85,
+      }
+    });
+  </script>
+    <script src="src/MathJax.js"></script>
+
+
+</body></html>

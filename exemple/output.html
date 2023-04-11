@@ -1,0 +1,111 @@
+<html><head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="src/report.css">
+    <link rel="stylesheet" href="src/code.css">
+    <style>
+        @page {
+            margin-top: 2.5cm;
+
+            @top-left {
+                background: #4c5270;
+                color: white;
+                content: counter(page);
+                height: 1cm;
+                text-align: center;
+                width: 1cm;
+                margin-bottom: 0.6cm;
+            }
+
+            @top-center {
+                background: #4c5270;
+                content: '';
+                display: block;
+                height: .05cm;
+                opacity: .5;
+                width: 100%;
+                margin-bottom: 0.6cm;
+            }
+
+            @top-right {
+                content: string(heading);
+                font-size: 9pt;
+                height: 1cm;
+                vertical-align: middle;
+                width: 100%;
+                margin-bottom: 0.6cm;
+            }
+        }
+    </style>
+<style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; border: 0; padding: 0; margin: 0}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0 !important; padding: 0 !important; margin: 0 !important; vertical-align: 0 !important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap ! important}
+.MathJax img {display: inline ! important; float: none ! important}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block; overflow: hidden; width: 1px; height: 60ex}
+.MathJax .MathJax_EmBox {display: block; overflow: hidden; width: 1px; height: 60em}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff') format('woff'), url('file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Main; src: url('file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff') format('woff'), url('file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf') format('opentype'); font-weight: bold}
+@font-face {font-family: MathJax_Main; src: url('file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff') format('woff'), url('file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Math; src: url('file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff') format('woff'), url('file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Caligraphic; src: url('file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff') format('woff'), url('file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff') format('woff'), url('file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff') format('woff'), url('file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff') format('woff'), url('file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff') format('woff'), url('file:////home/runner/work/Sujets/Sujets/.github/workflows/parser/builder/src/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf') format('opentype')}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -5px 0 0 0; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style></head>
+
+<body><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px none; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+    <p><i class="fa"></i></p>
+<blockquote class="warning">
+<p> <i class="fa"></i> <strong>Attention:</strong> Pensez à sauvegarder votre code !</p>
+</blockquote>
+<p><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-1-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-1"><span style="display: inline-block; position: relative; width: 10.79em; height: 0px; font-size: 103%;"><span style="position: absolute; clip: rect(1.499em, 1000em, 3.268em, -0.541em); top: -2.721em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="msubsup" id="MathJax-Span-3"><span style="display: inline-block; position: relative; width: 1.093em; height: 0px;"><span style="position: absolute; clip: rect(1.717em, 1000em, 3.225em, -0.541em); top: -2.721em; left: 0em;"><span class="mo" id="MathJax-Span-4" style="font-family: MathJax_Size1; vertical-align: 0em;">∫<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.138em;"></span></span><span style="display: inline-block; width: 0px; height: 2.721em;"></span></span><span style="position: absolute; clip: rect(1.568em, 1000em, 2.464em, -0.567em); top: -2.79em; left: 0.687em;"><span class="texatom" id="MathJax-Span-5"><span class="mrow" id="MathJax-Span-6"><span class="mi" id="MathJax-Span-7" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">b</span></span></span><span style="display: inline-block; width: 0px; height: 2.258em;"></span></span><span style="position: absolute; clip: rect(1.747em, 1000em, 2.463em, -0.572em); top: -1.917em; left: 0.458em;"><span class="texatom" id="MathJax-Span-8"><span class="mrow" id="MathJax-Span-9"><span class="mi" id="MathJax-Span-10" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">a</span></span></span><span style="display: inline-block; width: 0px; height: 2.258em;"></span></span></span></span><span class="mi" id="MathJax-Span-11" style="font-family: MathJax_Math; font-style: italic; padding-left: 0.167em;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.06em;"></span></span><span class="mo" id="MathJax-Span-12" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-13" style="font-family: MathJax_Math; font-style: italic;">x</span><span class="mo" id="MathJax-Span-14" style="font-family: MathJax_Main;">)</span><span class="mi" id="MathJax-Span-15" style="font-family: MathJax_Math; font-style: italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-16" style="font-family: MathJax_Math; font-style: italic;">x</span><span class="mo" id="MathJax-Span-17" style="font-family: MathJax_Main; padding-left: 0.278em;">=</span><span class="mi" id="MathJax-Span-18" style="font-family: MathJax_Math; font-style: italic; padding-left: 0.278em;">F<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.106em;"></span></span><span class="mo" id="MathJax-Span-19" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-20" style="font-family: MathJax_Math; font-style: italic;">b</span><span class="mo" id="MathJax-Span-21" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-22" style="font-family: MathJax_Main; padding-left: 0.222em;">−</span><span class="mi" id="MathJax-Span-23" style="font-family: MathJax_Math; font-style: italic; padding-left: 0.222em;">F<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.106em;"></span></span><span class="mo" id="MathJax-Span-24" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-25" style="font-family: MathJax_Math; font-style: italic;">a</span><span class="mo" id="MathJax-Span-26" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.721em;"></span></span></span><span style="border-left: 0em solid; display: inline-block; overflow: hidden; width: 0px; height: 1.549em; vertical-align: -0.427em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-1">\int_{a}^{b} f(x)dx = F(b) - F(a)</script></p>
+
+    <script type="text/x-mathjax-config;executed=true">
+        MathJax.Hub.Config({
+      messageStyle: "none",
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": {
+        fonts: ["TeX"],
+        scale: 85,
+      }
+    });
+  </script>
+    <script src="src/MathJax.js"></script>
+
+
+<div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px none; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-size-adjust: none; font-family: &quot;MathJax_Main&quot;, sans-serif;"></div></body></html>

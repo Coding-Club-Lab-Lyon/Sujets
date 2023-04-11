@@ -1,0 +1,248 @@
+<html><head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="src/report.css">
+    <link rel="stylesheet" href="src/code.css">
+    <style>
+        @page {
+            margin-top: 2.5cm;
+
+            @top-left {
+                background: #4c5270;
+                color: white;
+                content: counter(page);
+                height: 1cm;
+                text-align: center;
+                width: 1cm;
+                margin-bottom: 0.6cm;
+            }
+
+            @top-center {
+                background: #4c5270;
+                content: '';
+                display: block;
+                height: .05cm;
+                opacity: .5;
+                width: 100%;
+                margin-bottom: 0.6cm;
+            }
+
+            @top-right {
+                content: string(heading);
+                font-size: 9pt;
+                height: 1cm;
+                vertical-align: middle;
+                width: 100%;
+                margin-bottom: 0.6cm;
+            }
+        }
+    </style>
+<style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -5px 0 0 0; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style></head>
+
+<body><div id="MathJax_Message" style="display: none;"></div>
+    <h2>I. Introduction</h2>
+<p>Chef Pesos, président d’une grande société californienne, passe ses vacances en France dans la ville de Bordeaux. En pleine exploration culinaire, il goûte à un cannelé si bon qu’il en devint amoureux. Il décide alors d’abandonner son poste afin de se consacrer entièrement à sa nouvelle passion pour ce moelleux dessert et ce, en participant à la création de la nouvelle pâtisserie de la ville !</p>
+<p><img alt="" src="cannele.jpg"></p>
+<p>Il obtient les clés de sa nouvelle boutique en proposant son projet à son ami Gippé, jeune cadre dynamique, pour qui la question est vite répondue. En revanche, le local qu’ils ont obtenu n’a pas vraiment fière allure. C’est alors que les associés font appel à vos services de développeur pour
+l’aider à concevoir la pâtisserie des rêves du Chef.</p>
+<h2>II. Consignes</h2>
+<p>Découvrons ensemble votre mission en commençant par parler un peu de développement Web.</p>
+<p>Votre objectif est de réaliser un site internet !</p>
+<p>Un navigateur ne reconnaît que 3 langages:</p>
+<ul>
+<li><strong>Le HTML:</strong> Un langage de balisage qui permettra de placer les éléments visibles sur la page.</li>
+<li><strong>Le CSS:</strong> Un langage de stylisation faisant prendre forme votre page HTML</li>
+<li><strong>Le JS:</strong> Un langage de scripting permettant de créer des intéractions sur votre page.</li>
+</ul>
+<p><img alt="" src="languages.png"></p>
+<p>Pour le sujet d'aujourd'hui <strong>nous vous proposons une base de CSS.</strong> Cela vous épargne donc de vous soucier du style de la page pour se concentrer sur l'aspect fonctionnel. Il est assez courant de retrouver, dans le développement web, des librairies CSS proposant ce genre de service.</p>
+<blockquote class="info">
+<p> <i class="fa"></i> Si toutefois vous vous sentez l'âme d'un artiste, vous êtes totalement libre de faire votre propre style pour la page.</p>
+</blockquote>
+<h3>Revenons en au projet...</h3>
+<p>Votre mission est de réaliser un mini-jeu type "clicker" autour de l'univers du cannelé.</p>
+<p>Vous avez à votre disposition une petite base pour commencer : un squelette HTML vide.</p>
+<p><strong>Le HTML</strong> comme dit précédemment est un langage de <strong>balisage</strong>, tout est structuré avec des balises, les unes dans les autres.</p>
+<p>Un document HTML, c'est tout d'abord une balise "html":</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>C'est la balise parente du document. Dans cette dernière on vient toujours ajouter deux balises : la tête et le corps.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>La tête servira à configurer notre page et le corps sera le contenu en lui même.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Mon super site !<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        Coucou tout le monde !
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>La balise "title" sert à indiquer le nom qui sera affiché sur l'onglet du navigateur tandis que le texte "Coucou tout le monde !" sera visible sur la page.</p>
+<p>Bon alors si vous avez bien compris tout ça...</p>
+<h2>Construisons notre page</h2>
+<p>Notre page finale devrait ressembler à ce qui suit:
+<img alt="" src="cannele_clicker.png">
+(Je rappelle que les fichiers concernant le style de la page sont déjà fournis, nous nous contenterons de placer les éléments...)</p>
+<p>L'élément de base en HTML est la <strong>"division"</strong> (ou <code>&lt;div&gt;</code>). C'est simplement une boite vide qui peut contenir d'autres éléments ou juste exister seule.</p>
+<p>Il existe aussi d'autres éléments plus spécifiques comme le <strong>"paragraphe"</strong> (<code>&lt;p&gt;</code>) qui sert a contenir du texte.</p>
+<h4>Reprenons notre page depuis le début...</h4>
+<p>On voit dans un premier temps l'argent du joueur tout en haut que l'on va représenter à l'aide d'un paragraphe ayant pour identifiant unique "score".</p>
+<p>Certains sont perdus ?</p>
+<p>Je reprend, pour déclarer un paragraphe en HTML on ouvre et ferme une balise <code>&lt;p&gt;</code> dans notre <code>&lt;body&gt;</code>: </p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>Pour distinguer ce paragraphe des autres de la page on peut lui donner un identifiant unique ("id") en l'ajoutant simplement à la balise d'ouverture:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">"score"</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<blockquote class="info">
+<p> <i class="fa"></i> L'id est un attribut de l'élément, il en existe d'autres et on les ajoutes toujours dans la balise d'ouverture comme au dessus.</p>
+</blockquote>
+<p>Pour finir, on peut ajouter du texte dans notre paragraphe:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">"score"</span><span class="p">&gt;</span>0$<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<h3>Pour les prochains éléments, on va aller plus vite !</h3>
+<p>Sous notre score on doit créer une <code>&lt;div&gt;</code> ayant pour identifiant "cannele". Cette div ne contient rien pour l'instant.</p>
+<p>Après avoir fermé la balise précédente, on crée une nouvelle div, ayant pour id "shop", qui contient une div pour chaque amélioration à acheter. Pour l'instant on va créer les divs "four" et "cuistot". </p>
+<p>Chacune des div concernant une amélioration doit contenir une balise <code>&lt;button&gt;</code> avec un texte incitant à l'achat de l'amélioration.</p>
+<p>C'est bon c'est fini ! Vous pouvez double-cliquer sur le fichier "index.html" pour afficher le résultat dans votre navigateur.</p>
+<blockquote>
+<p>Si ça ne marche pas totalement, n'hésitez pas à appeler un cobra !</p>
+</blockquote>
+<p><em>Je rappelle que vous n'êtes pas obligés d'utiliser le style fourni. Si vous avez une idée de design en particulier, vous pouvez modifier le fichier <code>assets/style.css</code> ou créer le votre...</em></p>
+<h2>Le jeu</h2>
+<p>Si vous avez bien suivi, nous avons placé et stylisé nos éléments,  il nous reste le troisième langage de notre triangle du web: le <strong>JavaScript</strong> <em>(qui permet l'automatisation)</em>.</p>
+<p>Faisons un petit listing de ce que nous devons implémenter:</p>
+<ul>
+<li>Cliquer sur le cannelé permet de le cuisiner, ça rapporte 1<span>$</span></li>
+<li>Les boutons acheter un four et acheter un cuistot doivent être fonctionnels</li>
+</ul>
+<p>Lors de l'achat d'une amélioration: </p>
+<ul>
+<li>Si le joueur n'a pas assez d'argent, ne rien faire</li>
+<li>S'il a assez d'argent:<ul>
+<li>Débiter l'argent</li>
+<li>Ajouter l'effet de l'amélioration*</li>
+<li>Augmenter le prix de x1.5</li>
+</ul>
+</li>
+</ul>
+<p>*Les effets des améliorations sont les suivants:</p>
+<ul>
+<li>Chaque four rapporte un cannelé (donc 1<span>$</span>) de plus lors de la préparation.</li>
+<li>Les cuistots rapportent automatiquement un cannelé par seconde (2 cuistots en rapportent 2... etc)</li>
+</ul>
+<blockquote>
+<p>Dans l'idéal, les prix doivent rester entiers. On arrondira les prix s'il y a une virgule.</p>
+</blockquote>
+<p>Pour créer ces fonctionnalités nous allons avoir besoin d'un fichier <code>script.js</code> que nous allons créer au même endroit que notre <code>index.html</code>:</p>
+<div class="codehilite"><pre><span></span><code>├── assets/
+├── index.html
+└── script.js
+</code></pre></div>
+
+<p>Nous devons importer ce script dans la <strong>head</strong> de notre page avec la balise suivante:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"script.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>Dans notre fichier de script nous allons créer des fonctions que nous associerons aux éléments de notre page.</p>
+<h3>Exemple:</h3>
+<p>script.js:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Variables globales, accessibles de partout dans le code</span>
+
+<span class="c1">// Ici l'argent et le nombre de fours sont utiles à plusieurs</span>
+<span class="c1">// endroits, donc on en fait des variables globales</span>
+<span class="kd">var</span> <span class="nx">argent</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">fours</span> <span class="o">=</span> <span class="mf">1</span><span class="p">;</span>
+
+<span class="c1">// Déclaration de la fonction "cuisiner"</span>
+<span class="kd">function</span> <span class="nx">cuisiner</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// On récupère l'élement dans la page HTML d'ID "score"</span>
+    <span class="kd">var</span> <span class="nx">score</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"score"</span><span class="p">);</span>
+
+    <span class="c1">// On ajoute de l'argent selon le nombre de fours</span>
+    <span class="nx">argent</span> <span class="o">+=</span> <span class="nx">fours</span>
+
+    <span class="c1">// On affiche l'argent après modification</span>
+    <span class="nx">score</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">argent</span> <span class="o">+</span> <span class="s2">"$"</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>index.html:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"cannele"</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"cuisiner();"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>Désormais, cliquer sur la div "cannele" executera la fonction "cuisiner".</p>
+<p>Maintenant qu'on peut cuisiner des cannelés je vous laisse vous occuper des fonctions <code>acheterFour()</code> et <code>acheterCuistot()</code>, normalement les noms parlent d'eux-mêmes.</p>
+<h2>Les cuistots</h2>
+<p>Les cuistots doivent rapporter un certain nombre d'agent toutes les secondes.</p>
+<p>Si on y réfléchit bien, c'est exactement comme la fonction "cuisiner" sauf qu'on ne dépend plus du nombre de four mais du nombre de cuistots.</p>
+<p>On va créer la fonction <code>cuistot()</code> qui va rapporter autant d'argent qu'on a de cuistot.</p>
+<p>Maintenant nous devons faire en sorte que cette fonction s'execute toutes les secondes.</p>
+<p>Le <strong>JavaScript</strong> propose la fonctionnalité <code>setInterval</code> qui permet d’exécuter une fonction à un intervalle précis en millisecondes.</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">setInterval</span><span class="p">(</span><span class="nx">cuistot</span><span class="p">,</span> <span class="mf">1000</span><span class="p">);</span>
+</code></pre></div>
+
+<h2>Trop ce n’est jamais assez !</h2>
+<p>Le Chef est très content de sa boutique ! Grâce à vous, il possède la meilleure pâtisserie de toute la ville et peut partager son amour des cannelés à des milliers de clients chaque jour.</p>
+<p>Félicitations, vous êtes venus à bout des demandes de votre patron, le magnifique Chef Pesos !</p>
+<p>Vous pouvez fièrement affirmer être un développeur accompli dans la confection de cannelés et pourrez désormais vous vanter d’avoir construit la meilleure pâtisserie de la ville !</p>
+<p>Cela dit, le Chef ne cesse de voir les choses en grand : Ses caisses débordent de recettes et sa tête d’imagination.</p>
+<p>Comme il vous aime bien, il souhaite continuer de travailler avec vous sur les points suivants :</p>
+<ul>
+<li>Ajouter du son</li>
+<li>Améliorer l'interface</li>
+<li>Sauvegarder l'argent lors du rafraîchissement de la page</li>
+<li>Ajouter des améliorations</li>
+<li>Animer d'avantage le jeu</li>
+</ul>
+
+    <script type="text/x-mathjax-config;executed=true">
+        MathJax.Hub.Config({
+      messageStyle: "none",
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": {
+        fonts: ["TeX"],
+        scale: 85,
+      }
+    });
+  </script>
+    <script src="src/MathJax.js"></script>
+
+
+</body></html>

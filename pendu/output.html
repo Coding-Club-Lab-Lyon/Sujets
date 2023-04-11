@@ -1,0 +1,163 @@
+<html><head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="src/report.css">
+    <link rel="stylesheet" href="src/code.css">
+    <style>
+        @page {
+            margin-top: 2.5cm;
+
+            @top-left {
+                background: #4c5270;
+                color: white;
+                content: counter(page);
+                height: 1cm;
+                text-align: center;
+                width: 1cm;
+                margin-bottom: 0.6cm;
+            }
+
+            @top-center {
+                background: #4c5270;
+                content: '';
+                display: block;
+                height: .05cm;
+                opacity: .5;
+                width: 100%;
+                margin-bottom: 0.6cm;
+            }
+
+            @top-right {
+                content: string(heading);
+                font-size: 9pt;
+                height: 1cm;
+                vertical-align: middle;
+                width: 100%;
+                margin-bottom: 0.6cm;
+            }
+        }
+    </style>
+<style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -5px 0 0 0; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style></head>
+
+<body><div id="MathJax_Message" style="display: none;"></div>
+    <h2>I. Introduction</h2>
+<p>Audrey est une jeune collégienne qui voudrait jouer au jeu du pendu. Ce fameux jeu consiste à trouver un mot en devinant quelles sont les lettres qui le composent.</p>
+<p>Habituellement ce jeu se joue à deux ou plus, une personne choisit un mot et le second doit le deviner. Mais Audrey est actuellement chez elle pour le confinement et n’a personne pour jouer avec elle.</p>
+<p>Elle décide donc de se lancer dans la conception d’un programme pour choisir un mot qu’elle devra deviner.</p>
+<h2>II. Consignes</h2>
+<ul>
+<li>Pour l’installation, veuillez suivre le tutoriel « Installation Python et ses outils ».</li>
+<li>Pour ce projet, il vous sera demandé de choisir comme nom de repository : cc_pendu</li>
+<li>N’oubliez pas de push régulièrement.</li>
+<li>En cas de question, pensez à demander de l’aide à votre voisin de droite. Puis de gauche. Demandez enfin à un Cobra (ceux-là ne mordent pas) si vous êtes toujours bloqué(e).</li>
+<li>Vous avez tout à fait le droit d’utiliser internet pour trouver des réponses ou pour vous renseigner.</li>
+<li>N’hésitez pas à faire des bonus et à ajouter des fonctionnalités lorsque votre projet sera terminé et validé.</li>
+</ul>
+<h2>III. Création des variables du jeu</h2>
+<p>La variable <code>solution</code> contient un mot choisi au hasard parmi la liste <strong>"mots.txt"</strong></p>
+<p><code>pendu</code> contient un dessin du pendu, au début il est vide. En faisant <code>pendu.set_step(2)</code> on modifie ce dessin pour l'afficher avec 2 erreurs.</p>
+<p>Il faudra ensuite qu’elle implémente une seconde variable appelée <code>erreurs</code> afin de pouvoir arrêter la partie si le joueur se trompe plus de 11 fois.</p>
+<p>Il lui faudra aussi une variable <code>lettres_trouvees</code> pour se souvenir des lettre justes proporsées par le joueur.</p>
+<p>Et pour finir, une variable <code>mot</code> qui contient la solution avec des <strong>"_"</strong> à la place des lettres que le joueur n'a pas trouvé.</p>
+<h2>IV. Déroulement du jeu</h2>
+<blockquote>
+<p>À chaque fois que nous afficherons une nouvelle étape de notre pendu, nous effacerons le contenu de l'invite de commandes grâce à <code>os.system("clear")</code></p>
+</blockquote>
+<p>L'affichage de votre jeu en cours de partie doit ressembler à ça :</p>
+<div class="codehilite"><pre><span></span><code>_________________
+   ||   //      |
+   ||  //       |
+   || //
+   ||//
+   ||
+   ||
+   ||
+   ||
+===========
+_ _ _ _ _ _ _ _
+
+&lt;message&gt;
+Proposez une lettre :
+</code></pre></div>
+
+<ul>
+<li>Si la lettre était incorrecte, on affiche le message : "Lettre incorrecte" et on ajoute une erreur</li>
+<li>Si la lettre précédente était correcte, on affiche le message ! "Lettre correcte" et on affiche sa (ou ses) occurences dans le mot</li>
+<li>Si la lettre est déjà dans le mot, on affiche le message : "Lettre déjà proposée" et on ne compte pas de faute</li>
+<li>Si le joueur a déjà proposé la lettre mais qu'elle était fausse, il peut la reproposer et ça lui comptera une erreur de plus</li>
+<li>En début de partie, on n'affiche aucun message</li>
+</ul>
+<p>Si le joueur trouve toutes les lettres du mot, on affiche "&gt;&gt;&gt; Gagné! &lt;&lt;&lt;" et on quitte le jeu.</p>
+<p>Sinon on affiche "&gt;&gt;&gt; Perdu! &lt;&lt;&lt;" et "&gt;&gt;&gt; Le mot était : .... &lt;&lt;&lt;"</p>
+<p>Quoi qu'il arrive, avant de quitter le jeu, on affiche toujours "<em> Fin de la partie </em>"</p>
+<h2>Exemples:</h2>
+<div class="codehilite"><pre><span></span><code>_________________
+   ||   //      |
+   ||  //       |
+   || //        _
+   ||//        (_)
+   ||
+   ||
+   ||
+   ||
+===========
+S O I F
+
+&gt;&gt;&gt; Gagné! &lt;&lt;&lt;
+* Fin de la partie *
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code>_________________
+   ||   //      |
+   ||  //       |
+   || //        _
+   ||//        (_)
+   ||          \|/
+   ||           |
+   ||          / \
+   ||
+===========
+_ _ _ _ _
+
+&gt;&gt;&gt; Perdu! &lt;&lt;&lt;
+&gt;&gt;&gt; Le mot était : guepe &lt;&lt;&lt;
+* Fin de la partie *
+</code></pre></div>
+
+    <script type="text/x-mathjax-config;executed=true">
+        MathJax.Hub.Config({
+      messageStyle: "none",
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": {
+        fonts: ["TeX"],
+        scale: 85,
+      }
+    });
+  </script>
+    <script src="src/MathJax.js"></script>
+
+
+</body></html>
