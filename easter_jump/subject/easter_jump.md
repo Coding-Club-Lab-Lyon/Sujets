@@ -86,6 +86,15 @@ const bunny = new Sprite("assets/lapinou.png", 100, 100);
 renderer.drawText("Hello", 13, 0, 0);
 ```
 
+- **renderer.canvas** vous donne des spécificités sur la fenêtre de rendu. Vous pouvez par exemple utiliser.
+
+```js
+const windowWidth = renderer.canvas.width;
+const windowHeight = renderer.canvas.height;
+```
+
+>:info L'origine de l'axe y est au centre de l'écran. Ainsi, afficher un élément en coordonnée y = 0 l'affiche au milieu de l'écran.
+
 ## Déplacer Bunny
 
 La première étape est de faire bouger Bunny.
@@ -180,6 +189,12 @@ function addNewPlatform() {
     plateforms.push(simplePlatform);
 }
 ```
+
+!pagebreak
+
+Le niveau étant infini, il serait judicieux de garder Bunny constament au centre de l'écran _(y = 0 ?)_ et déplacer les plateformes autour de lui.
+
+![](assets/moving.png)
 
 >:info Cette partie peut s'avérer être une tâche complexe sans plus d'explications. N'hésitez pas à soliciter un Cobra pour discuter de l'implémentation que vous pourriez mettre en place pour résoudre cette étape.
 
