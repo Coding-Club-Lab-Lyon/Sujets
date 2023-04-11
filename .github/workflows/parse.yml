@@ -30,7 +30,7 @@ jobs:
               if [ "$stable" = "stable" ]; then
                   echo "::notice file=$file/subject/data.txt,title="Marked as stable"::$file/subject/data.txt"
                   continue
-              fi  
+              fi
               title=$(echo "$data" | cut -d$'\n' -f1)
               if [ -z "$title" ]; then
                   echo "::error file=$file/subject/data.txt,title="No title"::$file/subject/data.txt"
