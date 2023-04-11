@@ -16,7 +16,7 @@ from selenium.webdriver.firefox.options import Options
 from selenium import webdriver
 from time import sleep
 from weasyprint import HTML
-from PyPDF2 import PdfFileWriter, PdfFileReader, PdfFileMerger
+from PyPDF2 import PdfWriter, PdfReader, PdfMerger
 
 if len(sys.argv) < 4:
     print("Usage: python3 cc_subjects.py <file> <title> <version>")
@@ -93,12 +93,12 @@ can.drawString(535 - width, 335, text)
 can.save()
 packet.seek(0)
 
-new_pdf = PdfFileReader(packet)
-existing_pdf = PdfFileReader(open("builder/src/cover.pdf", "rb"))
-output = PdfFileWriter()
-page = existing_pdf.getPage(0)
-page.mergePage(new_pdf.getPage(0))
-output.addPage(page)
+new_pdf = PdfReader(packet)
+existing_pdf = PdfReader(open("builder/src/cover.pdf", "rb"))
+output = PdfWriter()
+page = existing_pdf.pages[0]
+page.merge_page(new_pdf.pages[0])
+output.add_page(page)
 outputStream = open("builder/cover.pdf", "wb")
 output.write(outputStream)
 outputStream.close()
@@ -152,9 +152,9 @@ f.write(pdf)
 f.close()
 # Merge 2 pdfs cover and output (output has multiple pages)
 print("Merging PDFs...")
-merger = PdfFileMerger()
-merger.append(PdfFileReader(open("builder/cover.pdf", 'rb')))
-merger.append(PdfFileReader(open("builder/output.pdf", 'rb')))
+merger = PdfMerger()
+merger.append(PdfReader(open("builder/cover.pdf", 'rb')))
+merger.append(PdfReader(open("builder/output.pdf", 'rb')))
 merger.write(export_dir + "/../" + str_to_snake_case(project_title) + ".pdf")
 
 print("Removing temporary files...")
