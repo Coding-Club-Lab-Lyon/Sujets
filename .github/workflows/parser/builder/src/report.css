@@ -265,8 +265,8 @@
 }
 
 i.fa {
-    font-style: normal;
-    font-family: "FontAwesome";
+    font-style: normal !important;;
+    font-family: "FontAwesome" !important;
 }
 
 
