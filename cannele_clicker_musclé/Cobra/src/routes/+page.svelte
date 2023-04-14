@@ -1,0 +1,129 @@
+<script>
+    let argent = 2000;
+    let fours = 1;
+    let cuistots = 0;
+
+    function cuisiner() {
+	    // On ajoute de l'argent selon le nombre de fours
+        argent += fours;
+    }
+
+    function acheterFour() {
+        if (argent >= 50) {
+            argent -= 50;
+            fours += 1;
+        }
+    }
+
+    function acheterCuistot() {
+        if (argent >= 1000) {
+            argent -= 1000;
+            cuistots += 1;
+        }
+    }
+
+    function cuistot() {
+        argent += cuistots;
+    }
+
+    setInterval(cuistot, 1000);
+</script>
+
+<body>
+    <p id="score" on:click={() => {cuisiner()}}>{argent}$</p>
+    <div id="cannele">
+        <img src="cannele_dessin.png" alt="cannele" />
+    </div>
+    <div id="shop">
+        <div id="four">
+            <button on:click={() => {acheterFour()}}>Acheter un Four<br>(50$)</button>
+        </div>
+        <div id="cuistot">
+            <button on:click={() => {acheterCuistot()}}>Acheter un Cuistot<br>(1000$)</button>
+        </div>
+    </div>
+</body>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+    body {
+        font-family: 'Open Sans', sans-serif;
+        user-select: none;
+        background-color: #f0efef;
+        margin: 0;
+    }
+
+    button {
+        background-color: #404040;
+        color: white;
+        border: 0;
+        padding: 10px 15px;
+        font-size: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    button:active {
+        background-color: #303030;
+    }
+
+    #cannele {
+        width: 178px;
+        height: 224px;
+        background-image: url(img/cannele.png);
+        background-size: 100%;
+        margin: 100px auto 0;
+        cursor: pointer;
+        transition: 0.1s opacity, 0.1s transform;
+    }
+
+    #cannele:active {
+        transform: scale(1.05);
+        opacity: 0.5;
+    }
+
+    #score {
+        width: 100%;
+        font-size: 30px;
+        color: #ffffff;
+        background-color: #c57f35;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+        box-sizing: border-box;
+        border-radius: 0 0 20px 20px;
+    }
+
+    #shop {
+        padding: 50px 20px 20px;
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        justify-content: space-evenly;
+        width: 100vw;
+        box-sizing: border-box;
+        background-color: white;
+        border-top: 1px solid #e4e4e4;
+    }
+
+    #shop > div {
+        width: 200px;
+        height: 250px;
+        background-size: 80% auto;
+        background-repeat: no-repeat;
+        background-position: center top;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+    }
+
+    #four {
+        background-image: url(img/four.png);
+    }
+
+    #cuistot {
+        background-image: url(img/cuistot.png);
+    }
+
+</style>
