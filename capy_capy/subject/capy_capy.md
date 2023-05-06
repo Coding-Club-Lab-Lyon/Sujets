@@ -7,17 +7,19 @@ Avant de commencer cette introduction, voici les consignes techniques et les out
 -    Langage de programmation : Python
 
 -    Bibliothèques nécessaires :
--        argparse : pour gérer les arguments passés lors du lancement du programme
--        opencv2 (OpenCV) : pour lire et manipuler les images
+        argparse : pour gérer les arguments passés lors du lancement du programme
+        opencv2 (OpenCV) : pour lire et manipuler les images
 
 -    Installation des bibliothèques :
 -    Vous pouvez installer les bibliothèques nécessaires en utilisant pip :
 	```sh
 		pip install opencv-python
 	```
+
 -	Environnement de développement :
--	Utilisez un éditeur de code ou un environnement de développement intégré (IDE) de votre choix pour écrire et exécuter le code Python.
+		Utilisez un éditeur de code ou un environnement de développement intégré (IDE) de votre choix pour écrire et exécuter le code Python.
 
 -	Structure du projet :
--	Créez un fichier "convert.py" où vous écrirez le code pour la conversion d'image en ASCII.
+		Créez un fichier "convert.py" où vous écrirez le code pour la conversion d'image en ASCII.
 
+Suivez ces consignes et vous serez prêt à commencer le projet de conversion d'images en ASCII avec l'histoire du capybara Capy.
