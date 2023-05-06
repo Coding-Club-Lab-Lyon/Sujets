@@ -26,7 +26,7 @@ Suivez ces consignes et vous serez prêt à commencer le projet de conversion d'
 
 ## III. Argparse
 
-Avant de commencer, Capy devait apprendre à utiliser "argparse", une bibliothèque Python pour gérer les arguments passés lors du lancement d'un programme. Pour ce faire, il créa un fichier ["main.py"] et importa "argparse" :
+Avant de commencer, Capy devait apprendre à utiliser "argparse", une bibliothèque Python pour gérer les arguments passés lors du lancement d'un programme. Pour ce faire, il créa un fichier "main.py" et importa "argparse" :
 
 ```py
 import argparse
@@ -45,6 +45,67 @@ if __name__ == "__main__":
 Avec ce code, Capy pouvait exécuter le programme en passant le chemin de l'image en argument :
 
 ```sh
-python convert.py chemin/vers/image.jpg
+python main.py chemin/vers/image.jpg
+```
+
+## IV. Classe Image
+
+Maintenant que Capy savait comment récupérer les arguments, il décida de créer une classe "Image" pour gérer les opérations de conversion. Il utilisa la bibliothèque "opencv2" pour lire et manipuler les images :
+
+```py
+import cv2
+
+class Image:
+    def __init__(self, path):
+        self.image = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+
+    def resize(self, ascii_chars):
+        # Écrire un programme qui resize notre image
+
+    def to_ascii(self, ascii_chars):
+        # Écrire la logique de conversion ici
+
+
+    def display(self):
+        # Afficher l'image ASCII ici
+```
+
+## V. Conversion en ASCII
+
+Dans cette étape, Capy devait écrire la logique de conversion d'une image en ASCII en se basant sur une chaîne de caractères triée du plus sombre au plus clair. Il utilisa une fonction "to_ascii" pour effectuer cette conversion nous disposons d'un autre programme qui nous ai donné nous permetant de créer une "ascii_chars", il s'agit d'une chaine de charactère trier du plus sombre au plus claire.
+
+### Générer une ascii_chars
+
+Vous pouvez créer une ascii_chars en utilisant ce programme ainsi :
+
+```sh
+python3 ascii_chars_generator [-s START] -e END
+```
+
+avec START le code ascii du premier charactère et END le code ascii du dernier charactère que nous voulons trier.
+END >= START.
+
+### Convertir l'image en ascii
+
+```py
+def to_ascii(self, ascii_chars):
+    # déclarer mon tableau qui stockera les charactères ascii de mon image
+    # faire un boucle pour chaque ligne de mon image
+        # créer un tableau qui stockera ma ligne
+        # créer une boucle pour chaque pixel
+            # déterminer l'index du charactère ascii (0-len(ascii_chars)) utiliser en fonction de la couleur (une valeur de 0-255)
+            # ajouter ce charactère à ma ligne
+        # ajouter à mon tableau ma ligne qui est la concaténation de tous les charactères de ma ligne
+    # retourner la concaténation de toutes les lignes séparer par un "\n"
+```
+
+## VI. Affichage de l'image ASCII
+
+Enfin, Capy ajouta une fonction "display" pour afficher l'image ASCII à l'écran :
+
+```py
+def display(self):
+    # récupérer notre image en ascii
+    # print notre image
 ```
 
