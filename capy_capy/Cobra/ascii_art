@@ -1,0 +1,70 @@
+#!/usr/bin/python3
+
+import argparse
+import os
+
+import cv2
+
+class Image:
+    def __init__(self, path):
+        self.image = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+
+    def resize(self):
+        # Écrire un programme qui resize notre image
+        # Obtenir la taille de son terminal
+        s = os.get_terminal_size()
+        x, y = s.columns, s.lines
+        # Obtenir la taille de notre image
+        x_img, y_img = self.image.shape
+        # calculer le ratio entre la largeur / gauteur du terminal et celuis de l'image
+        x_r = x / x_img
+        y_r = y / y_img
+        # Choisir le bon ratio
+        r = min(x_r, y_r)
+        # Calculer la nouvelle taille
+        n_x = int(x_img *r)
+        n_y = int(y_img *r)
+
+        resized_image = cv2.resize(self.image, (n_x, n_y), interpolation=cv2.INTER_AREA)
+        self.image = resized_image
+        return resized_image
+
+    def to_ascii(self, ascii_chars):
+        self.resize()
+        # déclarer mon tableau qui stockera les charactères ascii de mon image
+        ascii_image = []
+        # faire un boucle pour chaque ligne de mon image
+        for row in self.image:
+            # créer un tableau qui stockera ma ligne
+            ascii_row = []
+            # créer une boucle pour chaque pixel
+            for pixel in row:
+                # déterminer l'index du charactère ascii (0-len(ascii_chars)) utiliser en fonction de la couleur (une valeur de 0-255)
+                index = int(pixel / 256 * len(ascii_chars))
+                # ajouter ce charactère à ma ligne
+                ascii_row.append(ascii_chars[index])
+            # ajouter à mon tableau ma ligne qui est la concaténation de tous les charactères de ma ligne
+            ascii_image.append("".join(ascii_row))
+        # retourner la concaténation de toutes les lignes séparer par un "\n"
+        return "\n".join(ascii_image)
+
+    def display(self, ascii_chars):
+        # Modification du contraste
+        self.image = cv2.convertScaleAbs(self.image, alpha=2, beta=0)
+        # Conversion en Ascii
+        ascii_image = self.to_ascii(ascii_chars)
+        print(ascii_image)
+
+        pass
+
+def main():
+    parser = argparse.ArgumentParser(description="Convertir une image en ASCII")
+    parser.add_argument("--path", type=str, help="Chemin vers l'image à convertir")
+    args = parser.parse_args()
+
+    print("Image à convertir :", args.path)
+    img = Image(args.path)
+    img.display("$#%&0423+/)(*1!-,'. ")
+
+if __name__ == "__main__":
+    main()
