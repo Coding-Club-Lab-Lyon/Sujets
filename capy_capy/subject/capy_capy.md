@@ -36,7 +36,7 @@ def main():
     parser.add_argument("path=", required=True, type=str, help="Chemin vers l'image à convertir")
     args = parser.parse_args()
 
-    print("Image à convertir :", args.image)
+    print("Image à convertir :", args.path)
 
 if __name__ == "__main__":
     main()
@@ -45,7 +45,7 @@ if __name__ == "__main__":
 Avec ce code, Capy pouvait exécuter le programme en passant le chemin de l'image en argument :
 
 ```sh
-python main.py chemin/vers/image.jpg
+python main.py path=chemin/vers/image.jpg
 ```
 
 ## IV. Classe Image
@@ -61,13 +61,15 @@ class Image:
 
     def resize(self, ascii_chars):
         # Écrire un programme qui resize notre image
+        pass
 
     def to_ascii(self, ascii_chars):
         # Écrire la logique de conversion ici
-
+        pass
 
     def display(self):
         # Afficher l'image ASCII ici
+        pass
 ```
 
 ## V. Conversion en ASCII
