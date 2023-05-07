@@ -12,10 +12,12 @@ class Image:
     def resize(self):
         # Écrire un programme qui resize notre image
         # Obtenir la taille de son terminal
+        # os.get_terminal_size() :D
         # Obtenir la taille de notre image
         # calculer le ratio entre la largeur / gauteur du terminal et celuis de l'image
         # Choisir le bon ratio
         # Calculer la nouvelle taille
+        # resized_image = cv2.resize(self.image, (n_x, n_y), interpolation=cv2.INTER_AREA) :D
         pass
 
     def to_ascii(self, ascii_chars):
