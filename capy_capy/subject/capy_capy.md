@@ -2,6 +2,8 @@
 
 Il était une fois, dans une forêt tropicale d'Amérique du Sud, un capybara nommé Capy. Capy était un animal curieux et aimait explorer les mystères de l'informatique. Un jour, il découvrit un ordinateur portable caché dans un tronc d'arbre et décida de l'utiliser pour apprendre le langage Python. Capy se lança dans un projet ambitieux : convertir des images en ASCII !
 
+![Capy Capy](assets/capy.png)
+
 ## II. Consignes
 Avant de commencer cette introduction, voici les consignes techniques et les outils que vous allez utiliser :
 1.  Langage de programmation : Python
@@ -59,7 +61,7 @@ class Image:
     def __init__(self, path):
         self.image = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
 
-    def resize(self, ascii_chars):
+    def resize(self):
         # Écrire un programme qui resize notre image
         pass
 
@@ -111,3 +113,16 @@ def display(self):
     # print notre image
 ```
 
+Mais un problème se posa, Capy voyait plein de ligne s'afficher mais n'arriver pas à distinguer son image !
+
+## VII. Resize de l'image
+
+Dans cette section de l'histoire, Capy le capybara, qui vit dans une forêt numérique, découvre qu'il peut redimensionner les images pour les adapter à l'écran de son ordinateur magique. Capy adore regarder les images de ses amis et de sa famille et veut les afficher correctement sur son écran, sans déformation ni perte de qualité.
+
+Un jour, alors qu'il se promène dans la forêt, Capy rencontre un sage python qui lui enseigne comment redimensionner les images en conservant leur ratio hauteur/largeur. Le python explique à Capy que pour adapter l'image à l'écran, il doit suivre ces étapes :
+
+1.  Obtenir les dimensions de l'écran (largeur et hauteur en caractères).
+2.  Calculer les ratios de redimensionnement pour la largeur et la hauteur.
+3.  Utiliser le plus petit ratio pour redimensionner l'image tout en conservant son ratio hauteur/largeur.
+
+Capy est très attentif et suit les instructions du sage python pour redimensionner les images de ses amis et de sa famille. Grâce à ces nouvelles connaissances, Capy peut désormais adapter les images à l'écran de son ordinateur magique sans déformation ni perte de qualité, ce qui rend ses souvenirs encore plus précieux.
