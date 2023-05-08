@@ -35,7 +35,7 @@ import argparse
 
 def main():
     parser = argparse.ArgumentParser(description="Convertir une image en ASCII")
-    parser.add_argument("path=", required=True, type=str, help="Chemin vers l'image à convertir")
+    parser.add_argument("--path", required=True, type=str, help="Chemin vers l'image à convertir")
     args = parser.parse_args()
 
     print("Image à convertir :", args.path)
@@ -47,7 +47,7 @@ if __name__ == "__main__":
 Avec ce code, Capy pouvait exécuter le programme en passant le chemin de l'image en argument :
 
 ```sh
-python main.py path=chemin/vers/image.jpg
+python main.py --path chemin/vers/image.jpg
 ```
 
 ## IV. Classe Image
