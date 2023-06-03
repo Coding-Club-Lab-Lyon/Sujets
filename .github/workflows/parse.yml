@@ -26,14 +26,14 @@ jobs:
                   continue
               fi
               data=$(cat $file/subject/data.txt)
-              title=$(echo "$data" | cut -d$'\n' -f1)
-              if [ -z "$title" ]; then
-                  echo "::error file=$file/subject/data.txt,title="No title."::$file/subject/data.txt"
-                  continue
-              fi
               stable=$(echo "$data" | cut -d$'\n' -f4)
               if [ "$stable" = "stable" ]; then
                   echo "::notice file=$file/mouli/data.txt,title="Marked as stable"::$file/mouli/data.txt"
+                  continue
+              fi
+              title=$(echo "$data" | cut -d$'\n' -f1)
+              if [ -z "$title" ]; then
+                  echo "::error file=$file/subject/data.txt,title="No title."::$file/subject/data.txt"
                   continue
               fi
               version=$(echo "$data" | cut -d$'\n' -f2)
