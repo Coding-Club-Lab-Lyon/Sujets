@@ -19,13 +19,14 @@ from weasyprint import HTML
 from PyPDF2 import PdfWriter, PdfReader, PdfMerger
 
 if len(sys.argv) < 4:
-    print("Usage: python3 cc_subjects.py <file> <title> <version>")
+    print("Usage: python3 cc_subjects.py <file> <title> <version> <campus>")
     exit(1)
 
 compile_file = sys.argv[1]
 export_dir = "/".join(compile_file.split("/")[:-1])
 project_title = sys.argv[2]
 project_version = sys.argv[3][:10]
+project_campus = sys.argv[4]
 
 
 def str_to_snake_case(str):
@@ -84,6 +85,18 @@ can.setFont("Roboto", 50)
 for i, text in enumerate(lines[::-1]):
     width = stringWidth(text, "Roboto", 50)
     can.drawString(535 - width, 390 + i * 55, text)
+
+text = "Coding Club " + project_campus.capitalize()
+can.setFillColor(HexColor('#4B526F'))
+can.setFont("Roboto", 9.5)
+width = stringWidth(text, "Roboto", 9.5)
+can.drawString(535 - width, 335, text)
+
+text = project_campus.upper()
+can.setFillColor(HexColor('#FFFFFF'))
+can.setFont("Roboto", 17)
+width = stringWidth(text, "Roboto", 17)
+can.drawString(535 - width, 335, text)
 
 text = "VERSION " + project_version
 can.setFillColor(HexColor('#8288A8'))

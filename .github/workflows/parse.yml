@@ -31,9 +31,19 @@ jobs:
                   echo "::error file=$file/subject/data.txt,title="No title."::$file/subject/data.txt"
                   continue
               fi
+              stable=$(echo "$data" | cut -d$'\n' -f4)
+              if [ "$stable" = "stable" ]; then
+                  echo "::notice file=$file/mouli/data.txt,title="Marked as stable"::$file/mouli/data.txt"
+                  continue
+              fi
               version=$(echo "$data" | cut -d$'\n' -f2)
               if [ -z "$version" ]; then
                   echo "::error file=$file/subject/data.txt,title="No version."::$file/subject/data.txt"
+                  continue
+              fi
+              campus=$(echo "$data" | cut -d$'\n' -f3)
+              if [ -z "$campus" ]; then
+                  echo "::error file=$file/subject/data.txt,title="No campus."::$file/subject/data.txt"
                   continue
               fi
               md=$(ls $file/subject/*.md | head -n1)
@@ -41,7 +51,7 @@ jobs:
                   echo "::error file=$file/subject,title="No markdown file."::$file/subject"
                   continue
               fi
-              cd .github/workflows/parser && python3 cc_subjects.py "../../../$md" "$title" "$version" && cd ../../..
+              cd .github/workflows/parser && python3 cc_subjects.py "../../../$md" "$title" "$version" "$campus" && cd ../../..
           done
       - uses: EndBug/add-and-commit@v9
         with:
