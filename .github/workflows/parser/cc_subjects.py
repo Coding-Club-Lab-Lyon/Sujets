@@ -19,13 +19,14 @@ from weasyprint import HTML
 from PyPDF2 import PdfWriter, PdfReader, PdfMerger
 
 if len(sys.argv) < 4:
-    print("Usage: python3 cc_subjects.py <file> <title> <version>")
+    print("Usage: python3 cc_subjects.py <file> <title> <version> <campus>")
     exit(1)
 
 compile_file = sys.argv[1]
 export_dir = "/".join(compile_file.split("/")[:-1])
 project_title = sys.argv[2]
 project_version = sys.argv[3][:10]
+project_campus = sys.argv[4]
 
 
 def str_to_snake_case(str):
@@ -71,6 +72,7 @@ script_path = os.path.dirname(os.path.realpath(__file__))
 # Cover
 print("Generating cover...")
 registerFont(TTFont('Roboto', 'builder/src/Roboto.ttf'))
+registerFont(TTFont('FiraSans-Regular', 'builder/src/FiraSans-Regular.ttf'))
 width = stringWidth(project_title, "Roboto", 50)
 lines = [project_title]
 if width > 370 and ' ' in project_title:
@@ -84,6 +86,12 @@ can.setFont("Roboto", 50)
 for i, text in enumerate(lines[::-1]):
     width = stringWidth(text, "Roboto", 50)
     can.drawString(535 - width, 390 + i * 55, text)
+
+text = "© Coding Club " + project_campus.capitalize()
+can.setFillColor(HexColor('#4B526F'))
+can.setFont("FiraSans-Regular", 10)
+width = stringWidth(text, "FiraSans-Regular", 10)
+can.drawString(23, 32, text)
 
 text = "VERSION " + project_version
 can.setFillColor(HexColor('#8288A8'))
