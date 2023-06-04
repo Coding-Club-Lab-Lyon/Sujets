@@ -72,6 +72,7 @@ script_path = os.path.dirname(os.path.realpath(__file__))
 # Cover
 print("Generating cover...")
 registerFont(TTFont('Roboto', 'builder/src/Roboto.ttf'))
+registerFont(TTFont('FiraSans-Regular', 'builder/src/FiraSans-Regular.ttf'))
 width = stringWidth(project_title, "Roboto", 50)
 lines = [project_title]
 if width > 370 and ' ' in project_title:
@@ -88,9 +89,9 @@ for i, text in enumerate(lines[::-1]):
 
 text = "© Coding Club " + project_campus.capitalize()
 can.setFillColor(HexColor('#4B526F'))
-can.setFont("FiraSans-Regular", 9.5)
-width = stringWidth(text, "FiraSans-Regular", 9.5)
-can.drawString(535 - width, 335, text)
+can.setFont("FiraSans-Regular", 10)
+width = stringWidth(text, "FiraSans-Regular", 10)
+can.drawString(23, 32, text)
 
 text = "VERSION " + project_version
 can.setFillColor(HexColor('#8288A8'))
