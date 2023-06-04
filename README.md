@@ -77,6 +77,8 @@ Le sujet doit être un fichier \*.md dans le dossier "subject", il doit être ac
 ```
 NOM DU SUJET
 1.0.0
+Campus 
+// stable // 
 ```
 
 Ce fichier sert à la génération de la page de couverture du sujet.
