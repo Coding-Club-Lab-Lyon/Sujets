@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="content">
+        <div></div>
+        <div id="center">
+            <input type="text" placeholder="Entrez une réponse..." />
+        </div>
+        <img src="https://pardot.epitech.eu/l/547002/2022-02-03/216rh5/547002/1643907628hkKOzgNO/Groupe_421.png"
+            alt="logo" width="100px" />
+    </div>
+</body>
+
+</html>
+
+<script>
+    const indices = [
+        {
+            "input": "17354",
+            "clue": "Exo1"
+        },
+        {
+            "input": "484128",
+            "clue": "Exo2"
+        },
+        {
+            "input": "450",
+            "clue": "Exo3"
+        },
+        {
+            "input": "186",
+            "clue": "Exo4"
+        },
+        {
+            "input": "cobra",
+            "clue": "Exo5"
+        }
+    ]
+
+    const input = document.querySelector("input");
+    input.value = "";
+    input.focus();
+
+    input.onkeypress = (e) => {
+        if (e.key === "Enter") {
+            center.classList.add("shake");
+            setTimeout(() => {
+                const value = input.value;
+                const clue = indices.find((indice) => indice.input === value);
+                if (clue) {
+                    center.innerHTML = "<p>" + clue.clue + "</p>";
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 5000);
+                } else {
+                    center.innerHTML = "<p class='error'>Mauvaise réponse</p>";
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 3000);
+                }
+            }, 400);
+
+            setTimeout(() => {
+                center.classList.remove("shake");
+            }, 600);
+        }
+    }
+</script>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    input[type=text],
+    p {
+        border: none;
+        background-color: none;
+        outline: 0;
+        font-size: 25px;
+        width: 300px;
+        height: 30px;
+        text-align: center;
+    }
+
+    p.error {
+        color: indianred;
+    }
+
+    div.shake {
+        animation: shake 0.2s infinite;
+    }
+
+    input[type=text]:focus {
+        border: none;
+        background-color: none;
+        outline: 0;
+        width: 300px;
+        height: 30px;
+    }
+
+    #content {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    @keyframes shake {
+        0% {
+            transform: translateX(0);
+        }
+
+        25% {
+            transform: translateX(10px);
+        }
+
+        50% {
+            transform: translateX(0);
+        }
+
+        75% {
+            transform: translateX(-10px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+</style>
