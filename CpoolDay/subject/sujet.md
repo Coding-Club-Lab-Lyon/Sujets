@@ -63,7 +63,7 @@ python3 client.py --register
  Ainsi que de consulter les résultat de la dernière mouli sur vos exercices.
 ```bash
 python3 client.py --result
- ```
+```
 
 - **La moulinette a toujours raison**.
 
