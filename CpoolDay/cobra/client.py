@@ -25,7 +25,7 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |$$ |  $$ |$$  __$$ |$$ |  $$ |      
  \______/ $$  ____/  \______/  \______/ \__|\_______/  \_______| \____$$ |      \__|     \__| \______/  \______/ \__|\__|
           $$ |                                                  $$\   $$ |                                               
           $$ |                                                  \$$$$$$  |                                               
-          \__|                                                   \______/""").split('\n'):
+          \__|                                           _3WW_   \______/""").split('\n'):
             self.shellPrint(random.choice([Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA, Fore.CYAN, Fore.WHITE]) + line)
             time.sleep(0.2)
         time.sleep(0.2)
