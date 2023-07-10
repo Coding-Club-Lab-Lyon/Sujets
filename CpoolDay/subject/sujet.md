@@ -126,10 +126,8 @@ int main(void)
 }
 ```
 
-```
-
+```txt
 $> !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
-
 ```
 
   
@@ -157,9 +155,7 @@ La fonction devra être prototypée de la façon suivante :
   
 
 ```c
-
 void my_print_n_ascii(int howMany);
-
 ```
 
   
@@ -177,39 +173,30 @@ int main(void)
 }
 ```
 
-```
-
+```txt
 $> !"#$%
-
 ```
 
 ```C
-
 int main(void)
 {
 	my_print_ascii(-2);
 }
-
 ```
 
-```
-
+```txt
 $>
-
 ```
 
 ```C
-
 int main(void)
 {
 	my_print_ascii(100);
 }
 ```
 
-```
-
+```txt
 $>
-
 ```
 
   
@@ -246,18 +233,14 @@ Un appel de votre fonction devra afficher ces résultats :
   
 
 ```C
-
 int main(void)
 {
 	my_print_revert("codingclub");
 }
-
 ```
 
-```
-
+```txt
 $> bulcgnidoc
-
 ```
 
   
@@ -303,10 +286,8 @@ int main(void)
 
 ```
 
-```
-
+```txt
 $> biavanua à apitach !
-
 ```
 
 ## My_Get_Char_Repeat
@@ -348,29 +329,22 @@ int main(void)
 	char str[] = "bienvenue à epitech";
 	printf("%d\n", my_get_char_repeat('e', str));
 }
-
 ```
 
-```
-
+```txt
 $> 4
-
 ```
 
 ```C
-
 #include <stdlib.h>
 #include <stdio.h>
 int main(void)
 {
 	printf("%d\n", my_get_char_repeat('e', NULL));
 }
-
 ```
-```
-
+```txt
 $> 0
-
 ```
   
 
@@ -415,10 +389,8 @@ int main(void)
 
 ```
 
-```
-
+```txt
 $> 5
-
 ```
 
 ```C
@@ -427,13 +399,10 @@ int main(void)
 {
 	printf("%d\n", my_absolute(-5));
 }
-
 ```
 
-```
-
+```txt
 $> 5
-
 ```
   
 
@@ -475,13 +444,10 @@ int main(void)
 {
 	printf("%d\n", my_square(5));
 }
-
 ```
 
-```
-
+```txt
 $> 25
-
 ```
 
   
@@ -537,10 +503,8 @@ int main(void)
 
 ```
 
-```
-
+```txt
 $> 42
-
 ```
 
 ```C
@@ -551,10 +515,8 @@ int main(void)
 }
 ```
 
-```
-
+```txt
 $> 42
-
 ```
 
 ```C
@@ -563,13 +525,10 @@ int main(void)
 {
 	printf("%d\n", my_little_bistro(150, '%', 54));
 }
-
 ```
 
-```
-
+```txt
 $> 42
-
 ```
 ## My_Print_Square
 
@@ -593,7 +552,7 @@ Si il y a un prbolème la fonction ne fait rien.
 
 Voici donc son prototype :
 
-  
+
 
 ```c
 
@@ -615,7 +574,7 @@ int main(void)
 	my_print_square(2, 'g');
 }
 ```
-```
+```txt
 $> gg
    gg
 ```
@@ -627,8 +586,7 @@ int main(void)
 }
 ```
 
-```
-
+```txt
 $>
 ```
 ## My_Average
@@ -670,13 +628,10 @@ int main(void)
 	int list[5] = {10, 17, 6, 14, 20};
 	printf("%f\n", my_average(list, 5));
 }
-
 ```
 
-```
-
+```txt
 $> 13.4
-
 ```
 
 ## My_Get_Words
@@ -712,18 +667,15 @@ Un appel de votre fonction devra afficher ces résultats :
   
 
 ```C
-
 #include <string.h>
 int main(void)
 {
 	char *str = "bienvenue                     à	epite ch";
 	my_get_words(str);
 }
-
 ```
 
-```
-
+```txt
 $> bienvenue
    à
    epite
@@ -768,10 +720,9 @@ int main(void)
 	char *str = "abcdefghijklmnopqrstuvwxyz";
 	printf("%s\n", my_rotate_alpha(str));
 }
-
 ```
 
-```
+```txt
 $> acegikmoqsuwybdfhjlnprtvxz
 ```
 
@@ -807,16 +758,14 @@ Un appel de votre fonction devra afficher ces résultats :
   
 
 ```C
-
 int main(void)
 {
 	char list[6] = {-84, 42, -21, 21, -42, 84};
 	my_sort(list, 6);
 }
-
 ```
 
-```
+```txt
 $> -84
    -42
    -21
@@ -863,6 +812,6 @@ int main(void)
 }
 ```
 
-```
+```txt
 $> France
 ```
