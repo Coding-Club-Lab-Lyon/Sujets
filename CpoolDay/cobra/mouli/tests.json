@@ -1,0 +1,69 @@
+{
+    "compilation": [
+        "gcc my_absolute.c ../../mains/my_absolute.c -o my_absolute",
+        "gcc my_average.c ../../mains/my_average.c -o my_average",
+        "gcc my_char_replace.c ../../mains/my_char_replace.c -o my_char_replace",
+        "gcc my_get_char_repeat.c ../../mains/my_get_char_repeat.c -o my_get_char_repeat",
+        "gcc my_exp.c ../../mains/my_exp.c -o my_exp",
+        "gcc my_get_value.c ../../mains/my_get_value.c ../../refs/print_char.c -o my_get_value",
+        "gcc my_get_words.c ../../refs/print_char.c ../../mains/my_get_words.c -o my_get_word",
+        "gcc my_little_bistro.c ../../mains/my_little_bistro.c -o my_little_bistro",
+        "gcc my_print_ascii.c ../../mains/my_print_ascii.c ../../refs/print_char.c -o my_print_ascii",
+        "gcc my_print_n_ascii.c ../../mains/my_print_n_ascii.c ../../refs/print_char.c -o my_print_n_ascii",
+        "gcc my_print_revert.c ../../mains/my_print_revert.c ../../refs/print_char.c -o my_print_revert",
+        "gcc my_print_square.c ../../refs/print_char.c ../../mains/my_print_square.c -o my_print_square",
+        "gcc my_rotate_alpha.c ../../mains/my_rotate_alpha.c -o my_rotate_alpha",
+        "gcc my_sort.c ../../refs/print_number.c ../../mains/my_sort.c -o my_sort",
+        "gcc my_square.c ../../mains/my_square.c -o my_square"
+    ],
+    "tests": [
+        {
+            "BinName": "my_absolute",
+            "tests": [
+                "1",
+                "0",
+                "-42",
+                "21",
+                "-84"
+            ]
+        },
+        {
+            "BinName": "my_average",
+            "tests": [
+                "0 10",
+                "-1 1",
+                "0 1 2 3 4 5 6 7 8 9 42",
+                "0 0 0 0 0",
+                "1"
+            ]
+        },
+        {
+            "BinName": "my_char_replace",
+            "tests": [
+                "\"bienvue à epitec\" e a",
+                "\"j'ai coder cette mouli dans une tel urgence\" t u",
+                "\"imagine il manque un argument\" f",
+                ""
+            ]
+        },
+        {
+            "BinName": "my_get_char_repeat",
+            "tests": [
+                "\"bienvue à epitec\" e ",
+                "\"j'ai coder cette mouli dans une tel urgence\" t",
+                "\"imagine il manque un argument\"",
+                "\"\t\t\" \" \""
+            ]
+        },
+        {
+            "BinName": "my_exp",
+            "tests": [
+                "0",
+                "0 0",
+                "0 2",
+                "-1 8",
+                "24 -42"
+            ]
+        }
+    ]
+}
