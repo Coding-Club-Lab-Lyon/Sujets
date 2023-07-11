@@ -2,7 +2,7 @@ void print_char(char c);
 
 void my_print_square(int size, char c)
 {
-    if (size <= 1 || !(c >= 33 && c <= 126))
+    if (size <= 1 || !(c >= '!' && c <= '~'))
         return;
     for (int i = 0; i < size; i++)
         print_char(c);

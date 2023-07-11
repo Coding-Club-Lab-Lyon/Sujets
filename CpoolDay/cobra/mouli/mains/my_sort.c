@@ -9,5 +9,6 @@ int main(int ac, char **av)
     for (int i = 1; i < ac; i++)
         nlist[i - 1] = atoi(av[i]);
     my_sort(nlist, ac - 1);
+    free(nlist);
     return 0;
 }

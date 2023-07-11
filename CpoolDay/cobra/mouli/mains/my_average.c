@@ -10,5 +10,6 @@ int main(int ac, char **av)
     for (int i = 1; i < ac; i++)
         list[i - 1] = atoi(av[i]);
     fprintf(stdout, "%f\n", my_average(list, ac - 1));
+    free(list);
     return 0;
 }
