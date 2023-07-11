@@ -15,16 +15,16 @@ class TraceParser:
             if not mandatory in  self.Trace.keys():
                 raise ValueError('Trace is not Valid')
         for line in (r"""
- $$$$$$\                                $$\ $$$$$$$\                            $$\      $$\                     $$\ $$\ 
+ $$$$$$\                                $$\ $$$$$$$\                            $$\      $$\                     $$\ $$\
 $$  __$$\                               $$ |$$  __$$\                           $$$\    $$$ |                    $$ |\__|
-$$ /  \__| $$$$$$\   $$$$$$\   $$$$$$\  $$ |$$ |  $$ | $$$$$$\  $$\   $$\       $$$$\  $$$$ | $$$$$$\  $$\   $$\ $$ |$$\ 
+$$ /  \__| $$$$$$\   $$$$$$\   $$$$$$\  $$ |$$ |  $$ | $$$$$$\  $$\   $$\       $$$$\  $$$$ | $$$$$$\  $$\   $$\ $$ |$$\
 $$ |      $$  __$$\ $$  __$$\ $$  __$$\ $$ |$$ |  $$ | \____$$\ $$ |  $$ |      $$\$$\$$ $$ |$$  __$$\ $$ |  $$ |$$ |$$ |
 $$ |      $$ /  $$ |$$ /  $$ |$$ /  $$ |$$ |$$ |  $$ | $$$$$$$ |$$ |  $$ |      $$ \$$$  $$ |$$ /  $$ |$$ |  $$ |$$ |$$ |
 $$ |  $$\ $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |$$ |  $$ |$$  __$$ |$$ |  $$ |      $$ |\$  /$$ |$$ |  $$ |$$ |  $$ |$$ |$$ |
 \$$$$$$  |$$$$$$$  |\$$$$$$  |\$$$$$$  |$$ |$$$$$$$  |\$$$$$$$ |\$$$$$$$ |      $$ | \_/ $$ |\$$$$$$  |\$$$$$$  |$$ |$$ |
  \______/ $$  ____/  \______/  \______/ \__|\_______/  \_______| \____$$ |      \__|     \__| \______/  \______/ \__|\__|
-          $$ |                                                  $$\   $$ |                                               
-          $$ |                                                  \$$$$$$  |                                               
+          $$ |                                                  $$\   $$ |
+          $$ |                                                  \$$$$$$  |
           \__|                                           _3WW_   \______/""").split('\n'):
             self.shellPrint(random.choice([Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA, Fore.CYAN, Fore.WHITE]) + line)
             time.sleep(0.2)
@@ -50,7 +50,7 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |$$ |  $$ |$$  __$$ |$$ |  $$ |      
         for key, value in dict.items():
             self.shellPrint((Fore.RED if value == 'KO' else Fore.GREEN) + f'{key}: {value}')
 
-parser = argparse.ArgumentParser(description="Script de parking d'arguments")
+parser = argparse.ArgumentParser(description="Script de parsing d'arguments")
 group = parser.add_mutually_exclusive_group(required=True)
 group.add_argument("--register", action="store_true", help="Effectue l'action d'enregistrement")
 group.add_argument("--result", action="store_true", help="Effectue l'action de résultat")
