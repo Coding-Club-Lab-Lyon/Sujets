@@ -693,7 +693,7 @@ Un appel de votre fonction devra afficher ces résultats :
 
 int main(void)
 {
-    char *str = "bienvenue                     à    epite ch";
+    char str[] = "bienvenue                     à    epite ch";
     my_get_words(str);
     return 0;
 }
