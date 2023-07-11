@@ -8,9 +8,7 @@ TestMandatorys: List[str] = ['compilation', 'tests']
 class TraceParser:
     def __init__(self, Trace) -> None:
         self.winSize = os.get_terminal_size()
-        self.Trace: Dict = Trace
-        if not isinstance(Trace, Dict):
-            raise ValueError('Trace is not Valid')
+        self.Trace: Dict = Trace[len(Trace) - 1]
         for mandatory in TestMandatorys:
             if not mandatory in  self.Trace.keys():
                 raise ValueError('Trace is not Valid')

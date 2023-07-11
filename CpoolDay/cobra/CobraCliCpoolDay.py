@@ -6,12 +6,13 @@ from colorama import Fore, Style
 ##config
 TestMandatorys: List[str] = ['compilation', 'tests']
 cobraPaswsd: str = getpass.getpass('Give cobra password: ')
+keysOrderTests: List[str] = ["my_print_ascii", "my_print_n_ascii", "my_print_revert", "my_char_replace", "my_get_char_repeat", "my_absolute", "my_square", "my_little_bistro", "my_print_square", "my_average", "my_get_words", "my_rotate_alpha", "my_sort", "my_get_value"]
 
 class TraceParser:
     def __init__(self, Trace, index) -> None:
         self.winSize = os.get_terminal_size()
         if index:
-            self.Trace: Dict = Trace[0]
+            self.Trace: Dict = Trace[index - 1]
             for mandatory in TestMandatorys:
                 if not mandatory in  self.Trace.keys():
                     raise ValueError('Trace is not Valid')
@@ -19,7 +20,7 @@ class TraceParser:
             self.dump()
         else:
             for i in range(len(Trace)):
-                self.shellPrint('Trace', i)
+                self.shellPrint('Trace ' + str(i))
                 self.Trace: Dict = Trace[i]
                 for mandatory in TestMandatorys:
                     if not mandatory in  self.Trace.keys():
@@ -31,7 +32,8 @@ class TraceParser:
         self.shellPrint('=' * self.winSize.columns)
         self.shellPrint('[COMPILATION]')
         self.printDict(self.Trace['compilation'])
-        for bin, tests in self.Trace['tests'].items():
+        binsTests = {key: self.Trace['tests'][key] for key in keysOrderTests if key in self.Trace['tests']}
+        for bin, tests in binsTests.items():
             self.shellPrint(Fore.RESET)
             self.shellPrint('=' * self.winSize.columns)
             self.shellPrint(f'[{bin}]')
