@@ -12,5 +12,3 @@ char *my_rotate_alpha(char *word)
     }
     return word;
 }
-
-// deux matelas + deux chaises + table + cmaping gaz + poele + casserole + couvert + ralonge
