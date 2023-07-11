@@ -99,7 +99,7 @@ Maintenant que vous avez bien lu ce qui précède, il ne vous reste plus qu'à v
 
 L'objectif de cet exercice est d'écrire une fonction qui affichera l'ensemble des caracrtère affichable de la table ascii.
 
-
+> Pour cet exercice vous pouvez utiliser print_char
 
 La fonction devra être prototypée de la façon suivante :
 
@@ -150,7 +150,7 @@ L'objectif de cet exercice est d'écrire une fonction qui affichera les n premie
 
 Si il y a un problème la fonction doit s'arreter sans rien faire.
 
-
+> Pour cet exercice vous pouvez utiliser print_char
 
 La fonction devra être prototypée de la façon suivante :
 
@@ -218,6 +218,7 @@ $>
 
 L'objectif de cet exercice est d'écrire une fonction qui affichera une string à l'envers.
 
+> Pour cet exercice vous pouvez utiliser print_char
 
 La fonction devra être prototypée de la façon suivante :
 
@@ -263,7 +264,7 @@ $> bulcgnidoc
 
 L'objectif de cet exercice est d'écrire une fonction qui renverra une chaine de caractère avec dans laquelle un caractère est remplacer par un autre à chaque apparition.
 
-
+> Pour cet exercice vous pouvez utiliser print_char
 
 La fonction devra être prototypée de la façon suivante :
 
@@ -371,15 +372,13 @@ $> 0
 
 L'objectif de cet exercice est d'écrire une fonction qui renverra la valeur absolue d'un nombre passé en argument.
 
-
-
 La fonction devra être prototypée de la façon suivante :
 
 
 
 ```c
 
-void my_absolute(int number);
+int my_absolute(int number);
 
 ```
 
@@ -432,15 +431,13 @@ $> 5
 
 L'objectif de cet exercice est d'écrire une fonction qui renverra un nombre au carré.
 
-
-
 La fonction devra être prototypée de la façon suivante :
 
 
 
 ```c
 
-void my_square(int number);
+int my_square(int number);
 
 ```
 
@@ -572,9 +569,9 @@ Votre fonction doit afficher un carré de coté de la taille du premier argument
 
 Si il y a un prbolème la fonction ne fait rien.
 
+> Pour cet exercice vous pouvez utiliser print_char
+
 Voici donc son prototype :
-
-
 
 ```c
 
@@ -671,7 +668,7 @@ $> 13.4
 
 Cette exercice à pour but de print chaque mot présent dans une string, donc séparer par: ' ' ou '\t'. Avec un \n entre chaque mot.
 
-
+> Pour cet exercice vous pouvez utiliser print_char
 
 Voici donc son prototype :
 
@@ -770,7 +767,7 @@ Les techniques de trie sont nombreuse nous vous conseillons le Bubble sort.
 
 Voici donc son prototype :
 
-
+> Pour cet exercice vous pouvez utiliser print_number
 
 ```c
 
@@ -819,6 +816,8 @@ Exemple de Dictionnaire:
 "ville:Lyon,    pays:France, continent=europe"
 ```
 Le format se traduit donc par une clé séparer par ':' ou '=' de sa valeur sans espace. Chacun des ses ensembles clé valeur sont séparer par des  ',', ' ' , '\t'.
+
+> Pour cet exercice vous pouvez utiliser print_char
 
 Voici donc son prototype :
 ```c
