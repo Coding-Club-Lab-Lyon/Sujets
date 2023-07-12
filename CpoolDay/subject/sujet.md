@@ -272,7 +272,7 @@ La fonction devra être prototypée de la façon suivante :
 
 ```c
 
-void my_char_replace(char *origin, char toFind, char toReplace);
+char *my_char_replace(char *origin, char toFind, char toReplace);
 
 ```
 
@@ -724,7 +724,7 @@ Voici donc son prototype :
 
 ```c
 
-void my_rotate_alpha(char *sentance);
+char *my_rotate_alpha(char *sentance);
 
 ```
 
@@ -816,8 +816,6 @@ Exemple de Dictionnaire:
 "ville:Lyon,    pays:France, continent=europe"
 ```
 Le format se traduit donc par une clé séparer par ':' ou '=' de sa valeur sans espace. Chacun des ses ensembles clé valeur sont séparer par des  ',', ' ' , '\t'.
-
-> Pour cet exercice vous pouvez utiliser print_char
 
 > Pour cet exercice vous pouvez utiliser print_char
 
