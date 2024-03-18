@@ -43,8 +43,7 @@ def init_graphics(map: list[list[str]], PosY, PosX):
     width = len(map[0]) * SQUARE_SIZE
     height = len(map) * SQUARE_SIZE
     window = tk.Tk()
-    canvas = tk.Canvas(window, width=len(map[0]) * SQUARE_SIZE,
-                       height=len(map) * SQUARE_SIZE)
+    canvas = tk.Canvas(window, width=width, height=height)
 
     window.title("Participant: Fil d'Ariane")
     window.geometry(f"{width}x{height}")
