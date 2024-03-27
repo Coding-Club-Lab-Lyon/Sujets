@@ -3,7 +3,7 @@
 Le python est un langage de programmation qui est apparu au début des années 90, il se caractérise par sa structure orientée objet comme le Java mais il est beaucoup plus abordable dans sa syntaxe et il est plus facile d'utilisation pour faire de l’algorithmie !
 Il est particulièrement utilisé comme langage pour automatiser des tâches simples, comme un script qui récupérerait la météo sur Internet, ou bien du traitement de données.
 
-Fun Fact, le nom du langage qui nous intéresse ici vient de l’affection de Guido pour le « Monty Python Flying Circus », une comédie surréaliste créée par un groupe comique anglais « Monty Python ». 
+Fun Fact, le nom du langage qui nous intéresse ici vient de l’affection de Guido pour le « Monty Python Flying Circus », une comédie surréaliste créée par un groupe comique anglais « Monty Python ».
 
 Autre détail amusant, jusqu’en 2018, le créateur du langage Python possédait au sein de la communauté Python le titre de « BDFL » c’est-à-dire de « Benevolent Dictator for Life » ou « Dictateur Bienveillant à Vie ». Cela signifie qu’il tranchait en dernier ressort pour les décisions concernant l’évolution du langage.
 
@@ -12,15 +12,15 @@ Autre détail amusant, jusqu’en 2018, le créateur du langage Python possédai
 ## II. Consignes
 -	Pour l’installation veuillez suivre le tutoriel « Installation Python et ses outils ».
 -	Le nom du repository est : FilAriane_cc. Si cela ne vous dit rien nous vous invitons à lire « le coffre à jouet du petit git ».
--	Demandez de l’aide aux Cobras en cas de problème d’installation. Si plus rien ne va, recommencez depuis le début en faisant bien attention à toutes les étapes ! 
+-	Demandez de l’aide aux Cobras en cas de problème d’installation. Si plus rien ne va, recommencez depuis le début en faisant bien attention à toutes les étapes !
 -	Si vous bloquez, rappelez-vous que vous êtes accompagné(e) ! Demandez de l’aide à vos camarades ou à un Cobra.
--	Ce document a pour objectif de vous indiquer l’objectif du sujet, mais c’est à vous de trouver l'algorithme. 
+-	Ce document a pour objectif de vous indiquer l’objectif du sujet, mais c’est à vous de trouver l'algorithme.
 -	Internet est un outil formidable pour découvrir le fonctionnement des choses, servez-vous-en régulièrement !
 
 ## III. Le Fil d’Ariane
 En tant que mythologicien, vous avez toujours été fasciné par le mythe du fil d’Ariane. Un beau jour, vous avez été envoyé pour résoudre le labyrinthe une bonne fois pour toute.
 
-Arrivé sur place, vous commencez à avancer dans le labyrinthe tout en posant des balises de repérage. Au bout de plus d’une heure, vous décidez de rebrousser chemin car vous n’avez plus de balise. En vous retournant, vous apercevez des énormes traces de pied et toutes vos balises ont disparu. 
+Arrivé sur place, vous commencez à avancer dans le labyrinthe tout en posant des balises de repérage. Au bout de plus d’une heure, vous décidez de rebrousser chemin car vous n’avez plus de balise. En vous retournant, vous apercevez des énormes traces de pied et toutes vos balises ont disparu.
 
 Par chance il vous reste votre téléphone. Servez-vous-en comme GPS pour attendre la sortie. Aucune application n’existe pour cela, vous allez devoir la faire par vous-même !
 Le but du projet est donc de résoudre un labyrinthe à l’aide d’un algorithme.
@@ -42,7 +42,7 @@ Avant de commencer, vous devez avoir avec votre sujet 2 fichiers en plus.
 Cela étant dit, vous pouvez tester votre programme en écrivant dans votre terminal :
 
 ```sh
-python3 dedale.py
+python3 dedale.py <maze.txt>
 ```
 
 Si tout se passe bien, vous devriez avoir une fenêtre comme celle-ci :
@@ -71,7 +71,7 @@ Veillez à ne faire qu’une action à chaque appel de la fonction « algo ».
 
 Pour bien commencer essayez de changer la fonction « down » par « right » dans la fonction et voyez ce qu’il se passe.
 
-Une fois cela fait, faites une condition basique pour faire tourner votre personnage lorsqu’il se bloque dans un coin. 
+Une fois cela fait, faites une condition basique pour faire tourner votre personnage lorsqu’il se bloque dans un coin.
 
 Enfin, vous pouvez vous aider de la variable « path » pour sauvegarder le chemin emprunté et donc pouvoir revenir en arrière si besoin.
 
@@ -101,4 +101,3 @@ Voici quelques petits exemples d’amélioration :
 
 
 
- 
