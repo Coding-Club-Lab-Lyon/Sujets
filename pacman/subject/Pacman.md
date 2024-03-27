@@ -1,109 +1,110 @@
-## Pacman:
+## Pacman :
 
 ![pacman.png](assets/pacman.png)
-*Illustration by PixelOz*
+*Illustration par PixelOz*
 
-The aim of this project is to create a simplified version of the famous game Pacman.
+Le but de ce projet est de créer une version simplifiée du célèbre jeu Pacman.
 
-As you cannot build the game from scratch in 2 hours, I provide you with some wrapper code that will allow you to focus on the implementation of the game logic.<br>
-The game will be rendered using Tkinter, but you will not directly interact with it.
+Comme vous ne pouvez pas construire le jeu à partir de zéro en 2 heures, nous vous fournissons un code d'enrobage (a.k.a "Wrapper") qui vous permettra de vous concentrer sur la mise en œuvre de la logique du jeu.<br>
+Le jeu sera rendu en utilisant Tkinter, mais vous n'interagirez pas directement avec lui.
 
-## 1. Introduction:
+## 1. Introduction :
 
-### Prerequisites:
+### Prérequis :
 
-- [Python](https://www.python.org/downloads/) installed
-- [Pip](https://pip.pypa.io/en/stable/installing/) installed
-- [Tkinter](https://tkdocs.com/tutorial/install.html) installed
+- [Python](https://www.python.org/downloads/) installé
+- [Pip](https://pip.pypa.io/en/stable/installing/) installé
+- [Tkinter](https://tkdocs.com/tutorial/install.html) installé
 
-### Objectives:
+### Objectifs :
 
-- Discover the basics of Oriented Object Programming in Python
-- Create / manipulate classes and objects
-- Have fun
+- Découvrir les bases de la programmation orientée objet en Python
+- Créer et manipuler des classes et des objets
+- S'amuser !
 
-### Testing:
+### Test :
 
-Since I manually removed parts of the code, running it will result in an error.<br>
-You have 2 choices:
-- Fix all the code, then when you are able to run it, debug it
-- Modify the code to remove call to function you didn't fix yet, then fix them one by one
+Comme j'ai manuellement supprimé des parties du code, l'exécution entraînera une erreur.<br>
+Vous avez 2 choix :
+- Corriger tout le code, puis lorsque vous pourrez l'exécuter, déboguez-le
+- Modifier le code pour supprimer les appels des fonctions que vous n'avez pas encore corrigées, puis corrigez-les une par une
 
-Either way are good, choose the one that suits you the best.
+Les deux options sont bonnes, choisissez celle qui vous convient le mieux.
 
-### Difficulty and communication:
+### Difficulté et communication :
 
-The subject may seem not to give you many instructions, has it is your goal to make the needed research to understand the code and to implement the game logic.<br>
-This project isn't an evaluation, you **have** to communicate with your classmates to finish the project.<br>
-Keep in mind that this project is difficult by design, ask google, ask your classmates, ask us, but do not give up!
+Le sujet peut sembler ne pas vous donner beaucoup d'instructions, car votre objectif est de faire les recherches nécessaires pour comprendre le code et mettre en œuvre la logique du jeu par vous même.<br>
+Ce projet n'est pas une évaluation, vous devez communiquer avec vos camarades de classe pour terminer le projet.<br>
+Gardez à l'esprit que ce projet est difficile par conception, demandez à Google, demandez à vos camarades de classe, demandez-nous, mais n'abandonnez pas !
 
-This project has 2 difficulty levels, take the one that suits you the best:
+Ce projet comporte 2 niveaux de difficulté, choisissez celui qui vous convient le mieux :
 
-- **Normal**: You will have to implement some of the game logic alongside some library functions.
-- **Hard**: You will have to implement the whole game logic from scratch.
+- **Normal** : Vous devrez implémenter une partie de la logique du jeu ainsi que certaines fonctions de bibliothèque.
+- **Difficile** : Vous devrez implémenter la quasi-totalitée de la logique du jeu.
 
-**Good luck soldier!**
+**Bonne chance soldat !**
 
-### 1.1. Variables and Types:
+### 1.1. Variables et Types :
 
-As you surely know, Python use a weakly typed system. This means that you do not have to declare the type of a variable before using it. The type of a variable is determined by the value you assign to it.<br>
-However, it isn't a good practice to use this feature as this can lead to confusion and bugs. That's why I recommend you to always declare the type of your variables.<br>
-To do so, you can use the following syntax:
+Comme vous le savez sûrement, Python utilise un système à typage faible. Cela signifie que vous n'avez pas besoin de déclarer le type d'une variable avant de l'utiliser. Le type d'une variable est déterminé par la valeur que vous lui attribuez.<br>
+Cependant, il n'est pas recommandé d'utiliser cette fonctionnalité car cela peut entraîner des confusions et des bugs. C'est pourquoi je vous recommande toujours de déclarer le type de vos variables.<br>
+Pour ce faire, vous pouvez utiliser la syntaxe suivante :
 
 ```python
-variable_name: type = value
+nom_variable: type = valeur
 ```
 
-For function, you can declare the type of the arguments and the return value like this:
+Pour les fonctions, vous pouvez déclarer le type des arguments et la valeur de retour comme ceci :
 
 ```python
 def function_name(arg1: type1, arg2: type2) -> return_type:
     pass
 ```
 
-Even if Python will not enforce the type, it will help you to understand your code and to avoid mistakes.<br>
-I highly recommend you to use this feature in this project.
+Même si Python ne forcera pas le type, cela vous aidera à comprendre votre code et à éviter les erreurs.<br>
+Je vous recommande vivement d'utiliser cette fonctionnalité dans ce projet.
 
 !pagebreak
 
-## 2. First steps:
+## 2. Premiers pas :
 
-To start the project, you will need to fix the `main.py` and `library.py` files.<br>
-It will be a small introduction to the project and the code you will have to write.
-Guidance will be provided in the functions' docstrings.
+Pour commencer le projet, vous devrez corriger les fichiers `main.py` et `library.py`.<br>
+Ce sera une petite introduction au projet et au code que vous devrez écrire.
+Des indications seront fournies dans les docstrings des fonctions.
 
-### 2.1. `main.py`:
+### 2.1. `main.py` :
 
-This file is the entry point of the project. It will be used to start the game and to interact with the player.
+Ce fichier est le point d'entrée du projet. Il sera utilisé pour démarrer le jeu et interagir avec le joueur.
 
-### 2.2. `library.py`:
+### 2.2. `library.py` :
 
-This file contains some generic functions that does not fit in classes.<br>
-It also provide useful classes like `Vector2D` and `BadFileException`.
+Ce fichier contient certaines fonctions génériques qui ne correspondent pas à une classe précise.<br>
+Il fournit également des classes utiles comme `Vector2D` et `BadFileException`.
 
->:info If you are already familiar with Oriented Object Programming, you can skip this section.
+>:info Si vous êtes déjà à l'aise avec la programmation orientée objet, vous pouvez directement passer au code.
 
-#### 2.2.1. `Vector2D`:
+#### 2.2.1. `Vector2D` :
 
-This class represents a 2D vector. It will be used to represent the direction of the entities in the game.<br>
+Cette classe représente un vecteur 2D. elle sera utilisé pour représenter la direction des entités dans le jeu.<br>
 
-Since we are defining a custom type, we need to define operation on it.<br>
-In Oriented Object Programming, this is called operator overloading.<br>
-To achieve this in python, you can use the following syntax:
+Comme nous définissons un type personnalisé, nous devons définir des opérations dessus.<br>
+En programmation orientée objet, cela s'appelle la surcharge d'opérateurs.<br>
+Pour y parvenir en Python, vous pouvez utiliser la syntaxe suivante :
 
 ```python
-def __add__(self, other: Vector2D) -> Vector2D:
+def __add__(self, autre: Vector2D) -> Vector2D:
+    # overload of the '+' operator
     pass
 ```
 
 #### 2.2.2. `BadFileException`:
 
-This class is a custom exception.<br>
-We use a custom exception to handle specific errors that can occur in our code.<br>
+Cette classe est une exception personnalisée.<br>
+Nous utilisons une exception personnalisée pour gérer des erreurs spécifiques qui peuvent survenir dans notre code.<br>
 
-This class show us a new OOP concept: inheritance.<br>
-Inheritance is a way to create a new class that reuse the properties and methods of an existing class.<br>
-In python, you can inherit from a class like this:
+Cette classe nous montre un nouveau concept de POO : l'héritage.<br>
+L'héritage est un moyen de créer une nouvelle classe qui réutilise les propriétés et méthodes d'une classe existante.<br>
+En Python, vous pouvez hériter d'une classe comme ceci :
 
 ```python
 class ParentClass:
@@ -113,7 +114,7 @@ class ChildClass(ParentClass):
     pass
 ```
 
-To truly use the parent class, you also need to call its constructor:
+Pour vraiment utiliser la classe parent, vous devez également appeler son constructeur 
 
 ```python
 class ChildClass(ParentClass):
@@ -121,78 +122,78 @@ class ChildClass(ParentClass):
         super().__init__()
 ```
 
-`super()` is a function that return the parent class of the current class.
+`super()` Est une fonction qui retourne une instance de la classe parent.
 
->:warning Be sure to understand this part before moving on. Do not hesitate to ask questions if you are not sure.
+>:warning Assurez-vous de bien comprendre cette partie avant de continuer. N'hésitez pas à poser des questions si vous n'êtes pas sûr.
 
 !pagebreak
 
-## 3. The game:
+## 3. Le jeu:
 
->:success This is where the fun begins!
+>:success C'est maintenant que le fun commence !
 
-Now that you have fixed the library and have a better understanding of OOP, you can start implementing the game logic.<br>
+Maintenant que vous avez corrigé la bibliothèque et que vous avez une meilleure compréhension de la POO, vous pouvez commencer à implémenter la logique du jeu.<br>
 
->:warning This part is more complex than the previous one. Do not hesitate to ask questions if you are not sure.
+>:warning Cette partie est plus complexe que la précédente. N'hésitez pas à poser des questions si vous n'êtes pas sûr.
 
-In this part, I provide you with 3 classes.
+Dans cette partie, nous vous fournissons 3 classes.
 
 ### 3.1. `SpriteHandler`:
 
-As stated before, the aim of this project isn't for you to manipulate Tkinter.<br>
-I encourage you to read the class (as I'm proud of it), but you will not have to modify it (it's already perfect!).
+Comme indiqué précédemment, l'objectif de ce projet n'est pas que vous manipuliez Tkinter.<br>
+Je vous encourage à lire la classe, mais vous n'aurez pas à la modifier (elle est déjà parfaite !).
 
-has the name suggests, this class will handle the sprites of the game.<br>
+Comme son nom l'indique, cette classe gérera les sprites du jeu.
 
 ### 3.2. `Entity`:
 
-This class represents an entity in the game.<br>
-Apart from the boolean `is_player`, you have no way to know what kind of entity it is.<br>
-This is the purpose of the `Entity` class: to be a generic class that can be used for any kind of entity.
+Cette classe représente une entité dans le jeu.<br>
+Mis à part le booléen `is_player`, vous n'avez aucun moyen de savoir de quel type d'entité il s'agit.<br>
+C'est le but de la classe `Entity` : être une classe générique qui peut être utilisée pour n'importe quel type d'entité.
 
-To make it more readable, the player has a custom `move` method.<br>
+Pour rendre le code plus lisible, le joueur a une méthode `move` personnalisée.
 
 ## 4. Bonus:
 
->:success Congratulations on going this far!
+>:success Félicitations d'être arrivé jusqu'ici !
 
-But the fun doesn't stop here! You can add more features to the game.<br>
+Mais le plaisir ne s'arrête pas là ! Vous pouvez ajouter plus de fonctionnalités au jeu.
 
-Here are some ideas:
-- Add more entities (ghosts, fruits, ...)
-- Add a lives system
-- Add a menu
+Voici quelques idées :
+- Ajouter plus d'entités (fantômes, fruits, ...)
+- Ajouter un système de vies
+- Ajouter un menu
 
-This are some 'gameplay' ideas, but you can also improve the code:
+Ce sont des idées de "gameplay", mais vous pouvez également améliorer le code :
 
-### 4.1. map representation:
+### 4.1. représentation des entitées sur la map:
 
-Currently, the game is only represented by a 2D list, which is easy, but janky.<br>
-To address this, here are two ideas:
-- Create a `Map` class that will handle the map representation
-- Strip away the 'map' logic and use Vector2D to represent the entities' position
+Actuellement, le jeu est uniquement représenté par une liste 2D (`game_map: list[list[str]]`), ce qui est simple, mais rudimentaire.<br>
+Pour remédier à cela, voici deux idées :
+- Créer une classe Map qui gérera la représentation des entitées sur la carte
+- Supprimer la logique de la carte et utiliser Vector2D pour représenter la position des entités
 
 ### 4.2. AI:
 
-The current 'AI' of the ghost(s) is very basic and rely on a random.<br>
-Feel free to add a real AI to the ghost(s)!<br>
-To achive this, here some ideas:
-- When a ghost see the player, it will follow him (simple, but effective)
-- Implement a pathfinding algorithm that will track the player (hard, but rewarding)
+L'IA actuelle du ou des fantômes est très basique et repose sur l'aléatoire.<br>
+N'hésitez pas à ajouter une véritable IA à(aux) fantôme(s) !<br>
+Pour ce faire, voici quelques idées :
+- Lorsqu'un fantôme voit le joueur, il le suit (simple, mais efficace)
+- Implémenter un algorithme de recherche de chemin(pathfinding) qui suivra le joueur (difficile, mais gratifiant)
 
-Speaking of pathfinding, here are some algorithms you can use:
+En parlant de recherche de chemin, voici quelques algorithmes que vous pouvez utiliser :
 - A* (A-star)
 - Dijkstra
-- Breadth-first search
-- Depth-first search
+- Recherche en largeur (Breadth-first search)
+- Recherche en profondeur (Depth-first search)
 
-I personally recommend A* as it is the most efficient and the easiest to implement, but all of them are good choices with pros and cons.
+Personnellement, je vous recommande le A*, c'est le plus efficace et le plus facile à implémenter, mais tous sont de bons choix avec des avantages et des inconvénients.
 
-**Enough reading, go have fun!**
+**Assez de lecture, allez vous amuser !**
 
-## 5. Glossary:
+## 5. Glossaire:
 
-- **Wrapper**: A piece of code that provides a simplified interface to a more complex library or code set.
-- **OOP**: Oriented Object Programming
-- **Inheritance**: A way to create a new class that reuse the properties and methods of an existing class.
-- **Operator overloading**: A way to define a custom behavior for an operator (like `+`, `-`, `*`, ...).
+- **Wrapper**: Un morceau de code qui fournit une interface simplifiée à une bibliothèque ou un ensemble de code plus complexe.
+- **POO**: Programmation Orientée Objet
+- **Héritage**: Une façon de créer une nouvelle classe qui réutilise les propriétés et méthodes d'une classe existante.
+- **Surcharge d'opérateurs**: Une façon de définir un comportement personnalisé pour un opérateur (comme +, -, *, ...).
