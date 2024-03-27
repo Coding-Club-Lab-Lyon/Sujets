@@ -1,48 +1,74 @@
-import cc_maze as wrapper
+from time import sleep
+import cc_maze
+import sys
 
-map, PosY, PosX = wrapper.load_from_file("map.txt")
+DELAY = 0.08  # in seconds
+
+if len(sys.argv) != 2:
+    print("Invalid arguments:\nPlease enter: python3 dedale.py <map>")
+    exit(1)
+
+map, PosY, PosX = cc_maze.load_from_file(sys.argv[1])
+if map is None:
+    print("No possible starting point found.")
+    exit(1)
 
 
 # Movement
 def up():
-    global map, PosY, PosX
+    global canvas, map, PosY, PosX
     if PosY != 0 and map[PosY - 1][PosX] != "x":
+        cc_maze.update_grid(canvas, PosX, PosY, "yellow")
+        map[PosY][PosX] = '.'
         PosY -= 1
+        cc_maze.update_grid(canvas, PosX, PosY, "blue")
+        sleep(DELAY)
 
 
 def down():
-    global map, PosY, PosX
+    global canvas, map, PosY, PosX
     if PosY != len(map) - 1 and map[PosY + 1][PosX] != "x":
+        cc_maze.update_grid(canvas, PosX, PosY, "yellow")
+        map[PosY][PosX] = '.'
         PosY += 1
+        cc_maze.update_grid(canvas, PosX, PosY, "blue")
+        sleep(DELAY)
 
 
 def left():
-    global map, PosY, PosX
+    global canvas, map, PosY, PosX
     if PosX != 0 and map[PosY][PosX - 1] != "x":
+        cc_maze.update_grid(canvas, PosX, PosY, "yellow")
+        map[PosY][PosX] = '.'
         PosX -= 1
+        cc_maze.update_grid(canvas, PosX, PosY, "blue")
+        sleep(DELAY)
 
 
 def right():
-    global map, PosY, PosX
+    global canvas, map, PosY, PosX
     if PosX != len(map[PosY]) - 1 and map[PosY][PosX + 1] != "x":
+        cc_maze.update_grid(canvas, PosX, PosY, "yellow")
+        map[PosY][PosX] = '.'
         PosX += 1
+        cc_maze.update_grid(canvas, PosX, PosY, "blue")
+        sleep(DELAY)
 
 
 path = []
 
 
-def algo(canvas):
-    global map, PosY, PosX
-
+def algorithm(map):
     # Votre algorithme va ici.
-    #
-    # Vous pouvez utiliser la fonction update_grid du module cc_maze
-    # pour mettre à jour l'affichage du labyrinthe dans votre algorithme.
-    # Exemple:
-    # wrapper.update_grid(canvas, map, PosY, PosX)
+    # Vous pouvez utiliser les fonctions de mouvement top, down, right, left.
+    # Ces fonctions intéragissent directement avec l'affichage.
+    # Une case déjà visitée sera transformée en '.' et affichée
+    # en jaune sur l'écran.
+    # Good luck!
+    pass
 
 
 if __name__ == "__main__":
-    window, canvas = wrapper.init_graphics(map, PosY, PosX)
-    algo(canvas)
+    window, canvas = cc_maze.init_graphics(map, PosY, PosX)
+    algorithm(map)
     window.mainloop()
