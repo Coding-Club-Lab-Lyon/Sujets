@@ -176,10 +176,10 @@ Pour remédier à cela, voici deux idées :
 ### 4.2. AI:
 
 L'IA actuelle du ou des fantômes est très basique et repose sur l'aléatoire.<br>
-N'hésitez pas à ajouter une véritable IA à(aux) fantôme(s) !<br>
+N'hésitez pas à ajouter une véritable IA au(x) fantôme(s) !<br>
 Pour ce faire, voici quelques idées :
 - Lorsqu'un fantôme voit le joueur, il le suit (simple, mais efficace)
-- Implémenter un algorithme de recherche de chemin(pathfinding) qui suivra le joueur (difficile, mais gratifiant)
+- Implémenter un algorithme de recherche de chemin (pathfinding) qui suivra le joueur (difficile, mais gratifiant)
 
 En parlant de recherche de chemin, voici quelques algorithmes que vous pouvez utiliser :
 - A* (A-star)
