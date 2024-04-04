@@ -2,7 +2,7 @@ import tkinter as tk
 import library as lib
 import random
 
-assets = './assets/'
+assets = '../assets/'
 wall = '#'
 pacgum = '.'
 empty = '_'
@@ -48,7 +48,7 @@ class SpriteHandler:
 class Entity:
     def __init__(self, name: str, map_representation: str, length: int, width: int, is_player: bool):
         self.is_player = is_player  # Handle special case for player
-        self.direction = lib.Vector2D(1, 0)  # Default direction
+        self.direction = lib.Vector2D(1, 0)  # Direction vector
         self.sprite_handler = SpriteHandler(name)  # Handler for the sprites
         self.map_representation = map_representation  # Representation in the map, see macros above
         self.length = length  # Length of the map
@@ -65,15 +65,17 @@ class Entity:
             for j, cell in enumerate(row):
                 if cell == self.map_representation:
                     # calculate the new position
-                    new_i = # your code here % self.length
-                    new_j = # your code here % self.width
+                    new_i = 0  # your code here % self.length
+                    new_j = 0  # your code here % self.width
 
                     # handle pacgum
                     if game_map[new_i][new_j] == pacgum:
+                        pass
                         # your code here
 
                     # handle walls & doors
                     if game_map[new_i][new_j] == wall or game_map[new_i][new_j] == door:
+                        pass
                         # your code here
 
                     # move the player on the map
@@ -90,11 +92,13 @@ class Entity:
 
         position = lib.get_position(game_map, self.map_representation)
         directions = [lib.Vector2D(0, 1), lib.Vector2D(0, -1), lib.Vector2D(1, 0), lib.Vector2D(-1, 0)]
-        new_i = # your code here % self.length
-        new_j = # your code here % self.width
+        new_i = 0  # your code here % self.length
+        new_j = 0  # your code here % self.width
         if game_map[new_i][new_j] == wall:
-            self.direction = # your code here // hint: random.choice()
+            pass
+            #self.direction = # your code here // hint: random.choice()
         else:
+            pass
             # tmp swap to store the last cell and update the current cell
             # move the entity on the map
             # your code here
@@ -109,7 +113,7 @@ class Entity:
                 if cell == self.map_representation:
                     x0, y0, x1, y1 = lib.get_coordinates(j, i)
                     # get the sprite
-                    sprite = # your code here
+                    sprite = ""  # your code here
                     self.sprite_id = canvas.create_image(x0, y0, image=sprite, anchor='nw')
 
 
@@ -144,16 +148,23 @@ class Wrapper(tk.Tk):
         if event.keycode == 38:
             self.quit()
         elif event.keycode == 111:
+            pass
             # your code here
         elif event.keycode == 116:
+            pass
             # your code here
         elif event.keycode == 113:
+            pass
             # your code here
         elif event.keycode == 114:
+            pass
             # your code here
         print(f'keycode: {event.keycode}')
 
     def draw_cell(self, i: int, j: int, cell: str) -> None:
+        """
+        This function is already implemented.
+        """
         x0, y0, x1, y1 = lib.get_coordinates(j, i)
         if cell == wall or cell == door:
             self.canvas.create_rectangle(x0, y0, x1, y1, fill='purple')
@@ -167,14 +178,16 @@ class Wrapper(tk.Tk):
         Draw the map on the canvas
         hint: use the zip2d() function from the library
         """
+        pass
         # add the argument to the function
-        lib.zip2d()
+        # lib.zip2d()
 
     def draw_text(self) -> None:
         """
         Draw the text on the canvas to show the score
         hint: get the score from the entity
         """
+        # update the text
         self.canvas.create_text(10, 10,
                                 text='', fill='white',
                                 font=('Helvetica', '16', 'bold'), anchor='nw')
@@ -186,6 +199,7 @@ class Wrapper(tk.Tk):
               loop over the entities
         """
         for entity in self.entities.values():
+            pass
             # your code here
 
     def move_entities(self) -> None:
@@ -196,6 +210,7 @@ class Wrapper(tk.Tk):
         """
         try:
             for entity in self.entities.values():
+                pass
                 # your code here
         except lib.BadFileException:
             self.is_game_over = True

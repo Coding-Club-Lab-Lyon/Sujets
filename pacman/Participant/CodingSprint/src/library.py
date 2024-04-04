@@ -2,8 +2,13 @@ PX = 32
 
 
 class BadFileException(Exception):
-    """Raised when the input file is not as expected"""
-    # your code here
+    """
+    Raised when the input file is not as expected
+    hint: use the super() function
+    """
+    def __init__(self, message: str):
+        pass
+        # your code here
 
 
 class Vector2D:
@@ -12,24 +17,28 @@ class Vector2D:
     - __init__(self, x=0, y=0): constructor
     - __add__(self, other): add two vectors
     - __sub__(self, other): subtract two vectors
-    - __mul__(self, other): dot product of two vectors
-    - __abs__(self): length of the vector
-    - __str__(self): string representation of the vector
     """
     def __init__(self, x=0, y=0):
-        self.x = x
-        self.y = y
+        pass
+        # your code here
 
-    # your code here
+    def __add__(self, other):
+        pass
+        # your code here
+
+    def __sub__(self, other):
+        pass
+        # your code here
 
 
 def load_from_file(file: str) -> list[list[str]]:
     """
-    Load the game map from the file
-    hint: use the open() and .strip() functions
+    This function is already implemented.
     """
     game_map: list[list[str]] = []
-    # your code here
+    with open(file, 'r') as f:
+        for line in f:
+            game_map.append(list(line.strip()))
     return game_map
 
 
@@ -37,21 +46,24 @@ def is_array_rectangular(game_map: list[list[str]]) -> bool:
     """
     Check if the 2D array is rectangular
     hint: use the len() function
+          compare the length of each line with the length of the first line
     """
+    width = len(game_map[0])
     # your code here
 
 
 def zip2d(game_map: list[list[str]], f: callable) -> None:
     """
-    Iterate over the 2D array and apply the function f to each cell
-    hint: use the enumerate() function
+    Apply the function f to each element of the 2D array
+    hint: use the enumerate() function to loop over the array
     """
+    pass
     # your code here
 
 
 def get_coordinates(x: int, y: int) -> tuple[int, int, int, int]:
     """
-    Convert the coordinates to the pixel coordinates
+    This function is already implemented.
     """
     x0 = x * PX
     y0 = y * PX
@@ -63,9 +75,11 @@ def get_coordinates(x: int, y: int) -> tuple[int, int, int, int]:
 def get_position(game_map: list[list[str]], entity: str) -> Vector2D:
     """
     Get the position of the entity in the game map
-    hint: you can use the zip2d() function to iterate over the game map
-          you can also re-use the enumerate() function
-          the two implementations are equivalent
+    Raise a BadFileException if the entity is not found
+    hint: you can re-use the enumerate() function
     """
     # your code here
+    # if ... :
+    return Vector2D(0, 0)
+    # else :
     raise BadFileException(f'Entity {entity} not found')
