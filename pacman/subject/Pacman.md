@@ -39,8 +39,8 @@ Gardez à l'esprit que ce projet est difficile par conception, demandez à Googl
 
 Ce projet comporte 2 niveaux de difficulté, choisissez celui qui vous convient le mieux :
 
-- **Normal** : Vous devrez implémenter une partie de la logique du jeu ainsi que certaines fonctions de bibliothèque.
-- **Difficile** : Vous devrez implémenter la quasi-totalitée de la logique du jeu.
+- **Lycée** : `Sujet` d'une durée de 2 heures, vous devrez corriger la librairie et implémenter une partie du jeu.
+- **Difficile** : `CodingSprint` d'une durée de 6 heures, vous devrez corriger la librairie et implémenter une grande partie de la logique du jeu.
 
 **Bonne chance soldat !**
 
