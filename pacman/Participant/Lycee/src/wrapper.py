@@ -188,8 +188,9 @@ class Wrapper(tk.Tk):
         hint: get the score from the entity
         """
         # update the text
+        text: str = ""
         self.canvas.create_text(10, 10,
-                                text='', fill='white',
+                                text=text, fill='white',
                                 font=('Helvetica', '16', 'bold'), anchor='nw')
 
     def draw_entities(self) -> None:
