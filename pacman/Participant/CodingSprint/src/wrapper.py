@@ -61,27 +61,21 @@ class Entity:
         """
         Move the player on the map
         """
-        for i, row in enumerate(game_map):
-            for j, cell in enumerate(row):
-                if cell == self.map_representation:
-                    # calculate the new position
-                    new_i = 0  # your code here % self.length
-                    new_j = 0  # your code here % self.width
+        # locate the entity position
+        # calculate the new position
+        new_i = 0  # your code here
+        new_j = 0  # your code here
 
-                    # handle pacgum
-                    if game_map[new_i][new_j] == pacgum:
-                        pass
-                        # your code here
+        # handle walls & doors
+        if game_map[new_i][new_j] == wall or game_map[new_i][new_j] == door:
+            pass
+            # your code here
 
-                    # handle walls & doors
-                    if game_map[new_i][new_j] == wall or game_map[new_i][new_j] == door:
-                        pass
-                        # your code here
+        # handle pacgum
 
-                    # move the player on the map
-                    game_map[i][j] = empty
-                    # your code here
-                    return
+        # move the player on the map
+        # your code here
+        return
 
     def move(self, game_map: list[list[str]]) -> None:
         """
@@ -92,11 +86,11 @@ class Entity:
 
         position = lib.get_position(game_map, self.map_representation)
         directions = [lib.Vector2D(0, 1), lib.Vector2D(0, -1), lib.Vector2D(1, 0), lib.Vector2D(-1, 0)]
-        new_i = 0  # your code here % self.length
-        new_j = 0  # your code here % self.width
+        new_i = 0  # your code here
+        new_j = 0  # your code here
         if game_map[new_i][new_j] == wall:
             pass
-            #self.direction = # your code here // hint: random.choice()
+            # self.direction = # your code here // hint: random.choice()
         else:
             pass
             # tmp swap to store the last cell and update the current cell
@@ -108,21 +102,23 @@ class Entity:
         Draw the entity on the canvas
         hint: use the get_sprite() function from the sprite handler
         """
-        for i, row in enumerate(game_map):
-            for j, cell in enumerate(row):
-                if cell == self.map_representation:
-                    x0, y0, x1, y1 = lib.get_coordinates(j, i)
-                    # get the sprite
-                    sprite = ""  # your code here
-                    self.sprite_id = canvas.create_image(x0, y0, image=sprite, anchor='nw')
+        # locate the entity position
+        # get the sprite
+        # display it on the canvas
+
+        # your code here
+        x0, y0 = 0, 0
+        sprite = ""
+        self.sprite_id = canvas.create_image(x0, y0, image=sprite, anchor='nw')
 
 
 class Wrapper(tk.Tk):
     def __init__(self, filename: str):
         super().__init__()
-        self.game_map = lib.load_from_file(filename)
-        if not lib.is_array_rectangular(self.game_map):
-            raise lib.BadFileException('Map is not rectangular')
+        self.game_map = [[]]  # load the map from the file
+        # if the map isn"t rectangular, raise an exception
+
+        # your code here
 
         self.title('Pacman')
         self.geometry(f'{len(self.game_map[0]) * lib.PX}x{len(self.game_map) * lib.PX}')
@@ -147,18 +143,8 @@ class Wrapper(tk.Tk):
         """
         if event.keycode == 38:
             self.quit()
-        elif event.keycode == 111:
-            pass
-            # your code here
-        elif event.keycode == 116:
-            pass
-            # your code here
-        elif event.keycode == 113:
-            pass
-            # your code here
-        elif event.keycode == 114:
-            pass
-            # your code here
+        # handle keyboard input to change the direction of the player
+        # use wasd, zqsd or arrow keys
         print(f'keycode: {event.keycode}')
 
     def draw_cell(self, i: int, j: int, cell: str) -> None:
@@ -188,8 +174,9 @@ class Wrapper(tk.Tk):
         hint: get the score from the entity
         """
         # update the text
+        text: str = ""  # your code here
         self.canvas.create_text(10, 10,
-                                text='', fill='white',
+                                text=text, fill='white',
                                 font=('Helvetica', '16', 'bold'), anchor='nw')
 
     def draw_entities(self) -> None:
@@ -198,9 +185,10 @@ class Wrapper(tk.Tk):
         hint: look at the methods of the Entity class
               loop over the entities
         """
-        for entity in self.entities.values():
-            pass
-            # your code here
+        pass
+        # loop on the dictionary
+        # draw the entity
+        # your code here
 
     def move_entities(self) -> None:
         """
@@ -209,9 +197,9 @@ class Wrapper(tk.Tk):
               loop over the entities
         """
         try:
-            for entity in self.entities.values():
-                pass
-                # your code here
+            pass
+            # move the entity
+            # your code here
         except lib.BadFileException:
             self.is_game_over = True
             return
@@ -222,10 +210,9 @@ class Wrapper(tk.Tk):
         hint: create a new entity with the blinky representation
               take inspiration from the 'pacman' entity construction
         """
-        for i, row in enumerate(self.game_map):
-            for j, cell in enumerate(row):
-                if cell == door:
-                    self.game_map[i][j] = empty
+        pass
+        # replace the door entity on the map with an empty cell
+        # create the entity
         # your code here
 
     def run(self) -> None:
@@ -235,9 +222,9 @@ class Wrapper(tk.Tk):
 
     def update(self) -> None:
         """
-         Update the game state
-         hint: call all the update methods of the Wrapper
-         """
+        Update the game state
+        hint: call all the update methods of the Wrapper
+        """
         self.canvas.delete('all')
         # your code here
         try:

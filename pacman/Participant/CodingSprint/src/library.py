@@ -17,16 +17,19 @@ class Vector2D:
     - __init__(self, x=0, y=0): constructor
     - __add__(self, other): add two vectors
     - __sub__(self, other): subtract two vectors
+    - __mul__(self, other): dot product of two vectors
+    - __abs__(self): magnitude of the vector
+    - __str__(self): string representation of the vector
+    - __eq__(self, other): check if two vectors are equal
+    - __ne__(self, other): check if two vectors are not equal
+    - __lt__(self, other): check if the magnitude of the vector is less than the magnitude of the other vector
+    - __le__(self, other): check if the magnitude of the vector is less than or equal to the magnitude of the other vector
+    - __gt__(self, other): check if the magnitude of the vector is greater than the magnitude of the other vector
+    - __ge__(self, other): check if the magnitude of the vector is greater than or equal to the magnitude of the other vector
+    - __getitem__(self, index): get the x or y component of the vector
+    - __setitem__(self, index, value): set the x or y component of the vector
     """
     def __init__(self, x=0, y=0):
-        pass
-        # your code here
-
-    def __add__(self, other):
-        pass
-        # your code here
-
-    def __sub__(self, other):
         pass
         # your code here
 
@@ -50,6 +53,7 @@ def is_array_rectangular(game_map: list[list[str]]) -> bool:
     """
     width = len(game_map[0])
     # your code here
+    return True
 
 
 def zip2d(game_map: list[list[str]], f: callable) -> None:
