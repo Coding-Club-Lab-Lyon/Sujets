@@ -264,7 +264,7 @@ Un appel de votre fonction devra afficher ce résultats :
 int main(int ac, char **av)
 {
     char str[] = "bienvenue à epitech !";
-    printf("%s\n", my_replace_char(str, 'e', 'a'));
+    printf("%s\n", my_char_replace(str, 'e', 'a'));
     return 0;
 }
 ```
@@ -818,4 +818,45 @@ int main(void)
 
 ```txt
 $> France
+```
+
+
+> **Fichier de rendu:** `my_fibonacci.c`
+
+
+
+## My_Fibonacci
+
+La function de cet exercice prend deux arguments: Un premier étant le minimum de la suite de fibonacci, le deuxième, le maximum.
+Cette dernière doit afficher la suite de fibonacci en partant du minimum jusqu'au maximum.
+
+> Pour cet exercice vous pouvez utiliser print_char et print_number
+
+Voici donc son prototype :
+```c
+void my_fibonacci(int minimum, int maximum);
+```
+
+### Exemple :
+
+Un appel de votre fonction devra afficher ces résultats :
+
+```c
+int main(void)
+{
+    int minimum = 0;
+    int maximum = 10;
+
+    my_fibonacci(minimum, maximum);
+    return 0;
+}
+```
+
+```txt
+$> 0
+   1
+   2
+   3
+   5
+   8
 ```
