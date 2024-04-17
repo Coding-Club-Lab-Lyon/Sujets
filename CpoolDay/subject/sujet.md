@@ -50,32 +50,6 @@ void my_print_name(void);
 
 ```
 
-
-
-### Moulinette
-
-Comme c'est le cas tout au long de votre piscine Epitech, nous avons mis en place une moulinette qui vous corrige à des intervalles aléatoires. Vous serez prévenu quand elle passera.
-
-Dans votre repo vous trouverez un script python appelé client.py qui vous permettras différentes action. Tout d'abord de vous register à la mouli:
-```bash
-python3 client.py --register
-```
- Ainsi que de consulter les résultat de la dernière mouli sur vos exercices.
-```bash
-python3 client.py --result
-```
-
-- **La moulinette a toujours raison**.
-
-
-
-- **Ne laissez pas de fonction main() dans vos fichiers**.
-
-
-
-- **Effectuez des commits réguliers (à vous de trouver comment faire)**.
-
-
 ### Allons-y !
 
 
@@ -97,7 +71,7 @@ Maintenant que vous avez bien lu ce qui précède, il ne vous reste plus qu'à v
 
 ### Sujet :
 
-L'objectif de cet exercice est d'écrire une fonction qui affichera l'ensemble des caracrtère affichable de la table ascii.
+L'objectif de cet exercice est d'écrire une fonction qui affichera l'ensemble des caractères affichables de la table ascii.
 
 > Pour cet exercice vous pouvez utiliser print_char
 
@@ -144,7 +118,7 @@ $> !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghij
 
 ### Sujet :
 
-L'objectif de cet exercice est d'écrire une fonction qui affichera les n premiers caracrtère affichable de la table ascii.
+L'objectif de cet exercice est d'écrire une fonction qui affichera les n premiers caractères affichables de la table ascii.
 
 
 
@@ -262,7 +236,7 @@ $> bulcgnidoc
 
 ### Sujet :
 
-L'objectif de cet exercice est d'écrire une fonction qui renverra une chaine de caractère avec dans laquelle un caractère est remplacer par un autre à chaque apparition.
+L'objectif de cet exercice est d'écrire une fonction qui renverra une chaine de caractères avec dans laquelle un caractère est remplacé par un autre à chaque apparition.
 
 > Pour cet exercice vous pouvez utiliser print_char
 
@@ -309,7 +283,7 @@ $> biavanua à apitach !
 
 ### Sujet :
 
-L'objectif de cet exercice est d'écrire une fonction capable de compté le nombre d'occurence de caractère dans une string.
+L'objectif de cet exercice est d'écrire une fonction capable de compter le nombre d'occurences d'un caractère dans une string.
 
 
 
@@ -475,7 +449,7 @@ $> 25
 
 ### Sujet :
 
-L'objectif de cet exercice est d'écrire une fonction qui prend 3 argument :
+L'objectif de cet exercice est d'écrire une fonction qui prend 3 arguments :
 
 - un premier nombre sous forme d'un int.
 
@@ -485,7 +459,7 @@ L'objectif de cet exercice est d'écrire une fonction qui prend 3 argument :
 
 Votre fonction doit appliquer l'opération donner par le caractère sur les deux nombres et renvoyer le résultat sous forme d'un int.
 
-Si il y a un prbolème la fonction renvoi 0.
+Si il y a un problème la fonction renvoi 0.
 
 
 
@@ -559,7 +533,7 @@ $> 42
 
 ### Sujet :
 
-L'objectif de cet exercice est d'écrire une fonction qui prend 2 argument :
+L'objectif de cet exercice est d'écrire une fonction qui prend 2 arguments :
 
 - un premier nombre sous forme d'un int > 1.
 
@@ -620,7 +594,7 @@ $>
 
 ### Sujet :
 
-Pour cette exercice vous devez rendre une fonction qui prend en argument un pointeur sur une liste de nombre (int *) ainsi que sa taille. Vous devez renvoyer la moyenne de ses valeur sous form d'un float.
+Pour cette exercice vous devez rendre une fonction qui prend en argument un pointeur sur une liste de nombre (int *) ainsi que sa taille. Vous devez renvoyer la moyenne de ses valeur sous forme d'un float.
 
 
 
@@ -666,7 +640,7 @@ $> 13.4
 
 ### Sujet :
 
-Cette exercice à pour but de print chaque mot présent dans une string, donc séparer par: ' ' ou '\t'. Avec un \n entre chaque mot.
+Cette exercice à pour but de print chaque mot présent dans une string, donc séparés par: ' ' ou '\t'. Avec un \n entre chaque mot.
 
 > Pour cet exercice vous pouvez utiliser print_char
 
@@ -762,8 +736,8 @@ $> acegikmoqsuwybdfhjlnprtvxz
 
 ### Sujet :
 
-La fonction de cet exercice prend un premier argument: une liste de nombres entiers, et un second: le nombre d'entier. Cette dernière doit trier et affiché les nombres de la liste.
-Les techniques de trie sont nombreuse nous vous conseillons le Bubble sort.
+La fonction de cet exercice prend un premier argument: une liste de nombres entiers, et un second: le nombre d'entier. Cette dernière doit trier et afficher les nombres de la liste.
+Les techniques de tri sont nombreuse nous vous conseillons le Bubble sort.
 
 Voici donc son prototype :
 
