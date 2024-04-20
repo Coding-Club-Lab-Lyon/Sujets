@@ -12,7 +12,7 @@ Conscient de ses limites en programmation, Vinio décide de collaborer avec un g
 
 ###    1. Choix de données
 
-Pour bien démarrer, il est crucial de préparer ton environnement et les ressources nécessaires. Nous te fournirons un dataset spécialement sélectionné pour cet atelier qui contient des attributs comme le prix de vente (price), le nombre de chambres (bed), le nombre de salles de bain (bath), et la superficie habitable en pieds carrés (house_size), des éléments clés pour prédire les prix des biens immobiliers avec précision. Pour ta culture générale, il est intéressant de savoir que de tels datasets peuvent être trouvés sur Kaggle, une plateforme populaire qui offre un large éventail de datasets publics.
+Pour bien démarrer, il est crucial de préparer ton environnement et les ressources nécessaires. Nous te fournirons un dataset spécialement sélectionné pour cet atelier qui contient des attributs comme le prix de vente (price), le nombre de chambres (bed), le nombre de salles de bain (bath), et la superficie habitable en mètres carrés (house_size), des éléments clés pour prédire les prix des biens immobiliers avec précision. Pour ta culture générale, il est intéressant de savoir que de tels datasets peuvent être trouvés sur Kaggle, une plateforme populaire qui offre un large éventail de datasets publics.
 
 > Si tu es en difficultée demande à ton voisin de droite, celui de gauche et celui d'en face, puis internet. Si tu n'a toujours pas trouvé, c'est là qu'interviennent les **Cobras**.
 
