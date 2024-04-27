@@ -6,19 +6,19 @@ Le but de ce projet est de te faire découvrir la programmation orientée objet 
 
 ## Objectifs
 
-- Consolider tes acquis en python
+- Consolider tes acquis en Python
 - T'initier au [paradigme](#glossaire) de la programmation orientée objet
 - S'amuser !
 
 ## Prérequis
 
-- Même si le sujet temps à être accessible, il est préférable d'avoir déjà une première expérience en programmation.
+- Même si le sujet tend à être accessible, il est préférable d'avoir déjà une première expérience en programmation.
 - Avoir installé Python sur ta machine ainsi que la librairie Tkinter.
 - Avoir la volonté de découvrir (*c'est même le plus important*).
 
 ## Ressources & communication
 
-Le sujet peut sembler ne pas vous donner beaucoup d'instructions, car votre objectif est de faire les recherches nécessaires pour comprendre le code et mettre en œuvre la logique du jeu par vous même.
+Le sujet peut sembler ne pas vous donner beaucoup d'instructions, car votre objectif est de faire les recherches nécessaires pour comprendre le code et mettre en œuvre la logique du jeu par vous-même.
 Ce projet n'est pas une évaluation, vous devez communiquer avec vos camarades de classe pour terminer le projet.
 Gardez à l'esprit que ce projet est difficile par conception, demandez à Google, demandez à vos camarades de classe, demandez-nous, mais n'abandonnez pas !
 
@@ -26,7 +26,7 @@ Gardez à l'esprit que ce projet est difficile par conception, demandez à Googl
 
 ## Instructions
 
-Tout au long du sujet, les parties de code à complétées seront indiquées par des commentaires `# TODO`.<br>
+Tout au long du sujet, les parties de code à compléter seront indiquées par des commentaires `# TODO`.<br>
 Si la coloration syntaxique de votre éditeur de texte ne vous permet pas de les voir, vous pouvez utiliser la fonction de recherche de texte de votre éditeur pour les trouver.<br>
 
 Pensez bien à lire tous les commentaires, ils sont là pour vous aider.<br>
@@ -71,7 +71,7 @@ Un object c'est:
 - Une identité (un nom)
 - Une classe (un modèle)
 
-En paralèlle de cett définition, l'OOP apporte plusieurs concepts:
+En parallèle de cette définition, l'OOP apporte plusieurs concepts:
 
 **Encapsulation** : C'est le fait de regrouper les données et les méthodes qui agissent sur ces données dans une même entité. Cela permet de protéger les données et de les manipuler uniquement à travers les méthodes.<br>
 Dans ce projet, cela est représenté par la classe `Wrapper` qui encapsule les fonctions de Tkinter
@@ -82,7 +82,7 @@ Dans ce projet, cela est représenté par la classe `Wrapper` qui encapsule les 
 
 **Abstraction** : C'est le fait de cacher les détails d'implémentation d'une classe pour ne montrer que les informations essentielles. Cela permet de simplifier l'utilisation de la classe.<br>
 
-La plupart des ces concepts étant difficile à comprendre et à mettre en place, ils ne seront que très peu abordés dans ce projet.<br>
+La plupart de ces concepts étant difficile à comprendre et à mettre en place, ils ne seront que très peu abordés dans ce projet.<br>
 Si tu veux en savoir plus, n'hésite pas à nous poser des questions!
 
 # 1. Now the fun begins
@@ -101,7 +101,7 @@ Maintenant que le point d'entrée est réparé, tu vas devoir t'attaquer à la b
 
 >:info Pas de stress si tu n'es pas féru de mathématique!
 
-Le fichier `Vector2D.py` contient la base d'une classe `Vector2D` qui représente un vecteur à deux dimension, x & y.<br>
+Le fichier `Vector2D.py` contient la base d'une classe `Vector2D` qui représente un vecteur à deux dimensions, x & y.<br>
 
 Dans ce fichier, tu devras implémenter des **surcharge d'opérateurs**.<br>
 Les surcharges d'opérateurs permettent de redéfinir le comportement des opérateurs pour une classe donnée.<br>
@@ -133,9 +133,9 @@ Il est normal de bloquer sur cet exercice, n'hésite pas à demander de l'aide �
 
 ## 1.2. Above and beyond
 
-Maintenant que la base du projet est réparée, tu es pret à passer aux choses sérieuses.<br>
+Maintenant que la base du projet est réparée, tu es prêt à passer aux choses sérieuses.<br>
 Les fichiers `Asteroid.py`, `Bullet.py` et `Wrapper.py` contiennent les classes qui représentent les éléments du jeu.<br>
-Chaque fonctions possèdes des instructions qui te guideront dans la réparation du jeu.<br>
+Chaque fonction possède des instructions qui te guideront dans la réparation du jeu.<br>
 
 A partir de cette étape, il n'y à plus vraiment de 'sens' à suivre, tu peux réparer les fichiers dans l'ordre que tu veux.<br>
 
@@ -145,7 +145,7 @@ A partir de cette étape, il n'y à plus vraiment de 'sens' à suivre, tu peux r
 
 Si tu arrives à cette étape, c'est que tu as réparé le jeu, félicitation!<br>
 
-Mais après avoir jouer un peu, tu as du te rendre compte que le jeu est un peu... vide.<br>
+Mais après avoir joué un peu, tu as dû te rendre compte que le jeu est un peu... vide.<br>
 C'est maintenant que tu peux laisser libre court à ton imagination! Tu peux implémenter de nouvelles fonctionnalités, de nouveaux éléments, ou même de nouveaux niveaux!<br>
 
 >:info N'hésite pas à nous montrer ce que tu as fait!
