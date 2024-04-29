@@ -7,7 +7,7 @@ from Player import Player
 from Asteroids import Asteroid
 
 MAX_ASTEROIDS = 20
-
+REFRESH_RATE = 25
 
 class Wrapper:
     """
@@ -96,7 +96,7 @@ class Wrapper:
                     break
 
         self.spawn_asteroids()
-        self.root.after(50, self.asteroid_manager)
+        self.root.after(REFRESH_RATE, self.asteroid_manager)
 
     def update(self) -> None:
         """
@@ -127,7 +127,7 @@ class Wrapper:
             for asteroid in self.astroids:
                 asteroid.update(self.main_canvas)
             self.root.update()
-            self.root.after(50, self.update)
+            self.root.after(REFRESH_RATE, self.update)
 
     def run(self) -> None:
         """
