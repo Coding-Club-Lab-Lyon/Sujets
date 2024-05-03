@@ -73,8 +73,8 @@ class Player:
         # tips: les deux étapes précédentes peuvent être faites en une seule ligne.
 
         # TODO: Met à jour le cooldown de tir.
+        # tips: le cooldown n'est pas en seconde mais en 'game tick'. Il est décrémenté à chaque frame.
         pass
-
 
     def accelerate(self, acceleration: int) -> None:
         """
@@ -88,9 +88,9 @@ class Player:
         )
         speed = math.sqrt(new_velocity.x ** 2 + new_velocity.y ** 2) # Ici, on fait un calcul sur un vecteur qui pourrait être simplifié par ... une surcharge d'opérateur !
 
-        # La ligne suivante sert à limiter la vitesse si celle ci dépasse la vitesse maximale. Utilise cette ligne
-        #             new_velocity = Vector2D(new_velocity.x * self.max_speed / speed, new_velocity.y * self.max_speed / speed)
         # TODO: Limiter la vitesse du joueur à self.max_speed.
+        # tips: Il faut aussi limiter la vitesse de décélération. A toi de trouver une limite intéressante.
+        # tips bis: il faudra modifier le vecteur new_velocity.
         pass
 
         self.velocity = new_velocity

@@ -1,3 +1,10 @@
+# TODO: Réparer l'initialisateur de la classe Vector2D:
+#   pour que les attributs x et y soient initialisés correctement.
+# TODO: Implémenter les méthodes:
+#   __add__(self, other) -> 'Vector2D'
+#   __sub__(self, other) -> 'Vector2D'
+#   __str__(self) -> str
+
 class Vector2D:
     def __init__(self, x, y) -> None:
         """
@@ -15,11 +22,6 @@ class Vector2D:
         """
         pass
 
-    # TODO: Implémenter les méthodes:
-    # __add__(self, other) -> 'Vector2D'
-    # __sub__(self, other) -> 'Vector2D'
-    # __str__(self) -> str
-
     def __sub__(self, other) -> 'Vector2D':
         """
         Subtracts two vectors
@@ -33,4 +35,5 @@ class Vector2D:
         Returns the string representation of the vector
         :return:
         """
+        # tips: Regarder bien le type de retour de cette méthode
         pass

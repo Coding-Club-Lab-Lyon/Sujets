@@ -7,6 +7,7 @@ from Player import Player
 from Asteroids import Asteroid
 
 MAX_ASTEROIDS = 20
+REFRESH_RATE = 25
 
 
 # tips: Ce fichier est un peu plus complexe que les autres, il peux être interessant de le faire après avoir compris les autres fichiers
@@ -58,7 +59,9 @@ class Wrapper:
         Updates the score on the canvas.
         :return:
         """
-        # TODO: Créer un text pour afficher le score. Tips: les coordonnées sont (60, 15) pour une police de taille de 16
+        # TODO: Créer un text pour afficher le score.
+        #  tips: regarde les méthodes de canvas
+        #  tips: les coordonnées sont (60, 15) pour une police de taille de 16
         pass
 
     def spawn_asteroids(self):
@@ -68,6 +71,7 @@ class Wrapper:
         """
         while len(self.astroids) < MAX_ASTEROIDS:
             # TODO: Calcul et fait apparaitre un ou des astéroides
+            # les astéroides doivent apparaitre à une distance raisonnable du joueur
             # Cette fonction peut être compliquée car elle appelle à quelques notions de mathématiques.
             # Si les calculs ne sont pas clairs, n'hésite pas à demander de l'aide, c'est un atelier de programmation avant tout.
             pass
@@ -90,7 +94,7 @@ class Wrapper:
                     pass
 
         self.spawn_asteroids()
-        self.root.after(50, self.asteroid_manager)
+        self.root.after(REFRESH_RATE, self.asteroid_manager)
 
     def update(self) -> None:
         """
@@ -108,13 +112,12 @@ class Wrapper:
             self.root.after(100, self.update)
         else:
             # TODO: Met à jour le jeu:
+            # - canvas
             # - score
             # - joueur
             # - astéroides
-            # - canvas
             pass
-            self.root.after(50, self.update)
-
+            self.root.after(REFRESH_RATE, self.update)
 
     def run(self) -> None:
         """
