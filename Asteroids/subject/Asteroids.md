@@ -119,7 +119,9 @@ class T:
 Pour s'assurer que la surcharge est correcte, tu peux utiliser cet assert:
 ```python
 def are_methods_overloaded(cls: type) -> bool:
-    return cls.__str__ is not object.__str__ and cls.__add__ is not object.__add__ and cls.__sub__ is not object.__sub__
+    return cls.__str__ is not object.__str__
+        and cls.__add__ is not object.__add__
+        and cls.__sub__ is not object.__sub__
 
 assert are_methods_overloaded(Vector2D), "Le vecteur n'est pas encore réparé"
 ```
@@ -131,13 +133,20 @@ Assure toi de bien avoir compris avant de passer à la suite.
 
 Il est normal de bloquer sur cet exercice, n'hésite pas à demander de l'aide à tes camarades ou à nous!
 
-## 1.2. Above and beyond
+## 1.2. Astéroïdes
+
+La class `Asteroid`, définie dans le fichier du même nom est déjà complète.<br>
+Prend le temps de bien la lire pour comprendre son fonctionnement, ça te sera utile pour la suite.<br>
+
+## 1.3. Above and beyond
 
 Maintenant que la base du projet est réparée, tu es prêt à passer aux choses sérieuses.<br>
-Les fichiers `Asteroid.py`, `Bullet.py` et `Wrapper.py` contiennent les classes qui représentent les éléments du jeu.<br>
-Chaque fonction possède des instructions qui te guideront dans la réparation du jeu.<br>
+Voici les fichiers qu'il te reste à corriger:
+- `Bullet.py`
+- `Player.py`
+- `Wrapper.py`
 
-A partir de cette étape, il n'y à plus vraiment de 'sens' à suivre, tu peux réparer les fichiers dans l'ordre que tu veux.<br>
+S'ils peuvent tous être réparés en parallèle, je te conseille de les faire dans l'ordre proposé ci-dessus.<br>
 
 >:info N'hésite pas à nous demander si tu es bloqué!
 
