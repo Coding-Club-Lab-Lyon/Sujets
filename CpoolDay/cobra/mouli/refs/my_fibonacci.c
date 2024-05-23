@@ -2,7 +2,7 @@
 
 void my_fibonacci(int minimum, int maximum)
 {
-    int n, first = 0, second = 1, next, c;
+    int n, first = 0, second = 1, next = 0, c;
 
     if (minimum > maximum || minimum == maximum)
         return;
@@ -15,6 +15,6 @@ void my_fibonacci(int minimum, int maximum)
             second = next;
         }
         if (next >= minimum && next <= maximum)
-            fprintf(stdout, "%d\n", next);
+            printf("%d\n", next);
     }
 }
