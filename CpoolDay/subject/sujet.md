@@ -821,11 +821,11 @@ $> France
 ```
 
 
-> **Fichier de rendu:** `my_fibonacci.c`
-
 
 
 ## My_Fibonacci
+
+> **Fichier de rendu:** `my_fibonacci.c`
 
 La function de cet exercice prend deux arguments: Un premier étant le minimum de la suite de fibonacci, le deuxième, le maximum.
 Cette dernière doit afficher la suite de fibonacci en partant du minimum jusqu'au maximum.
