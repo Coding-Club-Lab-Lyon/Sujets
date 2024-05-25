@@ -270,7 +270,7 @@ int main(int ac, char **av)
 ```
 
 ```txt
-$> biavanua à apitach !
+$> bianvanua à apitach !
 ```
 
 ## My_Get_Char_Repeat
