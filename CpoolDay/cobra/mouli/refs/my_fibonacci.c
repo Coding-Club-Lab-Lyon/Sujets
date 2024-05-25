@@ -1,4 +1,4 @@
-#include <stdio.h>
+void print_number(int value);
 
 void my_fibonacci(int minimum, int maximum)
 {
@@ -15,6 +15,6 @@ void my_fibonacci(int minimum, int maximum)
             second = next;
         }
         if (next >= minimum && next <= maximum)
-            printf("%d\n", next);
+            print_number(next);
     }
 }
