@@ -238,7 +238,7 @@ $> bulcgnidoc
 
 L'objectif de cet exercice est d'écrire une fonction qui renverra une chaine de caractères avec dans laquelle un caractère est remplacé par un autre à chaque apparition.
 
-> Pour cet exercice vous pouvez utiliser print_char
+
 
 La fonction devra être prototypée de la façon suivante :
 
