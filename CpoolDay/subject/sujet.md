@@ -65,7 +65,7 @@ Maintenant que vous avez bien lu ce qui précède, il ne vous reste plus qu'à v
 
 
 
-> **Fichier de rendu:**  `my_print_ascii.c`
+> **Fichier de rendu:** `my_print_ascii.c`
 
 
 
@@ -122,7 +122,7 @@ L'objectif de cet exercice est d'écrire une fonction qui affichera les n premie
 
 
 
-Si il y a un problème la fonction doit s'arreter sans rien faire.
+S'il y a un problème la fonction doit s'arrêter sans rien faire.
 
 > Pour cet exercice vous pouvez utiliser print_char
 
@@ -254,7 +254,7 @@ char *my_char_replace(char *origin, char toFind, char toReplace);
 
 ### Exemple :
 
-Un appel de votre fonction devra afficher ce résultats :
+Un appel de votre fonction devra afficher ces résultats :
 
 
 
@@ -283,7 +283,7 @@ $> bianvanua à apitach !
 
 ### Sujet :
 
-L'objectif de cet exercice est d'écrire une fonction capable de compter le nombre d'occurences d'un caractère dans une string.
+L'objectif de cet exercice est d'écrire une fonction capable de compter le nombre d'occurrences d'un caractère dans une string.
 
 
 
@@ -455,11 +455,11 @@ L'objectif de cet exercice est d'écrire une fonction qui prend 3 arguments :
 
 - un caractère qui représente un symbole d'opération (+, -, *, /, %) sous forme d'un char.
 
-- un deuxieme nombre sous forme d'un int
+- un deuxième nombre sous forme d'un int
 
-Votre fonction doit appliquer l'opération donner par le caractère sur les deux nombres et renvoyer le résultat sous forme d'un int.
+Votre fonction doit appliquer l'opération donnée par le caractère sur les deux nombres et renvoyer le résultat sous forme d'un int.
 
-Si il y a un problème la fonction renvoi 0.
+S'il y a un problème la fonction renvoie 0.
 
 
 
@@ -541,7 +541,7 @@ L'objectif de cet exercice est d'écrire une fonction qui prend 2 arguments :
 
 Votre fonction doit afficher un carré de coté de la taille du premier argument avec le caractère du second.
 
-Si il y a un prbolème la fonction ne fait rien.
+S'il y a un problème la fonction ne fait rien.
 
 > Pour cet exercice vous pouvez utiliser print_char
 
@@ -594,7 +594,7 @@ $>
 
 ### Sujet :
 
-Pour cette exercice vous devez rendre une fonction qui prend en argument un pointeur sur une liste de nombre (int *) ainsi que sa taille. Vous devez renvoyer la moyenne de ses valeur sous forme d'un float.
+Pour cet exercice vous devez rendre une fonction qui prend en argument un pointeur sur une liste de nombre (int *) ainsi que sa taille. Vous devez renvoyer la moyenne de ses valeurs sous forme d'un float.
 
 
 
@@ -640,7 +640,7 @@ $> 13.4
 
 ### Sujet :
 
-Cette exercice à pour but de print chaque mot présent dans une string, donc séparés par: ' ' ou '\t'. Avec un \n entre chaque mot.
+Cet exercice a pour but de print chaque mot présent dans une string, donc séparés par: ' ' ou '\t'. Avec un \n entre chaque mot.
 
 > Pour cet exercice vous pouvez utiliser print_char
 
@@ -736,8 +736,8 @@ $> acegikmoqsuwybdfhjlnprtvxz
 
 ### Sujet :
 
-La fonction de cet exercice prend un premier argument: une liste de nombres entiers, et un second: le nombre d'entier. Cette dernière doit trier et afficher les nombres de la liste.
-Les techniques de tri sont nombreuse nous vous conseillons le Bubble sort.
+La fonction de cet exercice prend un premier argument: une liste de nombres entiers, et un second: le nombre d'entiers. Cette dernière doit trier et afficher les nombres de la liste.
+Les techniques de tri sont nombreuses nous vous conseillons le Bubble sort.
 
 Voici donc son prototype :
 
@@ -789,7 +789,7 @@ Exemple de Dictionnaire:
 ```
 "ville:Lyon,    pays:France, continent=europe"
 ```
-Le format se traduit donc par une clé séparer par ':' ou '=' de sa valeur sans espace. Chacun des ses ensembles clé valeur sont séparer par des  ',', ' ' , '\t'.
+Le format se traduit donc par une clé séparer par ':' ou '=' de sa valeur sans espace. Chacun des ses ensembles clé-valeur sont séparer par des  ',', ' ' , '\t'.
 
 > Pour cet exercice vous pouvez utiliser print_char
 
@@ -825,16 +825,27 @@ $> France
 
 ## My_Fibonacci
 
+
 > **Fichier de rendu:** `my_fibonacci.c`
 
-La function de cet exercice prend deux arguments: Un premier étant le minimum de la suite de fibonacci, le deuxième, le maximum.
+### Sujet :
+
+L'objectif de cet exercice est d'écrire une fonction qui prend 2 arguments :
+
+- un premier nombre sous forme d'un int >= 0 étant le minimum de la suite de fibonacci.
+
+- le second nombre sous forme d'un int, le maximum.
+
 Cette dernière doit afficher la suite de fibonacci en partant du minimum jusqu'au maximum.
 
-> Pour cet exercice vous pouvez utiliser print_char et print_number
+> Pour cet exercice vous pouvez utiliser print_number
 
 Voici donc son prototype :
+
 ```c
+
 void my_fibonacci(int minimum, int maximum);
+
 ```
 
 ### Exemple :
@@ -853,10 +864,26 @@ int main(void)
 ```
 
 ```txt
-$> 1
+$> 0
+   1
    1
    2
    3
    5
    8
+```
+
+```c
+int main(void)
+{
+    int minimum = -2;
+    int maximum = 10;
+
+    my_fibonacci(minimum, maximum);
+    return 0;
+}
+```
+
+```txt
+$>
 ```
