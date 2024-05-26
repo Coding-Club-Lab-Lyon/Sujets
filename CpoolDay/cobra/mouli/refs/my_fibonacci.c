@@ -4,7 +4,7 @@ void my_fibonacci(int minimum, int maximum)
 {
     int n, first = 0, second = 1, next = 0, c;
 
-    if (minimum > maximum || minimum == maximum)
+    if (minimum > maximum || minimum < 0)
         return;
     for (c = 0; next <= maximum; c++) {
         if (c <= 1)
