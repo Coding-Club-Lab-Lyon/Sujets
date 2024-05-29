@@ -34,7 +34,7 @@ function acheterCuistot() {
     prix_cuistot *= 1.5
     prix_cuistot = parseInt(prix_cuistot)
     score.innerText = argent + "$"
-    button.innerText = "Acheter un four (" + prix_cuistot + "$)"
+    button.innerText = "Acheter un cuistot (" + prix_cuistot + "$)"
 }
 
 
