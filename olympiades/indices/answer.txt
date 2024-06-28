@@ -1,0 +1,8 @@
+prompt.html
+
+	- answer is "SGBD"
+
+prompt_legacy.html
+
+	- hide smth at the location pointed by the hints
+
