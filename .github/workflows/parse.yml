@@ -55,5 +55,5 @@ jobs:
           done
       - uses: EndBug/add-and-commit@v9
         with:
-          token: ${{ secrets.FINE_GRAINED_TOKEN }}
+          github_token: ${{ secrets.FINE_GRAINED_TOKEN }}
           default_author: github_actions
