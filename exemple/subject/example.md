@@ -2,13 +2,17 @@
 
 ### 1. Sous Titre
 
-!icon:house
-
 >:success !icon:check **BRAVO** Félicitation! 
+
+<br/>
 
 >:info !icon:circle-info Plein d'info disponible sur Epitech -> [ici](https://www.epitech.eu/)
 
+<br/>
+
 >:warning !icon:triangle-exclamation **Attention:** Pensez à sauvegarder votre code !
+
+<br/>
 
 >:danger !icon:fire Le feu ça brule !!
 
