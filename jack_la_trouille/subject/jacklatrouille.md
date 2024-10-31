@@ -298,7 +298,8 @@ int is_alive() { // de type int car return une valeur.
     return 0; // on renvoie 0 pour signifier aucun problème
 }
 ```
-<br/>
+
+!pagebreak
 
 La détection des orbes atteignant le bout de l'arène est en place, il ne reste plus qu'à les faire disparaître, c'est-à-dire arrêter de les afficher ! Pour cela, on va vérifier, pour chaque orbe, si le bord gauche de la fenêtre est atteint, et choisir quoi faire selon les cas. Modifie ton code dans la fonction `draw()`, en gardant les lignes avec `clear()`, `image()` et `spawn()`, puis remplace le reste par ceci :
 
