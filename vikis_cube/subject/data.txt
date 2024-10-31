@@ -1,2 +1,4 @@
 VIKI'S CUBE
 2.2.3
+Lyon
+stable
