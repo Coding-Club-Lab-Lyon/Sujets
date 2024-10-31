@@ -1,2 +1,4 @@
 CPool Day En -1
 1.0.1
+Lyon
+stable

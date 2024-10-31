@@ -1,2 +1,4 @@
 Pendu
 1.2.1
+Lyon
+stable
