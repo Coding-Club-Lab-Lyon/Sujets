@@ -1,4 +1,3 @@
 Exemples Coding Club
 2.0.0
 Lyon
-stable
