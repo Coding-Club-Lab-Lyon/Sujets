@@ -114,7 +114,7 @@ outputStream.close()
 # Headless browser
 
 options = Options()
-options.headless = True
+options.add_argument("-headless")
 driver = webdriver.Firefox(options=options)
 
 # Base HTML Template
@@ -169,7 +169,6 @@ print("Removing temporary files...")
 os.remove("builder/output.html")
 os.remove("builder/output.pdf")
 os.remove("builder/cover.pdf")
-os.remove("geckodriver.log")
 for file in files:
     os.system("rm -r builder/%s" % file)
 print("Done.")
