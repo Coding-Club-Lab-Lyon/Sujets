@@ -1,0 +1,11 @@
+10 10
+oooo......
+.oo....oo.
+o.o..oooo.
+.oo.o.ooo.
+.o.oo..o.o
+oooo...ooo
+oo.oo.oooo
+..oooooo.o
+..o..o.oo.
+.oo..o..o.
