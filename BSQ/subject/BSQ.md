@@ -41,6 +41,7 @@ python main.py <maps>
 
 Pour utiliser les binaires, vous pouvez les lancer de la manière suivante :
 
+
 ```sh
 ./solver <maps>
 ```
@@ -53,22 +54,22 @@ Pour utiliser les binaires, vous pouvez les lancer de la manière suivante :
 
 Il semblerait qu'aucune maps ne soit fournie pour tester votre programme !
 
-**Heureusement**, l'ébauche d'un générateur (`generator.py`) vous est proposée, commencez par le réparer avant de vous lancer dans le projet !
+**Heureusement**, un générateur (`generator.py`) vous est proposée afin de vous lancer dans le projet !
 
 Pour lancez le générateur, rien de plus simple :
 
 ```sh
-python generator.py <width> <height>
+./generator <width> <height>
 ```
+
+N'oubliez pas de tester des cas particulier, comme des map de 1 par 10, 10 par 1, une map vide, avec une seul case, et plein d'autres possibilitées.
 
 ## Bonus ?!?!
 
 Déjà fini ? Vous pouvez essayer d'implémenter des fonctionnalités supplémentaires pour améliorer votre projet :   
 
+- Compléter le fichier generator.py afin de reproduire le comportement de generator.py
 - Réécrire le fichier `./tester` en Python. (il a été écrit en python avant d'être compilé)
-- Améliorer le générateur de maps, ajouter les options de :
-    - Densité, nombre de 0 à 1 définissant le pourcentage d'obstacles
-    - Pattern, pour générer des maps avec des formes spécifiques (e.g. "..oo.oo")
 - Ajouter des options pour personnaliser le comportement de votre programme (e.g. `--verbose`, `--color`, `--output`, etc.)
 
 ---
