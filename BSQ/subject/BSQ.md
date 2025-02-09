@@ -54,7 +54,7 @@ Pour utiliser les binaires, vous pouvez les lancer de la manière suivante :
 
 Il semblerait qu'aucune maps ne soit fournie pour tester votre programme !
 
-**Heureusement**, un générateur (`generator.py`) vous est proposée afin de vous lancer dans le projet !
+**Heureusement**, un générateur vous est proposée afin de vous lancer dans le projet !
 
 Pour lancer le générateur, rien de plus simple :
 
@@ -68,7 +68,7 @@ N'oubliez pas de tester des cas particuliers, comme des maps de 1 par 10, 10 par
 
 Déjà fini ? Vous pouvez essayer d'implémenter des fonctionnalités supplémentaires pour améliorer votre projet :   
 
-- Compléter le fichier generator.py afin de reproduire le comportement de generator.py
+- Compléter le fichier generator.py afin de reproduire le comportement du binaire de génération
 - Réécrire le fichier `./tester` en Python. (il a été écrit en python avant d'être compilé)
 - Ajouter des options pour personnaliser le comportement de votre programme (e.g. `--verbose`, `--color`, `--output`, etc.)
 
