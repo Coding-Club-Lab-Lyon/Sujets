@@ -56,13 +56,13 @@ Il semblerait qu'aucune maps ne soit fournie pour tester votre programme !
 
 **Heureusement**, un générateur (`generator.py`) vous est proposée afin de vous lancer dans le projet !
 
-Pour lancez le générateur, rien de plus simple :
+Pour lancer le générateur, rien de plus simple :
 
 ```sh
 ./generator <width> <height>
 ```
 
-N'oubliez pas de tester des cas particulier, comme des map de 1 par 10, 10 par 1, une map vide, avec une seul case, et plein d'autres possibilitées.
+N'oubliez pas de tester des cas particuliers, comme des maps de 1 par 10, 10 par 1, une map vide, avec une seule case, et plein d'autres possibilitées.
 
 ## Bonus ?!?!
 
