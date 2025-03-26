@@ -13,13 +13,13 @@ Autre détail amusant, jusqu’en 2018, le créateur du langage Python possédai
 - Lors du repas. On ne mangera pas sur les tables des ordinateurs pour éviter les accidents. (Sauf exceptions)
 - Après le repas, nettoyez après vous et jetez vos déchets.
 
->:danger !icon:diamond-exclamation Si un Cobra vous prend en train de tricher, il se doit de supprimer votre avancement sur le projet.
+>:danger Si un Cobra vous prend en train de tricher, il se doit de supprimer votre avancement sur le projet.
 
 ## III. Comment commencer
 Si vous travaillez depuis un ordinateur fourni par le Coding Club, vous devez avoir toutes les dépendances nécessaires pour commencer. Vous pouvez ignorer cette étape.
 Si ce n'est pas votre cas, et que vous n'avez pas python sur votre ordinateur. **Faites appel à un Cobra.**
 
->:info !icon:brackets_curly Les Cobra sont les étudiants qui organisent ces événements pour vous. Ils sont assez reconnaissable et tourne dans la salle.
+>:info !icon:circle-info Les Cobra sont les étudiants qui organisent ces événements pour vous. Ils sont tournent dans la salle.
 
 ## IV. Que faire quand tu es coincé(e)
 - Premièrement, soyez sûr de ce qui vous coince et ce que vous essayez de faire. (C'est plus facile d'aider quelqu'un qui pose une question précise au lieu d'une question vague.)
@@ -49,8 +49,8 @@ Essayez de faire un algorithme simple pour commencer, puis si vous vous sentez p
 ### Droit dans le mur
 Avant de commencer, vous devez avoir avec votre sujet 2 fichiers en plus.
 
--	**map.txt** : C’est la carte de votre labyrinthe, les "x" représentent les murs, les "-" les chemins et le "o" la sortie et les cases déjà visitées se transformeront en ".". Vous devez aussi savoir que vous commencerez toujours en haut à gauche du labyrinthe.
--	**dedale.py** : C’est le fichier dans lequel vous allez implémenter votre algorithme.
+- **map.txt** : C’est la carte de votre labyrinthe, les "x" représentent les murs, les "-" les chemins et le "o" la sortie et les cases déjà visitées se transformeront en ".". Vous devez aussi savoir que vous commencerez toujours en haut à gauche du labyrinthe.
+- **dedale.py** : C’est le fichier dans lequel vous allez implémenter votre algorithme.
 
 Cela étant dit, vous pouvez tester votre programme en écrivant dans votre terminal :
 
@@ -73,12 +73,12 @@ Vous pouvez appeler les fonctions `right`, `down`, `left` et `up` pour vous diri
 
 Avant de vous lancer dans votre algorithme, vous devez avoir en tête les points ci-dessous :
 
--	Vous avez accès à une variable "map" qui contient toutes les valeurs à jour de la carte.
--	Vous avez aussi accès aux variables "posX" et "posY" qui vous donne votre position en les utilisant comme ceci : `map[posY][posX]` (ces variables sont mises à jour automatiquement).
--	Les valeurs de la map sont : "x" / "-" / "o" / "." pour les cases déjà visitée.
--	La fonction `algorithm` est appelée une seule fois, à vous de vous arrêter à la fin du labyrinthe.
--	L’affichage est mis à jour à chaque fois que l'une des fonctions de mouvement est exécutée.
--	Une variable "path" est mise à disposition. Vous connaîtrez son utilité dans la partie suivante.
+- Vous avez accès à une variable "map" qui contient toutes les valeurs à jour de la carte.
+- Vous avez aussi accès aux variables "posX" et "posY" qui vous donne votre position en les utilisant comme ceci : `map[posY][posX]` (ces variables sont mises à jour automatiquement).
+- Les valeurs de la map sont : "x" / "-" / "o" / "." pour les cases déjà visitée.
+- La fonction `algorithm` est appelée une seule fois, à vous de vous arrêter à la fin du labyrinthe.
+- L’affichage est mis à jour à chaque fois que l'une des fonctions de mouvement est exécutée.
+- Une variable "path" est mise à disposition. Vous connaîtrez son utilité dans la partie suivante.
 
 ### En route vers la sortie
 Pour bien commencer essayez de changer vous déplacer d'une case à la fois pour comprendre le fonctionnement.
@@ -94,13 +94,11 @@ A un moment donné, vous serez dans un cul-de-sac. Au quel cas, vous devrez rebr
 ## VI. Le bout du tunnel
 Félicitations, vous avez un algorithme fonctionnel. Vous allez pouvoir partir à l'aventure !
 
-Maintenant que vous avez votre GPS pour labyrinthe vous allez pouvoir le continuer pour l'améliorer.
+Maintenant que vous avez votre GPS pour labyrinthe vous allez pouvoir continuer de l'améliorer.
 
-Voici quelques petits exemples d’amélioration :
--	Modifier la carte pour mettre votre algorithme à rude épreuve.
--	Essayez de l’optimiser pour qu’il soit plus rapide.
--	Vous pouvez faire de la gestion d’erreurs. (Vérifier que le labyrinthe a bien un début et une fin par exemple).
--	Créer un générateur de labyrinthe pour tester votre algorithme.
-	Si le labyrinthe à plusieurs chemins possible, trouvez le chemin le plus court.
+- Modifier la carte pour mettre votre algorithme à rude épreuve.
+- Essayez de l’optimiser pour qu’il soit plus rapide.
+- Vous pouvez faire de la gestion d’erreurs. (Vérifier que le labyrinthe a bien un début et une fin par exemple).
+- Créer un générateur de labyrinthe pour tester votre algorithme. Si le labyrinthe à plusieurs chemins possible, trouvez le chemin le plus court.
 
 >:info !icon:circle-info Si vous êtes curieux, pensez à poser vos questions aux Cobras. Ils seront ravis de partager leurs connaissances avec vous.
