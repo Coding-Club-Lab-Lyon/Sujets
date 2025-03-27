@@ -12,6 +12,7 @@ Autre détail amusant, jusqu’en 2018, le créateur du langage Python possédai
 - Avant le repas, fermez votre ordinateur.
 - Lors du repas. On ne mangera pas sur les tables des ordinateurs pour éviter les accidents. (Sauf exceptions)
 - Après le repas, nettoyez après vous et jetez vos déchets.
+- Tout le monde mange en même temps.
 
 >:danger Si un Cobra vous prend en train de tricher, il se doit de supprimer votre avancement sur le projet.
 
