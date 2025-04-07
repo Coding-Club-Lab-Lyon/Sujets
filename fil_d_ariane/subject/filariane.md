@@ -7,30 +7,7 @@ Autre détail amusant, jusqu’en 2018, le créateur du langage Python possédai
 
 ![](assets/logo_python.png)
 
-## II. Règles du Coding Club
-- **L'utilisation de ChatGPT, ou toute forme d'intelligence artificielle sera considéré comme de la triche\.**
-- Avant le repas, fermez votre ordinateur.
-- Lors du repas. On ne mangera pas sur les tables des ordinateurs pour éviter les accidents. (Sauf exceptions)
-- Après le repas, nettoyez après vous et jetez vos déchets.
-- Tout le monde mange en même temps.
-
->:danger Si un Cobra vous prend en train de tricher, il se doit de supprimer votre avancement sur le projet.
-
-## III. Comment commencer
-Si vous travaillez depuis un ordinateur fourni par le Coding Club, vous devez avoir toutes les dépendances nécessaires pour commencer. Vous pouvez ignorer cette étape.
-Si ce n'est pas votre cas, et que vous n'avez pas python sur votre ordinateur. **Faites appel à un Cobra.**
-
->:info !icon:circle-info Les Cobra sont les étudiants qui organisent ces événements pour vous. Ils sont tournent dans la salle.
-
-## IV. Que faire quand tu es coincé(e)
-- Premièrement, soyez sûr de ce qui vous coince et ce que vous essayez de faire. (C'est plus facile d'aider quelqu'un qui pose une question précise au lieu d'une question vague.)
-- Deuxièmement, demandes aux personnes autour de toi! Ce n'est pas un examen, vous êtes là pour travailler ensemble :)
-- Troisièmement, la réponse est à coup sûr sur **Google**.
-- Dernièrement, si aucune de ces étapes t'as débloqué. Demandes à un Cobra!
-
->:info !icon:circle-info PS: Si les cobras ne savent pas ils demanderont à Google.
-
-## V. Le Fil d’Ariane
+## II. Le Fil d’Ariane
 En tant que mythologicien, vous avez toujours été fasciné par le mythe du fil d’Ariane. Un beau jour, vous avez été envoyé pour résoudre le labyrinthe une bonne fois pour toute.
 
 Arrivé sur place, vous commencez à avancer dans le labyrinthe tout en posant des balises de repérage. Au bout de plus d’une heure, vous décidez de rebrousser chemin car vous n’avez plus de balise. En vous retournant, vous apercevez des énormes traces de pied et toutes vos balises ont disparues.
@@ -92,7 +69,7 @@ A un moment donné, vous serez dans un cul-de-sac. Au quel cas, vous devrez rebr
 
 ![](assets/example.png)
 
-## VI. Le bout du tunnel
+## III. Le bout du tunnel
 Félicitations, vous avez un algorithme fonctionnel. Vous allez pouvoir partir à l'aventure !
 
 Maintenant que vous avez votre GPS pour labyrinthe vous allez pouvoir continuer de l'améliorer.
