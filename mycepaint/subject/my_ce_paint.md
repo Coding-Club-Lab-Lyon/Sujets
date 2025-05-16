@@ -14,21 +14,6 @@ va vous aider à mener votre projet à bien.
 
 !pagebreak
 
-## II. Consignes
-
-* Vous avez tout à fait le droit d’utiliser internet pour trouver des réponses ou pour vous
-renseigner.
-
-* En cas de soucis ou questions demandez de l’aide à votre voisin de droite. Puis de gauche. Ou inversement. Puis demandez enfin à un cobra si vous êtes bloqué(e), un cobra se fera une joie de vous aider.
-
->:info !icon:circle-info Faite la prochaine étape seulement si vous n'êtes pas sur un PC du Coding Club.
-
-* Veuillez suivre le tutoriel « Installation Python et ses outils ». Vous
-aurez besoin d’installer la bibliothèque Pygame pour ce sujet.
-
-  * Si l’installation ne se déroule pas bien, refaites l’installation de zéro.
-
-!pagebreak
 
 ## III. Une simple requête
 
@@ -57,11 +42,11 @@ système d’événement de clavier de Pygame.
 
 A vous de réaliser cette magnifique fenêtre !
 
-![Et ça mon ami.e est une page blanche](assets/white_screen.png)<center>*Voici une fenêtre que vous êtes censé avoir à la fin de cette étape*</center>
+![Et ça mon ami.e est une page blanche](assets/empty_screen.jpg)<center>*Voici une fenêtre que vous êtes censé avoir à la fin de cette étape*</center>
 
 !pagebreak
 
-### 2. Plusssssss de lignes !
+### 2. Plusssssss de ligne !
 
 Regius vous applaudit à la suite de votre réussite. Il vous dit ensuite que maintenant, il faut
 dessiner des lignes !
@@ -78,7 +63,7 @@ entre le point n-1 et le point actuel de la souris lorsque le clic gauche est ac
 
 N’oubliez pas de trouver et d’utiliser les bonnes fonctions décrites plus haut !
 
-![Un ssssserpent, NON c'est une ligne](assets/black_line.png)<center>*Voici un magnifique serp... LIGNE que vous pouvez faire à la fin de cette étape*</center>
+![Un ssssserpent, NON c'est une ligne](assets/line_screen.jpg)<center>*Voici un magnifique serp... LIGNE que vous pouvez faire à la fin de cette étape*</center>
 
 !pagebreak
 
@@ -94,7 +79,7 @@ fonction qui s’occupera du changement de couleurs. Elle devra retourner 3 chif
 ``` python
 def pick_color(key):
     if (key == pygame.key.key_code('N')):
-        return (0, 0, 0) #renvoie du noir
+        return (BLACK)  #renvoie du noir
 ```
 
 Pour gérer le changement de couleur, il vous conseille de lier les touches de votre clavier
@@ -111,7 +96,7 @@ Il ressort son livre de référence et il vous dit qu’il y a des moyens de dé
 actives. Il s’agit du même système que vous avez utilisé pour détecter « Echap » mais en
 utilisant « unicode » au lieu de « key ».
 
-![Woah !! Des pets de Licorne! ohh... non c'est juste des sssserpents colorés](assets/rainbow_lines.png)<center>*Voici ce que vous pouvez faire avec le changement de couleur implémenté !*</center>
+![Woah !! Des pets de Licorne! ohh... non c'est juste des sssserpents colorés](assets/rainbow_screen.png)<center>*Voici ce que vous pouvez faire avec le changement de couleur implémenté !*</center>
 
 !pagebreak
 
@@ -126,27 +111,51 @@ vous signale que c’est la même chose que ce que vous étiez en train de faire
 lieu de remplir l’arrière-plan dans la couleur que vous avez sélectionné, il faut le remplir avec
 du blanc.
 
-![Fond vert "be like"](assets/green_screen.png)<center>*Voici ce que vous êtes capable de faire une fois cette étape finie !*</center>
+![Fond vert "be like"](assets/green_screen.jpg)<center>*Voici ce que vous êtes capable de faire une fois cette étape finie !*</center>
+
+!pagebreak
+
+### 5. La barre magique des couleurs !
+
+Le roi Weegee adore les couleurs et souhaite pouvoir changer facilement la teinte de ses murs. Regius vous propose d’ajouter une barre de sélection de couleurs en haut de la fenêtre pour rendre le choix plus intuitif.
+
+Pour réaliser cette fonctionnalité :
+
+- Dessinez une barre horizontale en haut de la fenêtre (par exemple, un rectangle gris clair).
+- Placez dans cette barre plusieurs petits rectangles ou cercles, chacun représentant une couleur différente (rouge, vert, bleu, jaune, magenta, cyan, noir…).
+- Lorsque l’utilisateur clique sur l’une de ces couleurs, la couleur de dessin active change immédiatement.
+- Affichez aussi la couleur actuellement sélectionnée (par exemple, en l’entourant ou en l’agrandissant).
+- Ajoutez un bouton « Effacer » (Clear) dans la barre, qui permet de remettre la toile à zéro d’un simple clic.
+
+![Une palette de couleurs et un bouton pour tout effacer !](assets/color_screen.jpg)<center>*Voici une barre de couleurs avec un bouton "Clear" pour repartir d'une page blanche !*</center>
+
+!pagebreak
+
+### 6. La boîte à outils magique !
+
+Le roi Weegee souhaite encore plus de créativité : il veut pouvoir dessiner non seulement des lignes, mais aussi des cercles et des rectangles ! Regius vous propose d’ajouter une boîte à outils (toolbox) pour choisir l’outil de dessin.
+
+Pour réaliser cette fonctionnalité :
+
+- Ajoutez une zone (par exemple, à gauche ou en haut de la fenêtre) affichant les icônes des outils disponibles : un pinceau (ligne libre), un cercle, et un rectangle.
+- Lorsque l’utilisateur clique sur une icône, l’outil de dessin actif change (ligne, cercle, ou rectangle).
+- Affichez l’outil actuellement sélectionné (par exemple, en le surlignant ou en l’agrandissant).
+- Pour le cercle et le rectangle : l’utilisateur clique pour définir le point de départ, puis fait glisser la souris pour définir la taille et relâche pour dessiner la forme.
+- Le pinceau fonctionne comme avant pour dessiner des lignes libres.
+
+![Une boîte à outils avec pinceau, cercle et rectangle](assets/tools_screen.jpg)<center>*Voici une boîte à outils permettant de choisir entre pinceau, cercle et rectangle !*</center>
 
 !pagebreak
 
 ## IV. Conclusion
 
-Regius vous informe que toutes les demandes du roi ont été complétées, il vous propose
-d’aller le lui montrer directement. En arrivant vers la salle du trône vous sentez des parfums
-fruités. Lorsque vous franchissez la porte de la grande salle, vous découvrez un magnifique
-gâteau décoré de fraises et de framboises.
-Le roi Weegee vous interpelle et vous informe qu’il
-a suivi de loin votre projet et qu’il est satisfait de votre travail. Pour vous remercier, il vous
-récompense avec un trésor inestimable : une place permanente dans sa cour et le poste de
-conseiller technique royal.
+Regius vous informe que toutes les demandes du roi ont été complétées et vous propose d’aller le lui montrer directement. En arrivant dans la salle du trône, vous sentez des parfums fruités. Lorsque vous franchissez la porte de la grande salle, vous découvrez un magnifique gâteau décoré de fraises et de framboises.
 
-En tant que nouveau conseiller du roi, vous pouvez continuer le Mycépaint avec vos propres
-idées, ou vous pouvez en prendre une dans cette liste :
+Le roi Weegee vous interpelle et vous annonce qu’il a suivi de loin votre projet et qu’il est très satisfait de votre travail. Pour vous remercier, il vous offre un trésor inestimable : une place permanente dans sa cour et le poste de conseiller technique royal.
 
-* Des tailles et formes de pinceaux variés.
-* Un outil de remplissage de formes.
-* Un aperçu de la couleur actuelle et/ou de l’outil en cours d’utilisation.
-* Optimiser la sélection des couleurs.
-* La possibilité de sauvegarder vos œuvres d’art.
-* *Et beaucoup plus encore...*
+En tant que nouveau conseiller du roi, vous pouvez continuer à améliorer Mycépaint avec vos propres idées, ou bien en choisir une parmi cette liste :
+
+* Ajouter différentes tailles et formes de pinceaux.
+* Créer un outil de remplissage de formes.
+* Permettre la sauvegarde de vos œuvres d’art.
+* *Et bien plus encore...*
