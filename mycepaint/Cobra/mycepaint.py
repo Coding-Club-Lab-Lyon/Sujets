@@ -23,7 +23,7 @@ def initialize():
     return window
 
 
-# ----- Quit the window -----
+# ----- Quit -----
 def teardown():
     pygame.quit()
 
