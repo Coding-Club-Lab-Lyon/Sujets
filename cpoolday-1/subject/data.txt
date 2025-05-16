@@ -1,4 +1,0 @@
-CPool Day -1
-1.2.7
-Lyon
-Stable

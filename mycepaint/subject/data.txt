@@ -1,4 +1,0 @@
-Mycépaint
-1.1.1
-Lyon
-stable
