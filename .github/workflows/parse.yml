@@ -14,21 +14,21 @@ jobs:
       - name: "Parse markdown subjects"
         run: |
           set -e
-          subjects=$(ls -d */)
           cd .github/workflows/parser
-          for directory in $(subjects)
+          subjects=$(ls -d ../../../*/)
+          for directory in ${subjects}
           do
               if [ ! -d "$directory/subject" ]; then
                   echo "::error directory=$directory,title="No subject folder"::$directory"
                   continue
               fi
-              md=$(ls $directory/subject/*.md | head -n1)
+              md=$(find "$directory/subject" -name "*.md" -type f | head -n1)
               if [ ! -f "$md" ]; then
                   echo "::error directory=$directory/subject,title="No markdown found"::$directory/subject"
                   continue
               fi
               # This will write the pdf in $directory. Meaning in the parent directory of the markdown file.
-              python3 cc_subjects.py "../../../$md"
+              python3 cc_subjects.py "$md"
               if [ ! $? -ne 0 ]; then
                   echo "::error directory=$directory/subject,title="Conversion failed"::$directory/subject"
               fi
