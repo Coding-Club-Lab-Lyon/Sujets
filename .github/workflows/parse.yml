@@ -2,10 +2,12 @@ name: Parser
 
 on:
   workflow_dispatch: # allows manual triggering
-  push: # TODO: branches: - main
+  push:
+    branches:
+      - main
 
 jobs:
-  parse_directorys:
+  parse_directories:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,14 +24,14 @@ jobs:
                   echo "::error directory=$directory,title="No subject folder"::$directory"
                   continue
               fi
-              md=$(find "$directory/subject" -name "*.md" -type f | head -n1)
+              md=$(find "$directory/subject" "$directory/Subject" -name "*.md" -type f 2>/dev/null | head -n1)
               if [ ! -f "$md" ]; then
                   echo "::error directory=$directory/subject,title="No markdown found"::$directory/subject"
                   continue
               fi
               # This will write the pdf in $directory. Meaning in the parent directory of the markdown file.
               python3 cc_subjects.py "$md"
-              if [ ! $? -ne 0 ]; then
+              if [ $? -ne 0 ]; then
                   echo "::error directory=$directory/subject,title="Conversion failed"::$directory/subject"
               fi
           done

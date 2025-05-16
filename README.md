@@ -146,3 +146,5 @@ Veuillez respecter cette architecture sinon il ne sera pas converti automatiquem
 Le sujet doit être un fichier \*.md dans le dossier "subject". Le nom du PDF sera déterminé de la manière suivante: `un_sujet_de_ouf.md` -> `Un sujet de ouf.pdf`
 
 Le PDF sera généré dans la directory du sujet, exemple ci-dessus.
+
+Si vous rencontrez un problème et que le PDF n'a pas été créé, jettez un oeil aux erreurs du workflow.
