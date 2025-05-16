@@ -1,3 +1,0 @@
-CpoolDay
-1.0.7
-Lyon

@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-from compileall import compile_path
 import io
 import os
 import markdown
@@ -18,24 +17,22 @@ from time import sleep
 from weasyprint import HTML
 from PyPDF2 import PdfWriter, PdfReader, PdfMerger
 
-if len(sys.argv) < 4:
-    print("Usage: python3 cc_subjects.py <file> <title> <version> <campus>")
+if len(sys.argv) < 2:
+    print("Usage: python3 cc_subjects.py <file>")
     exit(1)
 
 compile_file = sys.argv[1]
+project_title = compile_file.replace("_", " ").split("/")[-1].removesuffix(".md").capitalize()
 export_dir = "/".join(compile_file.split("/")[:-1])
-project_title = sys.argv[2]
-project_version = sys.argv[3][:10]
-project_campus = sys.argv[4]
 
 
-def str_to_snake_case(str):
-    str = str.title().replace(" ", "-")
-    str = re.sub('([^\w-])', '_', str)
-    str = re.sub('^_', '', str)
-    str = re.sub('_$', '', str)
-    str = re.sub('_+', '_', str)
-    return str
+def str_to_snake_case(string):
+    string = string.title().replace(" ", "-")
+    string = re.sub(r"([^\w-])", "_", string)
+    string = re.sub(r"^_", "", string)
+    string = re.sub(r"_$", "", string)
+    string = re.sub(r"_+", "_", string)
+    return string
 
 
 # Check directory
@@ -57,7 +54,7 @@ def custom_commands(html):
     html = html.replace("\\!", "\a")
     replacements = [
         ("!pagebreak", "<pagebreak>"),
-        ("!icon:([\w-]+)", replace_font_awesome),
+        (r"!icon:([\w-]+)", replace_font_awesome),
         ("<blockquote>\n<p>:(info|success|warning|danger)",
          "<blockquote class=\"\\1\">\n<p>"),
     ]
@@ -87,17 +84,12 @@ for i, text in enumerate(lines[::-1]):
     width = stringWidth(text, "Roboto", 50)
     can.drawString(535 - width, 390 + i * 55, text)
 
-text = "© Coding Club " + project_campus.capitalize()
+text = "© Coding Club Lyon"
 can.setFillColor(HexColor('#4B526F'))
 can.setFont("FiraSans-Regular", 10)
 width = stringWidth(text, "FiraSans-Regular", 10)
 can.drawString(23, 32, text)
 
-text = "VERSION " + project_version
-can.setFillColor(HexColor('#8288A8'))
-can.setFont("Roboto", 17)
-width = stringWidth(text, "Roboto", 17)
-can.drawString(535 - width, 335, text)
 can.save()
 packet.seek(0)
 
@@ -149,6 +141,10 @@ sleep(2)
 elem = driver.find_element(By.XPATH, "//*")
 interpreted_html = elem.get_attribute("outerHTML")
 
+if interpreted_html is None:
+    print("Interpretation failed.")
+    exit(1)
+
 with open(html_file_name, "w") as html_out_file:
     html_out_file.write(interpreted_html)
 
@@ -156,6 +152,9 @@ with open(html_file_name, "w") as html_out_file:
 print("Exporting PDF...")
 pdf = HTML(html_file_name).write_pdf()
 f = open("builder/output.pdf", 'wb')
+if pdf is None:
+    print("PDF output failed.")
+    exit(1)
 f.write(pdf)
 f.close()
 # Merge 2 pdfs cover and output (output has multiple pages)

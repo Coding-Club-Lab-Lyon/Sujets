@@ -1,4 +1,0 @@
-Game of Life
-1.2.1
-Lyon
-stable
