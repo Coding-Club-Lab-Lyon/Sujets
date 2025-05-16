@@ -15,39 +15,6 @@ va vous aider à mener votre projet à bien.
 !pagebreak
 
 
-## II. Dépendance
-
->:warning !icon:warning Faite la prochaine étape seulement si vous n'êtes pas sur un PC du Coding Club.
-
-Pour réaliser ce projet, vous aurez besoin d'installer Python et la bibliothèque Pygame.
-
-### Installation de Python
-
-* Rendez-vous sur [python.org](https://www.python.org/downloads/) et téléchargez la dernière version de Python
-* Suivez les instructions d'installation pour votre système d'exploitation
-* Vérifiez l'installation en ouvrant un terminal et en tapant :
-
-```bash
-python3 --version
-```
-
-* Une fois Python installé, vous pouvez installer Pygame en utilisant pip, le gestionnaire de paquets de Python :
-
-```bash
-pip install pygame
-```
-
-* Vérifiez l'installation de Pygame en exécutant :
-
-```bash
-python3 mycepaint.py
-```
-
-Si il n'y a pas d'erreur alors l'installation est réussie !
-
-!pagebreak
-
-
 ## III. Une simple requête
 
 ![shut up it's art](assets/art.png)
