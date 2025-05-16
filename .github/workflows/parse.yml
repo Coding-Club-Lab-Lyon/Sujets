@@ -2,65 +2,38 @@ name: Parser
 
 on:
   workflow_dispatch: # allows manual triggering
-  schedule:
-    - cron: '0 12 * * 0' # runs at 12:00 on Sunday
+  push: # TODO: branches: - main
 
 jobs:
-  parse_files:
+  parse_directorys:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Get new commits
-        id: commits
-        run: echo "NEW_COMMIT_COUNT=$(git log --oneline --since '24 hours ago' | wc -l)" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
       - name : "Install Python dependencies"
-        if: ${{ steps.commits.outputs.NEW_COMMIT_COUNT > 0 || github.event_name == 'workflow_dispatch'}}
-        run : pip install Markdown reportlab selenium weasyprint==53.0 PyPDF2
+        run : pip install -r .github/workflows/parser/requirements.txt
       - name: "Parse markdown subjects"
-        if: ${{ steps.commits.outputs.NEW_COMMIT_COUNT > 0 || github.event_name == 'workflow_dispatch'}}
         run: |
-          for file in $(ls -d */)
+          set -e
+          subjects=$(ls -d */)
+          cd .github/workflows/parser
+          for directory in $(subjects)
           do
-              if [ ! -d "$file/subject" ]; then
-                  echo "::error file=$file,title="No subject folder."::$file"
+              if [ ! -d "$directory/subject" ]; then
+                  echo "::error directory=$directory,title="No subject folder"::$directory"
                   continue
               fi
-              if [ ! -f "$file/subject/data.txt" ]; then
-                  echo "::error file=$file/subject,title="No subject data.txt."::$file/subject"
+              md=$(ls $directory/subject/*.md | head -n1)
+              if [ ! -f "$md" ]; then
+                  echo "::error directory=$directory/subject,title="No markdown found"::$directory/subject"
                   continue
               fi
-              data=$(cat $file/subject/data.txt)
-              stable=$(echo "$data" | cut -d$'\n' -f4)
-              if [ "$stable" = "stable" ]; then
-                  echo "::notice file=$file/mouli/data.txt,title="Marked as stable"::$file/mouli/data.txt"
-                  continue
+              # This will write the pdf in $directory. Meaning in the parent directory of the markdown file.
+              python3 cc_subjects.py "../../../$md"
+              if [ ! $? -ne 0 ]; then
+                  echo "::error directory=$directory/subject,title="Conversion failed"::$directory/subject"
               fi
-              title=$(echo "$data" | cut -d$'\n' -f1)
-              if [ -z "$title" ]; then
-                  echo "::error file=$file/subject/data.txt,title="No title."::$file/subject/data.txt"
-                  continue
-              fi
-              version=$(echo "$data" | cut -d$'\n' -f2)
-              if [ -z "$version" ]; then
-                  echo "::error file=$file/subject/data.txt,title="No version."::$file/subject/data.txt"
-                  continue
-              fi
-              campus=$(echo "$data" | cut -d$'\n' -f3)
-              if [ -z "$campus" ]; then
-                  echo "::error file=$file/subject/data.txt,title="No campus."::$file/subject/data.txt"
-                  continue
-              fi
-              md=$(ls $file/subject/*.md | head -n1)
-              if [ -z "$md" ]; then
-                  echo "::error file=$file/subject,title="No markdown file."::$file/subject"
-                  continue
-              fi
-              cd .github/workflows/parser && python3 cc_subjects.py "../../../$md" "$title" "$version" "$campus" && cd ../../..
           done
       - uses: EndBug/add-and-commit@v9
-        if: ${{ steps.commits.outputs.NEW_COMMIT_COUNT > 0 || github.event_name == 'workflow_dispatch'}}
         with:
           add: "-- . ':!.github'"
           default_author: github_actions

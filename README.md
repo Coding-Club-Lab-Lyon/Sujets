@@ -7,7 +7,7 @@
 Les sujets sont rédigés en Markdown, puis convertir en PDF par une GitHub Action.<br>
 Le sujet est à placer à la racine du repo dans un dossier nommé `nom_du_sujet`.<br>
 Chaque sujet doit contenir trois sous-dossiers :
-- `subject` : Contient le sujet en Markdown, les ressources nécessaires et le fichier `data.txt`
+- `subject` : Contient le sujet en Markdown, les ressources nécessaires
 - `Participants` : Contient les ressources à donner aux participants
 - `Cobra` : Contient la correction du sujet
 
@@ -16,13 +16,12 @@ voici l'arborescence type d'un sujet :
 .
 ├── nom_du_sujet
 │   ├── subject
-│   │   ├── data.txt
 │   │   └── sujet.md
 │   ├── Participants
 │   │   └── ...
 │   └── Cobra
 │       └── ...
-```   
+```
 
 Pour plus d'instructions sur la rédaction des sujets, voir la section [Rédaction de sujets](#rédaction-de-sujets)
 
@@ -74,6 +73,8 @@ Une fois le sujet mergé, la Pull Request est fermée et le sujet est ajouté à
 
 La nouvelle façon de rédiger les sujets du Coding Club est basée sur le [Markdown](https://www.markdownguide.org/cheat-sheet/)
 
+Si vous voulez transformer un fichier Markdown rapidement et localement en PDF, suivez la [documentation du parser markdown](.github/workflows/parser/README.md).
+
 Si vous n'êtes pas très a l'aise avec cette syntaxe ça s'apprend très vite ;)
 
 ### Règles
@@ -92,7 +93,7 @@ Pour que les sujets se conforment aux besoins du Coding Club, j'ai ajouté des f
 - **Icônes :**
 Vous pouvez insérer n'importe quelle icône [FontAwesome 6 Pro](https://fontawesome.com/search) en tappant `!icon:<id>`
 
-Exemple : `!icon:triangle-exclamation` affiche un panneau "Attention" 
+Exemple : `!icon:triangle-exclamation` affiche un panneau "Attention"
 
 ![](/.github/codingclub/assets/warning.png)
 
@@ -136,23 +137,12 @@ Veuillez respecter cette architecture sinon il ne sera pas converti automatiquem
 ```
 .
 ├── nom_du_sujet
+│   ├── Sujet.pdf // Généré
 │   ├── subject
-│   │   ├── data.txt
 │   │   └── sujet.md
 │   └── ...
 ```
 
-Le sujet doit être un fichier \*.md dans le dossier "subject", il doit être accompagné d'un fichier "data.txt" structuré comme ceci :
+Le sujet doit être un fichier \*.md dans le dossier "subject". Le nom du PDF sera déterminé de la manière suivante: `un_sujet_de_ouf.md` -> `Un sujet de ouf.pdf`
 
-```
-NOM DU SUJET
-1.0.0
-Campus 
-// stable // 
-```
-
-Ce fichier sert à la génération de la page de couverture du sujet.
-
-> Le dossier subject peut contenir d'autres documents comme des images qui sont insérées dans le fichier Markdown.
-
-Le dossier du sujet doit aussi contenir les ressources données aux participants et une correction (et d'autres dossiers si besoin).
+Le PDF sera généré dans la directory du sujet, exemple ci-dessus.
