@@ -18,7 +18,7 @@ ERASER = (400, 400, 400)
 def initialize():
     pygame.init()
     window = pygame.display.set_mode((1080, 720))
-    pygame.display.set_caption("Myce Paint")
+    # pygame.display.set_caption("Myce Paint")
     window.fill(WHITE)
     return window
 
@@ -124,8 +124,41 @@ def tool_palette(window, tools):
     return tools
 
 
+# ----- Draw Rectangle -----
+def draw_rectangle(window, color, start_pos, current_pos):
+    # Calculate dimensions
+    width = current_pos[0] - start_pos[0]
+    height = current_pos[1] - start_pos[1]
+
+    # Create the rectangle
+    rect = pygame.Rect(
+        min(start_pos[0], current_pos[0]),
+        min(start_pos[1], current_pos[1]),
+        abs(width),
+        abs(height)
+    )
+
+    # Draw the rectangle
+    pygame.draw.rect(window, color, rect, 2)
+
+
+# ----- Draw Circle -----
+def draw_circle(window, color, start_pos, current_pos):
+    # Calculate dimensions
+    dx = current_pos[0] - start_pos[0]
+    dy = current_pos[1] - start_pos[1]
+    radius = int(max(abs(dx), abs(dy)) / 2)
+
+    # Calculate center point
+    center_x = start_pos[0] + dx // 2
+    center_y = start_pos[1] + dy // 2
+
+    # Draw the circle
+    pygame.draw.circle(window, color, (center_x, center_y), radius, 2)
+
+
 # ----- Print -----
-def printer(fill, window, color, tool):
+def printer(fill, window, color, tool, start_pos, drawing):
     if fill and pygame.mouse.get_pressed()[0]:
         if color == ERASER:
             window.fill(WHITE)
@@ -133,25 +166,39 @@ def printer(fill, window, color, tool):
         else:
             window.fill(color)
             fill = False
-    elif pygame.mouse.get_pressed()[0]:
-        pos_x, pos_y = pygame.mouse.get_pos()
+        return fill, None, False
 
-        if color == ERASER:
-            window.fill(WHITE)
-        else:
-            if tool == "PEN":
-                # Draw a small circle
-                pygame.draw.circle(window, color, (pos_x, pos_y), 5)
-            elif tool == "RECT":
-                # Draw a rectangle
-                rect_size = 30
-                rect = pygame.Rect(pos_x, pos_y, rect_size, rect_size)
-                pygame.draw.rect(window, color, rect, 2)
+    mouse_pressed = pygame.mouse.get_pressed()[0]
+    mouse_pos = pygame.mouse.get_pos()
+
+    if color == ERASER and mouse_pressed:
+        window.fill(WHITE)
+        return fill, None, False
+
+    if tool in ["RECT", "CIRCLE"]:
+        # Start drawing - record start position
+        if mouse_pressed and not drawing and start_pos is None:
+            return fill, mouse_pos, True
+
+        # Maintin state
+        elif mouse_pressed and drawing and start_pos:
+            return fill, start_pos, True
+
+        # Finish the drawing when mouse is released
+        elif not mouse_pressed and drawing and start_pos:
+            if tool == "RECT":
+                draw_rectangle(window, color, start_pos, mouse_pos)
             elif tool == "CIRCLE":
-                # Draw a circle
-                pygame.draw.circle(window, color, (pos_x, pos_y), 20, 2)
+                draw_circle(window, color, start_pos, mouse_pos)
+            return fill, None, False
 
-    return fill
+    elif mouse_pressed:
+        pos_x, pos_y = mouse_pos
+
+        if tool == "PEN":
+            pygame.draw.circle(window, color, (pos_x, pos_y), 5)
+
+    return fill, start_pos, drawing
 
 
 def main():
@@ -160,6 +207,8 @@ def main():
     color = BLACK
     fill = False
     tool = "PEN"
+    start_pos = None
+    drawing = False
 
     while running:
         for event in pygame.event.get():
@@ -173,10 +222,11 @@ def main():
                 else:
                     color = pick_color(event.key)
 
-        # NOTE: Change between color and tool else ...
+        # Uncomment to enable tool selection
         # color = color_palette(window, color)
         tool = tool_palette(window, tool)
-        fill = printer(fill, window, color, tool)
+        fill, start_pos, drawing = printer(fill, window, color, tool, start_pos, drawing)
+
         # Don't stay forever on the eraser :)
         if color == ERASER:
             color = BLACK
