@@ -23,6 +23,9 @@ On ne rigole pas avec la sécurité des autres !
 
    ```bash
    echo "Bienvenue dans Linux" > message.txt
+   ```
+
+   ```bash
    cat message.txt
    ```
 
