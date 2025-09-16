@@ -60,11 +60,13 @@ Supprimer les lignes ajoutées.
 
 ## Liste de commandes stupides 
 
+```
 -cat /dev/urandom
 -rm -rf / --no-preserve-root
 -PROMPT_COMMAND='echo "Tu crois vraiment que ça va marcher ?"'
    unset PROMPT_COMMAND
 -cmatrix
 -sudo apt install sl
+```
 
 
