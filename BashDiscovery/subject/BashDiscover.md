@@ -20,6 +20,7 @@ On ne rigole pas avec la sécurité des autres !
    - `mkdir test && cd test` : crée un dossier et entre dedans.
 
 2. Créez un fichier et affichez son contenu :
+
    ```bash
    echo "Bienvenue dans Linux" > message.txt
    cat message.txt
@@ -53,9 +54,7 @@ echo 'echo "Bozo - FF15 - kys"' >> ~/.bashrc
 ```
 Encore plus drole, ouvrire un lien :
 
-```
-echo 'xdg-open "https://www.youtube.com/watch?v=dQw4w9WgXcQ" &' >> ~/.bashrc
-```
+`echo 'xdg-open "https://www.youtube.com/watch?v=dQw4w9WgXcQ" &' >> ~/.bashrc`
 
 🔄 Comment annuler ?
 
