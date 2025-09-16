@@ -1,0 +1,51 @@
+/* Fond global sombre */
+QWidget {
+  background: #070b10;
+  color: #d8e9ff;
+  font-family: "Segoe UI", "DejaVu Sans", Arial;
+  font-size: 11pt;
+}
+
+/* Titre / status */
+QLabel {
+  color: #9ad1ff;
+}
+
+/* Liste joueurs */
+QListWidget {
+  background: #0c1118;
+  border: 1px solid rgba(0,180,255,0.25);
+  border-radius: 8px;
+  padding: 6px;
+}
+QListWidget::item {
+  padding: 8px;
+}
+QListWidget::item:selected {
+  background: rgba(0,180,255,0.18);
+  color: #ffffff;
+}
+
+/* Boutons néon */
+QPushButton {
+  background: #0f1622;
+  color: #d8e9ff;
+  border: 1px solid rgba(0,180,255,0.35);
+  padding: 8px 14px;
+  border-radius: 10px;
+}
+QPushButton:hover {
+  background: #132033;
+  box-shadow: 0 0 12px rgba(0,180,255,0.45);
+  border: 1px solid rgba(0,180,255,0.65);
+}
+QPushButton:pressed {
+  background: #0b1420;
+}
+
+/* Stacked pages cadre */
+QStackedWidget {
+  border: 1px solid rgba(0,180,255,0.2);
+  border-radius: 10px;
+  background: #06090f;
+}
