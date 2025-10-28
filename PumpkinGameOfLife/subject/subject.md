@@ -1,10 +1,10 @@
 # 🎃 Le Jeu de la Vie des Citrouilles 🎃
 
-## 📋 Objectifs de l'atelier
+### 📋 Objectifs de l'atelier
 
 Bienvenue dans cet atelier où vous allez découvrir la programmation en créant votre propre simulation de "Jeu de la Vie"!
 
-## 🎮 Qu'est-ce que le Jeu de la Vie ?
+### 🎮 Qu'est-ce que le Jeu de la Vie ?
 
 Le **Jeu de la Vie** est un "automate cellulaire" inventé par le mathématicien John Conway en 1970. Ce n'est pas vraiment un jeu au sens classique : c'est une simulation où des cellules (ici, des citrouilles 🎃) vivent, meurent et naissent selon des règles très simples.
 
