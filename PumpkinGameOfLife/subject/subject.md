@@ -1,13 +1,8 @@
-
 # 🎃 Le Jeu de la Vie des Citrouilles 🎃
-## Atelier Python - Halloween
-
----
 
 ## 📋 Objectifs de l'atelier
 
 Bienvenue dans cet atelier où vous allez découvrir la programmation en créant votre propre simulation de "Jeu de la Vie"!
-
 
 ## 🎮 Qu'est-ce que le Jeu de la Vie ?
 
