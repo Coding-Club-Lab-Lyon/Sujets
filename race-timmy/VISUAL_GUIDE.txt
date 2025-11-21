@@ -1,0 +1,321 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                    RACE TIMMY - VISUAL GUIDE                             ║
+║                  What You'll See in the Simulation                       ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════════════
+                          MAIN GAME WINDOW
+═══════════════════════════════════════════════════════════════════════════
+
+┌────────────────────────────────────────────────────────────────────────┐
+│ Time: 12.34s | Speed: 15.2                                              │
+│                                                                          │
+│                                                                          │
+│                          ╱───────────╲                                   │
+│                        ╱               ╲                                 │
+│                      ╱                   ╲                               │
+│                    ╱                       ╲                             │
+│                   │          TRACK          │                            │
+│                   │                         │                            │
+│                   │           🏎️            │  ← Timmy (your car)       │
+│                   │          ╱│╲            │                            │
+│                   │         ╱ │ ╲           │  ← Green LIDAR rays       │
+│                   │        ╱  │  ╲          │                            │
+│                   │                         │                            │
+│                    ╲                       ╱                             │
+│                      ╲                   ╱                               │
+│                        ╲               ╱                                 │
+│                          ╲───────────╱                                   │
+│                               ║                                          │
+│                               ║  ← Start/Finish (white line)             │
+│                                                                          │
+│ SPACE: Pause | R: Restart | ESC: Quit                                   │
+└────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════
+                         VISUAL ELEMENTS
+═══════════════════════════════════════════════════════════════════════════
+
+🏎️  THE CAR (TIMMY)
+    • Color: Blue (normal) / Red (crashed)
+    • Shape: 3D box with visible orientation
+    • Size: About 1.5 units
+    • Position: Follows your control commands
+
+═══════════════════════════════════════════════════════════════════════════
+
+🟢 LIDAR RAYS (Green Lines)
+    • 91 rays in a 90-degree arc
+    • Emanate from front of car
+    • Length shows distance to wall
+    • Updates in real-time
+    • Visual debugging tool
+
+    Example:
+         ╱│╲
+        ╱ │ ╲      ← Rays spread out
+       ╱  │  ╲
+      ╱   │   ╲
+         🏎️
+
+═══════════════════════════════════════════════════════════════════════════
+
+⬜ START/FINISH LINE (White)
+    • Vertical white line
+    • Located at bottom of track
+    • Cross it to complete lap
+    • Visible from distance
+
+═══════════════════════════════════════════════════════════════════════════
+
+🧱 TRACK WALLS (Gray)
+    • Outer and inner boundaries
+    • 3D walls with height
+    • Collision detection
+    • Oval shape
+
+═══════════════════════════════════════════════════════════════════════════
+
+🟩 GROUND (Green)
+    • Flat green surface
+    • Extends beyond track
+    • Provides depth perception
+
+═══════════════════════════════════════════════════════════════════════════
+                         CAMERA VIEW
+═══════════════════════════════════════════════════════════════════════════
+
+The camera follows Timmy from behind and above:
+
+    Side View:
+                    👁️ Camera
+                      ↓
+                     ╱
+                    ╱
+                   ╱
+                  🏎️ Timmy
+                  ═══════ Track
+
+    Top View:
+                    👁️
+                    │
+                    │
+                    ↓
+                   🏎️ ← Camera follows
+                  ═══════
+
+═══════════════════════════════════════════════════════════════════════════
+                         UI ELEMENTS
+═══════════════════════════════════════════════════════════════════════════
+
+Top Left Corner:
+┌─────────────────────────────────┐
+│ Time: 12.34s | Speed: 15.2      │  ← Current lap time and speed
+└─────────────────────────────────┘
+
+Bottom Left Corner:
+┌─────────────────────────────────┐
+│ SPACE: Pause | R: Restart       │  ← Controls reminder
+│ ESC: Quit                        │
+└─────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════
+                         GAME STATES
+═══════════════════════════════════════════════════════════════════════════
+
+🟦 NORMAL STATE
+   • Car is blue
+   • Timer running
+   • LIDAR rays visible
+   • Car responds to controls
+
+   Display: "Time: 12.34s | Speed: 15.2"
+
+───────────────────────────────────────────────────────────────────────────
+
+🟥 CRASHED STATE
+   • Car turns red
+   • Timer stops
+   • Car stops moving
+   • Need to restart
+
+   Display: "CRASHED! Press R to restart"
+
+───────────────────────────────────────────────────────────────────────────
+
+⏸️  PAUSED STATE
+   • Everything frozen
+   • Timer paused
+   • Yellow text
+   • Press SPACE to resume
+
+   Display: "PAUSED - Press SPACE to continue"
+
+───────────────────────────────────────────────────────────────────────────
+
+🏁 LAP COMPLETE
+   • Green text
+   • Final time shown
+   • Auto-paused
+   • Can restart for better time
+
+   Display: "LAP COMPLETE! Time: 23.45s"
+
+═══════════════════════════════════════════════════════════════════════════
+                         LIDAR VISUALIZATION
+═══════════════════════════════════════════════════════════════════════════
+
+What the LIDAR rays show:
+
+SHORT RAYS = Wall is close
+    🏎️
+    ╱│╲
+   ╱ │ ╲
+  ║  │  ║  ← Walls very close!
+  ║     ║
+
+LONG RAYS = Open space
+    🏎️
+    ╱│╲
+   ╱ │ ╲
+  ╱  │  ╲
+ ╱   │   ╲  ← Lots of space
+
+ASYMMETRIC = Turn ahead
+    🏎️
+    ╱│╲
+   ╱ │  ╲╲╲  ← Right side closer
+  ╱  │     ╲╲  (turn left!)
+ ╱   │      ╲╲
+
+═══════════════════════════════════════════════════════════════════════════
+                         TRACK LAYOUT
+═══════════════════════════════════════════════════════════════════════════
+
+Top-Down View of Track:
+
+                    ╔═══════════════════╗
+                  ╔═╝                   ╚═╗
+                ╔═╝                       ╚═╗
+               ╔╝                           ╚╗
+              ╔╝                             ╚╗
+             ╔╝                               ╚╗
+             ║                                 ║
+             ║                                 ║
+             ║                                 ║
+             ╚╗                               ╔╝
+              ╚╗                             ╔╝
+               ╚╗                           ╔╝
+                ╚═╗                       ╔═╝
+                  ╚═╗                   ╔═╝
+                    ╚═══════════════════╝
+                            ║║
+                            ║║  ← Start/Finish
+                            🏎️  ← Starting position
+
+Dimensions:
+  • Outer oval: 30 units wide × 20 units tall
+  • Inner oval: 20 units wide × 12 units tall
+  • Track width: ~10 units
+  • Total lap distance: ~150 units
+
+═══════════════════════════════════════════════════════════════════════════
+                         WHAT TO WATCH FOR
+═══════════════════════════════════════════════════════════════════════════
+
+✓ GOOD SIGNS:
+  • Car moving smoothly
+  • LIDAR rays balanced left/right
+  • Consistent speed
+  • Smooth steering changes
+  • Car stays centered in track
+
+✗ WARNING SIGNS:
+  • Car zigzagging
+  • Very short LIDAR rays
+  • Sudden speed changes
+  • Heading toward wall
+  • Spinning in circles
+
+═══════════════════════════════════════════════════════════════════════════
+                         DEBUGGING VISUALLY
+═══════════════════════════════════════════════════════════════════════════
+
+Use the LIDAR rays to debug:
+
+1. PAUSE (SPACE) when something goes wrong
+2. Look at the LIDAR rays:
+   • Are they balanced?
+   • Which direction has more space?
+   • Is there an obstacle ahead?
+3. Think about what your code should do
+4. Resume and test
+
+Example Scenarios:
+
+Scenario 1: Car turning right when it should go straight
+  Look: LIDAR rays are balanced
+  Problem: Steering logic is wrong
+  Fix: Check left/right comparison
+
+Scenario 2: Car crashing into walls
+  Look: Short rays on one side
+  Problem: Not detecting wall soon enough
+  Fix: Increase detection distance
+
+Scenario 3: Car going too fast
+  Look: Rays getting short quickly
+  Problem: Not slowing down for turns
+  Fix: Add speed control based on front distance
+
+═══════════════════════════════════════════════════════════════════════════
+                         PERFORMANCE TIPS
+═══════════════════════════════════════════════════════════════════════════
+
+For Best Visual Experience:
+
+✓ Run at 60 FPS (default)
+✓ Full screen for immersion
+✓ Watch LIDAR rays for debugging
+✓ Use pause to examine situations
+✓ Restart often to test changes
+
+═══════════════════════════════════════════════════════════════════════════
+                         WHAT SUCCESS LOOKS LIKE
+═══════════════════════════════════════════════════════════════════════════
+
+Beginner Success:
+  🏎️ → → → → → → → → → → → → → → → → → → → → → → → → → → → → → → 🏁
+  (Car moves forward without crashing)
+
+Intermediate Success:
+  🏎️ → → ↗ → → → ↖ → → → ↗ → → → ↖ → → → ↗ → → → ↖ → → → 🏁
+  (Car navigates turns and completes lap)
+
+Advanced Success:
+  🏎️ →→→ ↗↗ →→→ ↖↖ →→→ ↗↗ →→→ ↖↖ →→→ ↗↗ →→→ ↖↖ →→→ 🏁
+  (Fast, smooth lap with optimal racing line)
+
+═══════════════════════════════════════════════════════════════════════════
+                         READY TO SEE IT?
+═══════════════════════════════════════════════════════════════════════════
+
+Run the simulation:
+
+  cd Cobra
+  python main.py
+
+Watch the reference implementation complete a lap!
+
+Then try your own:
+
+  cd ../Participants
+  python main.py
+
+See what your code does!
+
+═══════════════════════════════════════════════════════════════════════════
+
+Happy racing! 🏎️💨
+
+═══════════════════════════════════════════════════════════════════════════
