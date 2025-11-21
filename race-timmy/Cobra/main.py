@@ -84,9 +84,20 @@ class Track:
         self.walls = []
         self._create_oval_track()
         
-        # Start/finish line (between inner and outer walls at bottom)
-        self.start_line = (np.array([-5, -15]), np.array([5, -15]))
-        self.lap_triggered = False
+        # Two-checkpoint system for lap completion
+        # Checkpoint 1: Start/finish line at bottom (where car starts at x=0, y=-17)
+        # Vertical line at x=0, spanning from inner wall (y=-12) to outer wall (y=-20)
+        self.checkpoint1 = (np.array([0, -20]), np.array([0, -12]))  # Vertical line at bottom
+        # Checkpoint 2: Halfway checkpoint at top
+        # Vertical line at x=0, spanning from inner wall (y=12) to outer wall (y=20)
+        self.checkpoint2 = (np.array([0, 12]), np.array([0, 20]))  # Vertical line at top
+        
+        # Track checkpoint states
+        self.checkpoint1_crossed = False
+        self.checkpoint2_crossed = False
+        
+        print(f"Checkpoint 1 (finish): {self.checkpoint1[0]} to {self.checkpoint1[1]}")
+        print(f"Checkpoint 2 (halfway): {self.checkpoint2[0]} to {self.checkpoint2[1]}")
     
     def _create_oval_track(self):
         """Create an oval track"""
@@ -137,14 +148,26 @@ class Track:
         nearest = p1 + line_unitvec * proj_length
         return np.linalg.norm(point - nearest)
     
-    def check_lap_completion(self, old_pos, new_pos):
-        """Check if car crossed start/finish line"""
-        # Simple line crossing detection
-        p1, p2 = self.start_line
+    def check_checkpoints(self, old_pos, new_pos):
+        """Check if car crossed checkpoints and return lap completion status"""
+        if old_pos is None or new_pos is None:
+            return False
         
-        # Check if trajectory crosses the line
-        if self._segments_intersect(old_pos, new_pos, p1, p2):
-            return True
+        # Check checkpoint 2 (halfway point at top) - must be crossed first
+        if not self.checkpoint2_crossed:
+            p1, p2 = self.checkpoint2
+            if self._segments_intersect(old_pos, new_pos, p1, p2):
+                self.checkpoint2_crossed = True
+                print(f"✓ Checkpoint 2 (halfway) crossed! Position: {new_pos}")
+        
+        # Check checkpoint 1 (finish line at bottom) - only counts if checkpoint 2 was crossed
+        elif not self.checkpoint1_crossed:
+            p1, p2 = self.checkpoint1
+            if self._segments_intersect(old_pos, new_pos, p1, p2):
+                self.checkpoint1_crossed = True
+                print(f"✓ Checkpoint 1 (finish) crossed! Position: {new_pos}")
+                return True  # Lap complete!
+        
         return False
     
     def _segments_intersect(self, a1, a2, b1, b2):
@@ -202,15 +225,46 @@ class Track:
             glVertex3f(p2[0], 2, p2[1])
         glEnd()
         
-        # Draw start/finish line
-        glColor3f(1.0, 1.0, 1.0)
-        glLineWidth(5)
-        glBegin(GL_LINES)
-        p1, p2 = self.start_line
-        glVertex3f(p1[0], 0.1, p1[1])
-        glVertex3f(p2[0], 0.1, p2[1])
+        # Draw checkpoint lines
+        # Checkpoint 1 (finish line at bottom) - checkered pattern
+        p1, p2 = self.checkpoint1
+        num_squares = 8
+        square_width = np.linalg.norm(p2 - p1) / num_squares
+        direction = (p2 - p1) / np.linalg.norm(p2 - p1)
+        perpendicular = np.array([-direction[1], direction[0]])  # 90 degree rotation
+        
+        for i in range(num_squares):
+            if i % 2 == 0:
+                glColor3f(1.0, 1.0, 1.0)  # White
+            else:
+                glColor3f(0.0, 0.0, 0.0)  # Black
+            
+            start = p1 + direction * (i * square_width)
+            end = p1 + direction * ((i + 1) * square_width)
+            
+            glBegin(GL_QUADS)
+            glVertex3f(start[0] - perpendicular[0] * 0.5, 0.15, start[1] - perpendicular[1] * 0.5)
+            glVertex3f(end[0] - perpendicular[0] * 0.5, 0.15, end[1] - perpendicular[1] * 0.5)
+            glVertex3f(end[0] + perpendicular[0] * 0.5, 0.15, end[1] + perpendicular[1] * 0.5)
+            glVertex3f(start[0] + perpendicular[0] * 0.5, 0.15, start[1] + perpendicular[1] * 0.5)
+            glEnd()
+        
+        # Checkpoint 2 (halfway at top) - blue/green line
+        p1, p2 = self.checkpoint2
+        if self.checkpoint2_crossed:
+            glColor3f(0.0, 1.0, 0.0)  # Green when crossed
+        else:
+            glColor3f(0.0, 0.5, 1.0)  # Blue when not crossed
+        
+        direction = (p2 - p1) / np.linalg.norm(p2 - p1)
+        perpendicular = np.array([-direction[1], direction[0]])
+        
+        glBegin(GL_QUADS)
+        glVertex3f(p1[0] - perpendicular[0] * 0.5, 0.15, p1[1] - perpendicular[1] * 0.5)
+        glVertex3f(p2[0] - perpendicular[0] * 0.5, 0.15, p2[1] - perpendicular[1] * 0.5)
+        glVertex3f(p2[0] + perpendicular[0] * 0.5, 0.15, p2[1] + perpendicular[1] * 0.5)
+        glVertex3f(p1[0] + perpendicular[0] * 0.5, 0.15, p1[1] + perpendicular[1] * 0.5)
         glEnd()
-        glLineWidth(1)
 
 
 class Car:
@@ -227,10 +281,39 @@ class Car:
         self.friction = 0.95
         self.turn_speed = 3.0
         
-        self.size = 1.5
+        # Hitbox dimensions (width and length)
+        self.width = 2.4  # Car width
+        self.length = 5.0  # Car length (including nose)
         self.crashed = False
         
         print(f"Car initialized at position: {self.pos}, angle: {self.angle}")
+    
+    def get_corners(self):
+        """Get the four corners of the car's hitbox"""
+        angle_rad = math.radians(self.angle)
+        cos_a = math.cos(angle_rad)
+        sin_a = math.sin(angle_rad)
+        
+        # Half dimensions
+        hw = self.width / 2
+        hl = self.length / 2
+        
+        # Local corners (relative to car center)
+        corners_local = [
+            (-hw, -hl),  # Back left
+            (hw, -hl),   # Back right
+            (hw, hl),    # Front right
+            (-hw, hl),   # Front left
+        ]
+        
+        # Rotate and translate to world space
+        corners_world = []
+        for lx, ly in corners_local:
+            wx = self.pos[0] + lx * cos_a - ly * sin_a
+            wy = self.pos[1] + lx * sin_a + ly * cos_a
+            corners_world.append(np.array([wx, wy]))
+        
+        return corners_world
     
     def update(self, dt, track):
         """Update car physics"""
@@ -260,8 +343,14 @@ class Car:
         old_pos = self.pos.copy()
         self.pos += self.velocity * dt
         
-        # Check collision - just bounce back, don't stop
-        if track.check_collision(self.pos, self.size):
+        # Check collision with all corners of the car
+        collision = False
+        for corner in self.get_corners():
+            if track.check_collision(corner, 0.1):  # Small radius for corner check
+                collision = True
+                break
+        
+        if collision:
             self.pos = old_pos
             self.velocity *= -0.3  # Bounce back with reduced speed
             self.crashed = True
@@ -272,54 +361,137 @@ class Car:
         return old_pos
     
     def render(self):
-        """Render car in 3D"""
+        """Render car in 3D - looks like a race car"""
         glPushMatrix()
-        glTranslatef(self.pos[0], 1.0, self.pos[1])
+        glTranslatef(self.pos[0], 0.5, self.pos[1])
         glRotatef(-self.angle + 90, 0, 1, 0)
         
-        # Car body - much bigger and more visible
+        # Main body color
         if self.crashed:
-            glColor3f(1.0, 0.0, 0.0)
+            body_color = (1.0, 0.2, 0.2)  # Light red when crashed
         else:
-            glColor3f(1.0, 0.3, 0.0)  # Bright orange
+            body_color = (0.2, 0.4, 1.0)  # Blue
         
-        # Main body
+        # Main car body (lower part)
+        glColor3f(*body_color)
+        glBegin(GL_QUADS)
+        # Bottom
+        glVertex3f(-1.2, 0, -2.0)
+        glVertex3f(1.2, 0, -2.0)
+        glVertex3f(1.2, 0, 2.0)
+        glVertex3f(-1.2, 0, 2.0)
+        # Top
+        glVertex3f(-1.2, 0.8, -2.0)
+        glVertex3f(1.2, 0.8, -2.0)
+        glVertex3f(1.2, 0.8, 2.0)
+        glVertex3f(-1.2, 0.8, 2.0)
+        # Front
+        glVertex3f(-1.2, 0, 2.0)
+        glVertex3f(1.2, 0, 2.0)
+        glVertex3f(1.2, 0.8, 2.0)
+        glVertex3f(-1.2, 0.8, 2.0)
+        # Back
+        glVertex3f(-1.2, 0, -2.0)
+        glVertex3f(1.2, 0, -2.0)
+        glVertex3f(1.2, 0.8, -2.0)
+        glVertex3f(-1.2, 0.8, -2.0)
+        # Left side
+        glVertex3f(-1.2, 0, -2.0)
+        glVertex3f(-1.2, 0.8, -2.0)
+        glVertex3f(-1.2, 0.8, 2.0)
+        glVertex3f(-1.2, 0, 2.0)
+        # Right side
+        glVertex3f(1.2, 0, -2.0)
+        glVertex3f(1.2, 0.8, -2.0)
+        glVertex3f(1.2, 0.8, 2.0)
+        glVertex3f(1.2, 0, 2.0)
+        glEnd()
+        
+        # Cockpit/cabin (raised section)
+        glColor3f(0.1, 0.1, 0.1)  # Dark gray/black
         glBegin(GL_QUADS)
         # Top
-        glVertex3f(-1.5, 1.5, -2.5)
-        glVertex3f(1.5, 1.5, -2.5)
-        glVertex3f(1.5, 1.5, 2.5)
-        glVertex3f(-1.5, 1.5, 2.5)
+        glVertex3f(-0.8, 1.3, -0.5)
+        glVertex3f(0.8, 1.3, -0.5)
+        glVertex3f(0.8, 1.3, 1.0)
+        glVertex3f(-0.8, 1.3, 1.0)
         # Front
-        glVertex3f(-1.5, 0, 2.5)
-        glVertex3f(1.5, 0, 2.5)
-        glVertex3f(1.5, 1.5, 2.5)
-        glVertex3f(-1.5, 1.5, 2.5)
+        glVertex3f(-0.8, 0.8, 1.0)
+        glVertex3f(0.8, 0.8, 1.0)
+        glVertex3f(0.8, 1.3, 1.0)
+        glVertex3f(-0.8, 1.3, 1.0)
         # Back
-        glVertex3f(-1.5, 0, -2.5)
-        glVertex3f(1.5, 0, -2.5)
-        glVertex3f(1.5, 1.5, -2.5)
-        glVertex3f(-1.5, 1.5, -2.5)
-        # Left side
-        glVertex3f(-1.5, 0, -2.5)
-        glVertex3f(-1.5, 1.5, -2.5)
-        glVertex3f(-1.5, 1.5, 2.5)
-        glVertex3f(-1.5, 0, 2.5)
-        # Right side
-        glVertex3f(1.5, 0, -2.5)
-        glVertex3f(1.5, 1.5, -2.5)
-        glVertex3f(1.5, 1.5, 2.5)
-        glVertex3f(1.5, 0, 2.5)
+        glVertex3f(-0.8, 0.8, -0.5)
+        glVertex3f(0.8, 0.8, -0.5)
+        glVertex3f(0.8, 1.3, -0.5)
+        glVertex3f(-0.8, 1.3, -0.5)
+        # Sides
+        glVertex3f(-0.8, 0.8, -0.5)
+        glVertex3f(-0.8, 1.3, -0.5)
+        glVertex3f(-0.8, 1.3, 1.0)
+        glVertex3f(-0.8, 0.8, 1.0)
+        glVertex3f(0.8, 0.8, -0.5)
+        glVertex3f(0.8, 1.3, -0.5)
+        glVertex3f(0.8, 1.3, 1.0)
+        glVertex3f(0.8, 0.8, 1.0)
         glEnd()
         
-        # Front indicator (yellow stripe)
-        glColor3f(1.0, 1.0, 0.0)
-        glBegin(GL_QUADS)
-        glVertex3f(-1.5, 1.5, 2.5)
-        glVertex3f(1.5, 1.5, 2.5)
-        glVertex3f(1.5, 1.5, 3.0)
-        glVertex3f(-1.5, 1.5, 3.0)
+        # Front nose (pointed)
+        glColor3f(1.0, 0.8, 0.0)  # Yellow/gold
+        glBegin(GL_TRIANGLES)
+        # Top triangle
+        glVertex3f(0, 0.8, 3.0)
+        glVertex3f(-1.2, 0.8, 2.0)
+        glVertex3f(1.2, 0.8, 2.0)
+        # Bottom triangle
+        glVertex3f(0, 0, 3.0)
+        glVertex3f(-1.2, 0, 2.0)
+        glVertex3f(1.2, 0, 2.0)
+        # Left side
+        glVertex3f(0, 0.8, 3.0)
+        glVertex3f(-1.2, 0.8, 2.0)
+        glVertex3f(0, 0, 3.0)
+        glVertex3f(-1.2, 0.8, 2.0)
+        glVertex3f(-1.2, 0, 2.0)
+        glVertex3f(0, 0, 3.0)
+        # Right side
+        glVertex3f(0, 0.8, 3.0)
+        glVertex3f(1.2, 0.8, 2.0)
+        glVertex3f(0, 0, 3.0)
+        glVertex3f(1.2, 0.8, 2.0)
+        glVertex3f(1.2, 0, 2.0)
+        glVertex3f(0, 0, 3.0)
         glEnd()
+        
+        # Rear wing
+        glColor3f(0.8, 0.8, 0.8)  # Light gray
+        glBegin(GL_QUADS)
+        glVertex3f(-1.5, 1.2, -2.0)
+        glVertex3f(1.5, 1.2, -2.0)
+        glVertex3f(1.5, 1.2, -2.3)
+        glVertex3f(-1.5, 1.2, -2.3)
+        glEnd()
+        
+        # Wheels (simple cylinders as boxes)
+        glColor3f(0.1, 0.1, 0.1)  # Black
+        wheel_positions = [
+            (-1.0, -0.3, 1.5),   # Front left
+            (1.0, -0.3, 1.5),    # Front right
+            (-1.0, -0.3, -1.5),  # Back left
+            (1.0, -0.3, -1.5),   # Back right
+        ]
+        for wx, wy, wz in wheel_positions:
+            glBegin(GL_QUADS)
+            # Simple wheel representation
+            glVertex3f(wx - 0.3, wy, wz - 0.4)
+            glVertex3f(wx + 0.3, wy, wz - 0.4)
+            glVertex3f(wx + 0.3, wy + 0.6, wz - 0.4)
+            glVertex3f(wx - 0.3, wy + 0.6, wz - 0.4)
+            glVertex3f(wx - 0.3, wy, wz + 0.4)
+            glVertex3f(wx + 0.3, wy, wz + 0.4)
+            glVertex3f(wx + 0.3, wy + 0.6, wz + 0.4)
+            glVertex3f(wx - 0.3, wy + 0.6, wz + 0.4)
+            glEnd()
         
         glPopMatrix()
 
@@ -349,8 +521,13 @@ class RaceGame:
         # Game state
         self.running = True
         self.paused = False
+        self.lap_completed = False
         self.clock = pygame.time.Clock()
-        self.start_time = time.time()
+        
+        # Timer (tracks elapsed time, pauses when paused)
+        self.elapsed_time = 0.0
+        self.last_update_time = time.time()
+        
         self.lap_time = None
         self.lap_count = 0
         
@@ -361,7 +538,7 @@ class RaceGame:
         self.mouse_dragging = False
         self.last_mouse_pos = None
         
-        # Font for UI
+        # Font for UI (not used anymore but keep for compatibility)
         self.font = pygame.font.Font(None, 36)
     
     def handle_events(self):
@@ -377,7 +554,7 @@ class RaceGame:
                 elif event.key == K_r:
                     self.reset()
             elif event.type == MOUSEBUTTONDOWN:
-                if event.button == 1:  # Left click
+                if event.button == 1:  # Left click - start camera drag
                     self.mouse_dragging = True
                     self.last_mouse_pos = pygame.mouse.get_pos()
                 elif event.button == 4:  # Scroll up
@@ -398,13 +575,26 @@ class RaceGame:
     def reset(self):
         """Reset the race"""
         self.car = Car()
-        self.start_time = time.time()
+        # Reset track checkpoint states
+        self.track.checkpoint1_crossed = False
+        self.track.checkpoint2_crossed = False
+        self.elapsed_time = 0.0
+        self.last_update_time = time.time()
         self.lap_time = None
         self.lap_count = 0
+        self.lap_completed = False
+        self.paused = False
     
     def update(self, dt):
         """Update game state"""
-        if self.paused:
+        # Update timer (only when not paused and lap not completed)
+        current_time = time.time()
+        if not self.paused and not self.lap_completed:
+            self.elapsed_time += current_time - self.last_update_time
+        self.last_update_time = current_time
+        
+        # Don't update physics if paused or lap completed
+        if self.paused or self.lap_completed:
             return
         
         # Get LIDAR data
@@ -435,11 +625,19 @@ class RaceGame:
         old_pos = self.car.update(dt, self.track)
         
         # Check lap completion
-        if old_pos is not None and self.track.check_lap_completion(old_pos, self.car.pos):
-            if self.lap_count > 0:  # Don't count first crossing
-                self.lap_time = time.time() - self.start_time
-                self.paused = True
-            self.lap_count += 1
+        if old_pos is not None:
+            # Debug: print car position every 2 seconds
+            if int(self.elapsed_time * 0.5) % 2 == 0 and int(self.elapsed_time * 10) % 10 == 0:
+                print(f"Car position: {self.car.pos}, Lap count: {self.lap_count}")
+            
+            lap_complete = self.track.check_checkpoints(old_pos, self.car.pos)
+            if lap_complete:
+                self.lap_time = self.elapsed_time
+                self.lap_completed = True
+                print(f"\n{'='*50}")
+                print(f"🏁 LAP COMPLETED! 🏁")
+                print(f"Time: {self.lap_time:.2f} seconds")
+                print(f"{'='*50}\n")
     
     def render(self):
         """Render the scene"""
@@ -473,10 +671,10 @@ class RaceGame:
         # Draw LIDAR visualization
         self._render_lidar()
         
-        pygame.display.flip()
-        
-        # Draw 2D UI overlay
+        # Draw 2D UI overlay (before flip!)
         self._render_ui()
+        
+        pygame.display.flip()
     
     def _render_lidar(self):
         """Visualize LIDAR rays"""
@@ -496,8 +694,8 @@ class RaceGame:
         glEnd()
     
     def _render_ui(self):
-        """Render 2D UI elements"""
-        # Switch to 2D rendering
+        """Render 2D UI overlay on top of 3D scene"""
+        # Switch to 2D orthographic projection for UI
         glMatrixMode(GL_PROJECTION)
         glPushMatrix()
         glLoadIdentity()
@@ -505,40 +703,67 @@ class RaceGame:
         glMatrixMode(GL_MODELVIEW)
         glPushMatrix()
         glLoadIdentity()
+        
+        # Disable depth test for UI
         glDisable(GL_DEPTH_TEST)
         
-        # Render text
-        if self.lap_time:
-            text = f"LAP COMPLETE! Time: {self.lap_time:.2f}s"
-            color = (0, 255, 0)
+        # Draw semi-transparent background for UI panel
+        glEnable(GL_BLEND)
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+        glColor4f(0.0, 0.0, 0.0, 0.5)
+        glBegin(GL_QUADS)
+        glVertex2f(10, 10)
+        glVertex2f(400, 10)
+        glVertex2f(400, 120)
+        glVertex2f(10, 120)
+        glEnd()
+        
+        # Render text using pygame surface
+        texts = []
+        if self.lap_completed and self.lap_time:
+            texts.append((f"LAP COMPLETE!", (0, 255, 0), 40))
+            texts.append((f"Time: {self.lap_time:.2f}s", (255, 255, 255), 70))
+            texts.append((f"Press R to restart", (200, 200, 200), 100))
         elif self.paused:
-            text = "PAUSED - Press SPACE to continue"
-            color = (255, 255, 0)
+            texts.append((f"PAUSED", (255, 255, 0), 40))
+            texts.append((f"Time: {self.elapsed_time:.2f}s", (255, 255, 255), 70))
+            texts.append((f"Press SPACE to continue", (200, 200, 200), 100))
         else:
-            elapsed = time.time() - self.start_time
-            text = f"Time: {elapsed:.2f}s | Speed: {np.linalg.norm(self.car.velocity):.1f}"
-            color = (255, 255, 255)
+            texts.append((f"Time: {self.elapsed_time:.2f}s", (255, 255, 255), 40))
+            texts.append((f"Speed: {np.linalg.norm(self.car.velocity):.1f}", (255, 255, 255), 70))
+            texts.append((f"SPACE: Pause | R: Restart", (200, 200, 200), 100))
         
-        text_surface = self.font.render(text, True, color)
-        text_data = pygame.image.tostring(text_surface, "RGBA", True)
+        for text, color, y_pos in texts:
+            self._render_text(text, 20, y_pos, color)
         
-        glRasterPos2f(10, 30)
-        glDrawPixels(text_surface.get_width(), text_surface.get_height(),
-                     GL_RGBA, GL_UNSIGNED_BYTE, text_data)
+        glDisable(GL_BLEND)
         
-        # Instructions
-        instructions = self.font.render("SPACE: Pause | R: Restart | ESC: Quit | MOUSE: Camera", True, (200, 200, 200))
-        inst_data = pygame.image.tostring(instructions, "RGBA", True)
-        glRasterPos2f(10, self.height - 40)
-        glDrawPixels(instructions.get_width(), instructions.get_height(),
-                     GL_RGBA, GL_UNSIGNED_BYTE, inst_data)
-        
-        # Restore 3D rendering
+        # Re-enable depth test
         glEnable(GL_DEPTH_TEST)
-        glPopMatrix()
+        
+        # Restore projection
         glMatrixMode(GL_PROJECTION)
         glPopMatrix()
         glMatrixMode(GL_MODELVIEW)
+        glPopMatrix()
+        
+        # Also update window title
+        if self.lap_completed and self.lap_time:
+            title = f"Race Timmy - LAP COMPLETE! Time: {self.lap_time:.2f}s"
+        elif self.paused:
+            title = f"Race Timmy - PAUSED"
+        else:
+            title = f"Race Timmy - Racing..."
+        pygame.display.set_caption(title)
+    
+    def _render_text(self, text, x, y, color=(255, 255, 255)):
+        """Render text on screen using pygame"""
+        text_surface = self.font.render(text, True, color)
+        text_data = pygame.image.tostring(text_surface, "RGBA", True)
+        
+        glRasterPos2f(x, y)
+        glDrawPixels(text_surface.get_width(), text_surface.get_height(),
+                     GL_RGBA, GL_UNSIGNED_BYTE, text_data)
     
     def run(self):
         """Main game loop"""
