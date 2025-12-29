@@ -4,9 +4,6 @@ Reference implementation of the car controller
 This is what students need to implement
 """
 
-import math
-
-
 class CarController:
     """
     Controls the car based on LIDAR sensor data
