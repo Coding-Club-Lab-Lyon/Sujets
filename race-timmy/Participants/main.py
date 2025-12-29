@@ -277,9 +277,9 @@ class Car:
         self.wheel_angle = 0.0  # steering angle
         
         self.acceleration = 0.0
-        self.max_speed = 30.0
-        self.friction = 0.95
-        self.turn_speed = 3.0
+        self.max_speed = 200.0  # Much faster for reasonable lap times
+        self.friction = 0.97  # Balanced grip
+        self.turn_speed = 10.0  # Very responsive steering
         
         # Hitbox dimensions (width and length)
         self.width = 2.4  # Car width
@@ -766,12 +766,20 @@ class RaceGame:
                      GL_RGBA, GL_UNSIGNED_BYTE, text_data)
     
     def run(self):
-        """Main game loop"""
+        """Main game loop with fixed timestep physics"""
+        # Fixed timestep for physics (60 FPS = 1/60 seconds per frame)
+        FIXED_DT = 1.0 / 60.0
+        
         while self.running:
-            dt = self.clock.tick(60) / 1000.0  # 60 FPS
+            # Cap frame rate at 60 FPS
+            self.clock.tick(60)
             
             self.handle_events()
-            self.update(dt)
+            
+            # Always update with fixed timestep
+            self.update(FIXED_DT)
+            
+            # Render
             self.render()
         
         pygame.quit()

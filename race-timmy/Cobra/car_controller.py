@@ -18,6 +18,7 @@ class CarController:
         """Initialize your controller here"""
         self.target_speed = 15.0
         self.previous_error = 0.0
+        self.previous_wheel_angle = 0.0
 
     def control(self, lidar_data):
         """
@@ -52,26 +53,33 @@ class CarController:
 
         # Steering: aim to balance left and right distances
         balance = left_distance - right_distance
-        wheel_angle = balance * 2.0  # Proportional control
+        wheel_angle = balance * 1.5  # Proportional control (reduced gain for smoother steering)
 
         # Add correction based on front distance
-        if front < 15:
+        if front < 12:
             # Wall ahead, turn towards the more open side
             if left_distance > right_distance:
-                wheel_angle += 20
+                wheel_angle += 15  # Reduced from 20 for smoother turns
             else:
-                wheel_angle -= 20
+                wheel_angle -= 15  # Reduced from 20 for smoother turns
 
-        # Speed control: slow down for turns and obstacles
-        if front < 10:
-            acceleration = -5.0  # Brake hard
-        elif front < 20 or abs(wheel_angle) > 20:
-            acceleration = 2.0  # Slow down
+        # Smooth steering to avoid oscillations
+        wheel_angle = 0.7 * self.previous_wheel_angle + 0.3 * wheel_angle
+        self.previous_wheel_angle = wheel_angle
+
+        # Speed control: maintain high acceleration for speed
+        # With higher max_speed, use aggressive acceleration
+        if front < 8:
+            acceleration = -1.0  # Light braking
+        elif front < 15:
+            acceleration = 8.0  # Moderate speed
+        elif front < 25 or abs(wheel_angle) > 25:
+            acceleration = 9.5  # Good speed
         else:
-            acceleration = 8.0  # Speed up
+            acceleration = 10.0  # Full speed (max acceleration)
 
         # Clamp values
         wheel_angle = max(-45, min(45, wheel_angle))
         acceleration = max(-10, min(10, acceleration))
 
-        return acceleration, wheel_angle
+        return acceleration * 2, wheel_angle

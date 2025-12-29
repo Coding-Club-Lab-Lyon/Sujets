@@ -277,9 +277,9 @@ class Car:
         self.wheel_angle = 0.0  # steering angle
         
         self.acceleration = 0.0
-        self.max_speed = 30.0
-        self.friction = 0.95
-        self.turn_speed = 3.0
+        self.max_speed = 150.0  # Higher max speed for faster racing
+        self.friction = 0.98  # Lower friction for better speed (higher value = less friction)
+        self.turn_speed = 12.0  # Responsive steering
         
         # Hitbox dimensions (width and length)
         self.width = 2.4  # Car width
@@ -335,26 +335,55 @@ class Car:
             self.velocity = (self.velocity / speed) * self.max_speed
         
         # Apply steering (only when moving)
+        # Steering effectiveness increases with speed, but has minimum to prevent getting stuck
         if speed > 0.5:
-            turn_amount = self.wheel_angle * self.turn_speed * dt * (speed / self.max_speed)
+            # Use a minimum factor of 0.2 to ensure steering works even at low speeds
+            speed_factor = max(0.2, speed / self.max_speed)
+            turn_amount = self.wheel_angle * self.turn_speed * dt * speed_factor
             self.angle += turn_amount
+            
+            # Align velocity more with car direction to reduce sliding
+            # This gives the car better grip by pulling velocity toward the car's facing direction
+            # Use lighter grip to avoid slowing down the car
+            current_vel_angle = math.atan2(self.velocity[1], self.velocity[0])
+            car_angle_rad = math.radians(self.angle)
+            angle_diff = car_angle_rad - current_vel_angle
+            
+            # Normalize angle difference to [-pi, pi]
+            while angle_diff > math.pi:
+                angle_diff -= 2 * math.pi
+            while angle_diff < -math.pi:
+                angle_diff += 2 * math.pi
+            
+            # Apply grip: pull velocity toward car direction to reduce sliding
+            # Use stronger grip at higher speeds for better control
+            grip_strength = min(0.4, 0.2 + speed / self.max_speed * 0.4)  # 0.2 to 0.4 based on speed
+            vel_angle_correction = angle_diff * grip_strength
+            new_vel_angle = current_vel_angle + vel_angle_correction
+            
+            # Update velocity direction while maintaining speed (this doesn't reduce speed, just aligns direction)
+            self.velocity = np.array([
+                math.cos(new_vel_angle) * speed,
+                math.sin(new_vel_angle) * speed
+            ])
         
         # Update position
         old_pos = self.pos.copy()
         self.pos += self.velocity * dt
         
-        # Check collision with all corners of the car
-        collision = False
-        for corner in self.get_corners():
-            if track.check_collision(corner, 0.1):  # Small radius for corner check
-                collision = True
-                break
+        # Check collision - use car center with radius based on car dimensions
+        # Calculate half-diagonal for collision radius
+        half_diagonal = math.sqrt((self.width/2)**2 + (self.length/2)**2)
+        # Use a slightly smaller radius to avoid false positives, but account for car size
+        collision_radius = half_diagonal * 0.9
+        
+        collision = track.check_collision(self.pos, collision_radius)
         
         if collision:
             self.pos = old_pos
             self.velocity *= -0.3  # Bounce back with reduced speed
             self.crashed = True
-            print(f"Hit wall at position {self.pos}")
+            print(f"Hit wall at position {self.pos}, speed: {np.linalg.norm(self.velocity):.2f}")
         else:
             self.crashed = False  # Reset crash state when clear
         
@@ -617,8 +646,8 @@ class RaceGame:
             traceback.print_exc()
             acceleration, wheel_angle = 0, 0
         
-        # Clamp values
-        self.car.acceleration = max(-10, min(10, acceleration))
+        # Clamp values - allow higher acceleration for speed
+        self.car.acceleration = max(-20, min(20, acceleration))  # Increased from 10 to 20
         self.car.wheel_angle = max(-45, min(45, wheel_angle))
         
         # Update car
@@ -766,12 +795,20 @@ class RaceGame:
                      GL_RGBA, GL_UNSIGNED_BYTE, text_data)
     
     def run(self):
-        """Main game loop"""
+        """Main game loop with fixed timestep physics"""
+        # Fixed timestep for physics (60 FPS = 1/60 seconds per frame)
+        FIXED_DT = 1.0 / 60.0
+        
         while self.running:
-            dt = self.clock.tick(60) / 1000.0  # 60 FPS
+            # Cap frame rate at 60 FPS
+            self.clock.tick(60)
             
             self.handle_events()
-            self.update(dt)
+            
+            # Always update with fixed timestep
+            self.update(FIXED_DT)
+            
+            # Render
             self.render()
         
         pygame.quit()
