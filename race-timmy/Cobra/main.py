@@ -13,6 +13,7 @@ import math
 import time
 
 from car_controller import CarController
+from maps import create_donut_track, create_infinity_track
 
 
 class LidarSensor:
@@ -78,51 +79,34 @@ class LidarSensor:
 class Track:
     """Race track with walls"""
 
-    def __init__(self):
-        # Define track as a series of wall segments (outer and inner boundaries)
-        # Simple oval track
-        self.walls = []
-        self._create_oval_track()
+    def __init__(self, map_name="donut"):
+        self.map_name = map_name
 
-        # Two-checkpoint system for lap completion
-        # Checkpoint 1: Start/finish line at bottom (where car starts at x=0, y=-17)
-        # Vertical line at x=0, spanning from inner wall (y=-12) to outer wall (y=-20)
-        self.checkpoint1 = (np.array([0, -20]), np.array([0, -12]))  # Vertical line at bottom
-        # Checkpoint 2: Halfway checkpoint at top
-        # Vertical line at x=0, spanning from inner wall (y=12) to outer wall (y=20)
-        self.checkpoint2 = (np.array([0, 12]), np.array([0, 20]))  # Vertical line at top
+        # Load the selected track
+        if map_name == "infinity":
+            self.walls, self.checkpoints, self.spawn_pos, self.spawn_angle = create_infinity_track()
+        elif map_name == "donut":
+            walls, cp1, cp2 = create_donut_track()
+            self.walls = walls
+            # Convert to ordered checkpoint list: cross cp2 (halfway) first, then cp1 (finish)
+            self.checkpoints = [cp2, cp1]
+            self.spawn_pos = np.array([0.0, -17.0])
+            self.spawn_angle = 0.0
+        else:
+            print(f"Unknown map '{map_name}', defaulting to 'donut'")
+            walls, cp1, cp2 = create_donut_track()
+            self.walls = walls
+            self.checkpoints = [cp2, cp1]
+            self.spawn_pos = np.array([0.0, -17.0])
+            self.spawn_angle = 0.0
 
-        # Track checkpoint states
-        self.checkpoint1_crossed = False
-        self.checkpoint2_crossed = False
+        # Track checkpoint state — index of the next checkpoint to cross
+        self.next_checkpoint = 0
 
-        print(f"Checkpoint 1 (finish): {self.checkpoint1[0]} to {self.checkpoint1[1]}")
-        print(f"Checkpoint 2 (halfway): {self.checkpoint2[0]} to {self.checkpoint2[1]}")
-
-    def _create_oval_track(self):
-        """Create an oval track"""
-        # Outer boundary
-        outer_points = []
-        inner_points = []
-
-        num_points = 60
-        for i in range(num_points + 1):
-            angle = (i / num_points) * 2 * math.pi
-
-            # Oval shape (wider than tall)
-            x = 30 * math.cos(angle)
-            y = 20 * math.sin(angle)
-            outer_points.append(np.array([x, y]))
-
-            # Inner boundary (smaller oval)
-            x_inner = 20 * math.cos(angle)
-            y_inner = 12 * math.sin(angle)
-            inner_points.append(np.array([x_inner, y_inner]))
-
-        # Create wall segments
-        for i in range(len(outer_points) - 1):
-            self.walls.append((outer_points[i], outer_points[i + 1]))
-            self.walls.append((inner_points[i], inner_points[i + 1]))
+        print(f"Map: {map_name}")
+        for i, cp in enumerate(self.checkpoints):
+            label = "finish" if i == len(self.checkpoints) - 1 else f"CP{i+1}"
+            print(f"  {label}: {cp[0]} to {cp[1]}")
 
     def check_collision(self, pos, radius=1.0):
         """Check if position collides with track walls"""
@@ -153,20 +137,19 @@ class Track:
         if old_pos is None or new_pos is None:
             return False
 
-        # Check checkpoint 2 (halfway point at top) - must be crossed first
-        if not self.checkpoint2_crossed:
-            p1, p2 = self.checkpoint2
-            if self._segments_intersect(old_pos, new_pos, p1, p2):
-                self.checkpoint2_crossed = True
-                print(f"✓ Checkpoint 2 (halfway) crossed! Position: {new_pos}")
+        if self.next_checkpoint >= len(self.checkpoints):
+            return False
 
-        # Check checkpoint 1 (finish line at bottom) - only counts if checkpoint 2 was crossed
-        elif not self.checkpoint1_crossed:
-            p1, p2 = self.checkpoint1
-            if self._segments_intersect(old_pos, new_pos, p1, p2):
-                self.checkpoint1_crossed = True
-                print(f"✓ Checkpoint 1 (finish) crossed! Position: {new_pos}")
-                return True  # Lap complete!
+        p1, p2 = self.checkpoints[self.next_checkpoint]
+        if self._segments_intersect(old_pos, new_pos, p1, p2):
+            is_finish = self.next_checkpoint == len(self.checkpoints) - 1
+            if is_finish:
+                print(f"✓ Finish line crossed! Position: {new_pos}")
+                self.next_checkpoint += 1
+                return True
+            else:
+                print(f"✓ Checkpoint {self.next_checkpoint + 1} crossed! Position: {new_pos}")
+                self.next_checkpoint += 1
 
         return False
 
@@ -226,54 +209,55 @@ class Track:
         glEnd()
 
         # Draw checkpoint lines
-        # Checkpoint 1 (finish line at bottom) - checkered pattern
-        p1, p2 = self.checkpoint1
-        num_squares = 8
-        square_width = np.linalg.norm(p2 - p1) / num_squares
-        direction = (p2 - p1) / np.linalg.norm(p2 - p1)
-        perpendicular = np.array([-direction[1], direction[0]])  # 90 degree rotation
+        for idx, cp in enumerate(self.checkpoints):
+            p1, p2 = cp
+            is_finish = idx == len(self.checkpoints) - 1
+            is_crossed = idx < self.next_checkpoint
 
-        for i in range(num_squares):
-            if i % 2 == 0:
-                glColor3f(1.0, 1.0, 1.0)  # White
+            direction = (p2 - p1) / np.linalg.norm(p2 - p1)
+            perpendicular = np.array([-direction[1], direction[0]])
+
+            if is_finish:
+                # Checkered pattern for finish line
+                num_squares = 8
+                square_width = np.linalg.norm(p2 - p1) / num_squares
+                for i in range(num_squares):
+                    if i % 2 == 0:
+                        glColor3f(1.0, 1.0, 1.0)
+                    else:
+                        glColor3f(0.0, 0.0, 0.0)
+
+                    start = p1 + direction * (i * square_width)
+                    end = p1 + direction * ((i + 1) * square_width)
+
+                    glBegin(GL_QUADS)
+                    glVertex3f(start[0] - perpendicular[0] * 0.5, 0.15, start[1] - perpendicular[1] * 0.5)
+                    glVertex3f(end[0] - perpendicular[0] * 0.5, 0.15, end[1] - perpendicular[1] * 0.5)
+                    glVertex3f(end[0] + perpendicular[0] * 0.5, 0.15, end[1] + perpendicular[1] * 0.5)
+                    glVertex3f(start[0] + perpendicular[0] * 0.5, 0.15, start[1] + perpendicular[1] * 0.5)
+                    glEnd()
             else:
-                glColor3f(0.0, 0.0, 0.0)  # Black
+                # Colored line for intermediate checkpoints
+                if is_crossed:
+                    glColor3f(0.0, 1.0, 0.0)   # Green when crossed
+                else:
+                    glColor3f(0.0, 0.5, 1.0)   # Blue when not crossed
 
-            start = p1 + direction * (i * square_width)
-            end = p1 + direction * ((i + 1) * square_width)
-
-            glBegin(GL_QUADS)
-            glVertex3f(start[0] - perpendicular[0] * 0.5, 0.15, start[1] - perpendicular[1] * 0.5)
-            glVertex3f(end[0] - perpendicular[0] * 0.5, 0.15, end[1] - perpendicular[1] * 0.5)
-            glVertex3f(end[0] + perpendicular[0] * 0.5, 0.15, end[1] + perpendicular[1] * 0.5)
-            glVertex3f(start[0] + perpendicular[0] * 0.5, 0.15, start[1] + perpendicular[1] * 0.5)
-            glEnd()
-
-        # Checkpoint 2 (halfway at top) - blue/green line
-        p1, p2 = self.checkpoint2
-        if self.checkpoint2_crossed:
-            glColor3f(0.0, 1.0, 0.0)  # Green when crossed
-        else:
-            glColor3f(0.0, 0.5, 1.0)  # Blue when not crossed
-
-        direction = (p2 - p1) / np.linalg.norm(p2 - p1)
-        perpendicular = np.array([-direction[1], direction[0]])
-
-        glBegin(GL_QUADS)
-        glVertex3f(p1[0] - perpendicular[0] * 0.5, 0.15, p1[1] - perpendicular[1] * 0.5)
-        glVertex3f(p2[0] - perpendicular[0] * 0.5, 0.15, p2[1] - perpendicular[1] * 0.5)
-        glVertex3f(p2[0] + perpendicular[0] * 0.5, 0.15, p2[1] + perpendicular[1] * 0.5)
-        glVertex3f(p1[0] + perpendicular[0] * 0.5, 0.15, p1[1] + perpendicular[1] * 0.5)
-        glEnd()
+                glBegin(GL_QUADS)
+                glVertex3f(p1[0] - perpendicular[0] * 0.5, 0.15, p1[1] - perpendicular[1] * 0.5)
+                glVertex3f(p2[0] - perpendicular[0] * 0.5, 0.15, p2[1] - perpendicular[1] * 0.5)
+                glVertex3f(p2[0] + perpendicular[0] * 0.5, 0.15, p2[1] + perpendicular[1] * 0.5)
+                glVertex3f(p1[0] + perpendicular[0] * 0.5, 0.15, p1[1] + perpendicular[1] * 0.5)
+                glEnd()
 
 
 class Car:
     """Car with physics simulation"""
 
-    def __init__(self, x=0, y=-17.0):  # Start further back, outside the track
+    def __init__(self, x=0, y=-17.0, angle=0.0):
         self.pos = np.array([x, y], dtype=float)
         self.velocity = np.array([0.0, 0.0])
-        self.angle = 0.0  # degrees, 0 is right (into the track), 90 is up
+        self.angle = angle  # degrees, 0 is right, 90 is up
         self.wheel_angle = 0.0  # steering angle
 
         self.acceleration = 0.0
@@ -528,11 +512,11 @@ class Car:
 class RaceGame:
     """Main game class"""
 
-    def __init__(self):
+    def __init__(self, map_name="donut"):
         pygame.init()
         self.width, self.height = 1200, 800
         self.screen = pygame.display.set_mode((self.width, self.height), DOUBLEBUF | OPENGL)
-        pygame.display.set_caption("Race Timmy - Drive the lap!")
+        pygame.display.set_caption(f"Race Timmy - {map_name} track")
 
         # Setup OpenGL
         glEnable(GL_DEPTH_TEST)
@@ -542,8 +526,9 @@ class RaceGame:
         glMatrixMode(GL_MODELVIEW)
 
         # Game objects
-        self.track = Track()
-        self.car = Car()
+        self.track = Track(map_name)
+        self.car = Car(x=self.track.spawn_pos[0], y=self.track.spawn_pos[1],
+                       angle=self.track.spawn_angle)
         self.lidar = LidarSensor()
         self.controller = CarController()
 
@@ -567,7 +552,7 @@ class RaceGame:
         self.mouse_dragging = False
         self.last_mouse_pos = None
 
-        # Font for UI (not used anymore but keep for compatibility)
+        # Font for UI
         self.font = pygame.font.Font(None, 36)
 
     def handle_events(self):
@@ -603,10 +588,10 @@ class RaceGame:
 
     def reset(self):
         """Reset the race"""
-        self.car = Car()
-        # Reset track checkpoint states
-        self.track.checkpoint1_crossed = False
-        self.track.checkpoint2_crossed = False
+        map_name = self.track.map_name
+        self.track = Track(map_name)
+        self.car = Car(x=self.track.spawn_pos[0], y=self.track.spawn_pos[1],
+                       angle=self.track.spawn_angle)
         self.elapsed_time = 0.0
         self.last_update_time = time.time()
         self.lap_time = None
@@ -815,5 +800,13 @@ class RaceGame:
 
 
 if __name__ == "__main__":
-    game = RaceGame()
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Race Timmy - 3D Racing Simulation")
+    parser.add_argument("--map", type=str, default="donut", 
+                        choices=["donut", "infinity"],
+                        help="Select the race track (default: donut)")
+    args = parser.parse_args()
+    
+    game = RaceGame(map_name=args.map)
     game.run()

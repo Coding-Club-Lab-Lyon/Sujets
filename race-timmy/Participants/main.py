@@ -13,6 +13,7 @@ import math
 import time
 
 from car_controller import CarController
+from maps import create_donut_track, create_infinity_track
 
 
 class LidarSensor:
@@ -78,51 +79,25 @@ class LidarSensor:
 class Track:
     """Race track with walls"""
 
-    def __init__(self):
-        # Define track as a series of wall segments (outer and inner boundaries)
-        # Simple oval track
-        self.walls = []
-        self._create_oval_track()
-
-        # Two-checkpoint system for lap completion
-        # Checkpoint 1: Start/finish line at bottom (where car starts at x=0, y=-17)
-        # Vertical line at x=0, spanning from inner wall (y=-12) to outer wall (y=-20)
-        self.checkpoint1 = (np.array([0, -20]), np.array([0, -12]))  # Vertical line at bottom
-        # Checkpoint 2: Halfway checkpoint at top
-        # Vertical line at x=0, spanning from inner wall (y=12) to outer wall (y=20)
-        self.checkpoint2 = (np.array([0, 12]), np.array([0, 20]))  # Vertical line at top
+    def __init__(self, map_name="donut"):
+        self.map_name = map_name
+        
+        # Load the selected track
+        if map_name == "donut":
+            self.walls, self.checkpoint1, self.checkpoint2 = create_donut_track()
+        elif map_name == "infinity":
+            self.walls, self.checkpoint1, self.checkpoint2 = create_infinity_track()
+        else:
+            print(f"Unknown map '{map_name}', defaulting to 'donut'")
+            self.walls, self.checkpoint1, self.checkpoint2 = create_donut_track()
 
         # Track checkpoint states
         self.checkpoint1_crossed = False
         self.checkpoint2_crossed = False
 
+        print(f"Map: {map_name}")
         print(f"Checkpoint 1 (finish): {self.checkpoint1[0]} to {self.checkpoint1[1]}")
         print(f"Checkpoint 2 (halfway): {self.checkpoint2[0]} to {self.checkpoint2[1]}")
-
-    def _create_oval_track(self):
-        """Create an oval track"""
-        # Outer boundary
-        outer_points = []
-        inner_points = []
-
-        num_points = 60
-        for i in range(num_points + 1):
-            angle = (i / num_points) * 2 * math.pi
-
-            # Oval shape (wider than tall)
-            x = 30 * math.cos(angle)
-            y = 20 * math.sin(angle)
-            outer_points.append(np.array([x, y]))
-
-            # Inner boundary (smaller oval)
-            x_inner = 20 * math.cos(angle)
-            y_inner = 12 * math.sin(angle)
-            inner_points.append(np.array([x_inner, y_inner]))
-
-        # Create wall segments
-        for i in range(len(outer_points) - 1):
-            self.walls.append((outer_points[i], outer_points[i + 1]))
-            self.walls.append((inner_points[i], inner_points[i + 1]))
 
     def check_collision(self, pos, radius=1.0):
         """Check if position collides with track walls"""
@@ -499,11 +474,11 @@ class Car:
 class RaceGame:
     """Main game class"""
 
-    def __init__(self):
+    def __init__(self, map_name="donut"):
         pygame.init()
         self.width, self.height = 1200, 800
         self.screen = pygame.display.set_mode((self.width, self.height), DOUBLEBUF | OPENGL)
-        pygame.display.set_caption("Race Timmy - Drive the lap!")
+        pygame.display.set_caption(f"Race Timmy - {map_name} track")
 
         # Setup OpenGL
         glEnable(GL_DEPTH_TEST)
@@ -513,7 +488,7 @@ class RaceGame:
         glMatrixMode(GL_MODELVIEW)
 
         # Game objects
-        self.track = Track()
+        self.track = Track(map_name)
         self.car = Car()
         self.lidar = LidarSensor()
         self.controller = CarController()
@@ -575,9 +550,9 @@ class RaceGame:
     def reset(self):
         """Reset the race"""
         self.car = Car()
-        # Reset track checkpoint states
-        self.track.checkpoint1_crossed = False
-        self.track.checkpoint2_crossed = False
+        # Reset track checkpoint states (keep the same map)
+        map_name = self.track.map_name
+        self.track = Track(map_name)
         self.elapsed_time = 0.0
         self.last_update_time = time.time()
         self.lap_time = None
@@ -786,5 +761,13 @@ class RaceGame:
 
 
 if __name__ == "__main__":
-    game = RaceGame()
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Race Timmy - 3D Racing Simulation")
+    parser.add_argument("--map", type=str, default="donut", 
+                        choices=["donut", "infinity"],
+                        help="Select the race track (default: donut)")
+    args = parser.parse_args()
+    
+    game = RaceGame(map_name=args.map)
     game.run()
